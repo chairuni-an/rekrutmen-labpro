@@ -1,3 +1,7 @@
+Udah bisa lah ngeditnya yey, tinggal apus aja yang dibawah. Btw tugas aing
+### React.js
+yey
+
 # Rekrutmen Asisten Lab Programming Angkatan 2014
 
 ## Garis Besar Tugas
