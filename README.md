@@ -2,11 +2,11 @@
 
 ## Garis Besar Tugas
 ## Eksplorasi 1
-+* Nama Framework  : XNA
-+* Filosofi        :
-+* Kelebihan       :
-+* Kekurangan      :
-+* Struktur        :
-+* Penggunaan      :
+* Nama Framework  : XNA
+* Filosofi        :
+* Kelebihan       :
+* Kekurangan      :
+* Struktur        :
+* Penggunaan      :
 
 #####
