@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="rekrutmen-labpro">
     <configurations>
-      <configuration name="rekrutmen-labpro" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/rekrutmen-labpro" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+      <configuration name="rekrutmen-labpro" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/rekrutmen-labpro" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
         <dependencies target-player="11.1">
           <sdk name="flex_sdk_4.6" />
         </dependencies>
