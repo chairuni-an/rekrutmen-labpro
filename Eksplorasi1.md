@@ -1,8 +1,8 @@
 # Rekrutmen Asisten Lab Programming Angkatan 2014
-
 ## Eksplorasi 1
+
 ### 1. Nama Framework
-**[XNA]**
+**XNA**
 
 ### 2. Filosofi
 XNA adalah sebuah _framework_ yang disediakan oleh Microsoft untuk pembuatan game. XNA menggunakan bahasa C# dalam penggunaannya, biasanya sering di-_run_ dengan menggunakan Visual Studio 2010. Karena menggunakan bahasa C#, maka program yang dibuat dengan menggunakan CAN ini dapat berjalan di Windows dan Xbx 360 (pada versi 4 ada Zune). XNA sudah tidak dikembangkan lagi sejak versi 4 nya dirilis, XNA Game Studio 4 dirilis pada tahun 2010 [1].
@@ -58,4 +58,4 @@ Seperti yang sudah dituliskan, XNA digunakan untuk pengembangan game. Berikut ad
 [4]	https://en.wikipedia.org/wiki/Microsoft_XNA
 [5]	https://social.msdn.microsoft.com/Forums/en-US/afd12b1b-eaa6-4ee6-aedc-938b6d9d09ed/benefits-of-xna-game-studio?forum=xnagamestudioexpress 
 
-[//] Oleh : Martino Christanto Khuangga/13514084
+Oleh : Martino Christanto Khuangga/13514084
