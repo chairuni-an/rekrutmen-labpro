@@ -41,7 +41,7 @@ Struktur yang dibahas di sini akan lebih membahas soal Layers. Layer pada XNS _f
   Ini adalah layer tertinggi di XNA, yang terdiri dari kode game dan isinya. Terdapat juga di layer ini Starter Kit, template, dan komponen game.
 
 
-### 6. Penggunaan      :
+### 6. Penggunaan
 Seperti yang sudah dituliskan, XNA digunakan untuk pengembangan game. Berikut adalah beberapa contoh game yang dikembangkan dengan menggunakan _framework_ XNA [5]:
   *	Akane the Kunoichi (Windows, Xbox 360, Windows Phone, iOS)
   *	Aliens vs Romans (Xbox 360)
@@ -52,10 +52,14 @@ Seperti yang sudah dituliskan, XNA digunakan untuk pengembangan game. Berikut ad
 
 
 ### 7. Sumber
-[1] http://www.c-sharpcorner.com/blogs/what-is-microsoft-xna-framework1
-[2]	https://blogs.msdn.microsoft.com/xna/2006/08/25/what-is-the-xna-framework/
-[3]	http://www.gamedev.net/topic/495299-disadvantages-using-xna/
-[4]	https://en.wikipedia.org/wiki/Microsoft_XNA
+[1] http://www.c-sharpcorner.com/blogs/what-is-microsoft-xna-framework1 
+
+[2]	https://blogs.msdn.microsoft.com/xna/2006/08/25/what-is-the-xna-framework/ 
+
+[3]	http://www.gamedev.net/topic/495299-disadvantages-using-xna/ 
+
+[4]	https://en.wikipedia.org/wiki/Microsoft_XNA 
+
 [5]	https://social.msdn.microsoft.com/Forums/en-US/afd12b1b-eaa6-4ee6-aedc-938b6d9d09ed/benefits-of-xna-game-studio?forum=xnagamestudioexpress 
 
 Oleh : Martino Christanto Khuangga/13514084
