@@ -94,11 +94,11 @@ Template engine adalah sebuah method untuk mempersingkat penulisan kode yang leb
 
 Pada bagian **View** inilah fungsi **Blade** sangat dibutuhkan. View seperti yang sudah kita tahu berfungsi menampilkan sebuah halaman web, namun bukan berarti dalam view tersebut tidak bisa melakukan proses logic. Disinilah peran blade yang dibutuhkan untuk membantu menuliskan logic agar manjadi lebih simple. Disamping itu, blade juga berfungsi untuk memisahkan layout suatu web dengan layout tertentu dan blade sendiri mendukung inheritance (OOP). Semua file blade harus menggunakan ekstensi **.blade**. Contoh jika kita membuat sebuah file Book.php maka untuk bisa menggunakan fitur blade, maka harus diberi nama menjadi **Book.blade.php** . Blade juga mendukung penuh proses looping dan kondisi-logika PHP seperti **@for, @foreach, @while , @if dan @elseif**. Berikut adalah perbedaan mendasar antara sintak PHP dan blade.
 
-| PHP Syntax 				  		| Blade Syntax 				|
-|-----------------------------------|---------------------------|
-|```php<?php echo $var; ?>``` 		  		| {{ $var }}				| 
-|```php<?php echo htmlentities($var); ?>```	| {{{ $var }}} 				|
-|```php<?php if($cond) : ?> .. <?php endif; ?>``` |	@if($cond) .. @endif|
+| PHP Syntax 				  					| Blade Syntax 						|
+|------------------------------------------		|---------------------------------	|
+|```<?php echo $var; ?>``` 		  				| ```{{ $var }}	```					| 
+|```<?php echo htmlentities($var); ?>```		| ```{{{ $var }}} ```				|
+|```<?php if($cond) : ?> .. <?php endif; ?>``` 	|	```@if($cond) .. @endif```		|
 
 
 Referensi : http://pondokprogrammer.com/wp-content/uploads/2014/12/tutorial_dasar_laravel.pdf 
