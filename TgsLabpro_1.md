@@ -28,30 +28,30 @@ Sumber : https://laravel.com/docs/4.2/introduction
 
 ##Struktur
 Struktur dari sebuah Laravel project (framework versi 4) adalah sebagai berikut,
-1. app/ adalah tempat default untuk semua kode projek aplikasi yang sudah ditulis/dikonfigurasi. Dalam folder app juga terdapat folder dan file sbb
-  1. commands/, menyimpan self-created perintah-perintah
-  2. config/, konfigurasi framework dan aplikasi
-  3. controllers/, menyimpan kelas-kelas PHP controller
-  4. databases/, menyimpan keperluan basisdata
-  5. lang/, menyimpan berbagai lokalisasi bahasa
-  6. models/, berisi kelas-kelas model yg berkaitan dengan interaksi ke database
-  7. start/, menyimpan file untuk prosedur aplikasi
-  8. storage/, menyimpan file-file yang dibuat oleh Laravel ke harddisk
-  9. tests/, menyimpan semua unit tests
-  10. views/, menyimpan file-file PHP untuk keperluan tampilan (front-end)
-  11. filters.php, file yang berisi filter untuk routes aplikasi.
-  12. routes.php, semua route untuk aplikasi
-2. bootstrap/, merupakan folder yang berisi file-file prosedur untuk framework Laravel. Beberapa file yang mungkin boleh diedit oleh pengguna Laravel yg berpengalaman
-  1. autoload.php, berisi sebagian besar prosedur framework
-  2. paths.php, berisi array dari jalur sistem file yang digunakan oleh framework
-  3. start.php, berisi tentang prosedur bagaimana framework Laravel berjalan.
-3. vendor/, merupakan folder yang berisi semua paket Composer yang digunakan 
-4. public/, merupakan folder yang berisi assets yang digunakan : file-file CSS, JS, image, dll.
-5. .gitattributes dan .gitignore
-6. artisan, merupakan file yang berfungsi untuk menjalankan perintah-perintah artisan CLI
-7. composer.json dan composer.lock
-8. phpunit.xml
-9. server.php
+  1. app/ adalah tempat default untuk semua kode projek aplikasi yang sudah ditulis/dikonfigurasi. Dalam folder app juga terdapat folder dan file sbb
+    1. commands/, menyimpan self-created perintah-perintah
+    2. config/, konfigurasi framework dan aplikasi
+    3. controllers/, menyimpan kelas-kelas PHP controller
+    4. databases/, menyimpan keperluan basisdata
+    5. lang/, menyimpan berbagai lokalisasi bahasa
+    6. models/, berisi kelas-kelas model yg berkaitan dengan interaksi ke database
+    7. start/, menyimpan file untuk prosedur aplikasi
+    8. storage/, menyimpan file-file yang dibuat oleh Laravel ke harddisk
+    9. tests/, menyimpan semua unit tests
+    10. views/, menyimpan file-file PHP untuk keperluan tampilan (front-end)
+    11. filters.php, file yang berisi filter untuk routes aplikasi.
+    12. routes.php, semua route untuk aplikasi
+  2. bootstrap/, merupakan folder yang berisi file-file prosedur untuk framework Laravel. Beberapa file yang mungkin boleh diedit oleh pengguna Laravel yg berpengalaman
+    1. autoload.php, berisi sebagian besar prosedur framework
+    2. paths.php, berisi array dari jalur sistem file yang digunakan oleh framework
+    3. start.php, berisi tentang prosedur bagaimana framework Laravel berjalan.
+  3. vendor/, merupakan folder yang berisi semua paket Composer yang digunakan 
+  4. public/, merupakan folder yang berisi assets yang digunakan : file-file CSS, JS, image, dll.
+  5. .gitattributes dan .gitignore
+  6. artisan, merupakan file yang berfungsi untuk menjalankan perintah-perintah artisan CLI
+  7. composer.json dan composer.lock
+  8. phpunit.xml
+  9. server.php
 
 ##Pengunaan
 Requirement untuk menggunakan framework Laravel:
