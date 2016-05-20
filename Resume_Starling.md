@@ -21,12 +21,12 @@ Framework ini akan sulit untuk programmer yang baru, framework ini cocok untuk p
 Framework yang berbasis ActionScript 3 ini seperti bahasa pemrograman berorientasi objek lainnya.
 
 ## Penggunaan
-Untuk menggunakan framework ini diperlukan Adobe AIR SDK, yang dapat didownload [di sini][http://www.adobe.com/devnet/air/air-sdk-download.html]. Selain itu juga untuk membantu pembuatan diperlukan IDE Flash. Beberapa IDE Flash yang dapat digunakan yaitu : 
-+ [Adobe Flash Builder][http://www.adobe.com/products/flash-builder.html]
-+ [PowerFlasher FDT][http://fdt.powerflasher.com/]
-+ [FlashDevelop][http://www.flashdevelop.org/]
-+ [Adobe Flash CS][http://www.adobe.com/sea/products/animate.html]
-+ [IntelliJ IDEA Ultimate][https://www.jetbrains.com/idea/download/]
+Untuk menggunakan framework ini diperlukan Adobe AIR SDK, yang dapat didownload [di sini](http://www.adobe.com/devnet/air/air-sdk-download.html). Selain itu juga untuk membantu pembuatan diperlukan IDE Flash. Beberapa IDE Flash yang dapat digunakan yaitu : 
++ [Adobe Flash Builder](http://www.adobe.com/products/flash-builder.html)
++ [PowerFlasher FDT](http://fdt.powerflasher.com/)
++ [FlashDevelop](http://www.flashdevelop.org/)
++ [Adobe Flash CS](http://www.adobe.com/sea/products/animate.html)
++ [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/)
 
 ###### References : 
 * http://www.adobe.com/devnet/flashplayer/articles/introducing_Starling.html
