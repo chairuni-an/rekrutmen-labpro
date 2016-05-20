@@ -55,9 +55,9 @@ Struktur dari sebuah Laravel project (framework versi 4) adalah sebagai berikut,
 
 ##Pengunaan
 Requirement untuk menggunakan framework Laravel:
-1. Text Editor
-2. Webserver dan Database
-3. Composer
+* Text Editor
+* Webserver dan Database
+* Composer
 
 ###Routing
 Routing digunakan untuk meng-handle **request** yang kita berikan ke aplikasi web. Bisa jadi routing adalah jembatan yang menghubungkan kita dengan respon yang akan diberikan oleh web aplilkasi. Jadi setiap ada permintaan (request) terhadap alamat tertentu, maka akan alamat akan dieksekusi terlebih dahulu dalam routing sebelum akhirnya akan menampilkan hasil (response).
