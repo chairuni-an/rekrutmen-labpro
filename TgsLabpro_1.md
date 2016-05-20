@@ -65,11 +65,11 @@ Routes selalu dideklarasikan menggunakan kelas Routes dan salah satu method yang
 
 ```php
 Route::get('/', function() { 
-return 'hello laravel'; 
+     return 'hello laravel'; 
 });
 
 Route::get('helloworld', function() { 
-return 'hello world from laravel framework’; 
+     return 'hello world from laravel framework’; 
 });
 ```
 
