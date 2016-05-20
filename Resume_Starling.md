@@ -15,13 +15,18 @@ Framework Starling memiliki kelebihan seperti berikut :
 
 
 ## Kekurangan Framework
-
+Framework ini akan sulit untuk programmer yang baru, framework ini cocok untuk programmer menengah. Kelebihannya pun dapat menyebabkan kekurangan dari framework. Kekurangannya yaitu perlu adanya flash player yang *"update"* untuk menjalankan program yang disupport oleh framework terbaru ini. Sebagai contohnya pada sistem operasi linux akan mengalami kendala dikarenakan flash yang tersedia oleh Adobe kurang *"update"* sehingga perlu adanya alternatif atau untuk bahkan terancam tidak dapat menjalankannya dengan baik.
 
 ## Struktur
-
+Framework yang berbasis ActionScript 3 ini seperti bahasa pemrograman berorientasi objek lainnya.
 
 ## Penggunaan
-
+Untuk menggunakan framework ini diperlukan Adobe AIR SDK, yang dapat didownload [di sini][http://www.adobe.com/devnet/air/air-sdk-download.html]. Selain itu juga untuk membantu pembuatan diperlukan IDE Flash. Beberapa IDE Flash yang dapat digunakan yaitu : 
++ [Adobe Flash Builder][http://www.adobe.com/products/flash-builder.html]
++ [PowerFlasher FDT][http://fdt.powerflasher.com/]
++ [FlashDevelop][http://www.flashdevelop.org/]
++ [Adobe Flash CS][http://www.adobe.com/sea/products/animate.html]
++ [IntelliJ IDEA Ultimate][https://www.jetbrains.com/idea/download/]
 
 ###### References : 
 * http://www.adobe.com/devnet/flashplayer/articles/introducing_Starling.html
