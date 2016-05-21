@@ -1,4 +1,4 @@
-# Resume Yii
+![Logo](http://static.yiiframework.com/css/img/logo.png)
 
 ## Filosofi Framework
 Yii adalah framework (kerangka kerja) PHP berbasis-komponen, berkinerja tinggi untuk pengembangan aplikasi Web berskala-besar. Yii menyediakan reusability maksimum dalam pemrograman Web dan mampu meningkatkan kecepatan pengembangan secara signifikan. Nama Yii (dieja sebagai /i:/) singkatan dari "Yes It Is!". Berikut merupakan respon yang paling tepat dan akurat untuk yang baru dengan Yii:
@@ -26,7 +26,9 @@ Diagram berikut merupakan struktur statis dari aplikasi
 
 ## Request Lifecycle
 Diagram berikut memperlihatkan bagaimana aplikasi menghandle request
+
 ![Request Lifecycle](http://www.yiiframework.com/doc-2.0/images/request-lifecycle.png)
+
 1. Pengguna membuat request ke entry script web/index.php.
 2. Entry script memuat konfigurasi aplikasi dan membuat instans aplikasi untuk menghandle request.
 3. Aplikasi ini menyelesaikan rute yang diminta dengan bantuan komponen aplikasi permintaan.
@@ -43,6 +45,6 @@ Diagram berikut memperlihatkan bagaimana aplikasi menghandle request
 
 
 ###### References : 
-* http://www.yiiframework.com/doc/guide/1.1/id/quickstart.what-is-yii
+* http://www.yiiframework.com/doc-2.0/guide-intro-yii.html
 * http://cobadibacalagi.blogspot.co.id/2013/10/kelebihan-dan-kekurangan-beberapa-php.html
 * http://wawan-kurniawan888.blogspot.co.id/2013/09/yii-framework.html
