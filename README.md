@@ -3,12 +3,50 @@
 ## Garis Besar Tugas
 Silahkan ubah readme ini untuk mendeskripsikan pekerjaan Anda. Cantumkan deskripsi tugas dan lokasi file-file yang Anda tambahkan di sini. Anda dapat menggunakan tool online http://dillinger.io/ serta cheatsheet https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet untuk mengubah readme ini. Mulai dari submission pertama, silahkan hapus deskripsi ini.
 
-## Eksplorasi 1
+## Eksplorasi Ruby On Rails
 * Rilis: 3 Mei 2016
 * Deadline: 22 Mei 2016
-* Deliverables: Resume topik yang Anda explore
+* Deliverables: Resume Ruby On Rails
 
-Eksplorasi github dan topik eksplorasi (bahasa/engine/framework) yang Anda dapatkan. Untuk eksplorasi Github, pastikan Anda sudah membaca dokumentasi Github dan minimal bisa melakukan hal dasar di github seperti fork, commit, clone, etc. Eksplorasi Github akan dinilai dari keberhasilan Anda melakukan pengumpulan tugas eksplorasi 1 ini melalui Github. Untuk eksplorasi topik eksplorasi, pastikan Anda minimal sudah membaca about dari topik tersebut. Buatlah sebuah resume dari topik yang Anda explore sebagai deliverable. Resume ini memiliki format bebas, boleh formal maupun non formal, asalkan menjelaskan dan bisa direview oleh asisten secara remote. Minimal terdapat komponen-komponen yaitu: filosofi/ide dari bahasa/engine/framework, kelebihan, kekurangan, struktur, dan penggunaan.
+# RUBY ON RAILS
+##### 1. APA ITU RUBY ?
+[Ruby](https://www.ruby-lang.org/en/) adalah bahasa [pemograman berorientasi objek](https://en.wikipedia.org/wiki/Object-oriented_programming) yang dibuat oleh Yukihiro Matsumoto. Ruby dapat dijalankan dalam berbagai jenis sistem operasi seperti Windows, Linux dan Mac OS. Selain berparadigma *object-oriented*, Ruby juga berparadigma pemogramanan fungsional.\
+Ruby memiliki suatu karakteristik unik yaitu :
+>"Everything you manipulate is an object, and the results of those manipulations are themselves objects"
+
+Jadi, pada ruby variabel yang didefinisikan akan otomatis diubah menjadi objek sesuai dengan nilai yang di-*assign* pada variabel tersebut. Contoh :
+```ruby
+car = "hakuna matata" #Variabel "car" menjadi objek dari kelas string 
+```
+Bahasa pemograman Ruby juga adalah sebuah bahasa pemograman yang sangat bahasanya *user-friendly* karena bahasanya sangat mendekati bahasa manusia. Contoh :
+```ruby
+5.times { print "hakuna matata" } #Akan mencetak "hakuna matata" sebanyak 5 kali
+```
+##### 2. APA ITU RUBY ON RAILS ?
+[Ruby on Rails](http://rubyonrails.org/) adalah web framework yang dibuat dengan bahasa pemograman Ruby. Rails pertama sekali dikembangkan oleh [David Heinemeier Hansson](https://en.wikipedia.org/wiki/David_Heinemeier_Hansson) secara open-source dengan [lisensi MIT](https://en.wikipedia.org/wiki/MIT_License).
+
+Rails dibuat dengan konsep [**M**odel **V**iew **C**ontroller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) sehingga programmer yang menggunakan Rails mudah memanajemen programnya.  
+
+##### 3. APA KELEBIHAN RUBY ON RAILS?
+- __MVC__\
+*Model-View-Controller* --- Penanganan untuk model data, tampilan antar muka serta pengontrol terpisah sehingga menjadi sangat dinamis. Oleh karena itu, diharapkan saat programmer mengubah antarmuka tidak akan mempengaruhi penanganan datanya. Demikian juga data dapat diatur kembali sewaktu-waktu tanpa mengubah antarmukanya.
+- __DRY__\
+*Don't Repeat Yourself* --- adalah salah satu filosofi dari Rails yang menbuat rails menjadi web framework yang sangat efisien karena setiap informasi disimpan pada satu tempat yang tidak ambigu pada sistem sehingga tidak berulang-ulang.
+- __COC__\
+*Convention over Configuration* --- Dengan prinsip ini programmer tidak perlu repot - repot untuk melakukan konfigurasi aplikasi seperti koneksi ke database, karena sudah ada mekanisme yang disediakan oleh rails.
+- __Fat Model, Skinny Controllers__\
+Bahwa logika dari aplikasi lebih didefinisikan pada model sehingga controller hanya tinggal menggunakan model tersebut.
+
+##### 4. APA KEKURANGAN RUBY ON RAILS?
+Pemograman dengan rails cukup sulit dimengerti karena bahasanya terlalu *direct*. Selain itu environment yang mendukung pemograman rails juga masih sangat minim. 
+
+##### 5. STRUKTUR APLIKASI RUBY ON RAILS?
+Rails memiliki template untuk pengembangan webnya dengan konsep MVC. Jika kita mengetikan :
+```ruby
+$ rails new webApps 
+```
+pada terminal, maka akan tercipta suatu direktori aplikasi dengan nama webApps dengan struktur sebagai berikut :
+
 
 ## Eksplorasi 2
 * Rilis: 24 Mei 2016
