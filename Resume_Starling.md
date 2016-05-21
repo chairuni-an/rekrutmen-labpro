@@ -5,6 +5,13 @@
 
 ## Filosofi Framework
 Framework yang berbasis ActionScript 3 ditargetkan untuk penciptaan atau pembuatan game 2D tetapi Starling tetap dapat digunakan untuk aplikasi grafis lainnya. Starling tersedia untuk desktop pada Adobe Flash Player 11 dan Adobe AIR 3. Starling memungkinkan untuk membuat aplikasi dengan GPU yang diaklerasi tanpa harus menulisnya dalam low level Stage3D APIs.
+### Intuitif
+Starling mudah untuk dipelajari. Pengembang Flash/Flex akan merasa nyaman, karena Starling mengikuti beberapa dari dogma ActionScript dan abstraksi dari kompleksitas untuk low-level Stage3D APIs. Pengguna akan familiar dengan konsep seperti list tampilan DOM, model kejadian, dan API yang familiar seperti MovieClip, Sprite, TextField, dan lain-lain.
+### Ringan
+Starling memiliki kelas yang terbatas (sekitar 80 ribu kode). Tidak ada dependensi luar selain Flash Player 11 atau AIR 3 pada desktop dan AIR 3.2 pada mobile. Ini akan membuat aplikasimu kecil dan memiliki alur kerja yang simpel.
+### Bebas digunakan
+Starling bebas digunakan dan terus dikembangkan di Github. Terlisensi oleh Simplified BSD License, Anda dapat menggunakannya dengan bebas bahkan untuk aplikasi komersial.
+
 
 ##  Kelebihan Framework
 Framework Starling memiliki kelebihan seperti berikut :
@@ -30,7 +37,7 @@ Untuk menggunakan framework ini diperlukan Adobe AIR SDK, yang dapat didownload 
 
 ###### References : 
 * http://www.adobe.com/devnet/flashplayer/articles/introducing_Starling.html
-
+* Thibault Imbert, *Introducing Starling*, 2012, O'REILLY : USA.
 
 [Starling]: http://gamua.com/starling/
 [Gamua]: http://gamua.com/about
