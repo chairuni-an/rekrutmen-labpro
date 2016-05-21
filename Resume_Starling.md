@@ -26,7 +26,8 @@ Framework ini akan sulit untuk programmer yang baru, framework ini cocok untuk p
 
 ## Struktur
 Framework yang berbasis ActionScript 3 ini seperti bahasa pemrograman berorientasi objek lainnya. Di balik layar, Starling menggunakan Stage3D APIs, yang merupakan low-level GPU APIs yang berjalan di atas OpenGL dan DirectX pada desktop dan OpenGL ES2 pada preangkat mobile. Sebagai pengembang, Anda harus tahu bahwa Starling adalah port ActionSript 3 dari Sparrow, pustaka yang setara untuk iOS yang mengandalkan pada OpenGL ES2 APIs.
-![Starling layer](https://www.safaribooksonline.com/library/view/introducing-starling/9781449320904/httpatomoreillycomsourceoreillyimages970833.png)
+![alt text](https://www.safaribooksonline.com/library/view/introducing-starling/9781449320904/httpatomoreillycomsourceoreillyimages970833.png "Starling Layer")
+Gambar 1 starling layer ada di atas Stage3D (Molehill)
 
 ## Penggunaan
 Untuk menggunakan framework ini diperlukan Adobe AIR SDK, yang dapat didownload [di sini](http://www.adobe.com/devnet/air/air-sdk-download.html). Selain itu juga untuk membantu pembuatan diperlukan IDE Flash. Beberapa IDE Flash yang dapat digunakan yaitu : 
