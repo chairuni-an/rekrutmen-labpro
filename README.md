@@ -1,5 +1,10 @@
 # Rekrutmen Asisten Lab Programming Angkatan 2014
 
+### DATA DIRI
+NAMA : KRISTIANTO KARIM
+NIM : 13514075
+FRAMEWORK : RUBY ON RAILS
+
 ## Garis Besar Tugas
 Tugas yang diberikan kepada saya yaitu untuk melakukan explorasi pada web framework "RUBY ON RAILS"
 
