@@ -28,11 +28,11 @@ Bahasa pemograman Ruby juga adalah sebuah bahasa pemograman yang sangat bahasany
 Rails dibuat dengan konsep [**M**odel **V**iew **C**ontroller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) sehingga programmer yang menggunakan Rails mudah memanajemen programnya.  
 
 ##### 3. APA KELEBIHAN RUBY ON RAILS?
-- __MVC__\
+- __MVC__<br\> 
 *Model-View-Controller* --- Penanganan untuk model data, tampilan antar muka serta pengontrol terpisah sehingga menjadi sangat dinamis. Oleh karena itu, diharapkan saat programmer mengubah antarmuka tidak akan mempengaruhi penanganan datanya. Demikian juga data dapat diatur kembali sewaktu-waktu tanpa mengubah antarmukanya.
-- __DRY__\
+- __DRY__<br\>
 *Don't Repeat Yourself* --- adalah salah satu filosofi dari Rails yang menbuat rails menjadi web framework yang sangat efisien karena setiap informasi disimpan pada satu tempat yang tidak ambigu pada sistem sehingga tidak berulang-ulang.
-- __COC__\
+- __COC__<br\>
 *Convention over Configuration* --- Dengan prinsip ini programmer tidak perlu repot - repot untuk melakukan konfigurasi aplikasi seperti koneksi ke database, karena sudah ada mekanisme yang disediakan oleh rails.
 - __Fat Model, Skinny Controllers__\
 Bahwa logika dari aplikasi lebih didefinisikan pada model sehingga controller hanya tinggal menggunakan model tersebut.
