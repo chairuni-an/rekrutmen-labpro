@@ -37,7 +37,47 @@ Untuk menggunakan framework ini diperlukan Adobe AIR SDK, yang dapat didownload 
 + [PowerFlasher FDT](http://fdt.powerflasher.com/)
 + [FlashDevelop](http://www.flashdevelop.org/)
 + [Adobe Flash CS](http://www.adobe.com/sea/products/animate.html)
-+ [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/)
++ [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/) 
+
+Sebagai langkah pertama Anda dapat membuka halaman [di sini](http://gamua.com/starling/first-steps/) atau melalui [halaman ini](http://wiki.starling-framework.org/start).
+
+#### Membuat Game
+Setelah selesai mengatur IDE Anda. Hubungkan *project* Anda dengan Starling SWC library dan gunakan kelas Startup berikut :
+
+```ActionScript
+import flash.display.Sprite;
+import starling.core.Starling;
+
+[SWF(width="400", height="300", frameRate="60", backgroundColor="#ffffff")]
+public class Startup extends Sprite
+{
+    private var _starling:Starling;
+
+    public function Startup()
+    {
+        _starling = new Starling(Game, stage);
+        _starling.start();
+    }
+}
+```
+
+Ini akan membuat sebuah instansiasi dari Starling dan memulainya. Parameter "Game" dari konstruktor mengharapkan kelas yang merupakan tampilan objek Starling. Ini adalah pintu masuk untuk GPU yang dipercepat: Starling telah menetapkan sendiri objek tampilan. Dalam penggunaannya, mereka hampir identik dengan benda-benda tampilan konvensional; di belakang layar, namun mereka menggunakan Stage3D untuk membuat konten pada layar.
+
+```ActionScript
+import starling.display.Sprite;
+import starling.text.TextField;
+
+public class Game extends Sprite
+{
+    public function Game()
+    {
+        var textField:TextField = new TextField(400, 300, "Welcome to Starling!");
+        addChild(textField);
+    }
+}
+```
+
+Yang terbesar "gotcha" (keberhasilan) di Starling adalah dengan menggunakan kelas yang tepat. *Autocompletion* IDE Anda akan default ke kelas "flash.display", sementara Anda ingin kelas dalam "starling.display". Ketika sesuatu berjalan salah, selalu periksa impor paket di atas kelas Anda: Anda mungkin menggunakan paket yang salah.
 
 ###### References : 
 * http://www.adobe.com/devnet/flashplayer/articles/introducing_Starling.html
