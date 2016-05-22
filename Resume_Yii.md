@@ -9,9 +9,13 @@ Apakah Yii cepat? ... Apakah Yii aman? ... Apakah Yii profesional? ... Apakah Yi
 * Yii adalah salah satu framework yang sangat ringan dan dilengkapi dengan solusi caching yang memuaskan.
 * Yii sangat cocok untuk pengembangan aplikasi dengan lalu lintas-tinggi, seperti portal, manajemen konten (CMS), sistem e-commerce, dll.
 * Yii didokumentasikan dengan jelas, efisien, dan kaya-fitur.
+* Adanya generator CRUD dan model (dengan menggunakan Gii).
+* Built-in Ajax untuk Grid View
 
 ## Kekurangan Framework
 * Tidak kompatibel dengan PHP 4
+* Banyak yang harus dipelajari
+
 
 ## Struktur
 Yii mengimplementasikan pola desain model-view-controller (MVC). Dalam MVC, model menggambarkan informasi (data) dan aturan bisnis; view(tampilan) berisi elemen antar muka pengguna seperti teks, input form; sementara controller mengatur komunikasi antar model dan view. Selain implementasi MVC, Yii juga memiliki entitas-entitas berikut :
@@ -42,7 +46,23 @@ Diagram berikut memperlihatkan bagaimana aplikasi menghandle request
 11. Komponen respon mengirimkan hasil yang diberikan ke browser pengguna.
 
 ## Penggunaan
+Hal pertama yang harus dilakukan adalah menginstal web server lokal seperti XAMPP atau WAMP.
+Selanjutnya, Untuk menggunakan Framework Yii2, kita dapat melakukan proses instalasi dengan dua cara, yaitu dengan Composer atau download Arsip.
+Pada bagian ini hanya akan dijelaskan proses instalasi dengan Composer.
+Untuk dapat melakukan instalasi dengan menggunakan Composer, tentu kita diwajibkan untuk menginstal [Composer](http://www.getcomposer.org) terlebih dahulu.
 
+Setelah composer sudah terinstall, buka terminal, lalu ketikkan perintah
+```ActionScript
+composer global require "fxp/composer-asset-plugin:~1.0.3"
+```
+Kemudian ketikkan perintah berikut untuk menggunakan template basic :
+```ActionScript
+composer create-project yiisoft/yii2-app-basic c:/xampp/htdocs/yiibasic 2.0.8
+```
+atau perintah berikut untuk menggunakan template advanced :
+```ActionScript
+composer create-project yiisoft/yii2-app-advanced c:/xampp/htdocs/yiiadvanced 2.0.8
+```
 
 ###### References : 
 * http://www.yiiframework.com/doc-2.0/guide-intro-yii.html
