@@ -28,9 +28,4 @@ Proses di ReactJS jika ada perubahan suatu elemen di dalam DOM:
 
 ## Kekurangan
 1. Dokumentasi ReactJS kurang jelas dan perlu dibaca satu per satu untuk memahami ReactJS secara menyeluruh.
-2. ReactJS bukan *framework*, hanya pustaka yang mengurusi UI (merupakan kelebihan sekaligus kekurangan), sehingga item-item berikut harus diimplementasikan sendiri:
-* router,
-* data layer,
-* struktur aplikasi,
-* AJAX,
-* event system kecuali event DOM.
+2. ReactJS bukan *framework*, hanya pustaka yang mengurusi UI (merupakan kelebihan sekaligus kekurangan), sehingga router, data layer, struktur aplikasi, AJAX, dan event system kecuali event DOM harus diimplementasikan sendiri
