@@ -1,14 +1,16 @@
 # Rekrutmen Asisten Lab Programming Angkatan 2014
 
+### Jessy Josephine Naomi - 18214021
+
 ## Garis Besar Tugas
-Silahkan ubah readme ini untuk mendeskripsikan pekerjaan Anda. Cantumkan deskripsi tugas dan lokasi file-file yang Anda tambahkan di sini. Anda dapat menggunakan tool online http://dillinger.io/ serta cheatsheet https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet untuk mengubah readme ini. Mulai dari submission pertama, silahkan hapus deskripsi ini.
+Pada rekrutmen asisten Lab Programming Angkatan 2014 ini, saya mendapat tugas untuk melakukan eksplorasi dan membuat proyek dari suatu framework bernama ReactJS. ReactJS ini merupakan suatu pustaka JavaScript untuk membuat antarmuka (front-end).
 
 ## Eksplorasi 1
 * Rilis: 3 Mei 2016
 * Deadline: 22 Mei 2016
 * Deliverables: Resume topik yang Anda explore
 
-Eksplorasi github dan topik eksplorasi (bahasa/engine/framework) yang Anda dapatkan. Untuk eksplorasi Github, pastikan Anda sudah membaca dokumentasi Github dan minimal bisa melakukan hal dasar di github seperti fork, commit, clone, etc. Eksplorasi Github akan dinilai dari keberhasilan Anda melakukan pengumpulan tugas eksplorasi 1 ini melalui Github. Untuk eksplorasi topik eksplorasi, pastikan Anda minimal sudah membaca about dari topik tersebut. Buatlah sebuah resume dari topik yang Anda explore sebagai deliverable. Resume ini memiliki format bebas, boleh formal maupun non formal, asalkan menjelaskan dan bisa direview oleh asisten secara remote. Minimal terdapat komponen-komponen yaitu: filosofi/ide dari bahasa/engine/framework, kelebihan, kekurangan, struktur, dan penggunaan.
+Deliverable dari tugas ini terdapat pada file Eksplorasi1.md
 
 ## Eksplorasi 2
 * Rilis: 24 Mei 2016
