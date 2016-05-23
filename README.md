@@ -1,4 +1,4 @@
-# Resume Tentang AngularJS by Taufic Leonardo Sutejo
+# Resume Tentang AngularJS oleh Taufic Leonardo Sutejo
 
 ## Pendahuluan
 Sebelum memasuki penjelasan tentang AngularJS, dijelaskan terlebih dahulu apa yang dimaksud dengan framework. Framework adalah sebuah konsep yang terstruktur yang dapat memberikan bantuan saat mengembangkan suatu program. Tidak semua framework cocok dengan program yang ingin dikembangkan. Dengan menggunakan framewok, maka seorang programmer sudah dipastikan akan menggunakan fungsi – fungsi yang sudah diberikan oleh framework tersebut. Terdapat framework yang digunakan untuk mengembangkan web, aplikasi mobile, dan sebagainya. Dalam pembahasan resume ini, akan diberikan gambaran sedikit tentang mengembangkan front-end web yang menggunakan framework Javascript AngularJS.
