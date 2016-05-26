@@ -1,0 +1,23 @@
+<h1>Hello Iti</h1>
+<p>Cie Iti udah bikin blog cie ...</p>
+<%= link_to '<button type="button">Post Baru</button>'.html_safe, new_post_path %>
+<style>
+p.thick {
+    font-weight: bold;
+    font-size: 25px;
+}
+p.test {
+    width: 15em; 
+    word-wrap: break-word;
+}
+</style>
+<% @post.each do |post| %>
+<p class = "thick"><%= link_to post.judul, post_path(post) %></p>
+<p class = "test">
+<%= post.isi[0..100] %>
+<% if post.isi.length > 100 %>
+    ...
+<% else %>
+<% end %>
+</p>
+<% end %>
