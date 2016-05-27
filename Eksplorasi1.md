@@ -10,7 +10,7 @@ CodeIgniter adalah framework PHP yang kuat dengan footprint yang sangat kecil, d
 *	Ukuran file kecil dan cepat
 <br> CodeIgniter hanya me-load fungsi atau library yang digunakan saja. Berbeda dengan framework lainnya yang menggunakan seluruh library walaupun library tersebut tidak digunakan.
 *	Dokumentasi yang jelas
-<br> CodeIgniter menyediakan dokumentasi yang lengkap mulai dari instalasi hingga semua fungsi yang terdapat di dalamnya. Berikut merupakan situs untuk melihat dokumentasi dari CodeIgniter: http://ellislab.com/codeigniter/user-guide.
+<br> CodeIgniter menyediakan dokumentasi yang lengkap mulai dari instalasi hingga semua fungsi yang terdapat di dalamnya. Berikut merupakan situs untuk melihat dokumentasi dari CodeIgniter: http://www.codeigniter.com/user_guide/.
 *	Memakai konsep MVC (Model, View, Controller)
 <br> Dengan konsep MVC pengerjaan antara logika dengan layout dipisahkan, sehingga tugas antara programmer dengan designer tidak terlalu terikat.
 *	Memiliki komunitas
@@ -43,4 +43,4 @@ CodeIgniter adalah framework PHP yang kuat dengan footprint yang sangat kecil, d
 *	Download CodeIgniter pada https://www.codeigniter.com/. Pengguna juga membutuhkan Text Editor dan XAMPP/WAMP.
 *	Ekstrak hasil download dan letakkan pada direktori XAMPP/WAMP.
 *	Tuliskan “localhost/CodeIgniter” pada URL Browser, apabila mucul tampilan “Welcome to CodeIgniter” maka framework CodeIgniter sudah berhasil dijalankan.
-*	Ubah kode pada folder tersebut sesuai dengan keinginan pengguna. Pengguna dapat mempelajari CodeIgniter pada situs http://ellislab.com/codeigniter/user-guide.
+*	Ubah kode pada folder tersebut sesuai dengan keinginan pengguna. Pengguna dapat mempelajari CodeIgniter pada situs http://www.codeigniter.com/user_guide/.
