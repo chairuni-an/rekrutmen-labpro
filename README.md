@@ -11,7 +11,7 @@ Eksplorasi 1 memuat filosofi/ide, kelebihan, kekurangan, struktur, request lifec
 ## Eksplorasi 2
 * Rilis: 24 Mei 2016
 * Deadline: 29 Mei 2016
-* Deliverables: Resume topik yang Anda explore
+* Deliverables: Source code dan dokumentasi program sederhana sesuai topik eksplorasi
 * File :
   1. [[EKSPLORASI 2] Dokumentasi Program Sederhana.pdf](https://github.com/adeyura/rekrutmen-labpro/blob/master/%5BEKSPLORASI%202%5D%20Dokumentasi%20Program%20Sederhana.pdf)
   2. [Source Code](https://github.com/adeyura/rekrutmen-labpro/tree/master/programSederhana)
