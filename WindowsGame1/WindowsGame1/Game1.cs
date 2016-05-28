@@ -18,16 +18,18 @@ namespace WindowsGame1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D walk;
-        Texture2D head, armor, shoulder, accessories, leg, feet, belt, quiver;
-        Rectangle destRect;
-        Rectangle sourceRect;
+        Texture2D walk, atk;
+        Rectangle destRect, sourceRect, sourceRect_atk;
         float elapsed;
         float delay = 100f;
         int frameX = 0, frameY = 2;
+        int frameX_atk = 0;
         int screenHeight, screenWidth;
         const int frameWidth = 64;
         const int frameHeight = 64;
+        const int walkSpeed = 2;
+        const int runSpeed = 4;
+        bool isPressed = false;
 
         public Game1()
         {
@@ -55,15 +57,8 @@ namespace WindowsGame1
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            walk = Content.Load<Texture2D>("archer_walk/BODY_male");
-            head = Content.Load<Texture2D>("archer_walk/HEAD_leather_armor_hat");
-            armor = Content.Load<Texture2D>("archer_walk/TORSO_leather_armor_torso");
-            shoulder = Content.Load<Texture2D>("archer_walk/TORSO_leather_armor_shoulders");
-            accessories = Content.Load<Texture2D>("archer_walk/TORSO_leather_armor_bracers");
-            leg = Content.Load<Texture2D>("archer_walk/LEGS_pants_greenish");
-            belt = Content.Load<Texture2D>("archer_walk/BELT_leather");
-            quiver = Content.Load<Texture2D>("archer_walk/BEHIND_quiver");
-            feet = Content.Load<Texture2D>("archer_walk/FEET_shoes_brown");
+            walk = Content.Load<Texture2D>("archer_walk");
+            atk = Content.Load<Texture2D>("archer_atk");
             
             //inisialisasi konstanta layar
             screenHeight = GraphicsDevice.Viewport.Height;
@@ -90,8 +85,31 @@ namespace WindowsGame1
                 && !Keyboard.GetState().IsKeyDown(Keys.Right) && !Keyboard.GetState().IsKeyDown(Keys.Left))
             {
                 frameX = 0;
+                if (Keyboard.GetState().IsKeyDown(Keys.A))
+                {
+                    isPressed = true;
+                }
+                if (isPressed)
+                {
+                    elapsed += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                    if (elapsed >= delay * 0.6)
+                    {
+                        if (frameX_atk >= 12)
+                        {
+                            frameX_atk = 0;
+                            isPressed = false;
+                        }
+                        else
+                        {
+                            frameX_atk++;
+                        }
+                        elapsed = 0;
+                    }
+                    sourceRect_atk = new Rectangle(frameWidth * frameX_atk, frameHeight * frameY, frameWidth, frameHeight);
+                }
             } else {
                 elapsed += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                frameX_atk = 0;
                 if (Keyboard.GetState().IsKeyDown(Keys.Up)) {
                     frameY = 0;
                     if (elapsed >= delay) {
@@ -103,7 +121,14 @@ namespace WindowsGame1
                         }
                         elapsed = 0;
                     }
-                    destRect.Y -= 2;
+                    if (Keyboard.GetState().IsKeyDown(Keys.LeftShift))
+                    {
+                        destRect.Y -= runSpeed;
+                    }
+                    else
+                    {
+                        destRect.Y -= walkSpeed;
+                    }
                     if (destRect.Y <= 0) {
                         destRect.Y = 0;
                     }
@@ -120,7 +145,14 @@ namespace WindowsGame1
                         }
                         elapsed = 0;
                     }
-                    destRect.X -= 2;
+                    if (Keyboard.GetState().IsKeyDown(Keys.LeftShift))
+                    {
+                        destRect.X -= runSpeed;
+                    }
+                    else
+                    {
+                        destRect.X -= walkSpeed;
+                    }
                     if (destRect.X <= 0) {
                         destRect.X = 0;
                     }
@@ -137,7 +169,11 @@ namespace WindowsGame1
                         }
                         elapsed = 0;
                     }
-                    destRect.Y += 2;
+                    if (Keyboard.GetState().IsKeyDown(Keys.LeftShift)) {
+                        destRect.Y += runSpeed;
+                    } else {
+                        destRect.Y += walkSpeed;
+                    }
                     if (destRect.Y + frameHeight >= screenHeight) {
                         destRect.Y = screenHeight - frameHeight;
                     }
@@ -154,7 +190,14 @@ namespace WindowsGame1
                         }
                         elapsed = 0;
                     }
-                    destRect.X += 2;
+                    if (Keyboard.GetState().IsKeyDown(Keys.LeftShift))
+                    {
+                        destRect.X += runSpeed;
+                    }
+                    else
+                    {
+                        destRect.X += walkSpeed;
+                    }
                     if (destRect.X + frameWidth >= screenWidth) {
                         destRect.X = screenWidth - frameWidth;
                     }
@@ -174,15 +217,15 @@ namespace WindowsGame1
 
             //Bagian penggambar karakter
             spriteBatch.Begin();
-            spriteBatch.Draw(walk, destRect, sourceRect, Color.White);
-            spriteBatch.Draw(head, destRect, sourceRect, Color.White);
-            spriteBatch.Draw(armor, destRect, sourceRect, Color.White);
-            spriteBatch.Draw(shoulder, destRect, sourceRect, Color.White);
-            spriteBatch.Draw(leg, destRect, sourceRect, Color.White);
-            spriteBatch.Draw(feet, destRect, sourceRect, Color.White);
-            spriteBatch.Draw(accessories, destRect, sourceRect, Color.White);
-            spriteBatch.Draw(belt, destRect, sourceRect, Color.White);
-            spriteBatch.Draw(quiver, destRect, sourceRect, Color.White);
+            if (isPressed && !Keyboard.GetState().IsKeyDown(Keys.Up) && !Keyboard.GetState().IsKeyDown(Keys.Right)
+                && !Keyboard.GetState().IsKeyDown(Keys.Left) && !Keyboard.GetState().IsKeyDown(Keys.Down))
+            {
+                spriteBatch.Draw(atk, destRect, sourceRect_atk, Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(walk, destRect, sourceRect, Color.White);
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);
