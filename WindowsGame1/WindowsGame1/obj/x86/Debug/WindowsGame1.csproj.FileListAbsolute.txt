@@ -1,0 +1,15 @@
+c:\users\win7ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
+c:\users\win7ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
+c:\users\win7ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache
+c:\users\win7ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\win7ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+c:\users\win7ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\BODY_male.xnb
+C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\FEET_shoes_brown.xnb
+C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\TORSO_leather_armor_bracers.xnb
+C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\TORSO_leather_armor_shoulders.xnb
+C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\HEAD_leather_armor_hat.xnb
+C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\LEGS_pants_greenish.xnb
+C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\BEHIND_quiver.xnb
+C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\BELT_leather.xnb
+C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\TORSO_leather_armor_torso.xnb
