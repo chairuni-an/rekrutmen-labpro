@@ -1,5 +1,9 @@
 # Rekrutmen Asisten Lab Programming Angkatan 2014
 
+## Identitas
+* Nama  : Ade Yusuf Rahardian
+* NIM   : 13514079
+
 ## Eksplorasi 1
 * Rilis: 3 Mei 2016
 * Deadline: 22 Mei 2016
