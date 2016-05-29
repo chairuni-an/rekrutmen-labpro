@@ -3,7 +3,7 @@
     "username": "beyonce",
     "name": "Beyonce Knowles",
     "bio": "#Lemonade",
-    "img": "http://pixel.nymag.com/imgs/daily/vulture/2015/09/09/09-beyonce.w529.h529.jpg",
+    "img": "/static/img/beyonce.jpg",
     "posts": [
       {
         "img": "/static/img/beyonce1.jpg"
@@ -26,13 +26,24 @@
     "username": "ladygaga",
     "name": "Lady Gaga",
     "bio": "jazz art pop punk actress fashion magazine editor and columnist!",
-    "img": "http://bit.ly/25p2CIz",
+    "img": "/static/img/ladygaga.png",
     "posts": [
       {
         "img": "/static/img/gaga1.jpg"
       },
       {
         "img": "/static/img/gaga2.jpg"
+      }
+    ]
+  },
+  "catlover": {
+    "username": "catlover",
+    "name": "Cute Cat Collections",
+    "bio": "Cute cat pics updated daily! You think your cat is the cutest? Mention us!",
+    "img": "/static/img/catlover.jpg",
+    "posts": [
+      {
+        "img": "/static/img/cat1.jpg"
       }
     ]
   }
