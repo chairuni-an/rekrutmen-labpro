@@ -11,4 +11,4 @@ Hasil tugas Eksplorasi 1 terlampir di folder **eksplorasi-2**.
 Ada beberapa catatan:
 - Dokumentasi berada di folder **doc** dengan nama file **Dokumentasi_Eksplorasi_2.pdf**.
 - Source code berada di folder **src**
-- Sebelum melakukan eksekusi, pastika package dependency yang tertera di **package.json** telah diunduh terlebih dahulu.
+- Sebelum melakukan eksekusi, pastikan package dependency yang tertera di **package.json** telah diunduh terlebih dahulu menggunakan **npm**.
