@@ -19,6 +19,8 @@ Deliverable dari tugas ini terdapat pada file Eksplorasi1.md
 
 Melakukan setup dan membuat program sederhana sesuai topik eksplorasi. Program sederhana yang dibuat minimal adalah semacam Hello World!, namun disarankan untuk membuat lebih dari itu demi kelancaran pembuatan rancangan proyek. Setup akan dinilai dari keberhasilan anda membuat Hello World!, sehingga tidak ada deliverable khusus. Untuk program sederhana, kumpulkan source code dan dokumentasi program saja, jangan mengumpulkan executablesnya (bisa menggunakan fitur gitignore). Pastikan dokumentasi Anda menjelaskan cara penggunaan dan screenshot-screenshot dari program sederhana yang Anda buat.
 
+Deliverable dari tugas ini terdapat pada file Eksplorasi12.md dan file /Eksplorasi 2
+
 ## Rancangan Proyek
 * Rilis: 31 Mei 2016
 * Deadline: 5 Juni 2016
