@@ -1,0 +1,39 @@
+{
+  "beyonce": {
+    "username": "beyonce",
+    "name": "Beyonce Knowles",
+    "bio": "#Lemonade",
+    "img": "http://pixel.nymag.com/imgs/daily/vulture/2015/09/09/09-beyonce.w529.h529.jpg",
+    "posts": [
+      {
+        "img": "https://cbsradionews.files.wordpress.com/2016/02/beyonce-super-bowl-50.jpg?w=640&h=360&crop=1"
+      },
+      {
+        "img": "http://mp3teca.com/-/2014/11/Beyonce.jpg"
+      },
+      {
+        "img": "http://assets.rollingstone.com/assets/images/artists/beyonce.jpg"
+      },
+      {
+        "img": "http://www.hollywoodtake.com/sites/default/files/styles/large/public/2013/07/09/beyonce-and-blue-ivy.jpg?itok=KyyfcxjY"
+      },
+      {
+        "img": "http://a.abcnews.com/images/Entertainment/ht_beyonce_150216_1x1_1600.jpg"
+      }
+    ]
+  },
+  "ladygaga": {
+    "username": "ladygaga",
+    "name": "Lady Gaga",
+    "bio": "jazz art pop punk actress fashion magazine editor and columnist!",
+    "img": "http://bit.ly/25p2CIz",
+    "posts": [
+      {
+        "img": "https://pmctvline2.files.wordpress.com/2016/02/lady-gaga-national-anthem.jpg?w=620"
+      },
+      {
+        "img": "https://usatftw.files.wordpress.com/2016/02/usp_entertainment__88th_academy_awards_80083608.jpg?w=1000&h=600&crop=1"
+      }
+    ]
+  }
+}
