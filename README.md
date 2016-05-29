@@ -5,3 +5,10 @@
 * Deadline: 22 Mei 2016
 * Deliverables: Resume topik yang Anda explore
 * File: [Eksplorasi1.md](https://github.com/mickyyu96/rekrutmen-labpro/blob/master/Eksplorasi1.md)
+
+## Eksplorasi 2
+* Rilis: 24 Mei 2016
+* Deadline: 29 Mei 2016
+* Deliverables: Source code dan dokumentasi program sederhana sesuai topik eksplorasi
+* File: [Eksplorasi2.zip](https://github.com/mickyyu96/rekrutmen-labpro/raw/master/Eksplorasi2.zip)
+* Penerapan: Pengolahan database, flash data, templating, dan konsep MVC
