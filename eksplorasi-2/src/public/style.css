@@ -1,12 +1,28 @@
+/***********************************
+ Navbar
+***********************************/
+
 .navbar {
   border-radius: 0 !important;
 }
+
+/***********************************
+ Error page
+***********************************/
+
+#error {
+  padding-top: 10rem;
+}
+
+/***********************************
+ Home page
+***********************************/
 
 .index {
   display: flex;
   justify-content: center;
   overflow: hidden;
-  background-image: url("index-background.jpg");
+  background-image: url("img/index-background.jpg");
   background-size: 100% 100%;
   color: white;
 }
@@ -19,6 +35,9 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+/***********************************
+ Sticky footer
+***********************************/
 .wrap {
   min-height: calc(100vh - 80px);
 }

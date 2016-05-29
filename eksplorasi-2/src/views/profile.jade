@@ -1,6 +1,7 @@
 extends ./layout.jade
 
 block content
+  //profile
   div.container.text-xs-center.wrap.p-t-2
     img.img-circle.center-block.m-b-1(src=user.img height=200 width=200)
     p.lead @#{user.username}
@@ -9,4 +10,6 @@ block content
     div.row
       each post in user.posts
         div.col-md-4.col-xs-6.p-b-1.text-xs-center.picdiv
-          img.img-fluid.center-block.profpic(src=post.img, style={'object-fit' : 'cover'})
+          a(href=post.img)
+            img.img-fluid.center-block.profpic(src=post.img, style={'object-fit' : 'cover'})
+  ///profile
