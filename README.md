@@ -7,7 +7,7 @@ Project ini merupakan sebuah hasil eksplorasi menggunakan framework **ExpressJS*
 Hasil tugas Eksplorasi 1 terlampir di file **Resume_Eksplorasi_1.pdf**
 
 ## Eksplorasi 2
-Hasil tugas Eksplorasi 1 terlampir di folder **eksplorasi-2**
+Hasil tugas Eksplorasi 1 terlampir di folder **eksplorasi-2**.
 Ada beberapa catatan:
 - Dokumentasi berada di folder **doc**
 - Source code berada di folder **src**
