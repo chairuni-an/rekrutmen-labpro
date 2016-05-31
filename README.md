@@ -3,7 +3,8 @@ Terlampir beberapa file yang merupakan tugas dari Rekrutmen Labpro. File tersebu
 
 1. [Eksplorasi1.md] - Tugas Eksplorasi 1
 2. [Dokumentasi1.pdf] - Tugas Eksplorasi 2 bagian Dokumentasi
-3. File lainnya adalah project keseluruhan game yang dibuat secara otomatis oleh Visual Studio 2010
+3. [Proposal_proyek.pdf] - Tugas Rancangan Proyek
+4. File lainnya adalah project keseluruhan game yang dibuat secara otomatis oleh Visual Studio 2010
 
 Game assets didownload dari : opengameart.org
 
@@ -16,3 +17,4 @@ Game assets didownload dari : opengameart.org
 
 [Eksplorasi1.md]: <https://github.com/martinock/rekrutmen-labpro/blob/master/Eksplorasi1.md>
 [Dokumentasi1.pdf]: <https://github.com/martinock/rekrutmen-labpro/blob/master/Dokumentasi1.pdf>
+[Proposal_proyek.pdf]: <https://github.com/martinock/rekrutmen-labpro/blob/master/Proposal_proyek.pdf>
