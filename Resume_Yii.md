@@ -19,12 +19,12 @@ Apakah Yii cepat? ... Apakah Yii aman? ... Apakah Yii profesional? ... Apakah Yi
 
 ## Struktur
 Yii mengimplementasikan pola desain model-view-controller (MVC). Dalam MVC, model menggambarkan informasi (data) dan aturan bisnis; view(tampilan) berisi elemen antar muka pengguna seperti teks, input form; sementara controller mengatur komunikasi antar model dan view. Selain implementasi MVC, Yii juga memiliki entitas-entitas berikut :
-* _entry scripts_: komponen ini merupakan _PHP scripts_ yang secara langsung dapat diakses oleh pengguna. File ini bertanggung jawab untuk memulai _request handling cycle_.
-* _applications_: komponen ini secara global merupakan objek yang dapat diakses yang berfungsi untuk mengelola komponen aplikasi dan mengkoordinasikan komponen tersebut untuk memenuhi _request_.
-* _application components_: komponen ini merupakan objek yang terdaftar dengan apilasi dan menyediakan berbagai layanan untuk memenuhi _requests_
-* _modules_: komponen ini merupakan paket mandiri yang berisi MVC. Aplikasi dapat diatur dalam beberapa modul.
-* _filters_: komponen ini merepresentasikan kode yang perlu dipanggil sebelum dan sesudah penanganan sebenarnya untuk setiap _request_ dari _controllers_.
-* _widgets_: komponen ini merupakan objek yang tertanam di _views_. Komponen ini mungkin memliki _logic_ dari _controllers_ dan dapat digunakan di _views_ yang berbeda.
+* _entry scripts_: entitas ini merupakan _PHP scripts_ yang secara langsung dapat diakses oleh pengguna. Entitas ini bertanggung jawab untuk memulai _request handling cycle_.
+* _applications_: entitas ini secara global merupakan objek yang dapat diakses yang berfungsi untuk mengelola komponen aplikasi dan mengkoordinasikan komponen tersebut untuk memenuhi _request_.
+* _application components_: entitas ini merupakan objek yang terdaftar dengan apilasi dan menyediakan berbagai layanan untuk memenuhi _requests_
+* _modules_: entitas ini merupakan paket mandiri yang berisi MVC. Aplikasi dapat diatur dalam beberapa modul.
+* _filters_: entitas ini merepresentasikan kode yang perlu dipanggil sebelum dan sesudah penanganan sebenarnya untuk setiap _request_ dari _controllers_.
+* _widgets_: entitas ini merupakan objek yang tertanam di _views_. Entitas ini mungkin memliki _logic_ dari _controllers_ dan dapat digunakan di _views_ yang berbeda.
 
 Diagram berikut merupakan struktur statis dari aplikasi
 ![Static Structure](http://www.yiiframework.com/doc-2.0/images/application-structure.png)
