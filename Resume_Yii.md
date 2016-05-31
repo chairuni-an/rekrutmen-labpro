@@ -19,12 +19,13 @@ Apakah Yii cepat? ... Apakah Yii aman? ... Apakah Yii profesional? ... Apakah Yi
 
 ## Struktur
 Yii mengimplementasikan pola desain model-view-controller (MVC). Dalam MVC, model menggambarkan informasi (data) dan aturan bisnis; view(tampilan) berisi elemen antar muka pengguna seperti teks, input form; sementara controller mengatur komunikasi antar model dan view. Selain implementasi MVC, Yii juga memiliki entitas-entitas berikut :
-* entry scripts: they are PHP scripts that are directly accessible by end users. They are responsible for starting a request handling cycle.
-* applications: they are globally accessible objects that manage application components and coordinate them to fulfill requests.
-* application components: they are objects registered with applications and provide various services for fulfilling requests.
-* modules: they are self-contained packages that contain complete MVC by themselves. An application can be organized in terms of multiple modules.
-* filters: they represent code that need to be invoked before and after the actual handling of each request by controllers.
-* widgets: they are objects that can be embedded in views. They may contain controller logic and can be reused in different views.
+* _entry scripts_: komponen ini merupakan _PHP scripts_ yang secara langsung dapat diakses oleh pengguna. File ini bertanggung jawab untuk memulai _request handling cycle_.
+* _applications_: komponen ini secara global merupakan objek yang dapat diakses yang berfungsi untuk mengelola komponen aplikasi dan mengkoordinasikan komponen tersebut untuk memenuhi _request_.
+* _application components_: komponen ini merupakan objek yang terdaftar dengan apilasi dan menyediakan berbagai layanan untuk memenuhi _requests_
+* _modules_: komponen ini merupakan paket mandiri yang berisi MVC. Aplikasi dapat diatur dalam beberapa modul.
+* _filters_: komponen ini merepresentasikan kode yang perlu dipanggil sebelum dan sesudah penanganan sebenarnya untuk setiap _request_ dari _controllers_.
+* _widgets_: komponen ini merupakan objek yang tertanam di _views_. Komponen ini mungkin memliki _logic_ dari _controllers_ dan dapat digunakan di _views_ yang berbeda.
+
 Diagram berikut merupakan struktur statis dari aplikasi
 ![Static Structure](http://www.yiiframework.com/doc-2.0/images/application-structure.png)
 
@@ -33,15 +34,15 @@ Diagram berikut memperlihatkan bagaimana aplikasi menghandle request
 
 ![Request Lifecycle](http://www.yiiframework.com/doc-2.0/images/request-lifecycle.png)
 
-1. Pengguna membuat request ke entry script web/index.php.
-2. Entry script memuat konfigurasi aplikasi dan membuat instans aplikasi untuk menghandle request.
+1. Pengguna membuat _request_ ke _entry script_ web/index.php.
+2. _Entry script_ memuat konfigurasi aplikasi dan membuat instans aplikasi untuk meng-_handle request_.
 3. Aplikasi ini menyelesaikan rute yang diminta dengan bantuan komponen aplikasi permintaan.
-4. Aplikasi membuat instans controller untuk menghandle permintaan.
-5. Controller membuat instans action dan melakukan filter untuk action.
+4. Aplikasi membuat instans _controller_ untuk meng-_handle_ permintaan.
+5. _Controller_ membuat instans _action_ dan melakukan filter untuk _action_.
 6. Jika filter gagal, aksi dibatalkan.
 7. Jika filter lolos, aksi dilakukan.
-8. Aksi memuat data model, yang mungkin saja dari database.
-9. Aksi membuat view, yang dimunculkan dengan data model.
+8. Aksi memuat data model, yang mungkin saja dari _database_.
+9. Aksi membuat _view_, yang dimunculkan dengan data model.
 10. Hasil dikembalikan ke komponen aplikasi respon.
 11. Komponen respon mengirimkan hasil yang diberikan ke browser pengguna.
 
