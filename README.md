@@ -104,9 +104,8 @@ Dokumentasi dari program iti ada di dalam folder Dokumentasi.</br>
 ## Rancangan Proyek
 * Rilis: 31 Mei 2016
 * Deadline: 5 Juni 2016
-* Deliverables: Dokumen rancangan proyek
-
-Membuat rancangan proyek yang meliputi deskripsi singkat, platform, fitur minimal, asumsi, dan batasan implementasi. Template dokumen akan disampaikan pada waktu rilis tugas ini, dan mungkin agak sedikit berbeda dengan apa yang disampaikan pada file ini, gunakan yang ada di template saja nanti.
+* Deliverables: [Proposal Proyek - 13514075](https://github.com/kristiantokarim/rekrutmen-labpro/blob/master/Proposal%20Proyek%20-%2013514075%20-%20Kristianto%20Karim.docx)</br>
+Rancangan proyek menggunakan ruby on rails. Proyek adalah aplikasi web berbentuk forum. Penjelasan lebih rinci dapat dilihat dalam dokumen proposal.
 
 ## Revisi Rancangan Proyek
 * Rilis: 7 Juni 2016
