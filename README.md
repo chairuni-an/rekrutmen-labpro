@@ -12,3 +12,9 @@
 * Deliverables: Source code dan dokumentasi program sederhana sesuai topik eksplorasi
 * File: [Eksplorasi2.zip](https://github.com/mickyyu96/rekrutmen-labpro/raw/master/Eksplorasi2.zip)
 * Penerapan: Pengolahan database, flash data, templating, dan konsep MVC
+
+## Rancangan Proyek
+* Rilis: 31 Mei 2016
+* Deadline: 5 Juni 2016
+* Deliverables: Dokumen rancangan proyek
+* File: [RancanganProyek.pdf](https://github.com/mickyyu96/rekrutmen-labpro/blob/master/RancanganProyek.pdf)
