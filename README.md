@@ -3,7 +3,7 @@
 ### Jessy Josephine Naomi - 18214021
 
 ## Garis Besar Tugas
-Pada rekrutmen asisten Lab Programming Angkatan 2014 ini, saya mendapat tugas untuk melakukan eksplorasi dan membuat proyek dari suatu framework bernama ReactJS. ReactJS ini merupakan suatu pustaka JavaScript untuk membuat antarmuka (front-end).
+Pada rekrutmen asisten Lab Programming Angkatan 2014 ini, saya mendapat tugas untuk melakukan eksplorasi dan membuat proyek dari suatu library bernama ReactJS. ReactJS ini merupakan suatu pustaka JavaScript untuk membuat antarmuka (front-end).
 
 ## Eksplorasi 1
 * Rilis: 3 Mei 2016
@@ -27,6 +27,8 @@ Deliverable dari tugas ini terdapat pada file Eksplorasi2.md dan folder /Eksplor
 * Deliverables: Dokumen rancangan proyek
 
 Membuat rancangan proyek yang meliputi deskripsi singkat, platform, fitur minimal, asumsi, dan batasan implementasi. Template dokumen akan disampaikan pada waktu rilis tugas ini, dan mungkin agak sedikit berbeda dengan apa yang disampaikan pada file ini, gunakan yang ada di template saja nanti.
+
+Deliverable dari tugas ini terdapat pada file Proposal_Proyek.docx
 
 ## Revisi Rancangan Proyek
 * Rilis: 7 Juni 2016
