@@ -37,6 +37,8 @@ Deliverable dari tugas ini terdapat pada file Proposal_Proyek.docx
 
 Pada tahap ini Anda sudah akan diassign pada asisten khusus untuk masing-masing peserta. Lakukanlah asistensi dengan asisten Anda untuk melakukan revisi ini.
 
+Deliverable dari tugas ini terdapat pada file Revisi_Proposal_Proyek.pdf
+
 ## Checkpoint 1
 * Rilis: 14 Juni 2016
 * Deadline: 10 Juli 2016
