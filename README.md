@@ -18,3 +18,9 @@
 * Deadline: 5 Juni 2016
 * Deliverables: Dokumen rancangan proyek
 * File: [RancanganProyek.pdf](https://github.com/mickyyu96/rekrutmen-labpro/blob/master/RancanganProyek.pdf)
+
+## Revisi Rancangan Proyek
+* Rilis: 7 Juni 2016
+* Deadline: 12 Juni 2016
+* Deliverables: Revisi dokumen rancangan proyek
+* File : [RevisiRancanganProyek.pdf](https://github.com/mickyyu96/rekrutmen-labpro/blob/master/RevisiRancanganProyek.pdf)
