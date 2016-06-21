@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * ArtikelController implements the CRUD actions for Artikel model.
@@ -20,6 +21,16 @@ class ArtikelController extends Controller
     public function behaviors()
     {
         return [
+			'access' => [
+				'class' => AccessControl::className(),
+				'rules' => [
+					[
+						'actions' => ['index', 'create', 'update', 'delete'],
+						'allow' => true,
+						'roles' => ['@'],
+					],
+				],
+			],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -37,6 +48,11 @@ class ArtikelController extends Controller
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Artikel::find(),
+			'sort' => [
+				'defaultOrder' => [
+					'id_artikel' => SORT_DESC
+				]
+			]
         ]);
 
         return $this->render('index', [
@@ -66,7 +82,7 @@ class ArtikelController extends Controller
         $model = new Artikel();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_artikel]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -85,7 +101,7 @@ class ArtikelController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_artikel]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,

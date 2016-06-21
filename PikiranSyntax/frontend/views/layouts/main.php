@@ -71,29 +71,12 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
 			['label' => 'Home', 'url' => ['/site/index']],
-			['label' => 'Kategori'],
+/*			['label' => 'Kategori', 'items' => common\models\Kategori::getKategoriMenu()],*/
 			['label' => 'Signup', 'url' => ['/site/signup'], 'visible' => Yii::$app->user->isGuest],
 			Yii::$app->user->isGuest ? (
 				['label' => 'Login', 'url' => ['site/login']]
@@ -109,19 +92,55 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
+	
+	
+	<div class="container-fluid" style="background: #fff; width: 960px; margin-top: 50px">
+		<div class="row-fluid">
+			<div class="jumbotron" style="background: #f0f0f0; margin-top: 20px; padding-top: 10px; padding-bottom: 10px" >
+				<h1>Pikiran Syntax</h1>
+				<p class="lead">Pandangan, Perspektif, Pemikiran</p>
+				<p><a class="btn btn-lg btn-success" href="localhost/PikiranSyntax">Login</a></p>
+			</div>
+		</div>
+		
+		<div class="row-fluid">
+			<div class="col-md-8">
+				<?= $content ?>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">Top Artikel</div>
+					<div class="panel-body">
+						<ul>
+						<?php /*
+							<?php foreach(common\models\Artikel::topArtikel() as $row): ?>
+								<li><?= Html::a($row->judul .' ('.$row->jumlah_baca.')', ['view', 'id' => $row->id_artikel]) ?></li>
+							<?php endforeach; ?>
+						*/ ?>
+						</ul>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">Komentar Terbanyak</div>
+					<div class="panel-body">
+						<ul>
+						<?php /*
+/*						<?php foreach(common\models\Artikel::topKomentar() as $row): ?>
+							<li><?= Html::a($row->judul .' ('. count($row->komentars).')', ['view', 'id' => $row->id_artikel]) ?></li>
+						<?php endforeach; ?>
+						*/ ?>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left"><?= Yii::$app->name ?> &copy; <?= date('Y') ?> Ade Yusuf Rahardian</p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

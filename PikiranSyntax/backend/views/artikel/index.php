@@ -9,29 +9,31 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('app', 'Artikels');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="artikel-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Artikel'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-<?php Pjax::begin(); ?>    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id_artikel',
-            'judul',
-            'isi_artikel:ntext',
-            'id_kategori',
-            'jumlah_baca',
-            // 'create_by',
-            // 'create_time',
-            // 'update_by',
-            // 'update_time',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-<?php Pjax::end(); ?></div>
+<div class="artikel-index panel panel-info">
+	<div class="panel-heading">
+		<h4><?= Html::encode($this->title) ?>
+		<span class="pull-right">
+			<?= Html::a(Yii::t('app', 'Tambah Artikel'), ['create'], ['class' => 'btn btn-primary btn-sm']) ?>
+			<?= Html::a(Yii::t('app', 'Kategori'), ['/kategori'], ['class' => 'btn btn-danger btn-sm']) ?>
+		</span>
+		</h4>
+	</div>
+	
+	<div class="panel-body">
+		<?php Pjax::begin(); ?> <?= GridView::widget([
+			'dataProvider' => $dataProvider,
+			'columns' => [
+				['class' => 'yii\grid\SerialColumn'],
+				'judul',
+				'idKategori.nama_kategori',
+				'jumlah_baca',
+				'create_time:date',
+				[
+					'class' => 'yii\grid\ActionColumn',
+					'template' => '{update} {delete}'
+				],
+			],
+		]); ?>
+		<?php Pjax::end(); ?>
+	</div>
+</div>
