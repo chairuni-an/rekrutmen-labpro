@@ -1,0 +1,24 @@
+{
+  "name": "picshare",
+  "description": "Picshare - ExpressJS Project",
+  "main": "app.js",
+  "authors": [
+    "ranggarmaste <ranggarmaste@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ranggarmaste/rekrutmen-labpro",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-resource": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "bootstrap": "v4.0.0-alpha.2"
+  }
+}

@@ -1,0 +1,43 @@
+/***********************************
+ Navbar
+***********************************/
+
+.navbar {
+  border-radius: 0 !important;
+}
+
+/***********************************
+ Error page
+***********************************/
+
+#error {
+  padding-top: 10rem;
+}
+
+/***********************************
+ Home page
+***********************************/
+
+.index {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background-image: url("img/index-background.jpg");
+  background-size: 100% 100%;
+  color: white;
+}
+
+.index div {
+  align-items: stretch;
+  overflow: hidden;
+  padding-top: 10rem;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/***********************************
+ Sticky footer
+***********************************/
+.wrap {
+  min-height: calc(100vh - 80px);
+}

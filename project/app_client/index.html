@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="picshareApp">
+  <head>
+      <base href="/"/>
+    <title>PIXY</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="bower/bootstrap/dist/css/bootstrap.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+  <body>
+    <ng-include src="'partials/nav.html'"></ng-include>
+    <ng-view>
+
+    </ng-view>
+    <ng-include src="'partials/footer.html'"></ng-include>
+    <!--Scripts-->
+    <script src="bower/angular/angular.js"></script>
+    <script src="bower/angular-route/angular-route.js"></script>
+    <script src="bower/angular-resource/angular-resource.js"></script>
+    <script src="app.js"></script>
+    <ng-include src="'partials/scripts.html'"></ng-include>
+  </body>
+</html>
