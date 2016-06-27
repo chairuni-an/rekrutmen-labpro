@@ -1,4 +1,14 @@
-picshareApp.controller('LoginController', function($scope, User) {
-  $scope.user = new User();
+picshareApp.controller('LoginController', function($scope, $http, $location, $window, Authentication) {
+  if ($window.localStorage['login-token']) {
+    $location.path('/');
+  }
 
+  $scope.submit = function() {
+    Authentication
+    .login($scope.user)
+    .then(function() {
+      console.log('Ctrl');
+      $location.path('home');
+    });
+  }
 });
