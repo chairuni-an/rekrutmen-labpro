@@ -1,0 +1,14 @@
+<div class="container wrap p-t-2 p-b-2">
+  <h2>Login</h2>
+  <form ng-controller='LoginController' ng-submit='submit()'>
+    <fieldset class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" ng-model="user.username" placeholder="e.g. allenturner">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" ng-model="user.password" placeholder="Password">
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
