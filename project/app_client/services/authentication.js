@@ -1,14 +1,15 @@
 picshareApp.factory('Authentication', function($window, $http, User) {
   saveToken = function(token) {
-    $window.localStorage['login-token'] = token;
+    $window.localStorage.setItem('login-token', token);
   },
 
   getToken = function() {
-    return $window.localStorage['login-token'];
+    return $window.localStorage.getItem('login-token');
   },
 
   logout = function() {
     $window.localStorage.removeItem('login-token');
+    $window.location.reload();
   },
 
   isLoggedIn = function() {
@@ -27,11 +28,9 @@ picshareApp.factory('Authentication', function($window, $http, User) {
     if (isLoggedIn()) {
       var token = getToken();
       var user = JSON.parse($window.atob(token.split('.')[1]));
-      return {
-        username: user.username,
-        fullname: user.fullname
-      }
+      return user.username;
     }
+    return '';
   },
 
   login = function(user) {

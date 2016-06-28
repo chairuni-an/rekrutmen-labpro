@@ -1,14 +1,19 @@
-picshareApp.controller('RegisterController', function($scope, User) {
+picshareApp.controller('RegisterController',
+function($scope, $location, $window, User, Authentication) {
+  if ($window.localStorage['login-token']) {
+    $location.path('/');
+  }
+
   $scope.user = new User();
 
   $scope.submit = function() {
-    $scope.user.$save().then(function(res) {
-      console.log(res);
-      if (res.results === 'Success') {
-        alert('Success');
+    $scope.user.$save().then(function(resource) {
+      if (resource.token) {
+        Authentication.saveToken(resource.token);
+        $window.location.reload(true);
       } else {
-        alert('Failed: username already exists');
+        alert('Failed: Username already exists.');
       }
-    })
+    });
   }
 });

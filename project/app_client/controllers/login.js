@@ -1,4 +1,5 @@
-picshareApp.controller('LoginController', function($scope, $http, $location, $window, Authentication) {
+picshareApp.controller('LoginController',
+function($scope, $http, $location, $window, Authentication) {
   if ($window.localStorage['login-token']) {
     $location.path('/');
   }
@@ -8,7 +9,7 @@ picshareApp.controller('LoginController', function($scope, $http, $location, $wi
     .login($scope.user)
     .then(function() {
       console.log('Ctrl');
-      $location.path('home');
+      $window.location.reload(true);
     });
   }
 });

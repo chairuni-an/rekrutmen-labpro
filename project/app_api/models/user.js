@@ -20,8 +20,11 @@ var userSchema = new Schema({
     type: String,
     required: true
   },
+  avatar: String,
   hash: String,
   salt: String,
+  following: [ String ],
+  followers: [ String ],
   posts: [ Schema.Types.ObjectId ]
 });
 

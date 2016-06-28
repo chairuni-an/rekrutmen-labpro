@@ -1,5 +1,6 @@
-picshareApp.controller('NavController', function($scope, Authentication) {
+picshareApp.controller('NavController', function($scope, $window, Authentication) {
   //Authentication.logout();
   $scope.isLoggedIn = Authentication.isLoggedIn();
-  $scope.currentUser = Authentication.getCurrentUser().username;
+  $scope.currentUser = Authentication.getCurrentUser();
+  $scope.logout = Authentication.logout;
 });

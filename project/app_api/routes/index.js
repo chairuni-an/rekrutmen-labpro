@@ -11,9 +11,11 @@ router.post('/users/:username?', function(req, res) {
     username: req.body.username,
     email: req.body.email,
     fullname: req.body.fullname,
+    following: [],
+    followers: [],
+    posts: []
   });
   user.setPassword(req.body.password);
-  user.posts = [];
   user.save(function(err) {
     if (err) { res.json({}); }
     res.json({ token: user.generateJwt() });

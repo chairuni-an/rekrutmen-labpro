@@ -2,7 +2,9 @@
   <div class="container">
     <a ng-hide="isLoggedIn" href="/" class="navbar-brand">PICSHARE</a>
     <a ng-show="isLoggedIn" class="navbar-brand">{{currentUser}}</a>
-    <form method="get" action="/" class="form-inline pull-xs-right">
+    <a ng-hide="isLoggedIn" class="btn btn-success pull-xs-right" href="login">Login</a>
+    <button ng-show="isLoggedIn" class="btn btn-success pull-xs-right" ng-click="logout()">Logout</button>
+    <form method="get" action="/" class="form-inline p-r-1 pull-xs-right">
       <input type="text" name="username" placeholder="Username..." class="form-control"/>
       <button type="submit" class="btn btn-success">Search</button>
     </form>
