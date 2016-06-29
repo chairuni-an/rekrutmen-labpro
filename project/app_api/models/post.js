@@ -9,13 +9,15 @@ var postSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
+  desc: String,
   date: Date,
   comments: [{
     username: String,
     date: Date,
     body: String
   }],
-  likes: [ String ]
+  likes: [ String ],
+  hashtags: [ String ]
 });
 
-module.export = mongoose.model('Post', postSchema);
+module.exports = mongoose.model('Post', postSchema)

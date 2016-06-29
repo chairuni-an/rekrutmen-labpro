@@ -1,13 +1,48 @@
-<div class="container text-xs-center wrap p-t-2"><img src="#" height="200" width="200" class="img-circle center-block m-b-1"/>
-  <p class="lead"></p>
+<div ng-controller="ProfileController" class="container text-xs-center wrap p-t-2">
+  <img ng-src="{{image}}" height="200" width="200" class="img-circle center-block m-b-1"/>
+  <p class="lead">@{{user.username}} | {{user.fullname}}</p>
   <p><!-- bio --></p>
   <div class="row">
-    <!-- for each picture -->
-    <div class="col-md-4 col-xs-6 p-b-1 text-xs-center picdiv">
-      <a href="href">
-        <img src="#" style="object-fit:cover" class="img-fluid center-block profpic"/>
+    <div ng-show="isCurrentUser" class="col-md-4 col-xs-6 p-b-1 text-xs-center picdiv">
+      <a href="#" data-toggle="modal" data-target=".bd-example-modal-lg">
+        <img src="/static/img/plus.png" class="img-fluid profpic"/>
       </a>
     </div>
-    <!-- end -->
+    <div ng-repeat="post in user.posts" class="col-md-4 col-xs-6 p-b-1 text-xs-center picdiv">
+      <a href="{{post.img}}">
+        <img ng-src="{{post.img}}" class="img-fluid center-block profpic"/>
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="gridModalLabel">Upload Image</h4>
+        </div>
+        <div class="modal-body">
+          <form name="postForm">
+            <div id="previewDiv" class="m-b-2">
+              <img id="previewPhoto" class="center-block img-fluid" ng-show="postForm.file.$valid" ngf-thumbnail="picFile">
+            </div>
+            <fieldset class="form-group">
+              <label class="btn btn-primary" for="fileInput">
+                <input style="display:none;" type="file" ngf-select ng-model="picFile" name="file" id="fileInput"
+                accept="image/*" ngf-max-size="2MB" required>
+                Browse Image
+              </label>
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="username">Description</label>
+              <textarea class="form-control" id="description" ng-model="desc" placeholder="Add some description..."></textarea>
+            </fieldset>
+            <button ng-disabled="!postForm.$valid" ng-click="upload(picFile, desc)">Post Image</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

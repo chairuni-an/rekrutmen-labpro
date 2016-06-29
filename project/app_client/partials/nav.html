@@ -1,7 +1,7 @@
 <nav ng-controller="NavController" class="navbar navbar-fixed navbar-dark bg-danger">
   <div class="container">
     <a ng-hide="isLoggedIn" href="/" class="navbar-brand">PICSHARE</a>
-    <a ng-show="isLoggedIn" class="navbar-brand">{{currentUser}}</a>
+    <a ng-show="isLoggedIn" href="/{{currentUser}}" class="navbar-brand">{{currentUser}}</a>
     <a ng-hide="isLoggedIn" class="btn btn-success pull-xs-right" href="login">Login</a>
     <button ng-show="isLoggedIn" class="btn btn-success pull-xs-right" ng-click="logout()">Logout</button>
     <form method="get" action="/" class="form-inline p-r-1 pull-xs-right">

@@ -25,7 +25,10 @@ var userSchema = new Schema({
   salt: String,
   following: [ String ],
   followers: [ String ],
-  posts: [ Schema.Types.ObjectId ]
+  posts: [ {
+    type: Schema.Types.ObjectId,
+    ref: 'Post'
+  }]
 });
 
 userSchema.methods.setPassword = function(password) {

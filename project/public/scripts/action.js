@@ -4,6 +4,7 @@ $('#signup').click(() => {
 
 // Adjusting each profile image's size
 var adjust = function() {
+  // For profile picture
   var $profpic = $('.profpic');
   var width = $('.picdiv').width();
   $profpic.css('width', width);

@@ -7,6 +7,31 @@
 }
 
 /***********************************
+ Profile photo preview
+***********************************/
+#previewDiv {
+  margin: auto;
+  width: 350px;
+  height: 350px;
+  border: 2px solid black
+}
+
+#previewPhoto {
+  width: 350px;
+  height: 347px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/***********************************
+ User's pictures
+***********************************/
+.picdiv {
+  object-fit: cover;
+  object-position: center;
+}
+
+/***********************************
  Error page
 ***********************************/
 
@@ -22,7 +47,7 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
-  background-image: url("img/index-background.jpg");
+  background-image: url("../img/index-background.jpg");
   background-size: 100% 100%;
   color: white;
 }
