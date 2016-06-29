@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -9,29 +10,36 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="artikel-form">
-
-    <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'judul')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'isi_artikel')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'id_kategori')->textInput() ?>
-
-    <?= $form->field($model, 'jumlah_baca')->textInput() ?>
-
-    <?= $form->field($model, 'create_by')->textInput() ?>
-
-    <?= $form->field($model, 'create_time')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'update_by')->textInput() ?>
-
-    <?= $form->field($model, 'update_time')->textInput(['maxlength' => true]) ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
-
-    <?php ActiveForm::end(); ?>
-
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h4>
+				<?= $this->title ?>
+				<span class="pull-right">
+					<?= Html::a('Kembali', ['index'], ['class' => 'btn btn-danger btn-sm']) ?>
+				</span>
+			</h4>
+		</div>
+		
+		<div class="panel-body">
+			<?php $form = ActiveForm::begin([
+				'options' => [
+					'class' => 'col-md-5'
+				]
+			]); ?>
+			
+			<?= $form->field($model, 'judul')->textInput(['maxlength' => true]) ?>
+			
+			<?= $form->field($model, 'isi_artikel')->textarea(['rows' => 6]) ?>
+			
+			<?= $form->field($model, 'id_kategori')->dropDownList(
+				ArrayHelper::map(common\models\Kategori::find()->all(), 'id_kategori', 'nama_kategori')
+			) ?>
+			
+			<div class="form group">
+				<?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+			</div>
+			
+			<?php ActiveForm::end(); ?>	
+		</div>
+	</div>
 </div>

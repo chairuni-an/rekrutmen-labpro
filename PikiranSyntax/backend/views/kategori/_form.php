@@ -9,15 +9,30 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="kategori-form">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h4>
+				<?= $this->title ?>
+				<span class="pull-right">
+					<?= Html::a(Yii::t('app', 'Kembali'), ['index'], ['class' => 'btn btn-danger btn-sm']) ?>
+				</span>
+			</h4>
+		</div>
 
-    <?php $form = ActiveForm::begin(); ?>
+		<div class="panel-body">
+			<?php $form = ActiveForm::begin([
+				'options' => [
+					'class' => 'col-md-4'
+				]
+			]); ?>
 
-    <?= $form->field($model, 'nama_kategori')->textInput(['maxlength' => true]) ?>
+			<?= $form->field($model, 'nama_kategori')->textInput(['maxlength' => true]) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+			<div class="form-group">
+				<?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+			</div>
 
-    <?php ActiveForm::end(); ?>
-
+			<?php ActiveForm::end(); ?>
+		</div>
+	</div>
 </div>

@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * KategoriController implements the CRUD actions for Kategori model.
@@ -20,6 +21,16 @@ class KategoriController extends Controller
     public function behaviors()
     {
         return [
+			'access' => [
+				'class' => AccessControl::className(),
+				'rules' => [
+					[
+						'actions' => ['index', 'create', 'update', 'delete'],
+						'allow' => true,
+						'roles' => ['@'],
+					],
+				],
+			],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -37,6 +48,11 @@ class KategoriController extends Controller
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Kategori::find(),
+			'sort' => [
+				'defaultOrder' => [
+					'nama_kategori' => SORT_ASC
+				]
+			]
         ]);
 
         return $this->render('index', [
@@ -49,12 +65,12 @@ class KategoriController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
+/*   public function actionView($id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
-    }
+    } */
 
     /**
      * Creates a new Kategori model.
@@ -66,7 +82,7 @@ class KategoriController extends Controller
         $model = new Kategori();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_kategori]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -85,7 +101,7 @@ class KategoriController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_kategori]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,

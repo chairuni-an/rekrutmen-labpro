@@ -38,14 +38,11 @@ class Artikel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['judul', 'isi_artikel', 'id_kategori', 'jumlah_baca', 'create_by', 'create_time', 'update_by', 'update_time'], 'required'],
+            [['judul', 'isi_artikel', 'id_kategori'], 'required'],
             [['isi_artikel'], 'string'],
             [['id_kategori', 'jumlah_baca', 'create_by', 'update_by'], 'integer'],
             [['judul'], 'string', 'max' => 255],
-            [['create_time', 'update_time'], 'string', 'max' => 10],
-            [['id_kategori'], 'exist', 'skipOnError' => true, 'targetClass' => Kategori::className(), 'targetAttribute' => ['id_kategori' => 'id_kategori']],
-            [['create_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['create_by' => 'id']],
-            [['update_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['update_by' => 'id']],
+            [['create_time', 'update_time'], 'string', 'max' => 10]
         ];
     }
 
@@ -98,4 +95,23 @@ class Artikel extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Komentar::className(), ['id_artikel' => 'id_artikel']);
     }
+	
+	public function beforeSave($insert)
+	{
+		parent::beforeSave($insert);
+		if ($this->isNewRecord)
+		{
+			$this->jumlah_baca = 0;
+			$this->create_by = Yii::$app->user->id;
+			$this->update_by = Yii::$app->user->id;
+			$this->create_time = time();
+			$this->update_time = time();
+		}
+		else
+		{
+			$this->update_by = Yii::$app->user->id;
+			$this->update_time = time();
+		}
+		return true;
+	}
 }
