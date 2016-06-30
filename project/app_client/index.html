@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="picshareApp">
   <head>
-      <base href="/"/>
-    <title>PIXY</title>
+    <base href="/"/>
+    <title>PICSHARE</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,13 +12,16 @@
   </head>
   <body>
     <ng-include src="'partials/nav.html'"></ng-include>
-    <ng-view>
+    <ng-view class="view-animate">
 
     </ng-view>
     <ng-include src="'partials/footer.html'"></ng-include>
     <!--Scripts-->
+    <script src="bower/jquery/dist/jquery.js"></script>
+    <script src="bower/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower/angular/angular.js"></script>
     <script src="bower/angular-route/angular-route.js"></script>
+    <script src="bower/angular-animate/angular-animate.js"></script>
     <script src="bower/angular-resource/angular-resource.js"></script>
     <script src="bower/ng-file-upload/ng-file-upload-shim.min.js"></script>
     <script src="bower/ng-file-upload/ng-file-upload.min.js"></script>
@@ -30,8 +33,5 @@
     <script src="services/userResource.js"></script>
     <script src="services/postResource.js"></script>
     <script src="services/authentication.js"></script>
-    <script src="bower/jquery/dist/jquery.js"></script>
-    <script src="bower/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="static/scripts/action.js"></script>
   </body>
 </html>

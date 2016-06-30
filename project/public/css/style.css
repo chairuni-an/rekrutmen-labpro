@@ -26,9 +26,9 @@
 /***********************************
  User's pictures
 ***********************************/
-.picdiv {
+.profpic {
   object-fit: cover;
-  object-position: center;
+  object-position: 50% 50%;
 }
 
 /***********************************

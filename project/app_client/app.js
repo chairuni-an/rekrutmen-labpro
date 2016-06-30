@@ -1,4 +1,4 @@
-var picshareApp = angular.module('picshareApp', ['ngRoute', 'ngResource', 'ngFileUpload']);
+var picshareApp = angular.module('picshareApp', ['ngAnimate', 'ngRoute', 'ngResource', 'ngFileUpload']);
 
 picshareApp.config(function($locationProvider, $routeProvider) {
    $routeProvider.when('/error', {

@@ -50,7 +50,7 @@ router.post('/users/:username/posts', upload.single('file'), function(req, res) 
     if (err) { return res.json({err: err}); }
     User.findOne({username: req.params.username}, function(err, user) {
       if (err) { return res.json({err: err}); }
-      user.posts.push(post._id);
+      user.posts.unshift(post._id);
       user.save(function(err) {
         if (err) { return res.json({err: err}); }
         res.json({err: 0})

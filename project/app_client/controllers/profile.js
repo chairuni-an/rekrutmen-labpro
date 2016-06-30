@@ -1,5 +1,8 @@
 picshareApp.controller('ProfileController', function($scope, $window, $location, User, Upload, Authentication) {
   var username = $location.path().substring(1);
+
+  $scope.viewImage = false;
+  
   $scope.isCurrentUser = Authentication.getCurrentUser() == username;
 
   User.get({username: username}).$promise.then(function(user) {

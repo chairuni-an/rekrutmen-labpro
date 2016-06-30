@@ -1,5 +1,6 @@
 picshareApp.controller('LoginController',
 function($scope, $http, $location, $window, Authentication) {
+  $scope.isRejected = false;
   if ($window.localStorage['login-token']) {
     $location.path('/');
   }
@@ -10,6 +11,9 @@ function($scope, $http, $location, $window, Authentication) {
     .then(function() {
       console.log('Ctrl');
       $window.location.reload(true);
+    })
+    .catch(function(error) {
+      $scope.isRejected = true;
     });
   }
 });
