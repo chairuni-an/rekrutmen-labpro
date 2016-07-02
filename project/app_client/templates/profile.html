@@ -1,22 +1,22 @@
 <div ng-controller="ProfileController" class="container text-xs-center wrap p-t-2">
-  <img ng-src="{{image}}" height="200" width="200" class="img-circle center-block m-b-1"/>
+  <img ng-src="{{user.avatar}}" height="200" width="200" class="img-circle center-block m-b-1"/>
   <p class="lead">@{{user.username}} | {{user.fullname}}</p>
   <p><!-- bio --></p>
   <div class="row">
     <div ng-show="isCurrentUser" class="col-md-4 col-xs-6 p-b-1 text-xs-center">
-      <a href="#" ng-click="viewImage = !viewImage" data-toggle="modal" data-target=".bd-example-modal-lg">
+      <a href data-toggle="modal" data-target=".post-image">
         <img src="/static/img/plus.png" class="img-fluid center-block profpic"/>
       </a>
     </div>
     <div ng-repeat="post in user.posts" class="col-md-4 col-xs-6 p-b-1 text-xs-center picdiv">
-      <a href="#">
+      <a href ng-click="setUrl(post)" data-toggle="modal" data-target=".post-detail">
         <img ng-src="{{post.img}}" class="img-fluid center-block profpic"/>
       </a>
     </div>
   </div>
 
   <!-- Post image modal -->
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal fade post-image" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -45,6 +45,7 @@
       </div>
     </div>
   </div>
+  <!-- /modal -->
 </div>
 
 <script src="static/scripts/adjust.js"></script>

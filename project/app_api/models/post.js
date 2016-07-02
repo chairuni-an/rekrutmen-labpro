@@ -3,7 +3,10 @@
 var mongoose = require('mongoose');
 
 var postSchema = new mongoose.Schema({
-  username: String,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
   img: {
     type: String,
     unique: true,

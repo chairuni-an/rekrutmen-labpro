@@ -13,6 +13,9 @@ picshareApp.config(function($locationProvider, $routeProvider) {
    .when('/:username', {
        templateUrl: 'templates/profile.html'
    })
+   .when('/posts/:id', {
+       templateUrl: 'templates/post.html'
+   })
    .when('/', {
        templateUrl: 'templates/home.html'
    })

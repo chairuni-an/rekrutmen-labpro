@@ -4,9 +4,9 @@
     <a ng-show="isLoggedIn" href="/{{currentUser}}" class="navbar-brand">{{currentUser}}</a>
     <a ng-hide="isLoggedIn" class="btn btn-success pull-xs-right" href="login">Login</a>
     <button ng-show="isLoggedIn" class="btn btn-success pull-xs-right" ng-click="logout()">Logout</button>
-    <form method="get" action="/" class="form-inline p-r-1 pull-xs-right">
-      <input type="text" name="username" placeholder="Username..." class="form-control"/>
-      <button type="submit" class="btn btn-success">Search</button>
+    <form class="form-inline p-r-1 pull-xs-right">
+      <input type="text" ng-model="username" name="username" placeholder="Username..." class="form-control"/>
+      <button ng-click="redirect(username)"class="btn btn-success">Search</button>
     </form>
   </div>
 </nav>

@@ -23,6 +23,7 @@ router.post('/users', function(req, res) {
     username: req.body.username,
     email: req.body.email,
     fullname: req.body.fullname,
+    avatar: '/static/img/noImage.jpeg',
     following: [],
     followers: [],
     posts: []
@@ -34,21 +35,36 @@ router.post('/users', function(req, res) {
   });
 });
 
-router.post('/users/:username/posts', upload.single('file'), function(req, res) {
+router.get('/posts/:id', function(req, res) {
+  var id = req.params.id; // ID string
+
+  Post.findOne({'_id': id})
+  .populate('user')
+  .exec(function(err, post) {
+    if (err) { console.log(err); }
+    res.json(post);
+  });
+});
+
+router.post('/posts', upload.single('file'), function(req, res) {
   var filePath = '/static/posts/' + req.file.filename;
+  var user_id = req.body.user_id;
+  var desc = req.body.desc;
+
+  console.log(user_id);
 
   var post = new Post({
-    username: req.params.username,
+    user: user_id,
     img: filePath,
     date: Date.now(),
-    desc: req.body.desc,
+    desc: desc,
     comments: [],
     likes: [],
     hashtags: []
   });
   post.save(function(err) {
     if (err) { return res.json({err: err}); }
-    User.findOne({username: req.params.username}, function(err, user) {
+    User.findOne({'_id': user_id}, function(err, user) {
       if (err) { return res.json({err: err}); }
       user.posts.unshift(post._id);
       user.save(function(err) {

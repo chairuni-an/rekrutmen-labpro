@@ -20,6 +20,7 @@ var userSchema = new Schema({
     type: String,
     required: true
   },
+  bio: String,
   avatar: String,
   hash: String,
   salt: String,

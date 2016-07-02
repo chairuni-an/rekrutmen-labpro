@@ -1,8 +1,6 @@
 picshareApp.controller('ProfileController', function($scope, $window, $location, User, Upload, Authentication) {
   var username = $location.path().substring(1);
 
-  $scope.viewImage = false;
-  
   $scope.isCurrentUser = Authentication.getCurrentUser() == username;
 
   User.get({username: username}).$promise.then(function(user) {
@@ -10,22 +8,19 @@ picshareApp.controller('ProfileController', function($scope, $window, $location,
       $location.path('error');
     } else {
       $scope.user = user;
-      $scope.image = $scope.getImage();
     }
   });
 
-  $scope.getImage = function() {
-    if (!$scope.user.avatar) {
-      return '/static/img/noImage.jpeg';
-    } else {
-      return $scope.user.avatar;
-    }
+  $scope.setUrl = function(post) {
+    console.log(post);
+    var url =  'posts/' + post['_id'];
+    $location.path(url);
   }
 
   $scope.upload = function(file, desc) {
       Upload.upload({
-          url: '/api/users/' + username + '/posts',
-          data: {file: file, desc: desc}
+          url: '/api/posts',
+          data: {file: file, user_id: $scope.user._id, desc: desc}
       }).then(function (resp) {
           console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
           $window.location.reload();
