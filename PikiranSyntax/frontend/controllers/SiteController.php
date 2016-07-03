@@ -13,6 +13,9 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 
+use common\models\Artikel;
+use common\models\Komentar;
+use yii\data\ActiveDataProvider;
 /**
  * Site controller
  */
@@ -72,9 +75,53 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+		$dataProviderArtikel = new ActiveDataProvider([
+			'query' => Artikel::find()
+					->where('id_kategori != :kategori', [
+						':kategori' => isset($_GET['kategori']) ? $_GET['kategori'] : 'NULL'
+					]),
+			'sort' => [
+				'defaultOrder' => [
+					'id_artikel' => SORT_DESC
+				]
+			]
+		]);
+		
+        return $this->render('index', [
+			'dataProviderArtikel' => $dataProviderArtikel
+		]);
     }
 
+	public function actionView($id)
+	{
+		$model = Artikel::findOne($id);
+		
+		// menambahkan jumlah baca 1
+		$model->updateCounters(['jumlah_baca' => 1]);
+		
+		// form komentar
+		$komentarForm = new Komentar();
+		if ($komentarForm->load(Yii::$app->request->post()) && $komentarForm->save()) {
+			return $this->redirect(['view', 'id' => $id]);
+		}
+		
+		// data provider komentar
+		$dataProviderKomentar = new ActiveDataProvider([
+			'query' => Komentar::find()->where(['id_artikel' => $id]),
+			'sort' => [
+				'defaultOrder' => [
+					'id_komentar' => SORT_DESC
+				]
+			]
+		]);
+		
+		return $this->render('view', [
+			'model' => $model,
+			'komentarForm' => $komentarForm,
+			'dataProviderKomentar' => $dataProviderKomentar
+		]);
+	}
+	
     /**
      * Logs in a user.
      *

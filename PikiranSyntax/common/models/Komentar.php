@@ -32,11 +32,9 @@ class Komentar extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_artikel', 'id_user', 'isi_komentar', 'create_time'], 'required'],
+            [['id_artikel', 'id_user', 'isi_komentar'], 'required'],
             [['id_artikel', 'id_user', 'create_time'], 'integer'],
             [['isi_komentar'], 'string'],
-            [['id_artikel'], 'exist', 'skipOnError' => true, 'targetClass' => Artikel::className(), 'targetAttribute' => ['id_artikel' => 'id_artikel']],
-            [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
         ];
     }
 
@@ -69,4 +67,14 @@ class Komentar extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'id_user']);
     }
+	
+	public function beforeSave($insert)
+	{
+		parent::beforeSave($insert);
+		if ($this->isNewRecord)
+		{
+			$this->create_time = time();
+		}
+		return true;
+	}
 }
