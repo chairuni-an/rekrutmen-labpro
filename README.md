@@ -46,6 +46,8 @@ Deliverable dari tugas ini terdapat pada file Revisi_Proposal_Proyek.pdf
 
 Di akhir tahap ini, Anda sudah harus menyelesaikan sebagian dari aplikasi anda. Diwajibkan untuk melakukan asistensi minimal satu kali dengan asisten Anda, Commit tiap tahap pengerjaan Anda ke repository ini, dan tambahkan semacam mini dokumentasi aplikasi dengan mencantumkan screenshot-screenshot akhir aplikasi Anda. Buatlah progress report yang berisi apa yang sudah dikerjakan, kendala, dan rencana pengerjaan berikutnya. Progress report ini akan digunakan oleh asisten Anda untuk dibahas saat asistensi berikutnya. 
 
+Deliverable dari tugas ini terdapat pada folder Projects/ , file Checkpoint1.md, dan file Progress-Report.md
+
 ## Checkpoint 2
 * Rilis: 12 Juli 2016
 * Deadline: 7 Agustus 2016
