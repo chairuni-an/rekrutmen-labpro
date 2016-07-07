@@ -1,0 +1,5 @@
+- @post.each do |f|
+    %h2= f.title
+    %p= f.content
+    
+= link_to "new post", new_post_path
