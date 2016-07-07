@@ -1,0 +1,31 @@
+// out: style.css, sourcemap: false, compress: false
+
+@lightRed:   #fdd;
+@lightGreen: #dfd;
+@lightBlue: #ddf;
+
+@defaultThemeColor:@lightGreen;
+
+.calendar{
+  background-color:@defaultThemeColor;
+  display: inline-block;
+
+  .calendarHeader{
+    display: block
+    position: relative;
+    text-align: center;
+
+    .monthName{
+      font-family: sans-serif;
+    }
+
+  }
+
+  .weekNames{
+    display: inline-block;
+    .day{
+      display: inline;
+      padding: 3%;
+    }
+  }
+}
