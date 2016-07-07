@@ -13,14 +13,18 @@ Bisa dilihat di eksplorasi1.md
 * Deadline: 29 Mei 2016
 * Deliverables: Source code dan dokumentasi program sederhana sesuai topik eksplorasi
 
+<<<<<<< HEAD
 Bisa dilihat di Aum.html
+=======
+Dapat dilihat di Aum.html
+>>>>>>> origin/master
 
 ## Rancangan Proyek
 * Rilis: 31 Mei 2016
 * Deadline: 5 Juni 2016
 * Deliverables: Dokumen rancangan proyek
 
-Membuat rancangan proyek yang meliputi deskripsi singkat, platform, fitur minimal, asumsi, dan batasan implementasi. Template dokumen akan disampaikan pada waktu rilis tugas ini, dan mungkin agak sedikit berbeda dengan apa yang disampaikan pada file ini, gunakan yang ada di template saja nanti.
+Dapat dilihat di template_proposal_proyek.pdf
 
 ## Revisi Rancangan Proyek
 * Rilis: 7 Juni 2016
