@@ -8,3 +8,7 @@ Pemain harus menghindari rintangan untuk mendapat score.
 ## Checkpoint 1
 Mekanisme game selesai, front end game masih belum sempurna
 
+## Keterangan
+Karena keterbatasan kuoata, seluruh directory tidak dapat diupload karena besarnya 5GB.
+Yang diupload hanyalah source code class dan resources
+
