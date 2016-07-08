@@ -99,7 +99,7 @@ AppAsset::register($this);
 			<div class="jumbotron" style="background: #f0f0f0; margin-top: 20px; padding-top: 10px; padding-bottom: 10px" >
 				<h1>Pikiran Syntax</h1>
 				<p class="lead">Pandangan, Perspektif, Pemikiran</p>
-				<p><a class="btn btn-lg btn-success" href="localhost/PikiranSyntax">Login</a></p>
+				<p><a class="btn btn-lg btn-success" href="http://localhost/PikiranSyntax/frontend/web/index.php">Home</a></p>
 			</div>
 		</div>
 		
@@ -109,6 +109,7 @@ AppAsset::register($this);
 			</div>
 			
 			<div class="col-md-4">
+				<p><a class="btn btn-success btn-block" href="http://localhost/PikiranSyntax/frontend/web/index.php?r=artikel%2Fcreate">Tambah Artikel</a></p>
 				<div class="panel panel-default">
 					<div class="panel-heading">Top Artikel</div>
 					<div class="panel-body">
