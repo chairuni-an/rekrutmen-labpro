@@ -1,0 +1,12 @@
+- simple_form_for @topic do |f|
+    %h2= f.title
+    %p= f.content
+
+- @topic.posts.each do |toppost|
+    %p= toppost.title
+    %p= toppost.content
+    %p= link_to "upvote",upvote_topic_post_path(@topic, post)
+    %p= link_to "unupvote",unupvote_topic_post_path(@topic, post)
+    %p= link_to "downvote",downupvote_topic_post_path(@topic, post)
+    %p= link_to "undownvote",unupvote_topic_post_path(@topic, post)
+    
