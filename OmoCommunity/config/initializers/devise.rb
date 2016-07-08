@@ -6,17 +6,38 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '63a666ab15bb5184176f95168f9c7f90179bc7b9d0181831a2981f3d548cde30e45e745d42f7c895aab89790c5cc8599d1e28546aec2954d08083563a56e9cdf'
+  # config.secret_key = '21a6ec091798e922431f490b26a3c28ecd7ed8388b605bfe887ee10d67cab227bd04d1c3c301aab8dee1267c8ddf75ddc01c625474d86314abbb1b94e483765d'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  
+
+  #DEVISE USERNAME
+  config.authentication_keys = [:login]
+  config.reset_password_keys = [ :username ]
+  config.confirmation_keys = [ :username ]
+  
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
+
+  #DEVISE MAILER
+  config.mailer_sender = 'kristiantokarim@gmail.com'
+  
+
+  #DEVISE OMNIAUTH FB
+  config.omniauth :facebook, "505803159614072", "dd02d4562abef53dfa0dda34c7cb25ab",scope: 'email', callback_url: 'http://localhost:3000/users/auth/facebook/callback', secure_image_url: true, info_fields: 'email'
+
+
+  #DEVISE OMNIAUTH GOOGLE
+  config.omniauth :google_oauth2, "321567427146-iu9s7v8580jt9t1uv0of4s0g4p2kch5d.apps.googleusercontent.com",
+                  "4-zNADhhyPMQH2ZI-czQ4KG0"
+
+                  
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
 
@@ -102,7 +123,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'f415783a036ef021bc248d92be8b965f2aaf8c7f253f24218071c2b657ff81a8eabbe673c92cb0a1325b0144f088d102bd66d3573e748d265f792eb47a3b906b'
+  # config.pepper = '9d55cc2ea03cda172352491a103b5d4d099e00780382e8a769e4d9965ef2e817cab6f005fb7d1ef76fca71becb70060d722ec6df7ea8a7cce80a7dc9de453e4d'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false

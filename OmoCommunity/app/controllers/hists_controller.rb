@@ -1,5 +1,5 @@
 class HistsController < ApplicationController
-    def index
-        @post = Hists.find(params[:post_id])
-    end
+	def index
+		@post = Post.find(params[:post_id])
+	end
 end

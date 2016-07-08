@@ -1,0 +1,29 @@
+.pro
+	- if @user.image.exists?
+		%br= image_tag @user.image, class: "imaje"
+	- else
+		%br= image_tag "/assets/no-image.jpg", size: "300x300"
+	= @user.username
+	%br= @user.email
+	= @user.nim
+	- if @user.nim[0,3] == "135"
+		%br= "Teknik Informatika"
+	- else
+		- if @user.nim[0,3] == "182"
+			%br= "Sistem Teknologi Informasi"
+		- else
+			%br= "NON-IFSTI"
+:css
+	.pro {
+		text-align : center;
+		padding-top: 20px;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color:#23A96F;
+		font-size:20px;
+	}
+	.imaje {
+		width:200px;
+		height:200px;
+		border-radius:100%;
+	}

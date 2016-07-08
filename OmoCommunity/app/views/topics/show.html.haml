@@ -1,12 +1,244 @@
-- simple_form_for @topic do |f|
-    %h2= f.title
-    %p= f.content
+.tek
+	%h2
+		= @topic.title
+		- if current_user == @topic.user
+			- if @topic.lock?	
+				= link_to "un", changelock_topic_path(@topic), method: :put,class: "un"
+			- else
+				= link_to "lo", changelock_topic_path(@topic), method: :put,class: "lo"
+			= link_to "re", @topic, method: :delete, data: {confirm: "Are you sure?"}, class: "trashx"
+		- else 
+			- if @topic.lock?
+				= image_tag("/assets/lock.png",size: "19x19")
+			- else
+				= image_tag("/assets/unlock.png",size: "19x19")
 
-- @topic.posts.each do |toppost|
-    %p= toppost.title
-    %p= toppost.content
-    %p= link_to "upvote",upvote_topic_post_path(@topic, post)
-    %p= link_to "unupvote",unupvote_topic_post_path(@topic, post)
-    %p= link_to "downvote",downupvote_topic_post_path(@topic, post)
-    %p= link_to "undownvote",unupvote_topic_post_path(@topic, post)
-    
+.userinfo
+	.bar
+		.haf
+			Created at
+			= @topic.created_at.strftime("%B #{@topic.created_at.to_date.day.ordinalize}, %Y %H:%M:%S")
+		- if current_user
+			-if current_user == @topic.user
+				= link_to "Edit thread", edit_topic_path, class:"ahaf"
+	.imejx
+		- us = User.find(@topic.user_id)
+		- if us.image.exists?
+			%br= image_tag us.image, size: "119x119",class: "imej" 
+		- else
+			%br= image_tag "/assets/no-image.jpg", size: "119x119",class: "imej"  
+		= us.username
+		%br= us.email
+		Joined at 
+		= us.created_at.strftime("%d-%m-%Y %H:%M:%S")
+		%br
+	.oth
+		.x
+			!= @topic.content
+%p
+- @topic.posts.each do |post|
+	.userinfo
+		.bar
+			.haf
+				Created at
+				= post.created_at.strftime("%B #{@topic.created_at.to_date.day.ordinalize}, %Y %H:%M:%S")
+			- if current_user
+				-if current_user == post.user
+					= link_to "Edit Post", edit_topic_post_path(post.topic_id, post.id), class:"ahaf"
+					= link_to "Delete Post", [post.topic, post], :method => :delete, class:"ahaf k", data: {confirm: "Are you sure?"}
+					- if post.hists.count != 0
+						= link_to "Show Edit History",topic_post_hists_path(post.topic, post), class:"ahaf k", rel: "facebox[.fot]"
+
+				
+		.imejx
+			- us = User.find(post.user_id)
+			- if us.image.exists?
+				%br= image_tag us.image, size: "119x119",class: "imej" 
+			- else
+				%br= image_tag "/assets/no-image.jpg", size: "119x119",class: "imej" 
+			= us.username
+			%br= us.email
+			Joined at 
+			= us.created_at.strftime("%d-%m-%Y %H:%M:%S")
+			%br
+			- if current_user
+				- if current_user.liked?(post)
+					= link_to image_tag("/assets/upvoted.png",size: "13x13"), unupvote_topic_post_path(@topic, post)
+				- else
+					= link_to image_tag("/assets/up-norm.png",size: "13x13"), upvote_topic_post_path(post.topic, post)
+				- vo = post.get_likes.size - post.get_dislikes.size
+				.goo
+					= vo
+					- if vo > 1
+						votes
+					- else
+						- if vo < -1
+							downvotes
+						- else 
+							- if vo == -1
+								downvote
+							- else vo == 1 or vo == 0
+								vote 
+				- if current_user.disliked?(post)
+					= link_to image_tag("/assets/downvoted.png",size: "13x13"), undownvote_topic_post_path(@topic, post)
+				- else
+					= link_to image_tag("/assets/down-norm.png",size: "13x13"), downvote_topic_post_path(@topic, post)
+			- else
+				= link_to image_tag("/assets/up-norm.png",size: "13x13"), upvote_topic_post_path(post.topic, post)
+				- vo = post.get_likes.size - post.get_dislikes.size
+				.goo
+					= vo
+					- if vo > 1
+						votes
+					- else
+						- if vo < -1
+							downvotes
+						- else 
+							- if vo == -1
+								downvote
+							- else vo == 1 or vo == 0
+								vote 
+				= link_to image_tag("/assets/down-norm.png",size: "13x13"), downvote_topic_post_path(@topic, post)
+
+			%br
+		.oth
+			%h4= post.title
+			.x
+				!= post.content
+	%p
+- if !@topic.lock
+	= link_to "Post a Reply",new_topic_post_path([@topic, @topic.posts.build]), class: "buton"
+	%br
+	%br
+
+
+:css
+
+	.buton:hover {
+	    background: #77a292
+	}
+	.lo {
+		background: url("/assets/lock.png") no-repeat 50% 50%;
+		background-size:19px 19px;
+		color:transparent;
+	}
+	.lo:hover {
+		opacity:0.2;
+	}
+	.un {
+		background: url("/assets/unlock.png") no-repeat 50% 50%;
+		background-size:19px 19px;
+		color:transparent;
+	}
+	.un:hover {
+		opacity:0.2;
+	}
+	.goo {
+		margin-left:10px;
+		margin-right:10px;
+		font-size: 15px;
+		display:inline-block;
+	}
+	.trashx {
+		background: url("/assets/trash.png") no-repeat 50% 50%;
+		background-size:19px 19px;
+		color:transparent;
+	}
+	.trashx:hover {
+		opacity:0.2;
+	}
+	.buton {
+		font-size:14.4px;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		position:absolute;
+		right:2.1%;
+		padding-left: 15px;
+	    padding-right: 15px;
+	    padding-top : 5px;
+	    padding-bottom: 5px;
+	    border-radius: 5px;
+	    border:none; 
+	    background: #23a86d;
+	    float:right;
+	    text-decoration:none;
+	}
+	.k {
+		position:relative;
+		margin-right:10px;
+		display:inline;
+	}
+	.x {
+		font-size: 15px;
+	}
+	.bar {
+		background:#23a86d;
+		height: 20px;
+		font-size:12px;
+	}
+	.haf {
+		text-align : left;
+		display:inline;
+		position:relative;
+		top:3px;
+		left: 3px;
+		color:#2E2F31;
+	}
+	.ahaf {
+		float : right;
+		display:inline;
+		position:relative;
+		top:3px;
+		right: 3px;
+		text-decoration:none;
+		font-family: 'Raleway', sans-serif;
+		color:#2E2F31;
+	}
+	.ahaf:hover {
+		color:#2E2F31
+	}
+	.em {
+		float:left;
+	}
+	.tek {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 400;
+		color: white;
+		padding-left :20px;
+		padding-right:20px;
+	}
+	.userinfo {
+		width :97%;		
+		margin-left :1.5%;
+		margin-right:1.5%;
+		background:#2d2f31;
+		display:inline-block;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+
+	}
+	.imej {
+
+		border-radius:10px;
+	}
+	.imejx {
+		float:left;
+		width:21.33%;
+		left:6%;
+		position:relative;
+		font-size:12px;
+		color :#23A96F;
+	}
+	.oth {
+		float:right;
+		background:#2d2f31;
+		display:inline-block;
+		width:75.5%;
+		padding-left:20px;
+		padding-right:20px;
+		min-height:199px;
+		border-left:1px solid #23A96F;
+		padding-bottom:20px;
+	}

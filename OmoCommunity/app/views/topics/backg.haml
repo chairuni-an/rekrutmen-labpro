@@ -1,0 +1,40 @@
+
+	= image_tag User.find(@topic.user_id).image(:thumb),size: "50x50"
+
+
+	%p!= @topic.content
+	%p= @topic.user.email
+
+
+
+
+
+
+
+
+
+
+	- @topic.posts.each do |post|
+		%h4= link_to post.title, topic_post_path(post.topic, post)
+		%p!= post.content
+		%p= post.user.email
+		%p= link_to "Like", upvote_topic_post_path(post.topic, post), method: :put
+		%p= link_to "Unlike", downvote_topic_post_path(@topic, post), method: :put
+		%p= link_to "unUnlike", undownvote_topic_post_path(@topic, post), method: :put
+		%p= link_to "unlike", unupvote_topic_post_path(@topic, post), method: :put
+		%p= post.get_likes.size
+		%p= post.get_dislikes.size
+		- if current_user
+			- if current_user.id == post.user_id
+				%p= link_to "edit", edit_topic_post_path(post.topic_id, post.id)
+				%p= link_to "delete", [post.topic, post], :method => :delete
+			- else
+				%p 
+	- if @topic.lock == false
+		%h3 Reply to thread
+		= simple_form_for ([@topic, @topic.posts.build]) do |f|
+			%p Title :
+			= f.input :title, :input_html => {:size => 60 }, label: false
+			%p Content :
+			= f.input :content, label: false, :input_html => {:size => "68x20" }, as: :ckeditor
+			= f.submit "New Post"

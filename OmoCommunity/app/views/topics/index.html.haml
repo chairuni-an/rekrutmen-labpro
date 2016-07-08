@@ -1,2 +1,198 @@
-- @topics.each do |topic|
-    = link_to topic.title, topic
+%br/
+%br/
+.oz
+%p
+	= button_to "New Thread", new_topic_path, class: "buton", :method => "get"
+.px
+	%p.tx
+		Thread
+	%p.ty
+		Created by
+	%p.tz
+		Post Count
+	%p.ta
+		Last Post
+	.oz
+	.oz
+	- if @topics.size != 0	
+		- @topics.each do |topic|
+			%p
+				.txz
+					= link_to topic.title, topic_path(topic), class: "txz"
+				.txy
+					= User.find(topic.user_id).email
+				.txx
+					= topic.posts.size+1
+				- if topic.posts.count == 0
+					.txa
+						= User.find(topic.user_id).email
+						.txb
+							= topic.created_at.to_date.strftime("%B #{topic.created_at.to_date.day.ordinalize}, %Y")
+						.txb
+							= time_ago_in_words(topic.created_at)
+							ago
+				- else
+					.txa
+						= User.find(topic.posts.last.user_id).email
+						.txb
+							= topic.posts.last.created_at.to_date.strftime("%B #{topic.created_at.to_date.day.ordinalize}, %Y")
+						.txb
+							= time_ago_in_words(topic.posts.last.created_at)
+							ago
+			.hline
+	- else
+		-if params[:search]
+			- if params[:search] == ""
+				%p
+					.txm
+						No thread was ever made 
+			- else
+				%p
+					.txm
+						There are no thread containing the term(s) 
+						= params[:search] 
+						
+		- else
+			%p
+				.txm
+					No thread was ever made 
+		.hline
+
+:css
+	.txm {
+	font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		margin: auto 0 auto 3%; 
+
+	}
+	div {
+		vertical-align:text-top;
+	}
+	.txb {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		left:81.2%;
+		font-size: 12px;
+	}
+	.buton {
+		right:10%;
+		position: absolute;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		padding-left: 15px;
+	    padding-right: 15px;
+	    padding-top : 5px;
+	    padding-bottom: 5px;
+	    border-radius: 5px;
+	    border:none; 
+	    background: #23A96F;
+	    
+	}
+	.buton:hover {
+	    background: #77a292
+	}
+	.hline { width:100%; height:1px; background: #fff }
+	.oz {
+		height: 18px;
+
+	}
+	.txa {
+
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+
+		display: inline-block;
+	}
+	.txx {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		width:14%;
+		display: inline-block;
+	}
+	.txy {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		width: 18.1%;
+		display: inline-block;
+	}
+	.txz {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		margin: auto 0 auto 3%; 
+		display: inline-block;
+		width:44.6%;		
+		text-decoration: none;
+	}
+	.txz:hover {
+		color: rgb(35,169,111);
+	}
+	p.tb {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		position: absolute;
+		
+		margin: auto 0 auto 0;
+		height: 35px;
+		width: 11%;
+		line-height: 35px;
+	}
+	p.ty {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		position: absolute;
+		margin: auto 0 auto 3%;
+		height: 35px;
+		width: 9%;
+		line-height: 35px;
+		left: 45%;
+	}
+	p.ta {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		margin: auto 0 auto 6%;
+		width: 13%;
+		position: absolute;
+		line-height: 35px;
+		left: 75%;
+	}
+	p.tz {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		position: absolute;
+		margin: auto 0 auto 3%;
+		height: 35px;
+		width: 11%;
+		line-height: 35px;
+		left: 63.5%;
+	}
+	p.tx {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		position: absolute;
+		margin: auto 0 auto 3%;
+		height: 35px;
+		width: 42%;
+		line-height: 35px;
+		
+	}
+
+	.px {
+		width: 80%;
+		height: 35px;
+		top : 25%;
+		background: #23A96F;
+		position: absolute;
+		left: 10%;
+	}

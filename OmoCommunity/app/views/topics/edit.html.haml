@@ -1,4 +1,53 @@
-- simple_form_for @topic do |f|
-    = f.input :title
-    = f.input :content
-    = f.submit
+.tek
+	%h1 Edit a Post	
+	= simple_form_for @topic do |f|
+		%p Title :
+		= f.input :title, :input_html => {:size => 60 , class: "tes"}, label: false, placeholder: "Your Title Here"
+		%p Content :
+		= f.input :content, label: false,
+	           as: :ckeditor,
+	           :input_html => { :ckeditor => {:toolbar => 'mini'} }
+		%p
+		= f.submit "Edit Post"
+:css
+	.tek {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		padding-left :20px;
+		padding-right:20px;
+	}
+	.cke_top {
+		background-image: none !important;
+		background: #2E2F31 !important;
+		box-shadow:0 0px 0 #000 inset !important;
+	}
+	.cke_bottom {
+		display:none !important;
+	}
+	.cke_chrome {
+		border:none !important;
+	}
+	.tes {
+		border: none;
+	    background: #656161;
+	    height: 25px;
+	    padding-left: 10px;
+	    color: white;
+
+	}
+	::-webkit-input-placeholder {
+	 color: #CCBDBD;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	 color: #CCBDBD;  
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	 color: #CCBDBD;  
+	}
+
+	:-ms-input-placeholder {  
+	 color: #CCBDBD;  
+	}

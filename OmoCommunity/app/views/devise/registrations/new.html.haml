@@ -1,0 +1,87 @@
+:javascript
+  function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+  }
+.bal  
+  %h1 Sign up
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = f.error_notification
+    = devise_error_messages!
+    .form-inputs
+      = f.label :"Username : "
+      = f.input :username, required: true, label: false, input_html: { :size => 30 ,class: " teksbos"}, placeholder: "e.g. itiomocom"
+      .o
+      = f.label :"E-mail : "
+      = f.input :email, required: true, label: false, input_html: { :size => 30 ,class: " teksbos"}, placeholder: "e.g. iti@omo.com"
+      .o
+      = f.label :"Password : "
+      = f.input :password, required: true, label: false, input_html: { :size => 30 ,class: " teksbos"}, placeholder: "#{@minimum_password_length} characters minimum"
+      
+      .o
+      = f.label :"Password Confirmation : ","Password Confirmation : "
+      = f.input :password_confirmation, required: true, label: false, input_html: { :size => 30 ,class: " teksbos"}, placeholder: "Password Confirmation"
+      .o
+      = f.label :"NIM : ", "NIM : "
+      = f.input :nim, required: true, label: false, input_html: { :size => 30 ,class: " teksbos", :onkeypress => "return isNumber(event)"}, placeholder: "e.g. 13514000"
+      .o
+      = f.label :"Picture : "
+      = f.input :image, input_html: {:size => 30, accept: ('.jpg, .png, .jpeg, .tiff, .bmp') }, label: false
+    .form-actions
+      .o
+      = f.button :submit, "Sign up", class: "buton"
+
+:css
+  .teksbos {
+    border: none;
+    background: #656161;
+    height: 25px;
+    padding-left: 10px;
+    color: white;
+  }
+  ::-webkit-input-placeholder {
+     color: #CCBDBD;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+     color: #CCBDBD;  
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: #CCBDBD;  
+  }
+
+  :-ms-input-placeholder {  
+     color: #CCBDBD;  
+  }
+  .bal {
+    padding-left: 20px;
+    padding-right: 20px;
+    height:150%;
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: white;
+    margin: -8px;
+    overflow:hidden
+  }
+  .o {
+    height: 10px;
+  }
+  .buton {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top : 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border:none; 
+    background: #23A96F;
+  }
+  
+  .buton:hover {
+      background: #77a292
+  }

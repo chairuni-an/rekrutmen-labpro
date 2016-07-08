@@ -1,35 +1,40 @@
 class PostsController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show]
-    def index
+	before_action :authenticate_user!, except: [:index, :show]
+	def index
 		@posts = Post.all
 	end
 
 	def new
-		@post = Topic.find(params[:topic_id])
+		@topic = Topic.find(params[:topic_id])
+		@post = @topic.posts.new
 	end
 
 
 	def create
-		@post = Post.new(param_post)
-		
+		@topic = Topic.find(params[:topic_id])
+		@post = @topic.posts.new(param_post)
+		@post.user_id = current_user.id if current_user
 		if @post.save
-			redirect_to @post
+			redirect_to @topic
 		else
 			render 'new'
 		end
 	end
 
 	def show
-		@post = Post.find(params[:id])
+		@topic = Topic.find(params[:topic_id])
+		@post = @topic.posts.find(params[:id])
 	end
 
 	def edit
-		@post = Post.find(params[:id])
+		@topic = Topic.find(params[:topic_id])
+		@post = @topic.posts.find(params[:id])
 	end
 
 	def update
-		@post = Post.find(params[:id])
-                @hist = @post.hists.build!
+		@topic = Topic.find(params[:topic_id])
+		@post = @topic.posts.find(params[:id])
+		@hist = @post.hists.build
 		@hist.Title = @post.title
 		@hist.Content = @post.content
 		if @post.update(param_post)
@@ -38,8 +43,8 @@ class PostsController < ApplicationController
 			render 'edit'
 		end
 	end
-        
-        def downvote
+
+	def downvote
 	  @topic = Topic.find(params[:topic_id])
 	  @post = @topic.posts.find(params[:id])
 	  @post.disliked_by current_user
@@ -66,14 +71,21 @@ class PostsController < ApplicationController
 	  @post.unliked_by current_user
 	  redirect_to @topic
 	end
-        
+
 	def destroy
-		@post = Post.find(params[:id])
+		@topic = Topic.find(params[:topic_id])
+		@post = @topic.posts.find(params[:id])
 		@post.destroy
-		redirect_to root_path
+		redirect_to @topic
 	end
 	private
 	def param_post
 		params.require(:post).permit(:title, :content)
 	end
+
+	def param_post
+		params.require(:post).permit(:title, :content)
+	end
+end
+class PostsController < ApplicationController
 end

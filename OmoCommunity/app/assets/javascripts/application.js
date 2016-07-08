@@ -12,5 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.facebox
 //= require turbolinks
 //= require_tree .
+//= require ckeditor/init
+
+jQuery(document).ready(function($) {
+  $('a[rel*=facebox]').facebox() 
+})

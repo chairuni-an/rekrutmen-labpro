@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+  mount Ckeditor::Engine => '/ckeditor'
+  
+
+  #OMNIAUTH
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks"}
+  resources :users, :only => [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'posts#index'
-
+  # root 'welcome#index'
+  root 'topics#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -13,17 +18,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-    resources :topics do
-        resources :posts do
-            member do
-                get 'upvote' => 'posts#upvote', as: :upvote
-                get 'downvote' => 'posts#downvote', as: :downvote
-                get 'unupvote' => 'posts#unupvote', as: :unupvote
-                get 'undownvote' => 'posts#undownvote', as: :undownvote
-            end
-            resources :hists
-        end
-    end
+  #   resources :products
 
   # Example resource route with options:
   #   resources :products do
@@ -35,8 +30,21 @@ Rails.application.routes.draw do
   #     collection do
   #       get 'sold'
   #     end
-  #   end
-
+  #   end 
+  resources :topics do
+    member do
+    put 'changelock' => 'topics#changelock', as: :changelock
+    end
+    resources :posts do
+    member do
+        get 'upvote' => 'posts#upvote', as: :upvote
+        get 'downvote' => 'posts#downvote', as: :downvote
+        get 'unupvote' => 'posts#unupvote', as: :unupvote
+        get 'undownvote' => 'posts#undownvote', as: :undownvote
+    end
+    resources :hists
+    end
+  end
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

@@ -1,0 +1,89 @@
+!!!
+%html
+	%head
+		%title Omo-Community
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+		%link{:href => "https://fonts.googleapis.com/css?family=Raleway:800,200,600,400", :rel => "stylesheet", :type => "text/css"}/
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,greek,latin-ext,greek-ext,vietnamese,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= csrf_meta_tags
+		= javascript_include_tag Ckeditor.cdn_url
+	%body
+		.backg	
+			.judul
+				= link_to image_tag("/assets/logo.png", class: "headtitle"), root_path
+			.cari
+				= form_tag(topics_path, :method => "get", id: "search-form") do 
+					= text_field_tag :search, params[:search], placeholder: "Search Topics", class: "serround", autocomplete: "off", size: "66"
+			- if !current_user
+				/= link_to image_tag("http://googleatuob.blogs.ilrt.org/files/2014/05/hangouts.png", size: "30x30"), omniauth_authorize_path(:user, :google_oauth2), class: "ing"
+				- if !current_page?(new_user_registration_path)
+					= link_to 'Sign Up', new_user_registration_path, :class => "up"
+				- else
+					= link_to "fa", omniauth_authorize_path(:user, :facebook), class: "upyj"
+					= link_to "go", omniauth_authorize_path(:user, :google_oauth2), class: "upyg"
+				- if !current_page?(new_user_session_path)
+					= form_for(:user, :url => session_path(:user)) do |f|
+						= f.text_field :login, placeholder: "Username", class: "us", size: "19",autocomplete: "off"
+						= f.password_field :password, placeholder: "Password", class: "pas", size: "19",autocomplete: "off"
+						= f.submit 'Sign in', class: "in"
+			- else
+				= link_to "Sign out", destroy_user_session_path, class:"up", :method => :delete
+				- if current_user.image.exists?	
+					= link_to image_tag(current_user.image, class: "upx"),user_path(current_user) 
+				- else
+					= link_to image_tag("/assets/no-image.jpg", class: "upx"),user_path(current_user) 
+				= link_to "edit", edit_user_registration_path,class: "upy"
+		=yield
+:css
+	.upx {
+		border-radius:100%;
+		width:35px;height:35px;
+		position: absolute;
+		margin-top:7.4px;
+		right:6%;
+	}
+
+	.upy {
+		position: absolute;
+		background: url("/assets/edit.png") no-repeat 50% 50%;
+		background-size: 22px 22px;
+		right: 9.5%;
+		height: 50px;
+		width: 50px;
+		color:transparent
+	}
+
+	.upy:hover {
+		background: url("/assets/edit-select.png") no-repeat 50% 50% #23A86D;
+		background-size: 22px 22px;
+	}
+	.upyj {
+		position: absolute;
+		background: url("/assets/facebook.png") no-repeat 50% 50%;
+		background-size: 22px 22px;
+		right: 0%;
+		height: 50px;
+		width: 32px;
+		color:transparent
+	}
+
+	.upyj:hover {
+		background: url("/assets/facebook-select.png") no-repeat 50% 50% #23A86D;
+		background-size: 22px 22px;
+	}
+
+	.upyg {
+		position: absolute;
+		background: url("/assets/google.png") no-repeat 50% 50%;
+		background-size: 22px 22px;
+		right: 32.5px;
+		height: 50px;
+		width: 32px;
+		color:transparent
+	}
+
+	.upyg:hover {
+		background: url("/assets/google-select.png") no-repeat 50% 50% #23A86D;
+		background-size: 22px 22px;
+	}

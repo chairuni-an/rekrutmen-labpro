@@ -1,0 +1,77 @@
+.bal
+	%h1 Log in
+	.o
+	= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+		.form-inputs
+			= f.label :username, "Login"
+			= f.input :login, label: false, placeholder: "Username", input_html: { :size => 30 ,class: " teksbos"}
+			.o
+			= f.label :password, "Password"
+			= f.input :password, required: false, label: false, placeholder: "Password", input_html: { :size => 30 ,class: " teksbos"}
+			.o
+			= f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+		.o
+		.form-actions
+		= f.button :submit, "Log in", class: "buton"
+		.lop
+			%br= link_to "Forgot your Password", new_user_password_path, class: "lop"
+:css
+	.lop {
+		font-family: 'Raleway', sans-serif;
+	    font-weight: 400;
+	    color: white;
+	    font-size:13px;
+	}
+	.lop:hover {
+		color: #23A86D;
+	}
+	.o {
+		height: 10px;
+	}
+	::-webkit-input-placeholder {
+	 color: #CCBDBD;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	 color: #CCBDBD;  
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	 color: #CCBDBD;  
+	}
+
+	:-ms-input-placeholder {  
+	 color: #CCBDBD;  
+	}
+	.bal {
+	    padding-left: 20px;
+	    padding-right: 20px;
+	    background: #3E4649;
+	    height:150%;
+	    overflow: hidden;
+	    font-family: 'Raleway', sans-serif;
+	    font-weight: 400;
+	    color: white;
+	    margin: -8px;
+	    overflow:hidden
+	}
+	.teksbos {
+		border: none;
+		background: #656161;
+		height: 25px;
+		padding-left: 10px;
+		color: white;
+	}
+	.buton {
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-top : 5px;
+		padding-bottom: 5px;
+		border-radius: 5px;
+		border:none; 
+		background: #23A96F;
+	}
+	
+	.buton:hover {
+	    background: #77a292
+	}
