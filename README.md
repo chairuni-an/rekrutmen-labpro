@@ -2,7 +2,9 @@
 
 ## Garis Besar Pekerjaan
 Mengeksplorasi dan menggunakan framework Cocos2D untuk membuat sebuah game.
+Game yang dibuat berjudul Archer Dash, dimana pemain menjadi seorang pemanah yang berlari.
+Pemain harus menghindari rintangan untuk mendapat score.
 
-## Eksplorasi 1 : Resume Cocos2D
-Mencari tahu dan mempelajari tentang Cocos2D dan juga GitHub
+## Checkpoint 1
+Mekanisme game selesai, front end game masih belum sempurna
 
