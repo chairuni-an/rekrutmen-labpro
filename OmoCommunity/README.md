@@ -11,3 +11,6 @@ Checkpoint 1, yang telah dilakukan :
     * Notification(Additional) - done
     * Omniauth(Additional) - done
 
+Checkpoint 1, yang akan dilakukan :
+    * debugging
+    * masih belum tahu
