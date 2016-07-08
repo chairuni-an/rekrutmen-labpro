@@ -14,3 +14,6 @@
 ## Rencana Pengerjaan
 
 * Pengubahan navigasi agar lebih mudah dan "pas" pada layar.
+
+## Screenshot Program
+
