@@ -117,9 +117,9 @@ Pada tahap ini Anda sudah akan diassign pada asisten khusus untuk masing-masing 
 ## Checkpoint 1
 * Rilis: 14 Juni 2016
 * Deadline: 10 Juli 2016
-* Deliverables: Source code dan screenshot dari aplikasi, serta progress report
+* Deliverables: [Source code](https://github.com/kristiantokarim/rekrutmen-labpro/tree/master/OmoCommunity) dan [screenshot](https://github.com/kristiantokarim/rekrutmen-labpro/tree/master/Dokumentasi/OmoCommunity) dari aplikasi, serta [progress report](https://github.com/kristiantokarim/rekrutmen-labpro/blob/master/OmoCommunity/README.md)
 
-Di akhir tahap ini, Anda sudah harus menyelesaikan sebagian dari aplikasi anda. Diwajibkan untuk melakukan asistensi minimal satu kali dengan asisten Anda, Commit tiap tahap pengerjaan Anda ke repository ini, dan tambahkan semacam mini dokumentasi aplikasi dengan mencantumkan screenshot-screenshot akhir aplikasi Anda. Buatlah progress report yang berisi apa yang sudah dikerjakan, kendala, dan rencana pengerjaan berikutnya. Progress report ini akan digunakan oleh asisten Anda untuk dibahas saat asistensi berikutnya. 
+Di akhir tahap ini, Anda sudah harus menyelesaikan sebagian dari aplikasi anda. Diwajibkan untuk melakukan asistensi minimal satu kali dengan asisten Anda, [Commit tiap tahap pengerjaan Anda ke repository ini](https://github.com/kristiantokarim/rekrutmen-labpro/commits/master/OmoCommunity), dan tambahkan semacam mini dokumentasi aplikasi dengan mencantumkan screenshot-screenshot akhir aplikasi Anda. Buatlah progress report yang berisi apa yang sudah dikerjakan, kendala, dan rencana pengerjaan berikutnya. Progress report ini akan digunakan oleh asisten Anda untuk dibahas saat asistensi berikutnya. 
 
 ## Checkpoint 2
 * Rilis: 12 Juli 2016
