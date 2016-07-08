@@ -36,6 +36,7 @@
     vertical-align: middle;
     height: 30px;
     font-size: 120%;
+    z-index: 999;
 }
 .headtitle2 {
     font-family: 'Raleway', sans-serif;
@@ -135,6 +136,7 @@
   text-decoration: none;
 
 }
+
 .us {
   top: 0%;
   border: none;

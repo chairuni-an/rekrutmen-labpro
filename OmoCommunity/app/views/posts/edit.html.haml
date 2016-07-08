@@ -8,8 +8,24 @@
 	           as: :ckeditor,
 	           :input_html => { :ckeditor => {:toolbar => 'mini'} }
 		%p
-		= f.submit "Edit Post"
+		= f.submit "Edit Post", class: "butonk"
 :css
+	.butonk {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-top : 5px;
+		padding-bottom: 5px;
+		border-radius: 5px;
+		border:none; 
+		background: #23A96F;
+      
+	}
+	.butonk:hover {
+		background: #77A292;	
+	}
 	.tek {
 		font-family: 'Raleway', sans-serif;
 		font-weight: 600;

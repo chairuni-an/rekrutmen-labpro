@@ -1,5 +1,5 @@
 .tek
-	%h1 Edit a Post	
+	%h1 Edit a Thread	
 	= simple_form_for @topic do |f|
 		%p Title :
 		= f.input :title, :input_html => {:size => 60 , class: "tes"}, label: false, placeholder: "Your Title Here"
@@ -8,8 +8,24 @@
 	           as: :ckeditor,
 	           :input_html => { :ckeditor => {:toolbar => 'mini'} }
 		%p
-		= f.submit "Edit Post"
+		= f.submit "Edit Thread", class: "butonx"
 :css
+	.butonx {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color: white;
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-top : 5px;
+		padding-bottom: 5px;
+		border-radius: 5px;
+		border:none; 
+		background: #23A96F;
+      
+	}
+	.butonx:hover {
+		background: #77A292;	
+	}
 	.tek {
 		font-family: 'Raleway', sans-serif;
 		font-weight: 600;

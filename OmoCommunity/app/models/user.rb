@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   has_many :topics,	dependent: :destroy
   has_many :posts,	dependent: :destroy
 
+  #NOTIFPOST
+  has_many :notifposts, dependent: :destroy
+  has_many :notifpostlikes, dependent: :destroy
+  
   #DEVISE
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -40,6 +44,7 @@ class User < ActiveRecord::Base
   #USERNAME
   attr_accessor :login
   validate :validate_username
+  validates :username, presence: true, length: { minimum: 4 } 
   validates_uniqueness_of :nim, :username
 
   def validate_username
@@ -69,5 +74,4 @@ class User < ActiveRecord::Base
   #PAPERCLIP
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/, :default_url => "/assets/no-image.jpg"
-
 end

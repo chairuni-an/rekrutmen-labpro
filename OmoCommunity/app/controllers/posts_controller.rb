@@ -15,6 +15,24 @@ class PostsController < ApplicationController
 		@post = @topic.posts.new(param_post)
 		@post.user_id = current_user.id if current_user
 		if @post.save
+			if current_user != @topic.user	
+				@notifpost = @topic.user.notifposts.create!(topic_id: @topic.id, post_id: @post.id, read: false, tipe: "your thread")
+			end
+			subsuser=[current_user,@topic.user]
+			@topic.posts.each do |f|
+				if subsuser.include?(f.user)
+    			else	
+	    			subsuser.push(f.user)
+	    		end
+			end	
+			subsuser.each do |sul|
+				if sul != current_user
+					if sul != @topic.user
+						sul.notifposts.create!(topic_id: @topic.id, post_id: @post.id, read: false, tipe: "thread you posted")
+					end
+				end
+			end
+
 			redirect_to @topic
 		else
 			render 'new'
@@ -48,6 +66,9 @@ class PostsController < ApplicationController
 	  @topic = Topic.find(params[:topic_id])
 	  @post = @topic.posts.find(params[:id])
 	  @post.disliked_by current_user
+	  if current_user != @post.user	
+		@notifpostlikes = @post.user.notifpostlikes.create!(uxid: current_user.id,post_id: @post.id, read: false, tipe: "downvote")
+	  end
 	  redirect_to @topic
 	end
 
@@ -55,6 +76,9 @@ class PostsController < ApplicationController
 	  @topic = Topic.find(params[:topic_id])
 	  @post = @topic.posts.find(params[:id])
 	  @post.undisliked_by current_user
+	  if current_user != @post.user	
+		@notifpostlikes = @post.user.notifpostlikes.create!(uxid: current_user.id,post_id: @post.id, read: false, tipe: "undownvote")
+	  end
 	  redirect_to @topic
 	end
 
@@ -62,6 +86,9 @@ class PostsController < ApplicationController
 	  @topic = Topic.find(params[:topic_id])
 	  @post = @topic.posts.find(params[:id])
 	  @post.liked_by current_user
+	  if current_user != @post.user	
+		@notifpostlikes = @post.user.notifpostlikes.create!(uxid: current_user.id,post_id: @post.id, read: false, tipe: "upvote")
+	  end
 	  redirect_to @topic
 	end
 
@@ -69,12 +96,16 @@ class PostsController < ApplicationController
 	  @topic = Topic.find(params[:topic_id])
 	  @post = @topic.posts.find(params[:id])
 	  @post.unliked_by current_user
+	  if current_user != @post.user	
+		@notifpostlikes = @post.user.notifpostlikes.create!(uxid: current_user.id, post_id: @post.id, read: false, tipe: "unupvote")
+	  end
 	  redirect_to @topic
 	end
 
 	def destroy
 		@topic = Topic.find(params[:topic_id])
 		@post = @topic.posts.find(params[:id])
+		Notifpost.where(post_id:@post.id).delete_all
 		@post.destroy
 		redirect_to @topic
 	end
@@ -85,7 +116,6 @@ class PostsController < ApplicationController
 
 	def param_post
 		params.require(:post).permit(:title, :content)
-	end
-end
-class PostsController < ApplicationController
+	end 
+
 end

@@ -26,7 +26,7 @@ Devise.setup do |config|
 
 
   #DEVISE MAILER
-  config.mailer_sender = 'kristiantokarim@gmail.com'
+  config.mailer_sender = 'iti.omo.com@gmail.com'
   
 
   #DEVISE OMNIAUTH FB

@@ -45,7 +45,7 @@ Rails.application.configure do
     :port                 => 465,              
     :domain               => 'gmail.com',   
     :user_name            => 'iti.omo.com@gmail.com',
-    :password             => 'itiomocomrepositorilabpro',           
+    :password             => 'itiomocomrepositorilabpro',         
     :authentication       => :login,
     :ssl                  => true,
     :tls                  => true,

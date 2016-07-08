@@ -4,7 +4,18 @@ Rails.application.routes.draw do
 
   #OMNIAUTH
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks"}
-  resources :users, :only => [:show]
+  resources :users, :only => [:show] do
+    resources :notifposts do
+      member do
+        put 'changeread' => 'notifposts#changeread', as: :changeread
+      end
+    end
+    resources :notifpostlikes do
+      member do
+        put 'changeread' => 'notifpostlikes#changeread', as: :changeread
+      end
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

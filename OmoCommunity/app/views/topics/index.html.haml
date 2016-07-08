@@ -20,12 +20,18 @@
 				.txz
 					= link_to topic.title, topic_path(topic), class: "txz"
 				.txy
-					= User.find(topic.user_id).email
+					- if User.find(topic.user_id).username.length <20
+						= User.find(topic.user_id).username
+					- else	
+						= "#{User.find(topic.user_id).username[0,15]}..."
 				.txx
 					= topic.posts.size+1
 				- if topic.posts.count == 0
 					.txa
-						= User.find(topic.user_id).email
+						- if User.find(topic.user_id).username.length <20
+							= User.find(topic.user_id).username
+						- else	
+							= "#{User.find(topic.user_id).username[0,20]}..."
 						.txb
 							= topic.created_at.to_date.strftime("%B #{topic.created_at.to_date.day.ordinalize}, %Y")
 						.txb
@@ -33,7 +39,10 @@
 							ago
 				- else
 					.txa
-						= User.find(topic.posts.last.user_id).email
+						- if User.find(topic.posts.last.user_id).username.length < 20
+							= User.find(topic.posts.last.user_id).username
+						- else
+							= "#{User.find(topic.posts.last.user_id).username[0,20]}..."
 						.txb
 							= topic.posts.last.created_at.to_date.strftime("%B #{topic.created_at.to_date.day.ordinalize}, %Y")
 						.txb

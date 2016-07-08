@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705180431) do
+ActiveRecord::Schema.define(version: 20160706155729) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",    limit: 255, null: false
@@ -38,6 +38,30 @@ ActiveRecord::Schema.define(version: 20160705180431) do
   end
 
   add_index "hists", ["post_id"], name: "index_hists_on_post_id", using: :btree
+
+  create_table "notifpostlikes", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "post_id",    limit: 4
+    t.string   "tipe",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.boolean  "read"
+    t.integer  "uxid",       limit: 4
+  end
+
+  add_index "notifpostlikes", ["user_id"], name: "index_notifpostlikes_on_user_id", using: :btree
+
+  create_table "notifposts", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "topic_id",   limit: 4
+    t.boolean  "read"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "post_id",    limit: 4
+    t.string   "tipe",       limit: 255
+  end
+
+  add_index "notifposts", ["user_id"], name: "index_notifposts_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -106,6 +130,8 @@ ActiveRecord::Schema.define(version: 20160705180431) do
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   add_foreign_key "hists", "posts"
+  add_foreign_key "notifpostlikes", "users"
+  add_foreign_key "notifposts", "users"
   add_foreign_key "posts", "topics"
   add_foreign_key "posts", "users"
   add_foreign_key "topics", "users"

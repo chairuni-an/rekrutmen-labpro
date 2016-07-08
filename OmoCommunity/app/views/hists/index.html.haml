@@ -1,12 +1,13 @@
 .tx
-	- @post.hists.each do |hist|
+	- @hiks = @post.hists.order("created_at desc")
+	- @hiks.each do |hist|
 		%h2!= hist.Title
 		%p!= hist.Content
 		.tp
 			= time_ago_in_words(hist.created_at)
 			ago
 			%p
-		- if hist != @post.hists.last
+		- if hist != @hiks.last
 			.hline
 :css
 	.tx {

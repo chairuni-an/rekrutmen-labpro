@@ -3,15 +3,16 @@
 		= @topic.title
 		- if current_user == @topic.user
 			- if @topic.lock?	
-				= link_to "un", changelock_topic_path(@topic), method: :put,class: "un"
+				= link_to "un", changelock_topic_path(@topic), method: :put,class: "lo"
 			- else
-				= link_to "lo", changelock_topic_path(@topic), method: :put,class: "lo"
+				= link_to "lo", changelock_topic_path(@topic), method: :put,class: "un"
 			= link_to "re", @topic, method: :delete, data: {confirm: "Are you sure?"}, class: "trashx"
 		- else 
 			- if @topic.lock?
 				= image_tag("/assets/lock.png",size: "19x19")
 			- else
 				= image_tag("/assets/unlock.png",size: "19x19")
+
 
 .userinfo
 	.bar
@@ -27,8 +28,14 @@
 			%br= image_tag us.image, size: "119x119",class: "imej" 
 		- else
 			%br= image_tag "/assets/no-image.jpg", size: "119x119",class: "imej"  
-		= us.username
-		%br= us.email
+		- if us.username.length < 20
+			= us.username
+		- else
+			= "#{us.username[0,20]}..."
+		- if us.email.length < 20
+			%br= us.email
+		- else
+			%br= "#{us.email[0,20]}..."
 		Joined at 
 		= us.created_at.strftime("%d-%m-%Y %H:%M:%S")
 		%br
@@ -56,8 +63,14 @@
 				%br= image_tag us.image, size: "119x119",class: "imej" 
 			- else
 				%br= image_tag "/assets/no-image.jpg", size: "119x119",class: "imej" 
-			= us.username
-			%br= us.email
+			- if us.username.length < 20
+				= us.username
+			- else
+				= "#{us.username[0,20]}..."
+			- if us.email.length < 20
+				%br= us.email
+			- else
+				%br= "#{us.email[0,20]}..."
 			Joined at 
 			= us.created_at.strftime("%d-%m-%Y %H:%M:%S")
 			%br
