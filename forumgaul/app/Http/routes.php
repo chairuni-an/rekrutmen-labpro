@@ -19,6 +19,7 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+/*** THREADS ***/
 Route::get('/threads', 'ThreadController@index');
 
 Route::get('/create_thread', function() {
@@ -29,4 +30,17 @@ Route::post('/thread_creator', 'ThreadController@store');
 
 Route::get('/thread_created', function() {
 	return view('thread_created');
+});
+
+/*** POSTS ***/
+Route::get('/threads/{thread_id}', 'PostController@index');
+
+Route::get('/threads/{thread_id}/create_post', function() {
+	return view('post_creator');
+});
+
+Route::post('/threads/{thread_id}/create_post', 'PostController@store');
+
+Route::get('/post_created', function() {
+	return view('post_created');
 });

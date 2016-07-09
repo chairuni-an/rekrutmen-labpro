@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Thread extends Model
+class Post extends Model
 {
-	/**
+    /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'threads';
+    protected $table = 'posts';
 
     /**
      * The attributes that are mass assignable.
@@ -19,13 +19,6 @@ class Thread extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'category',
+        'title', 'message',
     ];
-
-    /**
-    *  Get the posts for the thread.
-    */
-    public function posts() {
-        return $this->hasMany('App\Post');
-    }
 }
