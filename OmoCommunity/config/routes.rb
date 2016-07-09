@@ -46,7 +46,9 @@ Rails.application.routes.draw do
     member do
     put 'changelock' => 'topics#changelock', as: :changelock
     end
+    resources :attachments
     resources :posts do
+    resources :attachments
     member do
         get 'upvote' => 'posts#upvote', as: :upvote
         get 'downvote' => 'posts#downvote', as: :downvote

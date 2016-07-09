@@ -15,6 +15,11 @@ class PostsController < ApplicationController
 		@post = @topic.posts.new(param_post)
 		@post.user_id = current_user.id if current_user
 		if @post.save
+			if params[:thefiles]
+				params[:thefiles].each do |kl|
+					@post.attachments.create!(attachment: kl)
+				end
+			end
 			if current_user != @topic.user	
 				@notifpost = @topic.user.notifposts.create!(topic_id: @topic.id, post_id: @post.id, read: false, tipe: "your thread")
 			end
@@ -56,6 +61,11 @@ class PostsController < ApplicationController
 		@hist.Title = @post.title
 		@hist.Content = @post.content
 		if @post.update(param_post)
+			if params[:thefiles]
+				params[:thefiles].each do |kl|
+					@post.attachments.create!(attachment: kl)
+				end
+			end
 			redirect_to @topic
 		else
 			render 'edit'

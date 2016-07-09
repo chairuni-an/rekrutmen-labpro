@@ -28,6 +28,11 @@ class TopicsController < ApplicationController
 	def update
 		@topic = Topic.find(params[:id])
 		if @topic.update(topic_param)
+			if params[:thefiles]
+				params[:thefiles].each do |kl|
+					@topic.attachments.create!(attachment: kl)
+				end
+			end
 			redirect_to @topic
 		else
 			render 'edit'
@@ -41,6 +46,11 @@ class TopicsController < ApplicationController
 	def create
 		@topic = current_user.topics.build(topic_param)
 		if @topic.save
+			if params[:thefiles]
+				params[:thefiles].each do |kl|
+					@topic.attachments.create!(attachment: kl)
+				end
+			end
 			redirect_to @topic
 		else
 			render 'new'
@@ -70,6 +80,6 @@ class TopicsController < ApplicationController
 
 	private
 	def topic_param
-		params.require(:topic).permit(:title, :content)
+		params.require(:topic).permit(:title, :content, :thefiles)
 	end
 end

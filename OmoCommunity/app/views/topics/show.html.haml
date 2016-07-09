@@ -40,8 +40,19 @@
 		= us.created_at.strftime("%d-%m-%Y %H:%M:%S")
 		%br
 	.oth
-		.x
+		%div{class:"xkl"}
 			!= @topic.content
+		- if !@topic.attachments.empty?
+			%div{class: "ats"}	
+				- if @topic.attachments.size > 1
+					%p Attachments
+				- else
+					%p Attachment
+				- @topic.attachments.each do |attach|
+					.lollf
+						= link_to File.basename(attach.attachment.url),attach.attachment.url, class: "fileattach"
+						= link_to "Remove", [attach.topic, attach], :method => "delete", data: {confirm: "Are you sure?"}, class: "fileattach"
+				
 %p
 - @topic.posts.each do |post|
 	.userinfo
@@ -116,8 +127,18 @@
 			%br
 		.oth
 			%h4= post.title
-			.x
+			%div{class: "x"}
 				!= post.content
+			- if !post.attachments.empty?
+				%div{class: "ats"}	
+					- if post.attachments.size > 1
+						%p Attachments
+					- else
+						%p Attachment
+					- post.attachments.each do |attach|
+						.lollf
+							= link_to File.basename(attach.attachment.url),attach.attachment.url, class: "fileattach"
+							= link_to "Remove", [attach.post.topic,attach.post, attach], :method => "delete", data: {confirm: "Are you sure?"}, class: "fileattach"
 	%p
 - if !@topic.lock
 	= link_to "Post a Reply",new_topic_post_path([@topic, @topic.posts.build]), class: "buton"
@@ -126,7 +147,21 @@
 
 
 :css
-
+	.lollf {
+		display:block;
+	}
+	.fileattach {
+		font-size:12px;
+		display:inline-block;
+	}
+	.ats {
+		border: 1px solid #23A86D;
+		width:92%;
+		padding-left:20px;
+		padding-right:20px;
+		padding-bottom:20px;
+		display:block;
+	}
 	.buton:hover {
 	    background: #77a292
 	}
@@ -182,8 +217,11 @@
 		margin-right:10px;
 		display:inline;
 	}
-	.x {
+	.xkl {
 		font-size: 15px;
+		display:block;
+		min-height:82px;
+		word-break: break-all;
 	}
 	.bar {
 		background:#23a86d;
@@ -238,7 +276,7 @@
 	}
 	.imejx {
 		float:left;
-		width:21.33%;
+		width:16%;
 		left:6%;
 		position:relative;
 		font-size:12px;
@@ -248,6 +286,7 @@
 		float:right;
 		background:#2d2f31;
 		display:inline-block;
+		position:relative;
 		width:75.5%;
 		padding-left:20px;
 		padding-right:20px;
