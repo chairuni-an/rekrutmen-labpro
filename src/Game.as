@@ -48,9 +48,6 @@ public class Game extends Sprite {
 
         this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 
-        nav = new ScreenNavigator();
-        nav.autoSizeMode = ScreenNavigator.AUTO_SIZE_MODE_STAGE;
-        addChild(nav);
         //Initialize screens.
         initScreens();
     }
