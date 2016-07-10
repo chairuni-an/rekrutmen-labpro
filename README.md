@@ -5,7 +5,8 @@ Terlampir beberapa file yang merupakan tugas dari Rekrutmen Labpro. File tersebu
 2. [Dokumentasi1.pdf] - Tugas Eksplorasi 2 bagian Dokumentasi
 3. [Proposal_proyek.pdf] - Tugas Rancangan Proyek
 4. [Proposal_proyek_rev12-06-16.pdf] - Revisi Rancangan Proyek
-5. File lainnya adalah project keseluruhan game yang dibuat secara otomatis oleh Visual Studio 2010
+5. [Progress Report dan Screenshot Cehckpoint1] - Checkpoint 1
+6. File lainnya adalah project keseluruhan game yang dibuat secara otomatis oleh Visual Studio 2010
 
 Game assets didownload dari : opengameart.org
 
@@ -20,3 +21,4 @@ Game assets didownload dari : opengameart.org
 [Dokumentasi1.pdf]: <https://github.com/martinock/rekrutmen-labpro/blob/master/Dokumentasi1.pdf>
 [Proposal_proyek.pdf]: <https://github.com/martinock/rekrutmen-labpro/blob/master/Proposal_proyek.pdf>
 [Proposal_proyek_rev12-06-16.pdf]: <https://github.com/martinock/rekrutmen-labpro/blob/master/Proposal_proyek_rev12-06-16.pdf>
+[Progress Report dan Screenshot Cehckpoint1]: <https://github.com/martinock/rekrutmen-labpro/blob/master/Progress%20Report%20dan%20Screenshot%20Cehckpoint1.pdf>
