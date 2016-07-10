@@ -10,6 +10,9 @@ picshareApp.config(function($locationProvider, $routeProvider) {
    .when('/login', {
        templateUrl: 'templates/login.html'
    })
+   .when('/thanks', {
+       templateUrl: 'templates/thanks.html'
+   })
    .when('/:username', {
        templateUrl: 'templates/profile.html'
    })

@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Picshare - ExpressJS Project",
   "main": "app.js",
-  "directories": {
-    "doc": "doc"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

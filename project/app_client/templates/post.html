@@ -1,12 +1,32 @@
-<div ng-controller="PostController" class="text-xs-center wrap p-t-2">
-  <div class="p-t-2 post-div">
+<div ng-controller="PostController" class="text-xs-center wrap">
+  <div class="post-div">
     <div class="image-div" style="background-color: black">
       <img class="image-img" ng-src="{{post.img}}">
     </div>
     <div class="desc-div" style="border: 1px solid black">
-      <img class="post-avatar m-t-1" ng-src="{{post.user.avatar}}">
-      <span class="p-l-1">{{post.user.username}}</span>
-      <p class="p-t-1">{{post.desc}}</p>
+      <div class="post-info text-xs-left p-b-1 p-t-1">
+        <img class="post-avatar m-l-1" ng-src="{{post.user.avatar}}">
+        <span class="p-l-1">{{post.user.username}}</span>
+      </div>
+      <div class="likes p-l-1">
+        <img src="/static/img/love-white.png">
+        <span class="p-l-1">{{post.likes.length}} likes</span>
+      </div>
+      <div class="comments">
+        <ul>
+          <li><a ng-href="{{post.user.usermame}}">{{post.user.username}}</a>
+          {{post.desc}}</li>
+        </ul>
+      </div>
+      <div class="comment-add">
+        <form>
+          <fieldset class="form-group">
+            <label for="username">Comment</label>
+            <textarea class="form-control" id="description" ng-model="desc" placeholder="Write your comment here..."></textarea>
+            <button class="btn btn-primary" style="margin-top: 8px;">Submit</button>
+          </fieldset>
+        </form>
+      </div>
     </div>
   </div>
 </div>
