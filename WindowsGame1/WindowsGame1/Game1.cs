@@ -30,6 +30,7 @@ namespace WindowsGame1
         const int walkSpeed = 2;
         const int runSpeed = 4;
         bool isPressed = false;
+        Enemy enemy;
 
         public Game1()
         {
@@ -57,6 +58,9 @@ namespace WindowsGame1
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            // Tes Musuh
+            IsMouseVisible = true;
+            enemy = new Enemy(Content.Load < Texture2D > ("Knight_walk"), new Vector2(400, 400), 150);
             walk = Content.Load<Texture2D>("archer_walk");
             atk = Content.Load<Texture2D>("archer_atk");
             
@@ -81,6 +85,7 @@ namespace WindowsGame1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            enemy.Update();
             if (!Keyboard.GetState().IsKeyDown(Keys.Down) && !Keyboard.GetState().IsKeyDown(Keys.Up) 
                 && !Keyboard.GetState().IsKeyDown(Keys.Right) && !Keyboard.GetState().IsKeyDown(Keys.Left))
             {
@@ -226,6 +231,7 @@ namespace WindowsGame1
             {
                 spriteBatch.Draw(walk, destRect, sourceRect, Color.White);
             }
+            enemy.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
