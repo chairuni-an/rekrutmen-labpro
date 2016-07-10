@@ -9,9 +9,10 @@
 .calendar{
   background-color:@defaultThemeColor;
   display: inline-block;
+  box-sizing: border-box;
 
   .calendarHeader{
-    display: block
+    display: block;
     position: relative;
     text-align: center;
 
@@ -22,9 +23,10 @@
   }
 
   .weekNames{
-    display: inline-block;
+    display: inline;
+    box-sizing: border-box;
+    clear: both;
     .day{
-      display: inline;
       padding: 3%;
     }
   }

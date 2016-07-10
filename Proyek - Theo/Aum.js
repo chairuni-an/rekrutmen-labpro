@@ -1,3 +1,26 @@
+var App = React.createClass({
+  getInitialState: function() {
+    return {
+      dateSelected: null
+    };
+  },
+
+  handleDateSelectedChange: function(dateSelected) {
+    this.setState({
+      dateSelected: dateSelected
+    });
+  },
+
+  render: function() {
+    return (
+      <div>
+        <Calendar handleDateSelectedChange={this.handleDateSelectedChange}/>
+        <Table selected={this.state.dateSelected}/>
+      </div>
+    );
+  }
+});
+
 var Calendar = React.createClass({
   getInitialState: function() {
     return {
@@ -8,7 +31,7 @@ var Calendar = React.createClass({
 
   componentWillMount: function() {
     this.setState({
-      selected: this.state.displayed.format()
+      selected: this.state.displayed.format("DDMMYYYY")
     });
   },
 
@@ -22,6 +45,7 @@ var Calendar = React.createClass({
     this.setState({
       selected: selected
     });
+    this.props.handleDateSelectedChange(selected)
   },
 
   render: function(){
@@ -96,7 +120,7 @@ var DisplayDates = React.createClass({
 
     while(this.props.displayed.clone().endOf('month').isSameOrAfter(date)){
       for(var i = 0; i < 7;i++){
-        tempDisplay.push(<span key={date.format("DD MM YY")} onClick={this.props.handleSelectedChange.bind(null, date.format())}>{date.dates()}</span>);
+        tempDisplay.push(<span key={date.format("YYYYDDMM")} onClick={this.props.handleSelectedChange.bind(null, date.format("YYYYDDMM"))}>{date.dates()}</span>);
         date.add(1, "d");
       }
       display.push(<div>{tempDisplay}</div>);
@@ -111,7 +135,67 @@ var DisplayDates = React.createClass({
   }
 });
 
+var Table = React.createClass({
+  propTypes:{
+    selected: React.PropTypes.string
+  },
+
+  getInitialState: function() {
+    return {
+      data: {
+        20160707: {
+          lapangana: [
+            {pemesan: "Jonii", jam: 11},
+            {pemesan: "Bukan Jonii", jam: 12},
+            {pemesan: "Bukan Jonii", jam: 13}
+          ],
+          lapanganb: [
+            {pemesan: "Kakak", jam: 11},
+            {pemesan: "Adek", jam: 12}
+          ]
+        },
+
+        20161307: {
+          lapangana: [
+            {pemesan: "Jono", jam: 11},
+            {pemesan: "Bukan Jono", jam: 12}
+          ],
+          lapanganb: [
+            {pemesan: "Theo", jam: 11},
+            {pemesan: "Bukan Theo", jam: 12}
+          ]
+        },
+      }
+    };
+  },
+
+  componentDidMount: function() {
+    //Fetch data from database (ku belum bisa maapkan)
+    //pakai data JSON dummy berupa state
+  },
+
+  render: function() {
+    let selected = this.props.selected;
+    let table = "";
+
+    if (this.state.data[selected]) {
+      for (let s of this.state.data[selected].lapangana) {
+        table += s.pemesan;
+      }
+      for (let s of this.state.data[selected].lapanganb) {
+        table += s.pemesan;
+      }
+    };
+
+    return (
+      <div>
+        {table}
+      </div>
+    );
+  }
+});
+
 ReactDOM.render(
-    <Calendar />,
+    <App />,
     document.getElementById('theo')
 );

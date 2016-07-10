@@ -1,19 +1,21 @@
 .calendar {
   background-color: #dfd;
   display: inline-block;
+  box-sizing: border-box;
 }
 .calendar .calendarHeader {
-  display: block
-    position: relative;
+  display: block;
+  position: relative;
   text-align: center;
 }
 .calendar .calendarHeader .monthName {
   font-family: sans-serif;
 }
 .calendar .weekNames {
-  display: inline-block;
+  display: inline;
+  box-sizing: border-box;
+  clear: both;
 }
 .calendar .weekNames .day {
-  display: inline;
   padding: 3%;
 }
