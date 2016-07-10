@@ -40,3 +40,11 @@ Pikiran Syntax adalah sebuah blog yang merupakan wadah yang memfasilitasi mahasi
   1. [[REVISI RANCANGAN PROYEK] Pikiran Syntax - 13514079.pdf](https://github.com/adeyura/rekrutmen-labpro/blob/master/%5BREVISI%20RANCANGAN%20PROYEK%5D%20Pikiran%20Syntax%20-%2013514079.pdf)
 
 Penambahan kebutuhan pengguna, yaitu pengguna dapat mengedit profil dan dapat melakukan pencarian artikel. Beserta penyesuaiannya pada kebutuhan sistem.
+
+## Checkpoint 1
+* Rilis: 14 Juni 2016
+* Deadline: 10 Juli 2016
+* Deliverables: Source code dan screenshot dari aplikasi, serta progress report
+* File :
+  1. [Source Code - PikiranSyntax](https://github.com/adeyura/rekrutmen-labpro/tree/master/PikiranSyntax)
+  2. [[CHECKPOINT 1] Progress Report dan Screenshot Aplikasi.pdf](https://github.com/adeyura/rekrutmen-labpro/blob/master/%5BCHECKPOINT%201%5D%20Progress%20Report%20dan%20Screenshot%20Aplikasi.pdf)
