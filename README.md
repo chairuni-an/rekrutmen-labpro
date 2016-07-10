@@ -23,4 +23,10 @@
 * Rilis: 7 Juni 2016
 * Deadline: 12 Juni 2016
 * Deliverables: Revisi dokumen rancangan proyek
-* File : [RevisiRancanganProyek.pdf](https://github.com/mickyyu96/rekrutmen-labpro/blob/master/RevisiRancanganProyek.pdf)
+* File: [RevisiRancanganProyek.pdf](https://github.com/mickyyu96/rekrutmen-labpro/blob/master/RevisiRancanganProyek.pdf)
+
+## Checkpoint 1
+* Rilis: 14 Juni 2016
+* Deadline: 10 Juli 2016
+* Deliverables: Source code dan screenshot dari aplikasi, serta progress report
+* File: [Checkpoint1.zip](https://github.com/mickyyu96/rekrutmen-labpro/raw/master/Checkpoint1.zip)
