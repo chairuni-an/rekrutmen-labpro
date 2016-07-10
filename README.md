@@ -23,3 +23,9 @@ Berikut adalah daftar hal-hal yang telah direvisi dari rancangan proyek sebelumn
 - Picshare hanya akan digunakan untuk berbagi gambar, tidak untuk berbagi video.
 - Menambahkan kebutuhan pengguna, yaitu dapat mengubah pengaturan akun dan profil pengguna.
 - Menambahkan kebutuhan sistem, yaitu menyediakan form login dan logout.
+
+## Checkpoint 1
+Source code berada di folder **project**
+
+Dokumen progress report serta dokumentasi Checkpoint 1 terlampir di folder **doc/Checkpoint_1**.
+
