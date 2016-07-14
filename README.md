@@ -1,7 +1,11 @@
 # Rekrutmen Asisten Lab Programming Angkatan 2014
 
 ## Garis Besar Tugas
-Silahkan ubah readme ini untuk mendeskripsikan pekerjaan Anda. Cantumkan deskripsi tugas dan lokasi file-file yang Anda tambahkan di sini. Anda dapat menggunakan tool online http://dillinger.io/ serta cheatsheet https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet untuk mengubah readme ini. Mulai dari submission pertama, silahkan hapus deskripsi ini.
+Github ini menjelaskan tentang Phonegap sebagai pemenuhan tugas rekrutmen asisten lab programming angkatan 2014
+### Topik
+Phonegap
+### Data Diri
+Leo Harisma Ardisadewo / 18214004
 
 ## Eksplorasi 1
 * Rilis: 3 Mei 2016
