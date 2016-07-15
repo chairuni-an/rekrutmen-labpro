@@ -96,7 +96,7 @@ class ArtikelController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_artikel]);
+            return $this->redirect(['/site/view', 'id' => $model->id_artikel]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -114,7 +114,7 @@ class ArtikelController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['/']);
     }
 
     /**
@@ -132,4 +132,10 @@ class ArtikelController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+	
+	public function beforeAction($action)
+	{
+		$this->enableCsrfValidation = false;
+		return parent::beforeAction($action);
+	}
 }

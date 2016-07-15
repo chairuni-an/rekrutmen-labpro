@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
 			<h4>
 				<?= $this->title ?>
 				<span class="pull-right">
-					<?= Html::a('Kembali', ['/'], ['class' => 'btn btn-danger btn-sm']) ?>
+					<?= Html::a('Kembali', [$model->isNewRecord ? '/' : '/site/view', 'id' => $model->id_artikel], ['class' => 'btn btn-danger btn-sm']) ?>
 				</span>
 			</h4>
 		</div>

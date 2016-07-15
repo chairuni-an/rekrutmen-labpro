@@ -8,8 +8,16 @@ $this->title = Yii::$app->name .' - '. $model->judul;
 ?>
 
 <div class="content">
-	<div class="content-title">
-		<?= Html::a($model->judul, ['view', 'id' => $model->id_artikel]) ?>
+	<div class="content-title" style="white-space:nowrap";>
+		<form style="display:inline-flex">
+				<?= Html::a($model->judul, ['view', 'id' => $model->id_artikel]); ?>
+				&nbsp;
+				<?= Html::a('', ['/artikel/update', 'id' => $model->id_artikel], ['class' => 'glyphicon glyphicon-pencil', 'title' => Yii::t('app', 'Edit'),]); ?>
+				&nbsp;
+				<?= Html::a('', ['/artikel/delete', 'id' => $model->id_artikel], ['class' => 'glyphicon glyphicon-trash', 'title' => Yii::t('app', 'Hapus'),
+				                        'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
+                                        'data-method' => 'post',]); ?>	
+		</form>
 	</div>
 	<div class="content-detail">
 		Tanggal : <strong><?= date('d-m-Y', $model->create_time) ?></strong>
