@@ -15,6 +15,7 @@ var postSchema = new mongoose.Schema({
   desc: String,
   date: Date,
   comments: [{
+    id: Number,
     username: String,
     date: Date,
     body: String
