@@ -17,7 +17,9 @@ class TopicsController < ApplicationController
 	    end
 	    @topics = @topics1
 	  else
-	    @topics = Topic.all.order("created_at DESC")
+	    @topics = Topic.includes(:posts)
+                   .order('coalesce(posts.created_at, topics.created_at) desc')
+                   .references(:posts)
 	  end
 	end
 
