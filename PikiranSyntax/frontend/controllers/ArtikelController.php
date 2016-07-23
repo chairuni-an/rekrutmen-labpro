@@ -95,7 +95,7 @@ class ArtikelController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-		if(!Yii::$app->user->can('updatePost',['post' => $model])) {
+		if(!Yii::$app->user->can('updatePost',['post' => $model->createBy])) {
 			throw new ForbiddenHttpException('You are not allowed to perform this action.');
 		}
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -116,7 +116,7 @@ class ArtikelController extends Controller
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
-		if(!Yii::$app->user->can('updatePost',['post' => $model])) {
+		if(!Yii::$app->user->can('updatePost',['post' => $model->createBy])) {
 			throw new ForbiddenHttpException('You are not allowed to perform this action.');
 		}		
         $this->findModel($id)->delete();

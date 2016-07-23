@@ -13,7 +13,7 @@ $this->title = Yii::$app->name .' - '. $model->judul;
 		<form style="display:inline-flex">
 				<?= Html::a($model->judul, ['view', 'id' => $model->id_artikel]); ?>
 				
-				<?php if (\Yii::$app->user->can('updatePost', ['post' => $model])) {
+				<?php if (\Yii::$app->user->can('updatePost', ['post' => $model->createBy])) {
 					echo "&nbsp";
 					echo Html::a('', ['/artikel/update', 'id' => $model->id_artikel], ['class' => 'glyphicon glyphicon-pencil', 'title' => Yii::t('app', 'Edit'),]); 
 					echo "&nbsp";

@@ -13,6 +13,6 @@ class OnlyAuthor extends Rule
     public function execute($user, $item, $params)
     {
         $model = $params['post'];
-        return Yii::$app->user->id == $model->createBy->id;
+        return Yii::$app->user->id == $model->id;
     }
 }
