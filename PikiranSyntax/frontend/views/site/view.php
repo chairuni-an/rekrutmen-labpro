@@ -3,6 +3,7 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use yii\widgets\ListView;
+use frontend\rules\OnlyAuthor;
 $this->title = Yii::$app->name .' - '. $model->judul;
 
 ?>
@@ -11,12 +12,15 @@ $this->title = Yii::$app->name .' - '. $model->judul;
 	<div class="content-title" style="white-space:nowrap";>
 		<form style="display:inline-flex">
 				<?= Html::a($model->judul, ['view', 'id' => $model->id_artikel]); ?>
-				&nbsp;
-				<?= Html::a('', ['/artikel/update', 'id' => $model->id_artikel], ['class' => 'glyphicon glyphicon-pencil', 'title' => Yii::t('app', 'Edit'),]); ?>
-				&nbsp;
-				<?= Html::a('', ['/artikel/delete', 'id' => $model->id_artikel], ['class' => 'glyphicon glyphicon-trash', 'title' => Yii::t('app', 'Hapus'),
-				                        'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
-                                        'data-method' => 'post',]); ?>	
+				
+				<?php if (\Yii::$app->user->can('updatePost', ['post' => $model])) {
+					echo "&nbsp";
+					echo Html::a('', ['/artikel/update', 'id' => $model->id_artikel], ['class' => 'glyphicon glyphicon-pencil', 'title' => Yii::t('app', 'Edit'),]); 
+					echo "&nbsp";
+					echo Html::a('', ['/artikel/delete', 'id' => $model->id_artikel], ['class' => 'glyphicon glyphicon-trash', 'title' => Yii::t('app', 'Hapus'),
+											'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
+											'data-method' => 'post',]);
+				} ?>
 		</form>
 	</div>
 	<div class="content-detail">

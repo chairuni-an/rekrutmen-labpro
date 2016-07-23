@@ -7,6 +7,7 @@ use common\models\Artikel;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
@@ -94,7 +95,9 @@ class ArtikelController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+		if(!Yii::$app->user->can('updatePost',['post' => $model])) {
+			throw new ForbiddenHttpException('You are not allowed to perform this action.');
+		}
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['/site/view', 'id' => $model->id_artikel]);
         } else {
@@ -112,6 +115,10 @@ class ArtikelController extends Controller
      */
     public function actionDelete($id)
     {
+        $model = $this->findModel($id);
+		if(!Yii::$app->user->can('updatePost',['post' => $model])) {
+			throw new ForbiddenHttpException('You are not allowed to perform this action.');
+		}		
         $this->findModel($id)->delete();
 
         return $this->redirect(['/']);
