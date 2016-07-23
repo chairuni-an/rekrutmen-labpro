@@ -4,9 +4,6 @@ namespace frontend\rules;
 
 use Yii; 
 use yii\rbac\Rule;
-use yii\filters\AccessControl;
-use common\models\Artikel;
-use frontend\controllers\ArtikelController;
  
 class OnlyAuthor extends Rule
 {
