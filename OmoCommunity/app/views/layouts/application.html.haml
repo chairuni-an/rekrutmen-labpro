@@ -53,7 +53,13 @@
 					.nored
 						%br
 						- if f.is_a?(Notifpost)	
-							= link_to "#{(Post.find(f.post_id)).user.username} has posted on #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh noread"
+							- if f.tipe == "is following you"
+								= link_to "#{(User.find(f.post_id)).username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh noread"
+							- else
+								- if f.tipe == "has created a new thread"
+									= link_to "#{(Topic.find(f.topic_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh noread"
+								- else
+									= link_to "#{(Post.find(f.post_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh noread"
 						- else
 							= link_to "#{User.find(f.uxid).username} has #{f.tipe}d your post",changeread_user_notifpostlike_path(current_user,f), :method => "put",class: "teh noread"
 						.agoxd	
@@ -66,7 +72,13 @@
 					.red
 						%br
 						- if f.is_a?(Notifpost)	
-							= link_to "#{(Post.find(f.post_id)).user.username} has posted on #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh read"
+							- if f.tipe == "is following you"
+								= link_to "#{(User.find(f.post_id)).username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh read"
+							- else
+								- if f.tipe == "has created a new thread"
+									= link_to "#{(Topic.find(f.topic_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh read"
+								- else
+									= link_to "#{(Post.find(f.post_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh read"
 
 						- else
 							= link_to "#{User.find(f.uxid).username} has #{f.tipe}d your post",changeread_user_notifpostlike_path(current_user,f), :method => "put",class: "teh read"
@@ -79,9 +91,12 @@
 			
 			.showal
 				= link_to "Show All", user_notifposts_path(current_user),class: "showal"
-				
-				
-				
+	%div{id: "notice_wrapper"}			
+		- if notice			
+			%p{class: "notice"}= notice 
+		- else
+			- if alert
+				%p{class: "alert"}= alert 			
 	.sad		
 		=yield
 :javascript
@@ -120,7 +135,42 @@
 	    });
 	})(jQuery);
 
+	$(document).ready(function(){
+		setTimeout(function(){
+			$('#notice_wrapper').fadeOut("slow", function() {
+				$(this).remove();
+			})
+		}, 2500);
+	});
+
 :css
+	.notice {
+		position: fixed;
+		background: rgb(35, 169, 111) none repeat scroll 0% 0%;
+		width: 100%;
+		margin-left: -8px;
+		height: 40px;
+		margin-top: 9px;
+		text-align: center;
+		line-height: 220%;
+		color:white;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 400;
+	}
+	.alert {
+		position: fixed;
+		background: rgb(35, 169, 111) none repeat scroll 0% 0%;
+		width: 100%;
+		margin-left: -8px;
+		height: 40px;
+		margin-top: 9px;
+		text-align: center;
+		line-height: 220%;
+		color:white;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 400;
+	}
+
 	.nocount {
 		color:white;
 		font-family: 'Raleway', sans-serif;

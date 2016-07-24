@@ -30,11 +30,6 @@ class TopicsController < ApplicationController
 	def update
 		@topic = Topic.find(params[:id])
 		if @topic.update(topic_param)
-			if params[:thefiles]
-				params[:thefiles].each do |kl|
-					@topic.attachments.create!(attachment: kl)
-				end
-			end
 			redirect_to @topic
 		else
 			render 'edit'
@@ -48,10 +43,9 @@ class TopicsController < ApplicationController
 	def create
 		@topic = current_user.topics.build(topic_param)
 		if @topic.save
-			if params[:thefiles]
-				params[:thefiles].each do |kl|
-					@topic.attachments.create!(attachment: kl)
-				end
+			@followerx = @topic.user.followers
+			@followerx.each do |fol|
+				fol.notifposts.create!(topic_id: @topic.id, post_id: nil, read: false, tipe: "has created a new thread")
 			end
 			redirect_to @topic
 		else
@@ -71,6 +65,7 @@ class TopicsController < ApplicationController
 
 	def destroy
 		@topic = current_user.topics.find(params[:id])
+		Notifpost.destroy_all(topic_id: @topic.id)
 		@topic.destroy
 		
 		redirect_to root_path
@@ -82,6 +77,6 @@ class TopicsController < ApplicationController
 
 	private
 	def topic_param
-		params.require(:topic).permit(:title, :content, :thefiles)
+		params.require(:topic).permit(:title, :content)
 	end
 end

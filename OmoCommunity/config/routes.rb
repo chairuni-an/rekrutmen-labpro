@@ -3,8 +3,14 @@ Rails.application.routes.draw do
   
 
   #OMNIAUTH
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks"}
-  resources :users, :only => [:show] do
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", :registrations => "regs"}
+  resources :users, :only => [:show, :follow, :unfollow, :showfollowing, :showfollower] do
+    member do
+      put 'follow' => 'users#follow', as: :follow
+      put 'unfollow' => 'users#unfollow', as: :unfollow
+      get 'showfollowing' => 'users#showfollowing', as: :showfollowing
+      get 'showfollower' => 'users#showfollower', as: :showfollower
+    end
     resources :notifposts do
       member do
         put 'changeread' => 'notifposts#changeread', as: :changeread

@@ -74,4 +74,9 @@ class User < ActiveRecord::Base
   #PAPERCLIP
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/, :default_url => "/assets/no-image.jpg"
+
+  #ACT AS FOLLOWER
+  acts_as_followable
+  acts_as_follower
+
 end

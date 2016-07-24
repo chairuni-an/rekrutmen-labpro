@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706155729) do
+ActiveRecord::Schema.define(version: 20160721124603) do
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "attachment", limit: 255
+    t.integer  "topic_id",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "post_id",    limit: 4
+  end
+
+  add_index "attachments", ["post_id"], name: "index_attachments_on_post_id", using: :btree
+  add_index "attachments", ["topic_id"], name: "index_attachments_on_topic_id", using: :btree
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",    limit: 255, null: false
@@ -28,6 +39,19 @@ ActiveRecord::Schema.define(version: 20160706155729) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "followable_id",   limit: 4,                   null: false
+    t.string   "followable_type", limit: 255,                 null: false
+    t.integer  "follower_id",     limit: 4,                   null: false
+    t.string   "follower_type",   limit: 255,                 null: false
+    t.boolean  "blocked",                     default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
+  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
   create_table "hists", force: :cascade do |t|
     t.string   "Title",      limit: 255
@@ -62,6 +86,12 @@ ActiveRecord::Schema.define(version: 20160706155729) do
   end
 
   add_index "notifposts", ["user_id"], name: "index_notifposts_on_user_id", using: :btree
+
+  create_table "pictures", force: :cascade do |t|
+    t.integer  "attacher_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -129,6 +159,8 @@ ActiveRecord::Schema.define(version: 20160706155729) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "attachments", "posts"
+  add_foreign_key "attachments", "topics"
   add_foreign_key "hists", "posts"
   add_foreign_key "notifpostlikes", "users"
   add_foreign_key "notifposts", "users"

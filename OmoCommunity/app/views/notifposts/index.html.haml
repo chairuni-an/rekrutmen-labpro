@@ -8,7 +8,13 @@
 		- if !f.read?
 			%div{class: "sty"}
 				- if f.is_a?(Notifpost)	
-					= link_to "#{(Post.find(f.post_id)).user.username} has posted on #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp"
+					- if f.tipe == "is following you"	
+						= link_to "#{(User.find(f.post_id)).username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp"
+					- else	
+						- if f.tipe == "has created a new thread"
+							= link_to "#{(Topic.find(f.topic_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp"
+						- else	
+							= link_to "#{(Post.find(f.post_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp"
 				- else
 					= link_to "#{User.find(f.uxid).username} has #{f.tipe}d your post",changeread_user_notifpostlike_path(current_user,f), :method => "put",class: "ogd telp"
 				.lplp	
@@ -18,7 +24,13 @@
 		- else
 			.stx
 				- if f.is_a?(Notifpost)	
-					= link_to "#{(Post.find(f.post_id)).user.username} has posted on #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp2"
+					- if f.tipe == "is following you"	
+						= link_to "#{(User.find(f.post_id)).username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp2"
+					- else
+						- if f.tipe == "has created a new thread"
+							= link_to "#{(Topic.find(f.topic_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp2"
+						- else	
+							= link_to "#{(Post.find(f.post_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp2"
 				- else
 					= link_to "#{User.find(f.uxid).username} has #{f.tipe}d your post",changeread_user_notifpostlike_path(current_user,f), :method => "put",class: "ogd telp2"
 				.lplp2

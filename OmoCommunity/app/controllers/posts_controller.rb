@@ -15,13 +15,8 @@ class PostsController < ApplicationController
 		@post = @topic.posts.new(param_post)
 		@post.user_id = current_user.id if current_user
 		if @post.save
-			if params[:thefiles]
-				params[:thefiles].each do |kl|
-					@post.attachments.create!(attachment: kl)
-				end
-			end
 			if current_user != @topic.user	
-				@notifpost = @topic.user.notifposts.create!(topic_id: @topic.id, post_id: @post.id, read: false, tipe: "your thread")
+				@notifpost = @topic.user.notifposts.create!(topic_id: @topic.id, post_id: @post.id, read: false, tipe: "has posted on your thread")
 			end
 			subsuser=[current_user,@topic.user]
 			@topic.posts.each do |f|
@@ -33,7 +28,7 @@ class PostsController < ApplicationController
 			subsuser.each do |sul|
 				if sul != current_user
 					if sul != @topic.user
-						sul.notifposts.create!(topic_id: @topic.id, post_id: @post.id, read: false, tipe: "thread you posted")
+						sul.notifposts.create!(topic_id: @topic.id, post_id: @post.id, read: false, tipe: "has posted on thread you posted")
 					end
 				end
 			end
@@ -61,11 +56,6 @@ class PostsController < ApplicationController
 		@hist.Title = @post.title
 		@hist.Content = @post.content
 		if @post.update(param_post)
-			if params[:thefiles]
-				params[:thefiles].each do |kl|
-					@post.attachments.create!(attachment: kl)
-				end
-			end
 			redirect_to @topic
 		else
 			render 'edit'
@@ -115,7 +105,9 @@ class PostsController < ApplicationController
 	def destroy
 		@topic = Topic.find(params[:topic_id])
 		@post = @topic.posts.find(params[:id])
-		Notifpost.where(post_id:@post.id).delete_all
+		Notifpost.destroy_all(post_id:@post.id, tipe: "has posted on thread you posted")
+		Notifpost.destroy_all(post_id:@post.id, tipe: "has posted on your thread")
+		Notifpostlike.destroy_all(post_id: @post.id)
 		@post.destroy
 		redirect_to @topic
 	end

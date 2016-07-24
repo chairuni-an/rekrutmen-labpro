@@ -10,6 +10,10 @@ class NotifpostsController < ApplicationController
 	def changeread
 		@notifpost = current_user.notifposts.find(params[:id])
 		@notifpost.update_attribute(:read, true)
-		redirect_to Topic.find(@notifpost.topic_id)
+		if @notifpost.tipe == "is following you"
+			redirect_to User.find(@notifpost.post_id)
+		else	
+			redirect_to Topic.find(@notifpost.topic_id)
+		end
 	end
 end

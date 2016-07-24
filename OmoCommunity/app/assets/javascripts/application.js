@@ -15,12 +15,8 @@
 //= require jquery.facebox
 //= require jquery.turbolinks
 //= require_tree .
-//= require jquery
-//= require jquery.jcrop
-//= require papercrop
 //= require ckeditor/init
 
 jQuery(document).ready(function($) {
   $('a[rel*=facebox]').facebox() 
 })
-

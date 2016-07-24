@@ -1,0 +1,96 @@
+%h1{class: "followingjudul"} Following
+.div{class: "followingcontainer"}
+	- if @follower.count == 0
+		You do not have any following
+		%p
+		.hlinek
+	- else
+		- @follower.each do |fol|
+			%p
+			- if current_user.following?(fol)
+				= link_to "Following", unfollow_user_path(fol), method: "put",class: "unfollowbut1"
+			- else
+				= link_to "+  Follow", follow_user_path(fol), method: "put",class: "followbut1"	
+			= link_to user_path(fol),class: "followingname" do
+				- if fol.image.exists?
+					= image_tag fol.image, class: "followingimage"
+				- else
+					= image_tag(asset_path("no-image.jpg"), class: "followingimage")
+				.followingusername	
+					= truncate(fol.username, :length =>35)
+				%p
+			- if @follower.last != fol
+				.hlinek
+			
+
+
+:css
+	.hlinek {
+		width:100%;
+		height:1px;
+		background:white;
+	}
+	.followingusername {
+		padding-left:60px;
+		line-height: 50px;
+	}
+	.followingjudul {
+		font-family: 'Raleway', sans-serif;
+		text-align:center;
+		color:white;
+	}
+	.followingname {	
+		font-family: 'Raleway', sans-serif;
+		color:white;
+		vertical-align:middle;
+		text-decoration:none;
+		display:table;
+		width:80%;
+	}
+	.followingcontainer {
+		width : 60%;
+		margin: auto auto;
+		text-decoration:none;
+		position:relative;
+	}
+	.followingimage {
+		width:50px;
+		height:50px;
+		border-radius:100%;
+		display:inline;
+		text-decoration:none;
+		position:absolute;
+	}
+
+	.followbut1 {
+		text-decoration:none;
+		border: 2px solid #23A86D;
+		background-size:10px;
+		border-radius :2px;
+		font-family: 'Raleway', sans-serif !important;
+		font-weight:400 !important;
+		color: 	#23A96F;
+		padding-top:2px;
+		width:100px;
+		display:inline-block;
+		text-align:center;
+		padding-bottom: 2px;
+		float:right;
+	}
+	.unfollowbut1 {
+		text-decoration:none;
+		border: 2px solid #23A86D;
+		background-size:10px;
+		border-radius :2px;
+		background:#23A86D;
+		font-family: 'Raleway', sans-serif !important;
+		font-weight:400 !important;
+		color: 	#2D2F31;
+		padding-top:2px;
+		width:100px;
+		display:inline-block;
+		text-align:center;
+		float:right;
+		margin-top:15px;;
+		padding-bottom: 2px;
+	}

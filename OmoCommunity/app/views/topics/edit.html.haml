@@ -1,13 +1,12 @@
 .tek
 	%h1 Edit a Thread	
-	= simple_form_for @topic, :html => { :multipart => true } do |f|
+	= simple_form_for @topic do |f|
 		%p Title :
 		= f.input :title, :input_html => {:size => 60 , class: "tes"}, label: false, placeholder: "Your Title Here"
 		%p Content :
 		= f.input :content, label: false,
 	           as: :ckeditor,
 	           :input_html => { :ckeditor => {:toolbar => 'mini'} }
-		= file_field_tag "thefiles[]", type: :file, multiple: true
 		%p
 		= f.submit "Edit Thread", class: "butonx"
 :css
