@@ -64,5 +64,5 @@
  Sticky footer
 ***********************************/
 .wrap {
-  min-height: calc(100vh - 85px);
+  min-height: calc(100vh - 105px);
 }

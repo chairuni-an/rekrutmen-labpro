@@ -4,5 +4,4 @@ picshareApp.controller('PostController', function($scope, $location, Post) {
   $scope.post = Post.get({
     id: params[2]
   });
-  console.log($scope.post);
 });

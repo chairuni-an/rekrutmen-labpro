@@ -1,7 +1,18 @@
 <div ng-controller="ProfileController" class="container text-xs-center wrap p-t-2">
-  <img ng-src="{{user.avatar}}" height="200" width="200" class="img-circle center-block m-b-1"/>
-  <p class="lead">@{{user.username}} | {{user.fullname}}</p>
-  <p><!-- bio --></p>
+  <div class="row m-b-3">
+    <div class="col-xs-4 col-xs-push-1 text-xs-center">
+      <img ng-src="{{user.avatar}}" height="170" width="170" class="img-circle center-block m-b-1"/>
+    </div>
+    <div class="col-xs-8 col-xs-push-1 text-xs-left p-t-1">
+      <p class="display-4" style="font-size: 32px !important">@{{user.username}}<button class="btn btn-primary m-l-2">Follow</button></p>
+      <p class="lead"><b>{{user.fullname}}<b></p>
+      <p>
+        <span class="lead m-r-3"><b>{{user.posts.length}}</b> posts</span>
+        <span class="lead m-r-3"><b>{{user.followers.length}}</b> followers</span>
+        <span class="lead"><b>{{user.following.length}}</b> following</span>
+      </p>
+    </div>
+  </div>
   <div class="row">
     <div ng-show="isCurrentUser" class="col-md-4 col-xs-6 p-b-1 text-xs-center">
       <a href data-toggle="modal" data-target=".post-image">

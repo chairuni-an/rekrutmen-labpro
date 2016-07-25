@@ -5,28 +5,39 @@
     </div>
     <div class="desc-div" style="border: 1px solid black">
       <div class="post-info text-xs-left p-b-1 p-t-1">
-        <img class="post-avatar m-l-1" ng-src="{{post.user.avatar}}">
+        <img class="post-avatar" ng-src="{{post.user.avatar}}">
         <span class="p-l-1">{{post.user.username}}</span>
       </div>
-      <div class="likes p-l-1">
-        <img src="/static/img/love-white.png">
-        <span class="p-l-1">{{post.likes.length}} likes</span>
+      <div class="likes">
+        <span>{{post.likes.length}} likes</span>
       </div>
       <div class="comments">
+        <span ng-hide="post.desc === undefined">
+          <a ng-href="/{{post.user.username}}">{{post.user.username}}</a>
+          {{post.desc}}
+        </span>
         <ul>
-          <li><a ng-href="{{post.user.usermame}}">{{post.user.username}}</a>
-          {{post.desc}}</li>
+          <li></li>
         </ul>
       </div>
+
       <div class="comment-add">
-        <form>
-          <fieldset class="form-group">
-            <label for="username">Comment</label>
-            <textarea class="form-control" id="description" ng-model="desc" placeholder="Write your comment here..."></textarea>
-            <button class="btn btn-primary" style="margin-top: 8px;">Submit</button>
-          </fieldset>
+        <a href><img class="love" src="/static/img/love-white.png"></a>
+        <form style="display: inline-block; width: 200px">
+          <input type="text" class="form-control" style="font-size: 15px" id="description" ng-model="desc" placeholder="Add comment..">
         </form>
+
+        <div class="dropdown" style="display: inline">
+          <a id="dMenu" data-toggle="dropdown" href="#" data-target="#" aria-haspopup="true" aria-expanded="false">
+            <img class="delete dropdown-toggle" src="/static/img/dots.png">
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dMenu">
+            <a class="dropdown-item" href="#">Delete Post</a>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
