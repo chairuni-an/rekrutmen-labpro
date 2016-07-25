@@ -35,8 +35,8 @@ Route::get('/thread_created', function() {
 /*** POSTS ***/
 Route::get('/threads/{thread_id}', 'PostController@index');
 
-Route::get('/threads/{thread_id}/create_post', function() {
-	return view('post_creator');
+Route::get('/threads/{thread_id}/create_post', function($thread_id) {
+	return view('post_creator', ['thread_id' => $thread_id]);
 });
 
 Route::post('/threads/{thread_id}/create_post', 'PostController@store');
