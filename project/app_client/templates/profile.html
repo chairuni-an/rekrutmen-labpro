@@ -4,7 +4,13 @@
       <img ng-src="{{user.avatar}}" height="170" width="170" class="img-circle center-block m-b-1"/>
     </div>
     <div class="col-xs-8 col-xs-push-1 text-xs-left p-t-1">
-      <p class="display-4" style="font-size: 32px !important">@{{user.username}}<button class="btn btn-primary m-l-2">Follow</button></p>
+      <p class="display-4" style="font-size: 32px !important">@{{user.username}}
+        <span ng-hide="isCurrentUser">
+          <button ng-hide="isFollowed" ng-click="follow()" class="btn btn-primary m-l-2">Follow</button>
+          <button ng-show="isFollowed" ng-click="unfollow()" class="btn btn-success m-l-2">Following</button>
+        </span>
+        <button ng-show="isCurrentUser" class="btn btn-secondary m-l-2">Edit Profile</button>
+      </p>
       <p class="lead"><b>{{user.fullname}}<b></p>
       <p>
         <span class="lead m-r-3"><b>{{user.posts.length}}</b> posts</span>

@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
-  padding-top: 80px;
-  padding-bottom: -80px;
+  padding-top: 60px;
+  padding-bottom: -60px;
 }
 
 .desc-div {

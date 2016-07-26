@@ -1,5 +1,13 @@
-picshareApp.controller('ProfileController', function($scope, $window, $location, User, Upload, Authentication) {
+picshareApp.controller('ProfileController', function($scope, $window, $location, User,
+                                                    Follow, Upload, Authentication) {
   var username = $location.path().substring(1);
+
+  function checkIfFollowed() {
+    if ($scope.user.followers.indexOf(Authentication.getCurrentUser()) == -1) {
+      return false;
+    }
+    return true;
+  }
 
   $scope.isCurrentUser = Authentication.getCurrentUser() == username;
 
@@ -8,6 +16,7 @@ picshareApp.controller('ProfileController', function($scope, $window, $location,
       $location.path('error');
     } else {
       $scope.user = user;
+      $scope.isFollowed = checkIfFollowed();
     }
   });
 
@@ -32,4 +41,32 @@ picshareApp.controller('ProfileController', function($scope, $window, $location,
           console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
       });
   };
+
+  $scope.follow = function() {
+    if (!Authentication.getCurrentUser()) {
+      $location.path('login');
+    } else {
+      Follow.save({
+        username: Authentication.getCurrentUser(),
+        followed: username
+      }, { }).$promise.then(function(user) {
+        console.log(user);
+        $scope.user.following = user.following;
+        $scope.user.followers = user.followers;
+        $scope.isFollowed = checkIfFollowed();
+      });
+    }
+  }
+
+  $scope.unfollow = function() {
+    Follow.delete({
+      username: Authentication.getCurrentUser(),
+      followed: username
+    }, { }).$promise.then(function(user) {
+      console.log(user);
+      $scope.user.following = user.following;
+      $scope.user.followers = user.followers;
+      $scope.isFollowed = checkIfFollowed();
+    });
+  }
 });

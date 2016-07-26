@@ -22,7 +22,8 @@
       </div>
 
       <div class="comment-add">
-        <a href><img class="love" src="/static/img/love-white.png"></a>
+        <a href ng-click="like()" ng-hide="isLiked"><img class="love" src="/static/img/love-white.png"></a>
+        <a href ng-click="unlike()" ng-show="isLiked"><img class="love" src="/static/img/love-red.png"></a>
         <form style="display: inline-block; width: 200px">
           <input type="text" class="form-control" style="font-size: 15px" id="description" ng-model="desc" placeholder="Add comment..">
         </form>
@@ -33,7 +34,8 @@
           </a>
 
           <div class="dropdown-menu" aria-labelledby="dMenu">
-            <a class="dropdown-item" href="#">Delete Post</a>
+            <a ng-show="isCurrentUser" class="dropdown-item" ng-click="deletePost()" href="#">Delete Post</a>
+            <a ng-hide="isCurrentUser" class="dropdown-item disabled" href="#">Delete Post</a>
           </div>
         </div>
       </div>

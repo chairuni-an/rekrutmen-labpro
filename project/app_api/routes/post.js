@@ -45,4 +45,30 @@ module.exports = function(router) {
       });
     });
   });
+
+  router.delete('/posts/:id', function(req, res) {
+    var id = req.params.id;
+    Post.findById(id)
+    .populate('user', '_id')
+    .exec(function(err, post) {
+      var user_id = post.user._id;
+      var fileName = post.img.split('/')[3];
+      Post.remove({_id: id}).exec();
+
+      // Delete image file
+      var filePath = __dirname + '/../../public/posts/' + fileName;
+      var fs = require('fs');
+      fs.unlinkSync(filePath);
+
+      // Delete post from user
+      User.findOne({'_id': user_id}, function(err, user) {
+        var index = user.posts.indexOf(post._id);
+        user.posts.splice(index, 1);
+        user.save(function(err) {
+          res.json({ err: 0 });
+        })
+      });
+    });
+
+  });
 }

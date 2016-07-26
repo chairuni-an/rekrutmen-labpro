@@ -7,7 +7,7 @@ module.exports = function(router) {
   router.get('/users/:username', function(req, res) {
     var username = req.params.username;
     User.findOne({'username': username})
-    .populate('posts')
+    .populate('posts', 'img')
     .exec(function(err, user) {
       if (err) { console.log(err); }
       res.json(user);
@@ -15,7 +15,6 @@ module.exports = function(router) {
   });
 
   router.post('/users', function(req, res) {
-    // Check whether the username does exist
     var user = new User({
       username: req.body.username,
       email: req.body.email,

@@ -30,7 +30,7 @@ picshareApp.factory('Authentication', function($window, $http, User) {
       var user = JSON.parse($window.atob(token.split('.')[1]));
       return user.username;
     }
-    return '';
+    return undefined;
   },
 
   login = function(user) {
