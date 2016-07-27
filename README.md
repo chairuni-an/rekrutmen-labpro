@@ -30,3 +30,15 @@
 * Deadline: 10 Juli 2016
 * Deliverables: Source code dan screenshot dari aplikasi, serta progress report
 * File: [Checkpoint1.zip](https://github.com/mickyyu96/rekrutmen-labpro/raw/master/Checkpoint1.zip)
+
+## Checkpoint 2
+* Rilis: 12 Juli 2016
+* Deadline: 7 Agustus 2016
+* Deliverables: Source code dan screenshot dari aplikasi, serta progress report
+* File: -
+
+## Pengumpulan
+* Rilis: 9 Agustus 2016
+* Deadline: 21 Agustus 2016
+* Deliverables: Source code dan screenshot dari aplikasi, serta progress report
+* File: [Pengumpulan.zip](https://github.com/mickyyu96/rekrutmen-labpro/blob/master/Pengumpulan.zip)
