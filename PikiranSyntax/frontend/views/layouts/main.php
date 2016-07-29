@@ -64,33 +64,46 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
+		NavBar::begin([
+			'brandLabel' => Yii::$app->name,
+			'brandUrl' => Yii::$app->homeUrl,
+			'options' => [
+				'class' => 'navbar-inverse navbar-fixed-top',
+			],
+		]);
+	?>
+	
+	<form action="index.php" method="GET" class="navbar-form navbar-left" role="search">
+		<div class="form-group">
+			<input type="hidden" name="r" value="site/search">
+			<input type="text" name="key" class="form-control" placeholder="Search">
+		</div>
+		<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+	</form>
+	
+	
 
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-			['label' => 'Home', 'url' => ['/site/index']],
-/*			['label' => 'Kategori', 'items' => common\models\Kategori::getKategoriMenu()],*/
-			['label' => 'Signup', 'url' => ['/site/signup'], 'visible' => Yii::$app->user->isGuest],
-			Yii::$app->user->isGuest ? (
-				['label' => 'Login', 'url' => ['site/login']]
-			) : (
-				[
-					'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-					'url' => ['/site/logout'],
-					'linkOptions' => ['data-method' => 'post']
-				]
-			)
+	<?php
+		echo Nav::widget([
+			'options' => ['class' => 'navbar-nav navbar-right'],
+			'items' => [
+				['label' => 'Home', 'url' => ['/site/index']],
+				['label' => 'Kategori', 'items' => common\models\Kategori::getKategoriMenu()],
+				['label' => 'Signup', 'url' => ['/site/signup'], 'visible' => Yii::$app->user->isGuest],
+				Yii::$app->user->isGuest ? (
+					['label' => 'Login', 'url' => ['site/login']]
+				) : (
+					[
+						'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+						'url' => ['/site/logout'],
+						'linkOptions' => ['data-method' => 'post']
+					]
+				)
+			
+			],
+		]);
 		
-		],
-    ]);
-    NavBar::end();
+		NavBar::end();
     ?>
 	
 	
@@ -105,6 +118,11 @@ AppAsset::register($this);
 		
 		<div class="row-fluid">
 			<div class="col-md-8">
+				<?php if(Yii::$app->session->hasFlash('search')):?>
+					<div class="alert alert-info">
+						Hasil pencarian dengan kata kunci '<?php echo Yii::$app->session->getFlash('search'); ?>'
+					</div>
+				<?php endif; ?>
 				<?= $content ?>
 			</div>
 			

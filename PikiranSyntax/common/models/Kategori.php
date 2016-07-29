@@ -51,4 +51,15 @@ class Kategori extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Artikel::className(), ['id_kategori' => 'id_kategori']);
     }
+	
+	public function getKategoriMenu()
+	{
+		$ar = [];
+		foreach(Kategori::find()->all() as $row)
+		{
+			$ar[] = ['label' => $row->nama_kategori, 'url' => ['/site/index', 'kategori' => $row->id_kategori]];
+		}
+		
+		return $ar;
+	}
 }

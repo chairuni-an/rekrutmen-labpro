@@ -76,10 +76,10 @@ class SiteController extends Controller
     public function actionIndex()
     {
 		$dataProviderArtikel = new ActiveDataProvider([
-			'query' => Artikel::find()
-					->where('id_kategori != :kategori', [
-						':kategori' => isset($_GET['kategori']) ? $_GET['kategori'] : 'NULL'
-					]),
+			'query' => isset($_GET['kategori']) ?
+							Artikel::find()->where('id_kategori = :kategori', [':kategori' => $_GET['kategori']]) :
+							Artikel::find(),
+			
 			'sort' => [
 				'defaultOrder' => [
 					'id_artikel' => SORT_DESC
@@ -92,6 +92,26 @@ class SiteController extends Controller
 		]);
     }
 
+	public function actionSearch($key)
+	{
+		$dataProviderArtikel = new ActiveDataProvider([
+			'query' => Artikel::find()->where('judul LIKE "%' . $key . '%" ' .
+							'OR isi_artikel LIKE "%' . $key . '%"'),
+							
+			'sort' => [
+				'defaultOrder' => [
+					'id_artikel' => SORT_DESC
+				]			
+			]
+		]);
+		
+		Yii::$app->session->setFlash('search', $key);
+		
+		return $this->render('index', [
+			'dataProviderArtikel' => $dataProviderArtikel
+		]);
+	}
+	
 	public function actionView($id)
 	{
 		$model = Artikel::findOne($id);
