@@ -1,22 +1,28 @@
 /**
  * Created by Bervianto Leo P on 09/07/2016.
  */
-package draggable {
+package youcanuseit.draggable {
+import feathers.controls.ImageLoader;
 import feathers.controls.LayoutGroup;
 import feathers.dragDrop.DragData;
 import feathers.dragDrop.DragDropManager;
 import feathers.dragDrop.IDragSource;
 import feathers.events.DragDropEvent;
+import feathers.layout.AnchorLayout;
+import feathers.layout.AnchorLayoutData;
 
 import starling.display.DisplayObject;
 import starling.display.Quad;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
+import starling.textures.Texture;
 
-public class DragSource extends LayoutGroup implements IDragSource
+import youcanuseit.data.EmbeddedAssets;
+
+public class VGACable extends LayoutGroup implements IDragSource
 {
-    public function DragSource(dragFormat:String)
+    public function VGACable(dragFormat:String)
     {
         this._dragFormat = dragFormat;
         this.addEventListener(TouchEvent.TOUCH, touchHandler);
@@ -30,7 +36,7 @@ public class DragSource extends LayoutGroup implements IDragSource
 
     override protected function initialize():void
     {
-        this.backgroundSkin = new Quad(1, 1, 0x36322e);
+
     }
 
     private function touchHandler(event:TouchEvent):void
@@ -47,12 +53,15 @@ public class DragSource extends LayoutGroup implements IDragSource
             {
                 this._touchID = -1;
 
-                var avatar:Quad = new Quad(100, 100, 0xff8800);
-                avatar.alpha = 0.5;
+                var image:ImageLoader = new ImageLoader();
+                image.source = EmbeddedAssets.VGA_CABLE;
+                image.layoutData = new AnchorLayoutData(0, 0, 0, 0);
+                image.alpha = 0.5;
 
                 var dragData:DragData = new DragData();
                 dragData.setDataForFormat(this._dragFormat, this._draggedObject);
-                DragDropManager.startDrag(this, touch, dragData, avatar, -avatar.width / 2, -avatar.height / 2);
+                DragDropManager.startDrag(this, touch, dragData, image, -image.source.width / 2, -image.source.height / 2)
+                
             }
             else if(touch.phase == TouchPhase.ENDED)
             {

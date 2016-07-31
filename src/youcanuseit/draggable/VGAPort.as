@@ -1,22 +1,20 @@
 /**
  * Created by Bervianto Leo P on 09/07/2016.
  */
-package draggable {
-import feathers.controls.LayoutGroup;
+package youcanuseit.draggable {
+import feathers.controls.ImageLoader;
 import feathers.dragDrop.DragData;
 import feathers.dragDrop.DragDropManager;
 import feathers.dragDrop.IDropTarget;
 import feathers.events.DragDropEvent;
-
 import starling.display.DisplayObject;
-import starling.display.Quad;
 
-public class DropTarget extends LayoutGroup implements IDropTarget
+import youcanuseit.data.EmbeddedAssets;
+
+public class VGAPort extends ImageLoader implements IDropTarget
 {
-    private static const DEFAULT_COLOR:uint = 0x36322e;
-    private static const HOVER_COLOR:uint = 0x26221e;
 
-    public function DropTarget(dragFormat:String)
+    public function VGAPort(dragFormat:String)
     {
         this._dragFormat = dragFormat;
         this.addEventListener(DragDropEvent.DRAG_ENTER, dragEnterHandler);
@@ -25,12 +23,10 @@ public class DropTarget extends LayoutGroup implements IDropTarget
     }
 
     private var _dragFormat:String;
-    private var _backgroundQuad:Quad;
 
     override protected function initialize():void
     {
-        this._backgroundQuad = new Quad(1, 1, DEFAULT_COLOR);
-        this.backgroundSkin = this._backgroundQuad;
+        this.source = EmbeddedAssets.VGA_PORT;
     }
 
     private function dragEnterHandler(event:DragDropEvent, dragData:DragData):void
@@ -40,12 +36,12 @@ public class DropTarget extends LayoutGroup implements IDropTarget
             return;
         }
         DragDropManager.acceptDrag(this);
-        this._backgroundQuad.color = HOVER_COLOR;
+      //  this._backgroundQuad.color = HOVER_COLOR;
     }
 
     private function dragExitHandler(event:DragDropEvent, dragData:DragData):void
     {
-        this._backgroundQuad.color = DEFAULT_COLOR;
+    //    this._backgroundQuad.color = DEFAULT_COLOR;
     }
 
     private function dragDropHandler(event:DragDropEvent, dragData:DragData):void
@@ -57,7 +53,7 @@ public class DropTarget extends LayoutGroup implements IDropTarget
                 0), this.actualHeight - droppedObject.height); //keep within the bounds of the target
         this.addChild(droppedObject);
 
-        this._backgroundQuad.color = DEFAULT_COLOR;
+        //this._backgroundQuad.color = DEFAULT_COLOR;
     }
 }
 }
