@@ -11,7 +11,6 @@ import feathers.events.DragDropEvent;
 import feathers.layout.AnchorLayoutData;
 
 import starling.display.DisplayObject;
-import starling.display.Quad;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
