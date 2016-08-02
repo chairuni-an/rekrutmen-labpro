@@ -1,4 +1,4 @@
-picshareApp.controller('PostController', function($scope, $location, Post, Like, Authentication) {
+picshareApp.controller('PostController', function($scope, $location, Comment, Post, Like, Authentication) {
   var params = $location.path().split('/');
 
   function checkIfLiked() {
@@ -19,15 +19,21 @@ picshareApp.controller('PostController', function($scope, $location, Post, Like,
   }
 
   $scope.like = function() {
-    Like.save({ id: $scope.post._id, username: $scope.post.user.username}, {})
-    .$promise.then(function(post) {
-      $scope.post.likes = post.likes;
-      $scope.isLiked = checkIfLiked();
-    });
+    var currUser = Authentication.getCurrentUser();
+    if (!currUser) {
+      $location.path('login');
+    } else {
+      Like.save({ id: $scope.post._id, username: currUser}, {})
+      .$promise.then(function(post) {
+        $scope.post.likes = post.likes;
+        $scope.isLiked = checkIfLiked();
+      });
+    }
   }
 
   $scope.unlike = function() {
-    Like.delete({ id: $scope.post._id, username: $scope.post.user.username}, {})
+    var currUser = Authentication.getCurrentUser();
+    Like.delete({ id: $scope.post._id, username: currUser}, {})
     .$promise.then(function(post) {
       $scope.post.likes = post.likes;
       $scope.isLiked = checkIfLiked();
@@ -35,6 +41,20 @@ picshareApp.controller('PostController', function($scope, $location, Post, Like,
   }
 
   $scope.comment = function() {
-    Comment.save();
+    var currUser = Authentication.getCurrentUser();
+    if (!currUser) {
+      $location.path('login');
+    } else {
+      var comment = {
+        id: $scope.post.comments.length,
+        username: currUser,
+        date: Date.now(),
+        body: $scope.desc,
+      }
+      Comment.save({ id: params[2] }, comment)
+      .$promise.then(function(post) {
+        $scope.post.comments = post.comments;
+      });
+    }
   }
 });

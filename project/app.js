@@ -15,6 +15,7 @@ app.use(express.static(__dirname + '/app_client'));
 app.use('/static', express.static(__dirname + '/public'));
 app.use('/bower', express.static(__dirname + '/bower_components'));
 app.use('/api', router);
+
 app.get('*', function(req, res) {
   res.sendFile(__dirname + '/app_client/index.html');
 });

@@ -6,6 +6,10 @@
   border-radius: 0 !important;
 }
 
+.navbar-brand {
+  padding-right: 30%;
+}
+
 /***********************************
  Profile photo preview
 ***********************************/

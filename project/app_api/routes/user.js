@@ -30,4 +30,16 @@ module.exports = function(router) {
       res.json({ token: user.generateJwt() });
     });
   });
+
+  router.post('/users/:username/twitter', function(req, res) {
+    var username = req.params.username;
+    User.findOne({'username': username}, function(err, user) {
+      user.auth.twitter.token = req.body.token;
+      user.auth.twitter.secret = req.body.secret;
+      user.save(function(err) {
+        if (err) { res.json({ err: err }); }
+        res.json({ });
+      });
+    });
+  });
 }

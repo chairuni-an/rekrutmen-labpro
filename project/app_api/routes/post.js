@@ -40,7 +40,7 @@ module.exports = function(router) {
         user.posts.unshift(post._id);
         user.save(function(err) {
           if (err) { return res.json({err: err}); }
-          res.json({err: 0})
+          res.json({postID: post._id})
         })
       });
     });

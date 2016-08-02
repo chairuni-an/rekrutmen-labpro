@@ -8,5 +8,7 @@ require('./login')(router);
 require('./post')(router);
 require('./follow')(router);
 require('./like')(router);
+require('./comment')(router);
+require('./twitter')(router);
 
 module.exports = router

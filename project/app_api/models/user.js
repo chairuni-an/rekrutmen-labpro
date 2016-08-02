@@ -26,6 +26,12 @@ var userSchema = new Schema({
   salt: String,
   following: [ String ],
   followers: [ String ],
+  auth: {
+    twitter: {
+      token: String,
+      secret: String
+    }
+  },
   posts: [ {
     type: Schema.Types.ObjectId,
     ref: 'Post'

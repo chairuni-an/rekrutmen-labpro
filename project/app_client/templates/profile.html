@@ -9,7 +9,7 @@
           <button ng-hide="isFollowed" ng-click="follow()" class="btn btn-primary m-l-2">Follow</button>
           <button ng-show="isFollowed" ng-click="unfollow()" class="btn btn-success m-l-2">Following</button>
         </span>
-        <button ng-show="isCurrentUser" class="btn btn-secondary m-l-2">Edit Profile</button>
+        <a href="account" ng-show="isCurrentUser" class="btn btn-secondary m-l-2">Edit Profile</a>
       </p>
       <p class="lead"><b>{{user.fullname}}<b></p>
       <p>

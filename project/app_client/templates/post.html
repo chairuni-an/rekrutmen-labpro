@@ -11,20 +11,23 @@
       <div class="likes">
         <span>{{post.likes.length}} likes</span>
       </div>
-      <div class="comments">
+      <div class="comments" style="text-align: left">
         <span ng-hide="post.desc === undefined">
           <a ng-href="/{{post.user.username}}">{{post.user.username}}</a>
           {{post.desc}}
         </span>
         <ul>
-          <li></li>
+          <li ng-repeat="comment in post.comments">
+            <a ng-href="/{{comment.username}}">{{comment.username}}</a>
+            {{comment.body}}
+          </li>
         </ul>
       </div>
 
       <div class="comment-add">
         <a href ng-click="like()" ng-hide="isLiked"><img class="love" src="/static/img/love-white.png"></a>
         <a href ng-click="unlike()" ng-show="isLiked"><img class="love" src="/static/img/love-red.png"></a>
-        <form style="display: inline-block; width: 200px">
+        <form ng-submit="comment()" style="display: inline-block; width: 200px">
           <input type="text" class="form-control" style="font-size: 15px" id="description" ng-model="desc" placeholder="Add comment..">
         </form>
 
@@ -39,7 +42,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

@@ -9,7 +9,7 @@ picshareApp.factory('Authentication', function($window, $http, User) {
 
   logout = function() {
     $window.localStorage.removeItem('login-token');
-    $window.location.reload();
+    $window.location.assign('/');
   },
 
   isLoggedIn = function() {

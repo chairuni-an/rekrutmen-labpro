@@ -1,12 +1,27 @@
 <nav ng-controller="NavController" class="navbar navbar-fixed navbar-dark bg-danger">
   <div class="container">
-    <a ng-hide="isLoggedIn" href="/" class="navbar-brand">PICSHARE</a>
-    <a ng-show="isLoggedIn" href="/{{currentUser}}" class="navbar-brand">{{currentUser}}</a>
-    <a ng-hide="isLoggedIn" class="btn btn-success pull-xs-right" href="login">Login</a>
-    <button ng-show="isLoggedIn" class="btn btn-success pull-xs-right" ng-click="logout()">Logout</button>
-    <form class="form-inline p-r-1 pull-xs-right">
-      <input type="text" ng-model="username" name="username" placeholder="Username..." class="form-control"/>
-      <button ng-click="redirect(username)"class="btn btn-success">Search</button>
+    <ul class="nav navbar-nav pull-xs-right">
+      <li class="nav-item">
+        <a class="nav-link active" ng-hide="isLoggedIn" href="login">Login</a>
+        <div ng-show="isLoggedIn" class="dropdown" style="display: inline">
+          <a class="nav-link active dropdown-toggle" id="dMenu" data-toggle="dropdown"
+          href="#" data-target="#" aria-haspopup="true" aria-expanded="false">
+            {{currentUser}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dMenu">
+            <a class="dropdown-item" ng-click="deletePost()" href="/">Home</a>
+            <a class="dropdown-item" ng-href="/{{currentUser}}">Profile</a>
+            <a class="dropdown-item" href ng-click="logout()">Logout</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <a href="/" class="navbar-brand">PICSHARE</a>
+    <form ng-submit="redirect(username)" class="form-inline">
+      <input type="text" ng-model="username" name="username" aria-describedby="basic-addon1"
+      placeholder="Username..." class="form-control"/>
+      <button type="submit" class="btn btn-primary">Go</button>
     </form>
   </div>
 </nav>

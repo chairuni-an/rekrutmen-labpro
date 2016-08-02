@@ -1,0 +1,68 @@
+<div ng-controller='AccountController' class="container wrap p-t-2 p-b-2">
+  <div class="row m-t-3">
+    <div class="col-xs-3 col-xs-offset-1">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="nav-item">
+          <a class="nav-link active" ng-class="{active: selected === 0}" href ng-click="selected = 0">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href ng-class="{active: selected === 1}" ng-click="selected = 1">Change Password</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href ng-class="{active: selected === 2}" ng-click="selected = 2">Authorized Apps</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-xs-6">
+      <!-- Profile settings -->
+      <form ng-show="selected === 0" ng-submit='changeProfile()'>
+        <h4 class="p-b-1">Profile Settings</h3>
+        <fieldset class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" ng-model="user.username">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" class="form-control" id="fullname" ng-model="user.fullname">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" ng-model="user.email">
+        </fieldset>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+      </form>
+
+      <!-- Change password -->
+      <form ng-show="selected === 1" ng-submit='changePassword()'>
+        <h4 class="p-b-1">Change Password</h3>
+        <fieldset class="form-group">
+          <label for="old-pass">Old Password</label>
+          <input type="password" class="form-control" id="old-pass" ng-model="oldPass">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="new-pass">New Password</label>
+          <input type="password" class="form-control" id="new-pass" ng-model="newPass">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="confirm-pass">Confirm Password</label>
+          <input type="password" class="form-control" id="confirm-pass" ng-model="confirmPass">
+        </fieldset>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+      </form>
+
+      <!-- Authorized Apps -->
+      <div ng-show="selected === 2">
+        <h4 class="p-b-1">Authorized Apps</h3>
+        <fieldset class="form-group">
+          <label for="old-pass">
+            <img style="width: 30px; height: 30px" src="/static/img/twitter-icon.png">
+            <b>Twitter</b>
+          </label><br>
+          <p>Inform your twitter followers about your Picshare posts!</p>
+          <a ng-hide="twitter" href="/api/request-token" target="_self" class="btn btn-secondary">Sign In</a>
+          <span ng-show="twitter" class="btn btn-success disabled">Signed In</span>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>

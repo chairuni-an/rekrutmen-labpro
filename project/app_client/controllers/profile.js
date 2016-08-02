@@ -1,5 +1,5 @@
 picshareApp.controller('ProfileController', function($scope, $window, $location, User,
-                                                    Follow, Upload, Authentication) {
+                                                    $http, Follow, Upload, Authentication) {
   var username = $location.path().substring(1);
 
   function checkIfFollowed() {
@@ -21,7 +21,6 @@ picshareApp.controller('ProfileController', function($scope, $window, $location,
   });
 
   $scope.setUrl = function(post) {
-    console.log(post);
     var url =  'posts/' + post['_id'];
     $location.path(url);
   }
@@ -31,9 +30,18 @@ picshareApp.controller('ProfileController', function($scope, $window, $location,
           url: '/api/posts',
           data: {file: file, user_id: $scope.user._id, desc: desc}
       }).then(function (resp) {
-          console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-          $window.location.reload();
-          //$window.location.reload();
+          if ($scope.user.auth) { //Has authorized twitter account
+            $http.post('api/tweet', {
+              postID: resp.data.postID,
+              desc: desc,
+              token: $scope.user.auth.twitter.token,
+              secret: $scope.user.auth.twitter.secret
+            }).then(function (resp) {
+              $window.location.reload();
+            });
+          } else {
+            $window.location.reload();
+          }
       }, function (resp) {
           console.log('Error status: ' + resp.status);
       }, function (evt) {

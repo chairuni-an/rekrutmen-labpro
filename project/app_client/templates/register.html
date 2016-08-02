@@ -1,22 +1,26 @@
 <div class="container wrap p-t-2 p-b-2">
-  <h2>Registration</h2>
-  <form ng-controller='RegisterController' ng-submit='submit()'>
-    <fieldset class="form-group">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" ng-model="user.username" placeholder="e.g. allenturner">
-    </fieldset>
-    <fieldset class="form-group">
-      <label for="fullname">Full Name</label>
-      <input type="text" class="form-control" id="fullname" ng-model="user.fullname" placeholder="e.g. Allen Turner">
-    </fieldset>
-    <fieldset class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" ng-model="user.email" placeholder="Email">
-    </fieldset>
-    <fieldset class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" ng-model="user.password" placeholder="Password">
-    </fieldset>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <h2 class="p-b-1">Registration</h2>
+      <form ng-controller='RegisterController' ng-submit='submit()'>
+        <fieldset class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" ng-model="user.username" placeholder="e.g. allenturner">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" class="form-control" id="fullname" ng-model="user.fullname" placeholder="e.g. Allen Turner">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" ng-model="user.email" placeholder="Email">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" ng-model="user.password" placeholder="Password">
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
 </div>
