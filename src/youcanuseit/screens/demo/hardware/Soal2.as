@@ -14,7 +14,6 @@ import starling.events.Event;
 
 import youcanuseit.data.EmbeddedAssets;
 import youcanuseit.event.HardwareTestEvent;
-import youcanuseit.event.HardwareTestEvent;
 
 public class Soal2 extends LayoutGroup {
 
