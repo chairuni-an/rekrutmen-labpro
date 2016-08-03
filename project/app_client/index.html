@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="bower/bootstrap/dist/css/bootstrap.css" crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/post.css">
+    <link rel="stylesheet" href="static/css/home.css">
   </head>
   <body>
     <ng-include src="'partials/nav.html'"></ng-include>
-    <ng-view class="view-animate">
+    <ng-view class="view-animate" style="background-color: #FAFAFA">
 
     </ng-view>
     <ng-include src="'partials/footer.html'"></ng-include>
@@ -35,11 +36,14 @@
     <script src="controllers/nav.js"></script>
     <script src="controllers/auth.js"></script>
     <script src="controllers/home.js"></script>
+    <script src="directives/username.js"></script>
+    <script src="directives/emailCheck.js"></script>
     <script src="services/userResource.js"></script>
     <script src="services/postResource.js"></script>
     <script src="services/followResource.js"></script>
     <script src="services/likeResource.js"></script>
     <script src="services/commentResource.js"></script>
     <script src="services/authentication.js"></script>
+    <script src="services/checkDuplicate.js"></script>
   </body>
 </html>

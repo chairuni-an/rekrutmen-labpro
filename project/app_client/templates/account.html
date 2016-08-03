@@ -14,22 +14,63 @@
       </ul>
     </div>
     <div class="col-xs-6">
+
       <!-- Profile settings -->
-      <form ng-show="selected === 0" ng-submit='changeProfile()'>
-        <h4 class="p-b-1">Profile Settings</h3>
+      <form name="avatarForm" ng-show="selected === 0">
+        <h4 class="p-b-1">Profile Settings</h4>
+        <fieldset class="form-group">
+          <img class="m-r-2" id="avatarPreview" ng-src="{{user.avatar}}" ng-hide="avatarForm.file.$valid">
+          <img id="avatarPreview" ng-show="avatarForm.file.$valid" ngf-thumbnail="picFile">
+          <label class="btn btn-primary" for="fileInput">
+            <input style="display:none;" type="file" ngf-select ng-model="picFile" name="file" id="fileInput"
+            accept="image/*" ngf-max-size="2MB" required ng-change="uploadAvatar(picFile)">
+            Browse Image
+          </label>
+        </fieldset>
+        <div ng-show="imageChanged" class="alert alert-success" role="alert">
+          Your avatar has been changed.
+        </div>
+      </form>
+
+      <form name="postForm" ng-show="selected === 0" ng-submit='changeProfile()'>
         <fieldset class="form-group">
           <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" ng-model="user.username">
+          <input type="text" class="form-control" id="username" name="username" ng-model="user.username" username required>
         </fieldset>
+        <div ng-show="postForm.username.$touched">
+          <div ng-show="postForm.username.$error.required" class="alert alert-danger" role="alert">
+            This cannot be left blank
+          </div>
+          <div ng-show="postForm.username.$error.username" class="alert alert-danger" role="alert">
+            This username is already taken.
+          </div>
+        </div>
+
         <fieldset class="form-group">
           <label for="fullname">Full Name</label>
-          <input type="text" class="form-control" id="fullname" ng-model="user.fullname">
+          <input type="text" name="fullname" class="form-control" id="fullname" ng-model="user.fullname" required>
         </fieldset>
+        <div ng-show="postForm.fullname.$touched">
+          <div ng-show="postForm.fullname.$error.required" class="alert alert-danger" role="alert">
+            This cannot be left blank
+          </div>
+        </div>
+
         <fieldset class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" ng-model="user.email">
+          <input type="email" class="form-control" id="email" name="email" ng-model="user.email" required>
         </fieldset>
-        <button type="submit" class="btn btn-secondary">Submit</button>
+        <div ng-show="postForm.fullname.$touched">
+          <div ng-show="postForm.email.$error.required" class="alert alert-danger" role="alert">
+            This cannot be left blank
+          </div>
+        </div>
+
+        <fieldset class="form-group">
+          <label for="bio">Bio</label>
+          <textarea class="form-control" id="bio" ng-model="user.bio"></textarea>
+        </fieldset>
+        <button type="submit" ng-disabled="postForm.$invalid" class="btn btn-secondary">Submit</button>
       </form>
 
       <!-- Change password -->

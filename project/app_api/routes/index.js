@@ -10,5 +10,6 @@ require('./follow')(router);
 require('./like')(router);
 require('./comment')(router);
 require('./twitter')(router);
+require('./checkDuplicate')(router);
 
 module.exports = router

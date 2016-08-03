@@ -11,6 +11,15 @@
 }
 
 /***********************************
+ Account
+***********************************/
+#avatarPreview {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+}
+
+/***********************************
  Profile photo preview
 ***********************************/
 #previewDiv {
@@ -41,27 +50,6 @@
 
 #error {
   padding-top: 10rem;
-}
-
-/***********************************
- Home page
-***********************************/
-
-.index {
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  background-image: url("../img/index-background.jpg");
-  background-size: 100% 100%;
-  color: white;
-}
-
-.index div {
-  align-items: stretch;
-  overflow: hidden;
-  padding-top: 10rem;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.5);
 }
 
 /***********************************

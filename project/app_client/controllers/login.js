@@ -9,7 +9,6 @@ function($scope, $http, $location, $window, Authentication) {
     Authentication
     .login($scope.user)
     .then(function() {
-      console.log('Ctrl');
       $window.location.reload(true);
     })
     .catch(function(error) {

@@ -13,7 +13,7 @@ function($scope, $http, $location, Authentication) {
       secret: secret
     })
     .then(function(res) {
-      $location.search({});
+      $location.search({selected: 2});
       $location.path('account');
     })
   });

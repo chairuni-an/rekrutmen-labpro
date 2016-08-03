@@ -19,6 +19,9 @@
 }
 
 .image-div {
+  border-top: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
+  border-left: 1px solid #DDD;
   display: flex;
   align-items: center;
   width: 598px;
@@ -43,7 +46,7 @@
 }
 
 .post-info {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #DDD;
   display: flex;
   align-self: flex-start;
   align-items: center;
@@ -61,7 +64,7 @@
 }
 
 .comment-add {
-  border-top: 1px solid black;
+  border-top: 1px solid #DDD;
   padding-top: 14px;
   bottom: 0;
 }
