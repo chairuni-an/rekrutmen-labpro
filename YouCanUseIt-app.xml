@@ -90,7 +90,7 @@
         <!--<maxSize>1024 600</maxSize>-->
 
         <!-- The aspect ratio of the app ("portrait" or "landscape" or "any"). Optional. Mobile only. Default is the natural orientation of the device -->
-        <aspectRatio>landscape</aspectRatio>
+        <aspectRatio>any</aspectRatio>
 
         <!-- Whether the app will begin auto-orienting on launch. Optional. Mobile only. Default false -->
         <autoOrients>false</autoOrients>
@@ -147,9 +147,10 @@
         <image144x144></image144x144>
         <image152x152></image152x152>
         <image512x512></image512x512>
-        <image732x412></image732x412>
-        <image1024x1024></image1024x1024>
-    </icon>-->
+        <image732x412></image732x412> -->
+    <icon>
+        <image1024x1024>logo.png</image1024x1024>
+    </icon>
 
     <!-- Whether the application handles the update when a user double-clicks an update version of the AIR file (true),
          or the default AIR application installer handles the update (false). Optional. Default false. -->

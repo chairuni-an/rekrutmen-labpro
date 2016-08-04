@@ -87,6 +87,12 @@ public class EmbeddedAssets {
     public static var SUCCESS:Texture;
     public static var FALSE:Texture;
 
+    // POWER BUTTON
+    [Embed(source="/../assets/images/power-button-1242468.jpg")]
+    private static const POWER_BUTTON_EMBEDDED:Class;
+
+    public static var POWER_BUTTON:Texture;
+
     public static function initialize():void {
 
         // ABOUT - TITLE ASSETS.
@@ -126,6 +132,9 @@ public class EmbeddedAssets {
         // SUCCESS OR NO
         SUCCESS = Texture.fromEmbeddedAsset(SUCCESS_EMBEDDED, false, false, 15);
         FALSE = Texture.fromEmbeddedAsset(FALSE_EMBEDDED, false, false, 15);
+
+        // POWER_BUTTON
+        POWER_BUTTON = Texture.fromEmbeddedAsset(POWER_BUTTON_EMBEDDED, false, false, 10);
     }
 }
 }

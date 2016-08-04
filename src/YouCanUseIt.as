@@ -18,7 +18,6 @@ public class YouCanUseIt extends Sprite {
 
     /** Starling object. */
     private var myStarling:Starling;
-   // private var base:Class;
 
     public function YouCanUseIt() {
         super();
