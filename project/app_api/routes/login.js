@@ -12,9 +12,8 @@ module.exports = function(router) {
       }
       if (user) {
         return res.json({ token: user.generateJwt()});
-      } else {
-        return res.status(401).json(info);
       }
+      return res.status(401).json(info);
     })(req, res);
   });
 }

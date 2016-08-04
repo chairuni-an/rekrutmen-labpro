@@ -6,10 +6,12 @@
     <div class="desc-div" style="border: 1px solid #DDD">
       <div class="post-info text-xs-left p-b-1 p-t-1">
         <img class="post-avatar" ng-src="{{post.user.avatar}}">
-        <span class="p-l-1">{{post.user.username}}</span>
+        <a class="p-l-1" ng-href="{{post.user.username}}" style="color:black">
+          <b>{{post.user.username}}</b>
+        </a>
       </div>
       <div class="likes">
-        <span>{{post.likes.length}} likes</span>
+        <a href data-toggle="modal" data-target="#like" ng-click="getLikers(post)" style="color: black">{{post.likes.length}} likes</a>
       </div>
       <div class="comments" style="text-align: left">
         <span ng-hide="post.desc === undefined">
@@ -43,6 +45,29 @@
           <div class="dropdown-menu" aria-labelledby="dMenu">
             <a ng-show="isCurrentUser" class="dropdown-item" ng-click="deletePost()" href="#">Delete Post</a>
             <a ng-hide="isCurrentUser" class="dropdown-item disabled" href="#">Delete Post</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Like modal -->
+  <div class="modal fade" id="like" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Likes</h4>
+        </div>
+        <div class="modal-body text-xs-left">
+          <div class="user-info" ng-repeat="liker in likers">
+            <img class="avatar m-r-2" ng-src="{{liker.avatar}}">
+            <span>
+              <a ng-href="/{{liker.username}}" target="_self"><b>{{liker.username}}</b></a>
+            </span>
+            <span style="margin-left: auto">{{liker.fullname}}</span>
           </div>
         </div>
       </div>

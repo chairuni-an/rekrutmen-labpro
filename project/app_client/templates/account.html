@@ -74,21 +74,46 @@
       </form>
 
       <!-- Change password -->
-      <form ng-show="selected === 1" ng-submit='changePassword()'>
+      <form name="passForm" ng-show="selected === 1" ng-submit='changePassword(oldPass, newPass)'>
         <h4 class="p-b-1">Change Password</h3>
         <fieldset class="form-group">
           <label for="old-pass">Old Password</label>
-          <input type="password" class="form-control" id="old-pass" ng-model="oldPass">
+          <input name="old" type="password" class="form-control" id="old-pass" ng-model="oldPass" required>
         </fieldset>
+        <div ng-show="passForm.old.$touched">
+          <div ng-show="passForm.old.$error.required" class="alert alert-danger" role="alert">
+            This cannot be left blank
+          </div>
+        </div>
         <fieldset class="form-group">
           <label for="new-pass">New Password</label>
-          <input type="password" class="form-control" id="new-pass" ng-model="newPass">
+          <input name="new" type="password" class="form-control" id="new-pass" ng-model="newPass" required>
         </fieldset>
+        <div ng-show="passForm.new.$touched">
+          <div ng-show="passForm.new.$error.required" class="alert alert-danger" role="alert">
+            This cannot be left blank
+          </div>
+        </div>
         <fieldset class="form-group">
           <label for="confirm-pass">Confirm Password</label>
-          <input type="password" class="form-control" id="confirm-pass" ng-model="confirmPass">
+          <input name="confirm" type="password" class="form-control" id="confirm-pass" ng-model="confirmPass" ng-change="checkPass(newPass, confirmPass)" required>
         </fieldset>
-        <button type="submit" class="btn btn-secondary">Submit</button>
+        <div ng-show="passForm.confirm.$touched">
+          <div ng-show="passForm.confirm.$error.required" class="alert alert-danger" role="alert">
+            This cannot be left blank
+          </div>
+          <div ng-show="!confirmed && !passForm.confirm.$error.required" class="alert alert-danger" role="alert">
+            New password does not match
+          </div>
+        </div>
+
+        <div ng-show="passStatus === 2" class="alert alert-success" role="alert">
+          Password successfully changed
+        </div>
+        <div ng-show="passStatus === 1" class="alert alert-danger" role="alert">
+          Your old password is wrong
+        </div>
+        <button type="submit" ng-disabled="passForm.$invalid || !confirmed" class="btn btn-secondary">Submit</button>
       </form>
 
       <!-- Authorized Apps -->

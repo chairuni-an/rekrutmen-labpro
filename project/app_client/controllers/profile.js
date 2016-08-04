@@ -1,4 +1,4 @@
-picshareApp.controller('ProfileController', function($scope, $window, $location, User,
+picshareApp.controller('ProfileController', function($scope, $window, $location, User, $q,
                                                     $http, Follow, Upload, Authentication) {
   var username = $location.path().substring(1);
 
@@ -76,5 +76,39 @@ picshareApp.controller('ProfileController', function($scope, $window, $location,
       $scope.user.followers = user.followers;
       $scope.isFollowed = checkIfFollowed();
     });
+  }
+
+  $scope.getFollowers = function(user) {
+    if (!$scope.followers) {
+      var promises = [];
+      var followers = [];
+      for (let i = 0; i < user.followers.length; i++) {
+        var promise = User.get({username: user.followers[i]})
+        .$promise.then(function(user) {
+          followers.push(user);
+        });
+        promises.push(promise);
+      }
+      $q.all(promises).then(function(results) {
+        $scope.followers = followers;
+      })
+    }
+  }
+
+  $scope.getFollowing = function(user) {
+    if (!$scope.following) {
+      var promises = [];
+      var following = [];
+      for (let i = 0; i < user.following.length; i++) {
+        var promise = User.get({username: user.following[i]})
+        .$promise.then(function(user) {
+          following.push(user);
+        });
+        promises.push(promise);
+      }
+      $q.all(promises).then(function(results) {
+        $scope.following = following;
+      })
+    }
   }
 });

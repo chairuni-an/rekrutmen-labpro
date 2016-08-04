@@ -1,4 +1,5 @@
-picshareApp.controller('PostController', function($scope, $location, Comment, Post, Like, Authentication) {
+picshareApp.controller('PostController', function($scope, $q, $location, Comment,
+                                                  Post, User, Like, Authentication) {
   var params = $location.path().split('/');
 
   function checkIfLiked() {
@@ -27,6 +28,7 @@ picshareApp.controller('PostController', function($scope, $location, Comment, Po
       .$promise.then(function(post) {
         $scope.post.likes = post.likes;
         $scope.isLiked = checkIfLiked();
+        $scope.likers = undefined;
       });
     }
   }
@@ -37,7 +39,26 @@ picshareApp.controller('PostController', function($scope, $location, Comment, Po
     .$promise.then(function(post) {
       $scope.post.likes = post.likes;
       $scope.isLiked = checkIfLiked();
+      $scope.likers = undefined;
     });
+  }
+
+  $scope.getLikers = function(post) {
+    if (!$scope.likers) {
+      var promises = [];
+      var likers = [];
+      for (let i = 0; i < post.likes.length; i++) {
+        var promise = User.get({username: post.likes[i]})
+        .$promise.then(function(user) {
+          likers.push(user);
+        });
+        promises.push(promise);
+      }
+      $q.all(promises).then(function(results) {
+        $scope.likers = likers;
+        console.log($scope.likers);
+      })
+    }
   }
 
   $scope.comment = function() {

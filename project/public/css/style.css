@@ -44,6 +44,14 @@
   object-position: 50% 50%;
 }
 
+.plus-photo div {
+  background-color: #FBFBFB;
+}
+
+.plus-photo:hover div {
+  background-color: #EEE;
+}
+
 /***********************************
  Error page
 ***********************************/

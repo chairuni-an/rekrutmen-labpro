@@ -1,7 +1,5 @@
 /eksplorasi-2/node_modules
-/doc/Proposal_Proyek-13514068.docx
-/doc/Dokumentasi_Eksplorasi_2.docx
-/doc/Checkpoint_1/Dokumentasi_Checkpoint_1.docx
-/doc/Checkpoint_1/Progress_Report_Checkpoint_1.docx
 /project/node_modules
 /project/bower_components
+
+*.docx

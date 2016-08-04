@@ -43,6 +43,9 @@ function($scope, $http, $location, $q, $window, Authentication, User) {
       };
 
       $q.all(promises).then(function(results) {
+        if (posts.length == 0) {
+          $scope.noposts = true;
+        }
         posts.sort(sortPost);
         $scope.posts = posts;
       });

@@ -27,8 +27,8 @@ module.exports = function(router) {
     });
     user.setPassword(req.body.password);
     user.save(function(err) {
-      if (err) { res.json({}); }
-      res.json({ token: user.generateJwt() });
+      if (err) {res.json({err: err});}
+      res.json();
     });
   });
 
@@ -79,11 +79,37 @@ module.exports = function(router) {
     });
   });
 
+  router.put('/users/:username/password', function(req, res) {
+    var username = req.params.username;
+    var oldPass = req.body.oldPass;
+    console.log(oldPass);
+    var newPass = req.body.newPass;
+    console.log(newPass);
+
+    User.findOne({username: username}, function(err, user) {
+      if (!user.validPassword(oldPass)) {
+        res.json({status: 1});
+      } else {
+        user.setPassword(newPass);
+        user.save(function(err) {
+          res.json({status: 2});
+        })
+      }
+    });
+  });
+
   router.post('/users/:username/avatar', upload.single('file'), function(req, res) {
     var filePath = '/static/posts/' + req.file.filename;
     var username = req.params.username;
 
     User.findOne({username: username}, function(err, user) {
+      // Delete old file
+      var oldFileName = user.avatar.split('/')[3];
+      if (oldFileName !== 'noImage.jpeg') {
+        var oldFilePath = __dirname + '/../../public/posts/' + oldFileName;
+        var fs = require('fs');
+        fs.unlinkSync(oldFilePath);
+      }
       user.avatar = filePath;
       user.save(function(err) {
         res.json(user);

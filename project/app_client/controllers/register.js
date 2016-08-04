@@ -8,7 +8,7 @@ function($scope, $location, $window, User, Authentication) {
 
   $scope.submit = function() {
     $scope.user.$save().then(function(resource) {
-      if (resource.token) {
+      if (!resource.err) {
         $location.path('/thanks');
       } else {
         alert('Failed: Username already exists.');

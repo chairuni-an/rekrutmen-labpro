@@ -1,15 +1,21 @@
 <div ng-controller="Home" ng-class="{index: !isLoggedIn}" class="wrap">
   <div ng-hide="isLoggedIn" class="text-xs-center">
-    <h1 class="display-2">PIXY</h1>
+    <h1 class="display-3 p-b-1">PICSHARE</h1>
     <h1 class="display">The home for all your photos.</h1>
     <p class="m-y-3">Upload, access, organize, edit, and share your photos from any device, from anywhere in the world.</p>
     <a id="signup" class="btn btn-primary btn-lg m-t-2" href="register">Sign Up</a>
   </div>
   <div ng-show="isLoggedIn" class="home p-t-3 text-xs-center">
+    <div ng-show="noposts" class="m-t-3">
+      <p>
+        <h1>No posts to be shown :|</h1>
+      </p>
+      <p>Try to follow more users!</p>
+    </div>
     <div ng-repeat="post in posts" class="m-b-3 post">
       <div class="user-info">
         <img class="avatar m-r-2" ng-src="{{post.user.avatar}}">
-        <span><a ng-href="/{{post.user.username}}">{{post.user.username}}</a></span>
+        <span><a ng-href="/{{post.user.username}}"><b>{{post.user.username}}</b></a></span>
         <span class="time">{{post.time}}</span>
       </div>
       <div class="home-post">
@@ -19,7 +25,7 @@
       </div>
       <div class="home-post-info">
         <p>{{post.likes.length}} likes</p>
-        <p>
+        <p ng-show="post.desc">
           <a ng-href="/{{post.user.username}}"><b>{{post.user.username}}</b></a>
           {{post.desc}}
         </p>

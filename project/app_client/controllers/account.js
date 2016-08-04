@@ -48,4 +48,18 @@ picshareApp.controller('AccountController', function($scope, $window, $location,
       $window.location.reload();
     });
   }
+
+  $scope.checkPass = function(newPass, confirmPass) {
+    $scope.confirmed = newPass === confirmPass;
+  }
+
+  $scope.changePassword = function(oldPass, newPass) {
+    $http.put('api/users/' + Authentication.getCurrentUser() + '/password', {
+      oldPass: oldPass,
+      newPass: newPass
+    }).then(function(res) {
+      console.log(res);
+      $scope.passStatus = res.data.status;
+    });
+  }
 });
