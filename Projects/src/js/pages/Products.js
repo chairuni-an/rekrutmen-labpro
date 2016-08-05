@@ -1,9 +1,5 @@
 import React from "react";
 
-import All from "../components/All";
-import Girl from "../components/Girl";
-
-
 export default class Products extends React.Component {
   render() {
 	console.log(this.props);
@@ -27,7 +23,7 @@ export default class Products extends React.Component {
 		 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">What do we sell?</h1>
 
-            {this.props.children}
+            { this.props.children }
             
 		</div>
 	</div>

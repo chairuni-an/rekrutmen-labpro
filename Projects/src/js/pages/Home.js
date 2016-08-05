@@ -1,16 +1,9 @@
 import React from "react";
 import { Ol } from "react-bootstrap";
 
-import Article from "../components/Article";
 
 export default class Home extends React.Component {
   render() {
-    const Articles = [
-      "Article 1",
-      "Article 2",
-      "Article 3",
-      "Article 4",
-    ].map((title, i) => <Article key={i} title={title}/> );
     
     return (
       <div>
@@ -23,7 +16,7 @@ export default class Home extends React.Component {
 			  </ol>
 			  <div class="carousel-inner" role="listbox">
 				<div class="item active">
-				  <img class="first-slide" src={'/pic/summer.png'} alt="First slide" />
+				  <img class="first-slide" src={ '/pic/summer.png' } alt="First slide" />
 				  <div class="container">
 					<div class="carousel-caption">
 					  <h1>Summer is coming!</h1>
@@ -32,7 +25,7 @@ export default class Home extends React.Component {
 				  </div>
 				</div>
 				<div class="item">
-				  <img class="second-slide" src={'/pic/card.png'} alt="Second slide" />
+				  <img class="second-slide" src={ '/pic/card.png' } alt="Second slide" />
 				  <div class="container">
 					<div class="carousel-caption">
 					  <h1>Cashback up to 10%</h1>
@@ -41,7 +34,7 @@ export default class Home extends React.Component {
 				  </div>
 				</div>
 				<div class="item">
-				  <img class="third-slide" src={'/pic/summer2.png'} alt="Third slide" />
+				  <img class="third-slide" src={ '/pic/summer2.png' } alt="Third slide" />
 				  <div class="container">
 					<div class="carousel-caption">
 					</div>
