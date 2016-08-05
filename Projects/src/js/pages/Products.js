@@ -1,30 +1,36 @@
 import React from "react";
 
-import Article from "../components/Article";
+import All from "../components/All";
+import Girl from "../components/Girl";
+
 
 export default class Products extends React.Component {
   render() {
-	  console.log(this.props);
+	console.log(this.props);
     
-    const { params } = this.props;
-    const { article } = params;
-
-    const Articles = [
-      "Produk 1",
-      "Produk 2",
-      "Produk 3",
-      "Produk 4",
-      "Produk 5",
-      "Produk 6",
-      "Produk 7",
-      "Produk 8",
-    ].map((title, i) => <Article key={i} title={title}/> );
 
     return (
       <div>
-        <h1>What do we sell? {article}</h1>
-        <div class="list-group">{Articles}</div>
-      </div>
+        <div class="container-fluid">
+		  <div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+			  <ul class="nav nav-sidebar">
+				<li class="active"><a href="/#/products" >All <span class="sr-only">(current)</span></a></li>
+				<li><a href="/#/products/girl">Girl</a></li>
+				<li><a href="/#/products/boy">Boy</a></li>
+				<li><a href="/#/products/unisex">Unisex</a></li>
+			  </ul>
+			</div>
+		  </div>
+		 </div>
+		 
+		 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">What do we sell?</h1>
+
+            {this.props.children}
+            
+		</div>
+	</div>
     );
   }
 }
