@@ -55,6 +55,8 @@ Deliverable dari tugas ini terdapat pada folder Projects/ , file Checkpoint1.md,
 
 Di akhir tahap ini, aplikasi Anda sudah harus hampir selesai. Pastikan bahwa hanya hal-hal minor yang belum selesai, misalnya polesan tampilan dan sedikit user experience. Setelah deadline checkpoint 2, asisten akan mengulas aplikasi Anda dan kemudian akan memberikan perbaikan-perbaikan sebelum versi final. Penting bagi Anda untuk melakukan perbaikan-perbaikan yang diminta karena dapat mempengaruhi penilaian akhir. Sama dengan checkpoint 1, Anda diwajibkan untuk melakukan asistensi dan mengumpulkan deliverables dengan format serupa dengan checkpoint 1.
 
+Deliverable dari tugas ini terdapat pada folder Projects/ , file Checkpoint2.md, dan file Progress-Report.md (di bawah Checkpoint 1)
+
 ## Pengumpulan
 * Rilis: 9 Agustus 2016
 * Deadline: 21 Agustus 2016
