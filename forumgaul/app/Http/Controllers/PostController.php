@@ -18,9 +18,23 @@ class PostController extends Controller
      */
     public function index($thread_id) {
     	$posts = DB::table('posts')
+                 ->join('users', 'users.id', '=', 'posts.user_id')
                  ->where('posts.thread_id','=',$thread_id)
+                 ->select('users.id as userID', 'posts.*', 'users.name', 'users.city', 'users.avatar')
                  ->get();
-    	return view('viewthread', ['posts' => $posts, 'thread_id' => $thread_id]);
+
+        $thread = DB::table('threads')
+                  ->where('threads.id', '=', $thread_id)
+                  ->get();
+
+        $users_reps = DB::table('reps')
+                    ->rightJoin('posts', 'posts.id', '=', 'reps.post_id')
+                    ->select('posts.user_id AS id', DB::raw('sum(value) AS total_reps'))
+                    ->groupBy('id')
+                    ->get();
+
+    	return view('viewthread', ['posts' => $posts, 'thread_id' => $thread_id, 'thread' => $thread,
+                                    'users_reps' => $users_reps]);
     }
 
     /**
@@ -30,13 +44,15 @@ class PostController extends Controller
     *  @return Response
     */
     public function store(PostRequest $request) {
-    	$title = $request->input('title');
-    	$message = $request->input('message');
-        $user_id = Auth::user()->id;
-        $thread_id = $request->thread_id;					/**** DUMMY VALUE *****/
-        DB::table('posts')->insert(
-            ['title' => $title, 'message' => $message, 'user_id' => $user_id, 'thread_id' => $thread_id]
-        );
+        $post = new Post;
+    	$post->title = $request->input('title');
+    	$post->message = $request->input('message');
+        $post->user_id = Auth::user()->id;
+        $post->thread_id = $request->thread_id;					/**** DUMMY VALUE *****/
+        $post->save();
+
+        $thread = Thread::find($post->thread_id);
+        $thread->touch();
     	return redirect('post_created');
     }
 }

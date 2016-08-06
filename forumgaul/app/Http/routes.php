@@ -44,3 +44,18 @@ Route::post('/threads/{thread_id}/create_post', 'PostController@store');
 Route::get('/post_created', function() {
 	return view('post_created');
 });
+
+/*** PROFILE ***/
+Route::get('/my_profile', function() {
+	return view('my_profile_view');
+});
+Route::get('/profile/{user_id}', 'UserController@view');
+Route::get('/edit_profile', function() {
+	return view('edit_profile');
+});
+Route::post('/edit_profile', 'UserController@update');
+
+/*** REPUTATION ***/
+Route::get('/add_reputation/{post_id}', 'ReputationController@initform');
+Route::post('/add_reputation/{post_id}', 'ReputationController@add');
+Route::get('/my_reputation', 'ReputationController@index');

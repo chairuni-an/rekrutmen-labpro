@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Reputation extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'posts';
+    protected $table = 'reps';
 
     /**
      * The attributes that are mass assignable.
@@ -19,14 +19,14 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'message', 'user_id',
+        'post_id', 'giver_id', 'value', 'message'
     ];
 
     /**
-     * Get the reputations for the post.
+     * Get the post that belongs the Reputation
+     * 
      */
-    public function reputations()
-    {
-        return $this->hasMany('App\Reputation');
+    public function post() {
+        return $this->belongsTo('App\Post');
     }
 }

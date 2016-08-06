@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Auth;
 use App\Thread;
+use App\Post;
 use App\Http\Requests\ThreadRequest;
 use App\Http\Controllers\Controller;
 
@@ -20,21 +21,25 @@ class ThreadController extends Controller
                      ->join('users','users.id', '=', 'threads.user_id')
                      ->select('threads.*', 'users.name')
                      ->where('threads.category', '=', '1')
+                     ->orderBy('updated_at', 'desc')
                      ->get();
         $threads_2 = DB::table('threads')
                      ->join('users','users.id', '=', 'threads.user_id')
                      ->select('threads.*', 'users.name')
                      ->where('category', '=', '2')
+                     ->orderBy('updated_at', 'desc')
                      ->get();
         $threads_3 = DB::table('threads')
                      ->join('users','users.id', '=', 'threads.user_id')
                      ->select('threads.*', 'users.name')
                      ->where('category', '=', '3')
+                     ->orderBy('updated_at', 'desc')
                      ->get();
         $threads_4 = DB::table('threads')
                      ->join('users','users.id', '=', 'threads.user_id')
                      ->select('threads.*', 'users.name')
                      ->where('category', '=', '4')
+                     ->orderBy('updated_at', 'desc')
                      ->get();
     	return view('thread', ['threads_1' => $threads_1, 'threads_2' => $threads_2, 
                                'threads_3' => $threads_3, 'threads_4' => $threads_4]);
@@ -47,17 +52,18 @@ class ThreadController extends Controller
     *  @return Response
     */
     public function store(ThreadRequest $request) {
-    	$title = $request->input('title');
-    	$category = $request->input('category');
-        $user_id = Auth::user()->id;
-        $thread_id = DB::table('threads')->insertGetId(
-            ['title' => $title, 'category' => $category, 'user_id' => $user_id]
-        );
+        $thread = new Thread;
+    	$thread->title = $request->input('title');
+    	$thread->category = $request->input('category');
+        $thread->user_id = Auth::user()->id;
+        $thread->save();
 
-        $message = $request->input('message');
-        DB::table('posts')->insert(
-            ['title' => $title, 'message' => $message, 'user_id' => $user_id, 'thread_id' => $thread_id]
-        );
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->message = $request->input('message');
+        $post->user_id = Auth::user()->id;
+        $post->thread_id = $thread->id;
+        $post->save();
 
     	return redirect('thread_created');
     }

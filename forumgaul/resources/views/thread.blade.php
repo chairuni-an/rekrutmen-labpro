@@ -9,9 +9,9 @@
                 <div class="panel-body">
                     @foreach ($threads_1 as $thread)
                     <a href="{{ url('threads/'.$thread->id) }}">
-                        <div class='col-md-10'>
-                            <h4> {{ $thread->title }} </h1>
-                            <h5> Started by {{ $thread->name }}</h4>
+                        <div class='col-md-12'>
+                            <h4> {{ $thread->title }} </h4>
+                            <h5> Started by {{ $thread->name }}</h5>
                         </div>
                     </a>
                     @endforeach
@@ -22,9 +22,9 @@
                 <div class="panel-body">
                     @foreach ($threads_2 as $thread)
                     <a href="{{ url('threads/'.$thread->id) }}">
-                        <div class='col-md-10'>
-                            <h4> {{ $thread->title }} </h1>
-                            <h5> Started by {{ $thread->name }}</h4>
+                        <div class='col-md-12'>
+                            <h4> {{ $thread->title }} </h4>
+                            <h5> Started by {{ $thread->name }}</h5>
                         </div>
                     </a>
                     @endforeach
@@ -35,9 +35,9 @@
                 <div class="panel-body">
                     @foreach ($threads_3 as $thread)
                     <a href="{{ url('threads/'.$thread->id) }}">
-                        <div class='col-md-10'>
-                            <h4> {{ $thread->title }} </h1>
-                            <h5> Started by {{ $thread->name }}</h4>
+                        <div class='col-md-12'>
+                            <h4> {{ $thread->title }} </h4>
+                            <h5> Started by {{ $thread->name }}</h5>
                         </div>
                     </a>
                     @endforeach
@@ -48,9 +48,9 @@
                 <div class="panel-body">
                     @foreach ($threads_4 as $thread)
                     <a href="{{ url('threads/'.$thread->id) }}">
-                        <div class='col-md-10'>
-                            <h4> {{ $thread->title }} </h1>
-                            <h5> Started by {{ $thread->name }}</h4>
+                        <div class='col-md-12'>
+                            <h4> {{ $thread->title }} </h4>
+                            <h5> Started by {{ $thread->name }}</h5>
                         </div>
                     </a>
                     @endforeach

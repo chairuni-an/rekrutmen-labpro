@@ -28,4 +28,11 @@ class Thread extends Model
     public function posts() {
         return $this->hasMany('App\Post');
     }
+
+    /**
+    *  Get the thread starter
+    */
+    public function user() {
+        return $this->hasOne('App\User');
+    }
 }
