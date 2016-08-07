@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">{{ $thread[0]->title }}</div>
+                <div class="panel-heading">View Post #{{ $post_id }}</div>
                 <div class="panel-body">
                     @foreach ($posts as $post)
                         <div class='col-md-12 single-post'>
@@ -89,17 +89,16 @@
                                 <p>{{ $post->message }}</p>
                             </div>
                         </div>
+                        <div class="col-md-10"></div>
+                        <div class="col-md-1">
+                            <button type="button" class="btn btn-primary" 
+                                onclick="window.location='{{url('threads/'.$post->thread_id)}}'">
+                                Go to this thread
+                            </button>
+                        </div>
                     @endforeach
                 </div>
-                @if (Auth::guest())
-                <div class="panel">
-                    <div class="panel-heading">You must be logged in to post a reply</div>
-                </div>
-                @else
-                        <button class="btn btn-primary" type="button" onclick="window.location='{{ url("threads/".$thread_id."/create_post") }}'">
-                            Create a Post
-                        </button>
-                @endif
+
             </div>
         </div>
     </div>

@@ -21,6 +21,7 @@ class PostController extends Controller
                  ->join('users', 'users.id', '=', 'posts.user_id')
                  ->where('posts.thread_id','=',$thread_id)
                  ->select('users.id as userID', 'posts.*', 'users.name', 'users.city', 'users.avatar')
+                 ->orderBy('posts.created_at')
                  ->get();
 
         $thread = DB::table('threads')
@@ -33,8 +34,14 @@ class PostController extends Controller
                     ->groupBy('id')
                     ->get();
 
+        $users_posts = DB::table('posts')
+                       ->rightJoin('users', 'users.id', '=', 'posts.user_id')
+                       ->select('users.id AS user_id', DB::raw('count(*) AS total_posts'))
+                       ->groupBy('users.id')
+                       ->get();
+
     	return view('viewthread', ['posts' => $posts, 'thread_id' => $thread_id, 'thread' => $thread,
-                                    'users_reps' => $users_reps]);
+                                    'users_reps' => $users_reps, 'users_posts' => $users_posts]);
     }
 
     /**
@@ -53,6 +60,30 @@ class PostController extends Controller
 
         $thread = Thread::find($post->thread_id);
         $thread->touch();
-    	return redirect('post_created');
+    	return redirect('threads/'.$request->thread_id);
+    }
+
+    public function view($post_id) {
+        $posts = DB::table('posts')
+                 ->join('users', 'users.id', '=', 'posts.user_id')
+                 ->where('posts.id','=',$post_id)
+                 ->select('users.id as userID', 'posts.*', 'users.name', 'users.city', 'users.avatar')
+                 ->orderBy('posts.created_at')
+                 ->get();
+
+        $users_reps = DB::table('reps')
+                    ->rightJoin('posts', 'posts.id', '=', 'reps.post_id')
+                    ->select('posts.user_id AS id', DB::raw('sum(value) AS total_reps'))
+                    ->groupBy('id')
+                    ->get();
+
+        $users_posts = DB::table('posts')
+                       ->rightJoin('users', 'users.id', '=', 'posts.user_id')
+                       ->select('users.id AS user_id', DB::raw('count(*) AS total_posts'))
+                       ->groupBy('users.id')
+                       ->get();
+
+        return view('viewpost', ['posts' => $posts, 'post_id' => $post_id,
+                                    'users_reps' => $users_reps, 'users_posts' => $users_posts]);
     }
 }

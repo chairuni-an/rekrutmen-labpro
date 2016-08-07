@@ -65,6 +65,6 @@ class ThreadController extends Controller
         $post->thread_id = $thread->id;
         $post->save();
 
-    	return redirect('thread_created');
+    	return redirect('threads/'.$thread->id);
     }
 }

@@ -40,12 +40,23 @@ class ReputationController extends Controller
     }
 
     public function index() {
+        /*
         $my_posts = Post::where('user_id', '=', Auth::user()->id)->get();
+        $my_reps = Reputation::all();
+        */
+        $my_reps = DB::table('reps')
+                   ->join('posts', 'posts.id', '=', 'reps.post_id')
+                   ->join('users', 'reps.giver_id', '=', 'users.id')
+                   ->where('posts.user_id','=', Auth::user()->id)
+                   ->select('reps.*', 'users.name AS giver_name', 'posts.title AS post_title')
+                   ->get();
+        /*
         $my_reps = $my_posts->first()->reputation;
         foreach($my_posts as $post) {
             $this_post_rep = $post->reputation;
             $my_reps = $my_reps->merge($this_post_rep);
         }
+        */
         return view('my_reputation', ['rep' => $my_reps]);
     }
 }

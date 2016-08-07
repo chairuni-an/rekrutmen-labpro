@@ -45,6 +45,8 @@ Route::get('/post_created', function() {
 	return view('post_created');
 });
 
+Route::get('/viewpost/{post_id}', 'PostController@view');
+
 /*** PROFILE ***/
 Route::get('/my_profile', function() {
 	return view('my_profile_view');

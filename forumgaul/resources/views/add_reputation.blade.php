@@ -14,13 +14,16 @@
                     @else
                     {!! Form::open(array('action' => array('ReputationController@add', $post_id))) !!}
                         <div class='col-md-12'>
-                            <div class='col-md-6'>
+                            <div class="col-md-2"> </div>
+                            <div class='col-md-4'>
                                 {{ Form::radio('value', 'good', true) }}
+                                <img src="/forumgaul/resources/img/good.png" style="width: 50%;"> <br>
                                 {{ Form::label('good', 'Gue Suka Bangetzz!! :)') }}
                             </div>
-                            <div class='col-md-6'>
+                            <div class='col-md-4'>
                                 {{ Form::radio('value', 'bad') }}
-                                {{ Form::label('good', 'Apaan nich??!! :(') }}
+                                <img src="/forumgaul/resources/img/bad.png" style="width: 50%;"> <br>
+                                {{ Form::label('good', 'Wad??!! Apaan nich??!! :(') }}
                             </div>
                         </div>
                         <div class='col-md-12'>
