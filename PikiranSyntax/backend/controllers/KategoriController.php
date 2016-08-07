@@ -28,6 +28,14 @@ class KategoriController extends Controller
 						'actions' => ['index', 'create', 'update', 'delete'],
 						'allow' => true,
 						'roles' => ['@'],
+						'matchCallback' => function($rule, $action) {
+							$role = (new \yii\db\Query()) 
+							->select('item_name')
+							->from('auth_assignment')
+							->where('user_id=:id', array(':id'=>Yii::$app->user->id))
+							->scalar();
+							return $role == "Admin";
+						}
 					],
 				],
 			],

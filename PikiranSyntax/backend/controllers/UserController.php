@@ -20,6 +20,24 @@ class UserController extends Controller
     public function behaviors()
     {
         return [
+			'access' => [
+				'class' => AccessControl::className(),
+				'rules' => [
+					[
+						'actions' => ['index', 'create', 'update', 'delete'],
+						'allow' => true,
+						'roles' => ['@'],
+						'matchCallback' => function($rule, $action) {
+							$role = (new \yii\db\Query()) 
+							->select('item_name')
+							->from('auth_assignment')
+							->where('user_id=:id', array(':id'=>Yii::$app->user->id))
+							->scalar();
+							return $role == "Admin";
+						}
+					],
+				],
+			],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

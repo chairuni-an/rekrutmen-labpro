@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Artikel;
+use common\models\User;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -28,6 +29,14 @@ class ArtikelController extends Controller
 						'actions' => ['index', 'create', 'update', 'delete'],
 						'allow' => true,
 						'roles' => ['@'],
+						'matchCallback' => function($rule, $action) {
+							$role = (new \yii\db\Query()) 
+							->select('item_name')
+							->from('auth_assignment')
+							->where('user_id=:id', array(':id'=>Yii::$app->user->id))
+							->scalar();
+							return $role == "Admin";
+						}
 					],
 				],
 			],
