@@ -48,3 +48,11 @@ Penambahan kebutuhan pengguna, yaitu pengguna dapat mengedit profil dan dapat me
 * File :
   1. [Source Code - PikiranSyntax](https://github.com/adeyura/rekrutmen-labpro/tree/master/PikiranSyntax)
   2. [[CHECKPOINT 1] Progress Report dan Screenshot Aplikasi.pdf](https://github.com/adeyura/rekrutmen-labpro/blob/master/%5BCHECKPOINT%201%5D%20Progress%20Report%20dan%20Screenshot%20Aplikasi.pdf)
+
+## Checkpint 2
+* Rilis: 12 Juli 2016
+* Deadline: 7 Agustus 2016
+* Deliverables: Source code dan screenshot dari aplikasi, serta progress report
+* File :
+  1. [Source Code - PikiranSyntax](https://github.com/adeyura/rekrutmen-labpro/tree/master/PikiranSyntax)
+  2. [[CHECKPOINT 2] Progress Report dan Screenshot Aplikasi.pdf](https://github.com/adeyura/rekrutmen-labpro/blob/master/%5BCHECKPOINT%202%5D%20Progress%20Report%20dan%20Screenshot%20Aplikasi.pdf)
