@@ -48,13 +48,13 @@ class UserController extends Controller
 
     	if($request->hasFile('avatar')) {
     		if($request->file('avatar')->isValid()) {
-    			$destinationPath = "/forumgaul/resources/img/";
+    			$destinationPath = "C:\\xampp\\htdocs\\forumgaul\\resources\\img\\";
     			$filename = "ava".Auth::user()->id.'.'.$request->file('avatar')->getClientOriginalExtension();
 
                 $file = $request->file('avatar');
                 $file->move($destinationPath, $filename);
 
-    			$user->avatar = $destinationPath.$filename;
+    			$user->avatar = "/forumgaul/resources/img/".$filename;
     		}
     	}
     	
