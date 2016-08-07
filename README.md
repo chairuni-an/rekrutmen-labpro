@@ -1,9 +1,9 @@
 ## Rekrutmen Asisten Lab Programming Angkatan 2014
 Robert Sebastian Herlim / 13514061
 
-![alt tag](https://github.com/Ngiong/rekrutmen-labpro/blob/master/forumgaul/resources/img/splash-firework.png)
+![alt tag](https://github.com/Ngiong/rekrutmen-labpro/blob/master/forumgaul/resources/img/splash-firework.jpg)
 ![alt tag](https://github.com/Ngiong/rekrutmen-labpro/blob/master/forumgaul/resources/img/splash-cat.png)
-![alt tag](https://github.com/Ngiong/rekrutmen-labpro/blob/master/forumgaul/resources/img/splash-firework.png)
+![alt tag](https://github.com/Ngiong/rekrutmen-labpro/blob/master/forumgaul/resources/img/splash-firework.jpg)
 
 ### Checkpoint 2
 
