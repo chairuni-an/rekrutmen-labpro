@@ -88,6 +88,7 @@ AppAsset::register($this);
 			'options' => ['class' => 'navbar-nav navbar-right'],
 			'items' => [
 				['label' => 'Home', 'url' => ['/site/index']],
+				['label' => 'Profil', 'url' => ['/user/view', 'id' => Yii::$app->user->id], 'visible' => !Yii::$app->user->isGuest],
 				['label' => 'Kategori', 'items' => common\models\Kategori::getKategoriMenu()],
 				['label' => 'Signup', 'url' => ['/site/signup'], 'visible' => Yii::$app->user->isGuest],
 				Yii::$app->user->isGuest ? (
