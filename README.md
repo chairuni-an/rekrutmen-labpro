@@ -1,49 +1,44 @@
-# Rekrutmen Asisten Lab Programming Angkatan 2014
+#Branch:
+- Eksplorasi2 : (Main) Tugas eksplorasi 1 dan rancangan proyek
+- master      : Tugas eksplorasi 2
 
-## Garis Besar Tugas
-Silahkan ubah readme ini untuk mendeskripsikan pekerjaan Anda. Cantumkan deskripsi tugas dan lokasi file-file yang Anda tambahkan di sini. Anda dapat menggunakan tool online http://dillinger.io/ serta cheatsheet https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet untuk mengubah readme ini. Mulai dari submission pertama, silahkan hapus deskripsi ini.
+# Rekrutmen Asisten Lab Programming Angkatan 2014
 
 ## Eksplorasi 1
 * Rilis: 3 Mei 2016
 * Deadline: 22 Mei 2016
 * Deliverables: Resume topik yang Anda explore
-
-Eksplorasi github dan topik eksplorasi (bahasa/engine/framework) yang Anda dapatkan. Untuk eksplorasi Github, pastikan Anda sudah membaca dokumentasi Github dan minimal bisa melakukan hal dasar di github seperti fork, commit, clone, etc. Eksplorasi Github akan dinilai dari keberhasilan Anda melakukan pengumpulan tugas eksplorasi 1 ini melalui Github. Untuk eksplorasi topik eksplorasi, pastikan Anda minimal sudah membaca about dari topik tersebut. Buatlah sebuah resume dari topik yang Anda explore sebagai deliverable. Resume ini memiliki format bebas, boleh formal maupun non formal, asalkan menjelaskan dan bisa direview oleh asisten secara remote. Minimal terdapat komponen-komponen yaitu: filosofi/ide dari bahasa/engine/framework, kelebihan, kekurangan, struktur, dan penggunaan.
+* Nama file : [**Resume_Unity3D.md**](https://github.com/sashinovitasari/rekrutmen-labpro/blob/master/Resume_Unity3D.md) ([ver. pdf](https://github.com/sashinovitasari/rekrutmen-labpro/blob/master/Resume_Unity3D%20(Sashi%20N.).pdf))
 
 ## Eksplorasi 2
 * Rilis: 24 Mei 2016
 * Deadline: 29 Mei 2016
 * Deliverables: Source code dan dokumentasi program sederhana sesuai topik eksplorasi
-
-Melakukan setup dan membuat program sederhana sesuai topik eksplorasi. Program sederhana yang dibuat minimal adalah semacam Hello World!, namun disarankan untuk membuat lebih dari itu demi kelancaran pembuatan rancangan proyek. Setup akan dinilai dari keberhasilan anda membuat Hello World!, sehingga tidak ada deliverable khusus. Untuk program sederhana, kumpulkan source code dan dokumentasi program saja, jangan mengumpulkan executablesnya (bisa menggunakan fitur gitignore). Pastikan dokumentasi Anda menjelaskan cara penggunaan dan screenshot-screenshot dari program sederhana yang Anda buat.
+* Branch: [master](https://github.com/sashinovitasari/rekrutmen-labpro/tree/master)
 
 ## Rancangan Proyek
 * Rilis: 31 Mei 2016
 * Deadline: 5 Juni 2016
 * Deliverables: Dokumen rancangan proyek
-
-Membuat rancangan proyek yang meliputi deskripsi singkat, platform, fitur minimal, asumsi, dan batasan implementasi. Template dokumen akan disampaikan pada waktu rilis tugas ini, dan mungkin agak sedikit berbeda dengan apa yang disampaikan pada file ini, gunakan yang ada di template saja nanti.
+* Nama file : [**[Tugas 3] Sashi Novitasari - 13514027** (pdf)](https://github.com/sashinovitasari/rekrutmen-labpro/blob/Eksplorasi2/Rancangan-Proyek/%5BTugas%203%5D%20Sashi%20Novitasari%20-%2013524027.pdf)
 
 ## Revisi Rancangan Proyek
 * Rilis: 7 Juni 2016
 * Deadline: 12 Juni 2016
 * Deliverables: Revisi dokumen rancangan proyek
-
-Pada tahap ini Anda sudah akan diassign pada asisten khusus untuk masing-masing peserta. Lakukanlah asistensi dengan asisten Anda untuk melakukan revisi ini.
+* Nama file: [**[Revisi Rancangan Proyek] Sashi Novitasari - 13514027** (pdf)] (https://github.com/sashinovitasari/rekrutmen-labpro/blob/Eksplorasi2/Rancangan-Proyek/%5BRevisi%20Rancangan%20Proyek%5D%20Sashi%20Novitasari%20-%2013514027.pdf)
 
 ## Checkpoint 1
 * Rilis: 14 Juni 2016
 * Deadline: 10 Juli 2016
 * Deliverables: Source code dan screenshot dari aplikasi, serta progress report
-
-Di akhir tahap ini, Anda sudah harus menyelesaikan sebagian dari aplikasi anda. Diwajibkan untuk melakukan asistensi minimal satu kali dengan asisten Anda, Commit tiap tahap pengerjaan Anda ke repository ini, dan tambahkan semacam mini dokumentasi aplikasi dengan mencantumkan screenshot-screenshot akhir aplikasi Anda. Buatlah progress report yang berisi apa yang sudah dikerjakan, kendala, dan rencana pengerjaan berikutnya. Progress report ini akan digunakan oleh asisten Anda untuk dibahas saat asistensi berikutnya. 
+* Folder: [**Checkpoint_1**] (https://github.com/sashinovitasari/rekrutmen-labpro/tree/Eksplorasi2/Checkpoint_1)
 
 ## Checkpoint 2
 * Rilis: 12 Juli 2016
 * Deadline: 7 Agustus 2016
 * Deliverables: Source code dan screenshot dari aplikasi, serta progress report
-
-Di akhir tahap ini, aplikasi Anda sudah harus hampir selesai. Pastikan bahwa hanya hal-hal minor yang belum selesai, misalnya polesan tampilan dan sedikit user experience. Setelah deadline checkpoint 2, asisten akan mengulas aplikasi Anda dan kemudian akan memberikan perbaikan-perbaikan sebelum versi final. Penting bagi Anda untuk melakukan perbaikan-perbaikan yang diminta karena dapat mempengaruhi penilaian akhir. Sama dengan checkpoint 1, Anda diwajibkan untuk melakukan asistensi dan mengumpulkan deliverables dengan format serupa dengan checkpoint 1.
+* Folder: [**Checkpoint_2**] (https://github.com/sashinovitasari/rekrutmen-labpro/tree/Eksplorasi2/Checkpoint_2)
 
 ## Pengumpulan
 * Rilis: 9 Agustus 2016
