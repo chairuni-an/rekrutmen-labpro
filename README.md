@@ -124,9 +124,9 @@ Di akhir tahap ini, Anda sudah harus menyelesaikan sebagian dari aplikasi anda. 
 ## Checkpoint 2
 * Rilis: 12 Juli 2016
 * Deadline: 7 Agustus 2016
-* Deliverables: Source code dan screenshot dari aplikasi, serta progress report
+* Deliverables: [Source code](https://github.com/kristiantokarim/rekrutmen-labpro/tree/master/OmoCommunity) dan [screenshot](https://github.com/kristiantokarim/rekrutmen-labpro/tree/master/Dokumentasi/OmoCommunity) dari aplikasi, serta [progress report](https://github.com/kristiantokarim/rekrutmen-labpro/blob/master/OmoCommunity/readme2.md)
 
-Di akhir tahap ini, aplikasi Anda sudah harus hampir selesai. Pastikan bahwa hanya hal-hal minor yang belum selesai, misalnya polesan tampilan dan sedikit user experience. Setelah deadline checkpoint 2, asisten akan mengulas aplikasi Anda dan kemudian akan memberikan perbaikan-perbaikan sebelum versi final. Penting bagi Anda untuk melakukan perbaikan-perbaikan yang diminta karena dapat mempengaruhi penilaian akhir. Sama dengan checkpoint 1, Anda diwajibkan untuk melakukan asistensi dan mengumpulkan deliverables dengan format serupa dengan checkpoint 1.
+Di akhir tahap ini, aplikasi Anda sudah harus hampir selesai. Pastikan bahwa hanya hal-hal minor yang belum selesai, misalnya [polesan tampilan dan sedikit user experience](http://omocommunity.herokuapp.com). Setelah deadline checkpoint 2, asisten akan mengulas aplikasi Anda dan kemudian akan memberikan perbaikan-perbaikan sebelum versi final. Penting bagi Anda untuk melakukan perbaikan-perbaikan yang diminta karena dapat mempengaruhi penilaian akhir. Sama dengan checkpoint 1, Anda diwajibkan untuk melakukan asistensi dan mengumpulkan deliverables dengan format serupa dengan checkpoint 1.
 
 ## Pengumpulan
 * Rilis: 9 Agustus 2016
