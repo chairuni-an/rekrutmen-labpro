@@ -13,4 +13,5 @@ Checkpoint 1, yang telah dilakukan :
 
 Checkpoint 1, yang akan dilakukan :
 * debugging
-* masih belum tahu
+* Follow User
+* Attachments
