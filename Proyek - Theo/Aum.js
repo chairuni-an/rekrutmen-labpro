@@ -15,6 +15,7 @@ var App = React.createClass({
     return (
       <div>
         <Calendar handleDateSelectedChange={this.handleDateSelectedChange}/>
+        <br/>
         <Table selected={this.state.dateSelected}/>
       </div>
     );
@@ -31,8 +32,9 @@ var Calendar = React.createClass({
 
   componentWillMount: function() {
     this.setState({
-      selected: this.state.displayed.format("DDMMYYYY")
+      selected: this.state.displayed.format("YYYYDDMM")
     });
+    this.props.handleDateSelectedChange(this.state.displayed.format("YYYYDDMM"));
   },
 
   handleDisplayedChange: function(displayed){
@@ -53,9 +55,7 @@ var Calendar = React.createClass({
     return(
       <div className="calendar">
         <DisplayMonth key={this.state.displayed.format("MMM")} displayed={this.state.displayed} handleDisplayedChange={this.handleDisplayedChange}/>
-        <DayNames />
         <DisplayDates displayed={this.state.displayed} handleSelectedChange={this.handleSelectedChange}/>
-        {this.state.selected}
       </div>
     );
   }
@@ -96,41 +96,39 @@ var DisplayMonth = React.createClass({
 
 });
 
-var DayNames = React.createClass({
-  render: function() {
-    return (
-      <div className="weekNames">
-          <span className="day">Sun</span>
-          <span className="day">Mon</span>
-          <span className="day">Tue</span>
-          <span className="day">Wed</span>
-          <span className="day">Thu</span>
-          <span className="day">Fri</span>
-          <span className="day">Sat</span>
-      </div>
-    );
-  }
-});
-
 var DisplayDates = React.createClass({
   render: function(){
     let date = this.props.displayed.clone().startOf('month').startOf('week');
     var display = [];
     var tempDisplay = [];
 
+    display.push(
+      <tr className="dayNames">
+          <th className="day">Sun</th>
+          <th className="day">Mon</th>
+          <th className="day">Tue</th>
+          <th className="day">Wed</th>
+          <th className="day">Thu</th>
+          <th className="day">Fri</th>
+          <th className="day">Sat</th>
+      </tr>
+    );
+
     while(this.props.displayed.clone().endOf('month').isSameOrAfter(date)){
       for(var i = 0; i < 7;i++){
-        tempDisplay.push(<span key={date.format("YYYYDDMM")} onClick={this.props.handleSelectedChange.bind(null, date.format("YYYYDDMM"))}>{date.dates()}</span>);
+        tempDisplay.push(<td key={date.format("YYYYDDMM")} className="date" onClick={this.props.handleSelectedChange.bind(null, date.format("YYYYDDMM"))}>{date.dates()}</td>);
         date.add(1, "d");
       }
-      display.push(<div>{tempDisplay}</div>);
+      display.push(<tr className="dateRow">{tempDisplay}</tr>);
       tempDisplay = [];
     }
 
     return(
-      <div>
-        {display}
-      </div>
+      <table className="calendarTable">
+        <tbody>
+          {display}
+        </tbody>
+      </table>
     );
   }
 });
@@ -142,53 +140,103 @@ var Table = React.createClass({
 
   getInitialState: function() {
     return {
-      data: {
-        20160707: {
-          lapangana: [
-            {pemesan: "Jonii", jam: 11},
-            {pemesan: "Bukan Jonii", jam: 12},
-            {pemesan: "Bukan Jonii", jam: 13}
-          ],
-          lapanganb: [
-            {pemesan: "Kakak", jam: 11},
-            {pemesan: "Adek", jam: 12}
+      dataPesan : [
+        {
+          tanggal : 20160108,
+          lapangan : [
+            {
+              namaLapangan : "Lapangan A",
+              dataPemesanan : [
+                {atasNama : "Pokemon", jam : 10},
+                {atasNama : "Pokemon", jam : 11},
+                {atasNama : "Aum", jam : 12}
+              ]
+            },
+            {
+              namaLapangan : "Lapangan B",
+              dataPemesanan : [
+                {atasNama : "Rawr", jam : 13},
+                {atasNama : "Mumu", jam : 14},
+                {atasNama : "Mumu", jam : 16}
+              ]
+            }
           ]
         },
+        {
+          tanggal : 20160208,
+          lapangan : [
+            {
+              namaLapangan : "Lapangan A",
+              dataPemesanan : [
+                {atasNama : "Kucing", jam : 11},
+                {atasNama : "Anjing", jam : 14},
+                {atasNama : "Jono", jam : 18}
+              ]
+            },
+            {
+              namaLapangan : "Lapangan B",
+              dataPemesanan : [
+                {atasNama : "Mumu", jam : 8},
+                {atasNama : "Mumu", jam : 9},
+                {atasNama : "Mumu", jam : 10}
+              ]
+            }
+          ]
+        }
+      ],
 
-        20161307: {
-          lapangana: [
-            {pemesan: "Jono", jam: 11},
-            {pemesan: "Bukan Jono", jam: 12}
-          ],
-          lapanganb: [
-            {pemesan: "Theo", jam: 11},
-            {pemesan: "Bukan Theo", jam: 12}
-          ]
-        },
-      }
+      dataLapangan : [
+        "Lapangan A",
+        "Lapangan B"
+      ]
     };
   },
 
   componentDidMount: function() {
     //Fetch data from database (ku belum bisa maapkan)
-    //pakai data JSON dummy berupa state
+    //pakai data JSON dummy dulu berupa state
   },
 
   render: function() {
     let selected = this.props.selected;
-    let table = "";
+    let table = [];
+    let arrayIndex = -1;
 
-    if (this.state.data[selected]) {
-      for (let s of this.state.data[selected].lapangana) {
-        table += s.pemesan;
+    for (let i = 0; i < this.state.dataPesan.length; i++){
+      if (this.state.dataPesan[i].tanggal == selected){
+        arrayIndex = i;
+        break;
       }
-      for (let s of this.state.data[selected].lapanganb) {
-        table += s.pemesan;
+    }
+
+    if(arrayIndex != -1){
+      let temp = [];
+      for (let i = 0; i < this.state.dataPesan[arrayIndex].lapangan.length; i++){
+        let temp1 = [];
+
+        temp1.push(<div className="namaLapangan">{this.state.dataPesan[arrayIndex].lapangan[i].namaLapangan}</div>)
+
+        let temp2 = []
+        for (let j = 0; j < this.state.dataPesan[arrayIndex].lapangan[i].dataPemesanan.length; j++){
+          temp2.push(
+            <tr>
+            <td>{this.state.dataPesan[arrayIndex].lapangan[i].dataPemesanan[j].atasNama}</td>
+            <td>{this.state.dataPesan[arrayIndex].lapangan[i].dataPemesanan[j].jam}</td>
+            </tr>
+          )
+        }
+        temp1.push(<div><table><tbody>{temp2}</tbody></table></div>)
+
+        temp.push(<div className="table">{temp1}</div>)
+
       }
-    };
+      table.push(<div className="accumulatedTable">{temp}</div>)
+    }
 
     return (
       <div>
+        {selected}
+        <br/>
         {table}
       </div>
     );

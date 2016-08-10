@@ -1,7 +1,12 @@
+.boxed {
+  text-align: center;
+  width: 45px;
+  height: 45px;
+  display: inline-block;
+}
 .calendar {
   background-color: #dfd;
-  display: inline-block;
-  box-sizing: border-box;
+  width: 315px;
 }
 .calendar .calendarHeader {
   display: block;
@@ -11,11 +16,9 @@
 .calendar .calendarHeader .monthName {
   font-family: sans-serif;
 }
-.calendar .weekNames {
-  display: inline;
-  box-sizing: border-box;
-  clear: both;
+.calendar .calendarTable .dayNames .day {
+  border: 1px solid black;
 }
-.calendar .weekNames .day {
-  padding: 3%;
+.calendar .calendarTable .dateRow .date {
+  border: 1px solid black;
 }
