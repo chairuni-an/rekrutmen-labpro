@@ -96,6 +96,24 @@ class Artikel extends \yii\db\ActiveRecord
         return $this->hasMany(Komentar::className(), ['id_artikel' => 'id_artikel']);
     }
 	
+	public static function topArtikel()
+	{
+		return self::find()
+				->orderBy('jumlah_baca DESC')
+				->limit(10)
+				->all();
+	}
+	
+	public function topKomentar()
+	{
+		return Artikel::findBySql("SELECT a . * , COUNT( k.id_komentar ) AS jumlah
+						FROM artikel a
+						LEFT JOIN komentar k ON (k.id_artikel = a.id_artikel)
+						GROUP BY a.id_artikel
+						ORDER BY jumlah DESC
+						limit 0, 10")->all();
+	}
+	
 	public function beforeSave($insert)
 	{
 		parent::beforeSave($insert);

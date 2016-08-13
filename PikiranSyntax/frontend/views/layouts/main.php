@@ -133,11 +133,9 @@ AppAsset::register($this);
 					<div class="panel-heading">Top Artikel</div>
 					<div class="panel-body">
 						<ul>
-						<?php /*
 							<?php foreach(common\models\Artikel::topArtikel() as $row): ?>
 								<li><?= Html::a($row->judul .' ('.$row->jumlah_baca.')', ['view', 'id' => $row->id_artikel]) ?></li>
 							<?php endforeach; ?>
-						*/ ?>
 						</ul>
 					</div>
 				</div>
@@ -145,11 +143,9 @@ AppAsset::register($this);
 					<div class="panel-heading">Komentar Terbanyak</div>
 					<div class="panel-body">
 						<ul>
-						<?php /*
-/*						<?php foreach(common\models\Artikel::topKomentar() as $row): ?>
-							<li><?= Html::a($row->judul .' ('. count($row->komentars).')', ['view', 'id' => $row->id_artikel]) ?></li>
-						<?php endforeach; ?>
-						*/ ?>
+							<?php foreach(common\models\Artikel::topKomentar() as $row): ?>
+								<li><?= Html::a($row->judul .' ('. count($row->komentars).')', ['view', 'id' => $row->id_artikel]) ?></li>
+							<?php endforeach; ?>
 						</ul>
 					</div>
 				</div>
