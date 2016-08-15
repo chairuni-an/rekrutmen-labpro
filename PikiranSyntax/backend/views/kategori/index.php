@@ -15,6 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		<h4><?= Html::encode($this->title) ?>
 		<span class="pull-right">
 			<?= Html::a(Yii::t('app', 'Tambah Kategori'), ['create'], ['class' => 'btn btn-primary btn-sm']) ?>
+			<?= Html::a(Yii::t('app', 'User'), ['/user'], ['class' => 'btn btn-danger btn-sm']) ?>
 			<?= Html::a(Yii::t('app', 'Artikel'), ['/artikel'], ['class' => 'btn btn-danger btn-sm']) ?>
 		</span>
 		</h4>

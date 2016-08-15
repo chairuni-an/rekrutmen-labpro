@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * KomentarController implements the CRUD actions for Komentar model.
@@ -21,6 +22,16 @@ class KomentarController extends Controller
     public function behaviors()
     {
         return [
+			'access' => [
+				'class' => AccessControl::className(),
+				'rules' => [
+					[
+						'actions' => ['update', 'delete'],
+						'allow' => true,
+						'roles' => ['@'],
+					],
+				],
+			],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

@@ -18,8 +18,11 @@ return [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*', // tambahkan action-action yg lain di sini
-			'admin/*',
-			'*',
+			'artikel/*',
+			'user/*',
+			'komentar/*',
+			'kategori/*',
+		//	'admin/*',
         ]
     ],
 ];

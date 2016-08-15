@@ -9,15 +9,37 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="user-form">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h4>
+				<?= $this->title ?>
+				<span class="pull-right">
+					<?= Html::a('Kembali', ['index'], ['class' => 'btn btn-danger btn-sm']) ?>
+				</span>
+			</h4>
+		</div>
 
-    <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+		<div class="panel-body">
+			<?php $form = ActiveForm::begin([
+				'options' => [
+					'class' => 'col-md-12'
+				]
+			]); ?>
+			
+			<?= $form->field($model, 'username')->textInput() ?>
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+			<?= $form->field($model, 'first_name')->textInput() ?>
 
-    <?php ActiveForm::end(); ?>
+			<?= $form->field($model, 'last_name')->textInput() ?>
 
+			<?= $form->field($model, 'email')->textInput() ?>
+			
+			<div class="form group">
+				<?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+			</div>
+			
+			<?php ActiveForm::end(); ?>	
+		</div>
+	</div>
 </div>

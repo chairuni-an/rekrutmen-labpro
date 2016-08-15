@@ -6,7 +6,7 @@ use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Artikels');
+$this->title = Yii::t('app', 'Artikel');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="artikel-index panel panel-info">
@@ -14,6 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		<h4><?= Html::encode($this->title) ?>
 		<span class="pull-right">
 			<?= Html::a(Yii::t('app', 'Tambah Artikel'), ['create'], ['class' => 'btn btn-primary btn-sm']) ?>
+			<?= Html::a(Yii::t('app', 'User'), ['/user'], ['class' => 'btn btn-danger btn-sm']) ?>
 			<?= Html::a(Yii::t('app', 'Kategori'), ['/kategori'], ['class' => 'btn btn-danger btn-sm']) ?>
 		</span>
 		</h4>

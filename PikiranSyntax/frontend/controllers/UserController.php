@@ -47,6 +47,7 @@ class UserController extends Controller
      * Lists all User models.
      * @return mixed
      */
+/*
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
@@ -57,7 +58,8 @@ class UserController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
+*/
+	
     /**
      * Displays a single User model.
      * @param integer $id
@@ -75,6 +77,7 @@ class UserController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+/*
     public function actionCreate()
     {
         $model = new User();
@@ -87,7 +90,8 @@ class UserController extends Controller
             ]);
         }
     }
-
+*/
+	
     /**
      * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.

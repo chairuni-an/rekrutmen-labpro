@@ -134,7 +134,7 @@ AppAsset::register($this);
 					<div class="panel-body">
 						<ul>
 							<?php foreach(common\models\Artikel::topArtikel() as $row): ?>
-								<li><?= Html::a($row->judul .' ('.$row->jumlah_baca.')', ['view', 'id' => $row->id_artikel]) ?></li>
+								<li><?= Html::a($row->judul .' ('.$row->jumlah_baca.')', ['/site/view', 'id' => $row->id_artikel]) ?></li>
 							<?php endforeach; ?>
 						</ul>
 					</div>
@@ -144,7 +144,7 @@ AppAsset::register($this);
 					<div class="panel-body">
 						<ul>
 							<?php foreach(common\models\Artikel::topKomentar() as $row): ?>
-								<li><?= Html::a($row->judul .' ('. count($row->komentars).')', ['view', 'id' => $row->id_artikel]) ?></li>
+								<li><?= Html::a($row->judul .' ('. count($row->komentars).')', ['/site/view', 'id' => $row->id_artikel]) ?></li>
 							<?php endforeach; ?>
 						</ul>
 					</div>

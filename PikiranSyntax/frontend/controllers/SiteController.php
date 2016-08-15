@@ -180,6 +180,7 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+	/*
     public function actionContact()
     {
         $model = new ContactForm();
@@ -197,17 +198,20 @@ class SiteController extends Controller
             ]);
         }
     }
+	*/
 
     /**
      * Displays about page.
      *
      * @return mixed
      */
+	/*
     public function actionAbout()
     {
         return $this->render('about');
     }
-
+	*/
+	
     /**
      * Signs user up.
      *
@@ -234,6 +238,7 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+	/*
     public function actionRequestPasswordReset()
     {
         $model = new PasswordResetRequestForm();
@@ -251,7 +256,8 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-
+	*/
+	
     /**
      * Resets password.
      *
@@ -259,6 +265,7 @@ class SiteController extends Controller
      * @return mixed
      * @throws BadRequestHttpException
      */
+	/*
     public function actionResetPassword($token)
     {
         try {
@@ -277,4 +284,5 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+	*/
 }
