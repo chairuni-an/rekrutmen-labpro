@@ -1,0 +1,320 @@
+!!!
+%html
+	%head
+		%title Omo-Community
+		= favicon_link_tag asset_path("omo.png"), rel: 'apple-touch-icon', type: 'image/png'
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+		%link{:href => "https://fonts.googleapis.com/css?family=Raleway:800,200,600,400", :rel => "stylesheet", :type => "text/css"}/
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,greek,latin-ext,greek-ext,vietnamese,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= csrf_meta_tags
+		= javascript_include_tag Ckeditor.cdn_url
+
+	%div{class: "fr follow-scroll"}
+		.backg	
+			.judul
+				= link_to image_tag(asset_path("logo.png"), class: "headtitle"), root_path
+			.cari
+				= form_tag(topics_path, :method => "get", id: "search-form") do 
+					= text_field_tag :search, params[:search], placeholder: "Search Topics", class: "serround", autocomplete: "off", size: "66"
+			- if !current_user
+				- if !current_page?(new_user_registration_path)
+					= link_to 'Sign Up', new_user_registration_path, :class => "up"
+				- else
+					= link_to "fa", omniauth_authorize_path(:user, :facebook), class: "upyj"
+					= link_to "go", omniauth_authorize_path(:user, :google_oauth2), class: "upyg"
+				- if !current_page?(new_user_session_path)
+					= form_for(:user, :url => session_path(:user)) do |f|
+						= f.text_field :login, placeholder: "Username", class: "us", size: "19",autocomplete: "off"
+						= f.password_field :password, placeholder: "Password", class: "pas", size: "19",autocomplete: "off"
+						= f.submit 'Sign in', class: "in"
+			- else
+				= link_to "Sign out", destroy_user_session_path, class:"up", :method => :delete
+				- if current_user.image.exists?	
+					= link_to image_tag(current_user.image, class: "upx"),user_path(current_user) 
+				- else
+					= link_to image_tag(asset_path("no-image.jpg"), class: "upx"),user_path(current_user) 
+				= link_to "edit", edit_user_registration_path,class: "upy"
+				- notifcounts = current_user.notifposts.where(:read => false).size + current_user.notifpostlikes.where(:read => false).size
+				%div{id: "showDivBtn", class: "notpa"}
+				- if notifcounts == 0	
+				- else
+					%p{class: "nocount"}	
+						= notifcounts
+						
+			
+	%div{:id => "theDiv", class: "dropdown"}
+		- if current_user	
+			- @notifposts1 = current_user.notifposts.all
+			- @notifposts2 = current_user.notifpostlikes.all
+			- @notifposts3 = @notifposts1 + @notifposts2
+			- @notifposts = @notifposts3.sort_by(&:created_at).reverse.first(5)
+			- @notifposts.each do |f|
+				- if !f.read?
+					.nored
+						%br
+						- if f.is_a?(Notifpost)	
+							- if f.tipe == "is following you"
+								= link_to "#{(User.find(f.post_id)).username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh noread"
+							- else
+								- if f.tipe == "has created a new thread"
+									= link_to "#{(Topic.find(f.topic_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh noread"
+								- else
+									= link_to "#{(Post.find(f.post_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh noread"
+						- else
+							= link_to "#{User.find(f.uxid).username} has #{f.tipe}d your post",changeread_user_notifpostlike_path(current_user,f), :method => "put",class: "teh noread"
+						.agoxd	
+							= time_ago_in_words(f.created_at)
+							ago
+						%br
+					- if f != @notifposts.last
+						.hline				
+				- else
+					.red
+						%br
+						- if f.is_a?(Notifpost)	
+							- if f.tipe == "is following you"
+								= link_to "#{(User.find(f.post_id)).username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh read"
+							- else
+								- if f.tipe == "has created a new thread"
+									= link_to "#{(Topic.find(f.topic_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh read"
+								- else
+									= link_to "#{(Post.find(f.post_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "teh read"
+
+						- else
+							= link_to "#{User.find(f.uxid).username} has #{f.tipe}d your post",changeread_user_notifpostlike_path(current_user,f), :method => "put",class: "teh read"
+						.agoxdg
+							= time_ago_in_words(f.created_at)
+							ago
+						%br
+					- if f != @notifposts.last
+						.hline	
+			
+			.showal
+				= link_to "Show All", user_notifposts_path(current_user),class: "showal"
+	
+			
+	%div{id: "notice_wrapper"}			
+		- if notice			
+			%p{class: "notice"}= notice 
+		- else
+			- if alert
+				%p{class: "alert"}= alert 				
+	.sad		
+		=yield
+:javascript
+	$(function() {
+	  $('a#show_whatever').click(function(event){
+	    event.preventDefault();
+	    $('div#whatever').toggle();
+	  });
+	});
+
+	$(document).on('click', function(e) {
+	    if ( $(e.target).closest('#showDivBtn').length ) {
+	        $("#theDiv").toggle();
+	    }else if ( ! $(e.target).closest('#theDiv').length ) {
+	        $('#theDiv').hide();
+	    }
+	});
+	(function($) {
+	    var element = $('.follow-scroll'),
+	        originalY = element.offset().top;
+
+	    // Space between element and top of screen (when scrolling)
+	    var topMargin = 0;
+
+	    // Should probably be set in CSS; but here just for emphasis
+	    element.css('position', 'relative');
+
+	    $(window).on('scroll', function(event) {
+	        var scrollTop = $(window).scrollTop();
+
+	        element.stop(false, false).animate({
+	            top: scrollTop < originalY
+	                    ? 0
+	                    : scrollTop - originalY + topMargin
+	        }, 0);
+	    });
+	})(jQuery);
+
+	$(document).ready(function(){
+		setTimeout(function(){
+			$('#notice_wrapper').fadeOut("slow", function() {
+				$(this).remove();
+			})
+		}, 2500);
+	});
+
+:css
+	.nocount {
+		color:white;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 400;
+		font-size:10px;
+		position:relative;
+		right:14%;
+		float:right;
+		padding-left:5px;
+		padding-right:5px;
+		height:16px;
+		border-radius:80%;
+		background:#DC513A;
+	}
+	.notice {
+		position: fixed;
+		background: rgb(35, 169, 111) none repeat scroll 0% 0%;
+		width: 100%;
+		margin-left: -8px;
+		height: 40px;
+		margin-top: 9px;
+		text-align: center;
+		line-height: 220%;
+		color:white;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 400;
+	}
+	.alert {
+		position: fixed;
+		background: rgb(35, 169, 111) none repeat scroll 0% 0%;
+		width: 100%;
+		margin-left: -8px;
+		height: 40px;
+		margin-top: 9px;
+		text-align: center;
+		line-height: 220%;
+		color:white;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 400;
+	}
+	#theDiv {
+		font-family: 'Raleway', sans-serif;
+		font-weight: 400;
+	}
+	.fr {
+		z-index:99;
+	}
+	.showal {
+		height: 50px;
+		text-align:center;
+		background:#2B473D;
+		text-decoration:none;
+		line-height:50px;
+		color:#23A86D;
+	}
+	.hline { width:100%; height:1px; background: #fff ; display: block; margin: 0 auto;}
+	.agoxd {
+		color : #2D2F31;
+		font-size:10px;
+	}
+	.agoxdg {
+		color : #23A86D;
+		font-size:10px;
+	}
+	.nored {
+		background : rgb(35,168,109);
+		padding-left : 10px;
+		padding-right : 10px;
+	}
+	.red:hover {
+		background: #353A3C
+	}
+	.red {
+
+		padding-left : 10px;
+		padding-right : 10px;
+	}
+	.nored:hover {
+		background:#30775A
+	}
+	.noread {
+		color: rgb(45,47,49);
+	}
+	.read {
+		color: rgb(35,168,109);	
+	}
+	.teh {
+		text-decoration:none;
+		font-size: 15px;
+	}
+	.dropdown {
+		background:rgb(63,70,73);
+		width:23%;
+		float:right;
+		top:50px;
+		position:fixed;
+		display:none;
+		right:13.1%;
+		border-left: 3px solid rgb(45,47,49);
+		border-right: 3px solid rgb(45,47,49);
+		border-bottom: 3px solid rgb(45,47,49);
+		z-index:99;
+	}
+	.upx {
+		border-radius:100%;
+		width:35px;height:35px;
+		position: absolute;
+		margin-top:7.4px;
+		right:6%;
+	}
+
+	.upy {
+		position: absolute;
+		background: url("/assets/edit-6879d7244187103e423c9edd6999c8198e97d84a2e4f5be7cd54bd9f928e699c.png") no-repeat 50% 50%;
+		background-size: 22px 22px;
+		right: 9.5%;
+		height: 50px;
+		width: 50px;
+		color:transparent
+	}
+
+	.upy:hover {
+		background: url("/assets/edit-select-8b2320d95b8ef2eb671934b13afb4e08a79c865eae72037826bc7ecc1dfd88a6.png ") no-repeat 50% 50% #23A86D;
+		background-size: 22px 22px;
+	}
+	.upyj {
+		position: absolute;
+		background: url("/assets/facebook-e363ab34c0bc8b86cf9d6151998859541454adcb64cb07f8a59ea35272549f7a.png") no-repeat 50% 50%;
+		background-size: 22px 22px;
+		right: 0%;
+		height: 50px;
+		width: 32px;
+		color:transparent
+	}
+
+	.upyj:hover {
+		background: url("/assets/facebook-select-786edf8710fc4d69fef3050cbbd10af8dcd7a74342024530147e24a1e81948c8.png") no-repeat 50% 50% #23A86D;
+		background-size: 22px 22px;
+	}
+	.notpa {
+		color:transparent;
+		text-decoration:none;
+		cursor:pointer;
+		height:50px;
+		position:absolute;
+		right:13.3%;
+		width:50px;
+		display:inline-block;
+		float:right;
+		background : url("/assets/notif-437d0518411e2c5820171a009e75f14c3b51c599a8433861bdeb898026f28959.png") no-repeat 50% 50%;
+		background-size:23px 23px;
+	}
+	.notpa:hover {
+		background : url("/assets/notif-select-ea58ba551c8ca4bc01562dc7d09780dcca168edad873ac739fa35e6b99d27bff.png") no-repeat 50% 50% #23A86D;
+		background-size:23px 23px;
+	}
+	
+	.upyg {
+		position: absolute;
+		background: url("/assets/google-7ed67195ecf716bf02b4e55bcd3394efb75c5f95a023023ae76f767a111e15dc.png") no-repeat 50% 50%;
+		background-size: 22px 22px;
+		right: 32.5px;
+		height: 50px;
+		width: 32px;
+		color:transparent
+	}
+
+	.upyg:hover {
+		background: url("/assets/google-select-4c11aa93436f187fb09720de256a624d813315db2380db5f2721ae7e5c6ff638.png") no-repeat 50% 50% #23A86D;
+		background-size: 22px 22px;
+	}

@@ -1,0 +1,6 @@
+- simple_form_for @post do |f|
+    = f.title
+    = f.content
+    
+= link_to "delete post",@post, :method => "delete"
+= link_to "edit post", edit_post_path(@post)

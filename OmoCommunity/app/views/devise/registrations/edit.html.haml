@@ -1,0 +1,84 @@
+.bal  
+  %h1 Edit User
+  = simple_form_for(current_user, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = f.error_notification
+    = devise_error_messages!
+    .form-inputs
+      = f.label :"Username : "
+      = f.input :username, required: true, label: false, input_html: { :size => 30 ,class: " teksbos"}, placeholder: "e.g. itiomocom"
+      .o
+      = f.label :"E-mail : "
+      = f.input :email, required: true, label: false, input_html: { :size => 30 ,class: " teksbos"}, placeholder: "e.g. iti@omo.com"
+      .o
+      = f.label :"Current Password : ","Current Password : "
+      = f.input :current_password, required: true,label: false, input_html: { :size => 30 ,class: " teksbos"}, placeholder: "6 characters minimum", :autocomplete => 'off'
+      .o
+      = f.label :"New Password : ","New Password : "
+      = f.input :password, label: false, input_html: { :size => 30 ,class: " teksbos"}, placeholder: "6 characters minimum", :autocomplete => 'off'
+      .o
+      = f.label :"New Password Confirmation : ","New Password Confirmation : "
+      = f.input :password_confirmation, label: false, input_html: { :size => 30 ,class: " teksbos"}, placeholder: "Password Confirmation",:autocomplete => 'off'
+      .o
+      = f.label :"NIM : ", "NIM : "
+      = f.input :nim, required: true, label: false, input_html: { :size => 30 ,class: " teksbos", :onkeypress => "return isNumber(event)"}, placeholder: "e.g. 13514000"
+      
+      .o
+      = f.label :"New Picture : "
+      = f.input :image, input_html: {:size => 30, accept: ('.jpg, .png, .jpeg, .tiff, .bmp') }, label: false
+
+    .form-actions
+      .o
+      = f.button :submit, "Update", class: "buton"
+  %h3 Delete Account
+  = button_to "Delete my Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"buton"
+
+:css
+  .teksbos {
+    border: none;
+    background: #656161;
+    height: 25px;
+    padding-left: 10px;
+    color: white;
+  }
+  ::-webkit-input-placeholder {
+     color: #CCBDBD;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+     color: #CCBDBD;  
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: #CCBDBD;  
+  }
+
+  :-ms-input-placeholder {  
+     color: #CCBDBD;  
+  }
+  .bal {
+    padding-left: 20px;
+    padding-right: 20px;
+    height:150%;
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: white;
+    margin: -8px;
+    overflow:hidden
+  }
+  .o {
+    height: 10px;
+  }
+  .buton {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top : 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border:none; 
+    background: #23A96F;
+  }
+  
+  .buton:hover {
+      background: #77a292
+  }

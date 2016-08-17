@@ -1,0 +1,106 @@
+%h1{class: "judux"} User Notification
+%br
+- if @notifposts.empty?
+	.yolop
+		You have no notification.
+- else
+	- @notifposts.each do |f|
+		- if !f.read?
+			%div{class: "sty"}
+				- if f.is_a?(Notifpost)	
+					- if f.tipe == "is following you"	
+						= link_to "#{(User.find(f.post_id)).username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp"
+					- else	
+						- if f.tipe == "has created a new thread"
+							= link_to "#{(Topic.find(f.topic_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp"
+						- else	
+							= link_to "#{(Post.find(f.post_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp"
+				- else
+					= link_to "#{User.find(f.uxid).username} has #{f.tipe}d your post",changeread_user_notifpostlike_path(current_user,f), :method => "put",class: "ogd telp"
+				.lplp	
+					= time_ago_in_words(f.created_at)
+					ago
+						
+		- else
+			.stx
+				- if f.is_a?(Notifpost)	
+					- if f.tipe == "is following you"	
+						= link_to "#{(User.find(f.post_id)).username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp2"
+					- else
+						- if f.tipe == "has created a new thread"
+							= link_to "#{(Topic.find(f.topic_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp2"
+						- else	
+							= link_to "#{(Post.find(f.post_id)).user.username} #{f.tipe}",changeread_user_notifpost_path(current_user,f), :method => "put",class: "ogd telp2"
+				- else
+					= link_to "#{User.find(f.uxid).username} has #{f.tipe}d your post",changeread_user_notifpostlike_path(current_user,f), :method => "put",class: "ogd telp2"
+				.lplp2
+					= time_ago_in_words(f.created_at)
+					ago
+		%p
+			- if f != @notifposts.last 
+				.hlineg
+
+:css
+	.yolop {
+		margin-left:auto;
+		margin-right:auto;
+		color:#23A86D;
+		font-family: 'Raleway', sans-serif;
+		width:60%;
+		font-weight: 400;
+		text-align:center;
+
+	}
+	.sty {
+		text-align:center;
+		width:60%;
+		margin: 0 auto;
+		background: #23A86D;
+	}
+	.judux {
+		font-family: 'Raleway', sans-serif;
+		color:white;
+		padding-left:20px;
+	}
+	.lplp {
+		padding-bottom:20px;
+		color:#2D2F31;
+		font-size:15px;
+		font-family: 'Raleway', sans-serif;
+		font-weight:400;
+	}
+	.lplp2 {
+		padding-bottom:20px;
+		color:#23A86D;
+		font-size:15px;
+		font-family: 'Raleway', sans-serif;
+		font-weight:400;
+	}
+	.telp {
+
+		color:#2D2F31;
+	}
+	.telp2 {
+
+		color:#23A86D
+	}
+	.stx:hover {
+		background: #353A3C
+	}
+	.sty:hover {
+		background:#30775A
+	}
+	.stx {
+		text-align:center;
+		width:60%;
+		margin: 0 auto;
+		background: #2D2F31;
+	}
+	.ogd {
+		text-decoration: none;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 400;
+		display:block;
+		padding-top:20px;
+	}
+	.hlineg { width:61%; height:1px; background: #fff ; display: block; margin: 0 auto;}

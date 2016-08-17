@@ -1,0 +1,2 @@
+module NotifpostlikesHelper
+end
