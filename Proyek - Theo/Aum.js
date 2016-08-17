@@ -1,3 +1,6 @@
+///////////////////////
+//Application Wrapper//
+///////////////////////
 var App = React.createClass({
   getInitialState: function() {
     return {
@@ -22,6 +25,10 @@ var App = React.createClass({
   }
 });
 
+
+///////////////////////
+// Calendar  Wrapper //
+///////////////////////
 var Calendar = React.createClass({
   getInitialState: function() {
     return {
@@ -103,14 +110,14 @@ var DisplayDates = React.createClass({
     var tempDisplay = [];
 
     display.push(
-      <tr className="dayNames">
-          <th className="day">Sun</th>
-          <th className="day">Mon</th>
-          <th className="day">Tue</th>
-          <th className="day">Wed</th>
-          <th className="day">Thu</th>
-          <th className="day">Fri</th>
-          <th className="day">Sat</th>
+      <tr className="dayNames" key="dayNames">
+          <th className="day" key="Sun">Sun</th>
+          <th className="day" key="Mon">Mon</th>
+          <th className="day" key="Tue">Tue</th>
+          <th className="day" key="Wed">Wed</th>
+          <th className="day" key="Thu">Thu</th>
+          <th className="day" key="Fri">Fri</th>
+          <th className="day" key="Sat">Sat</th>
       </tr>
     );
 
@@ -119,7 +126,7 @@ var DisplayDates = React.createClass({
         tempDisplay.push(<td key={date.format("YYYYDDMM")} className="date" onClick={this.props.handleSelectedChange.bind(null, date.format("YYYYDDMM"))}>{date.dates()}</td>);
         date.add(1, "d");
       }
-      display.push(<tr className="dateRow">{tempDisplay}</tr>);
+      display.push(<tr className="dateRow" key={date.format("DDMM")}>{tempDisplay}</tr>);
       tempDisplay = [];
     }
 
@@ -133,6 +140,10 @@ var DisplayDates = React.createClass({
   }
 });
 
+
+///////////////////////
+//       Table       //
+///////////////////////
 var Table = React.createClass({
   propTypes:{
     selected: React.PropTypes.string
@@ -188,7 +199,9 @@ var Table = React.createClass({
       dataLapangan : [
         "Lapangan A",
         "Lapangan B"
-      ]
+      ],
+
+      isModalOpen : false
     };
   },
 
@@ -197,13 +210,73 @@ var Table = React.createClass({
     //pakai data JSON dummy dulu berupa state
   },
 
+  closeModal: function(){
+    this.setState({
+      isModalOpen: false
+    });
+  },
+
+  updateOrderData: function(an, lap, jam){
+    let arrayIndex = -1;
+
+    for (let i = 0; i < this.state.dataPesan.length; i++){
+      if (this.state.dataPesan[i].tanggal == this.props.selected){
+        arrayIndex = i;
+        break;
+      }
+    }
+
+    if(arrayIndex == -1){
+      let z = {
+        tanggal : this.props.selected,
+        lapangan : [
+          {
+            namaLapangan : "Lapangan A",
+            dataPemesanan : []
+          },
+          {
+            namaLapangan : "Lapangan B",
+            dataPemesanan : []
+          }
+        ]
+      };
+      this.state.dataPesan.push(z);
+      arrayIndex = this.state.dataPesan.length-1;
+    }
+
+
+    let temp = true;
+    for (let i = 0; i < this.state.dataPesan[arrayIndex].lapangan[lap].dataPemesanan.length; i++){
+      if (this.state.dataPesan[arrayIndex].lapangan[lap].dataPemesanan[i].jam == jam){
+        temp = false;
+        break;
+      }
+    }
+
+    if (temp){
+      let y;
+      let x = {atasNama : an, jam : jam};
+      this.state.dataPesan[arrayIndex].lapangan[lap].dataPemesanan.push(x);
+      this.state.dataPesan[arrayIndex].lapangan[lap].dataPemesanan.sort(function(a, b) {
+        return parseFloat(a.jam) - parseFloat(b.jam);
+      });
+      y = this.state.dataPesan;
+      this.setState({
+        dataPesan: y
+      });
+    } else {
+      this.setState({
+        isModalOpen: true
+      });
+    }
+  },
+
   render: function() {
-    let selected = this.props.selected;
     let table = [];
     let arrayIndex = -1;
 
     for (let i = 0; i < this.state.dataPesan.length; i++){
-      if (this.state.dataPesan[i].tanggal == selected){
+      if (this.state.dataPesan[i].tanggal == this.props.selected){
         arrayIndex = i;
         break;
       }
@@ -214,36 +287,170 @@ var Table = React.createClass({
       for (let i = 0; i < this.state.dataPesan[arrayIndex].lapangan.length; i++){
         let temp1 = [];
 
-        temp1.push(<div className="namaLapangan">{this.state.dataPesan[arrayIndex].lapangan[i].namaLapangan}</div>)
+        temp1.push(<div className="namaLapangan" key={this.state.dataPesan[arrayIndex].lapangan[i].namaLapangan}>{this.state.dataPesan[arrayIndex].lapangan[i].namaLapangan}</div>);
 
-        let temp2 = []
+        let temp2 = [];
+        temp2.push(
+          <tr className="tableHeader">
+            <td>Atas nama</td>
+            <td>Jam</td>
+          </tr>
+        );
         for (let j = 0; j < this.state.dataPesan[arrayIndex].lapangan[i].dataPemesanan.length; j++){
           temp2.push(
             <tr>
-            <td>{this.state.dataPesan[arrayIndex].lapangan[i].dataPemesanan[j].atasNama}</td>
-            <td>{this.state.dataPesan[arrayIndex].lapangan[i].dataPemesanan[j].jam}</td>
+              <td>{this.state.dataPesan[arrayIndex].lapangan[i].dataPemesanan[j].atasNama}</td>
+              <td>{this.state.dataPesan[arrayIndex].lapangan[i].dataPemesanan[j].jam}</td>
             </tr>
-          )
+          );
         }
-        temp1.push(<div><table><tbody>{temp2}</tbody></table></div>)
+        temp1.push(<div><table><tbody>{temp2}</tbody></table></div>);
 
-        temp.push(<div className="table">{temp1}</div>)
+        temp.push(<div className="table">{temp1}</div>);
 
       }
-      table.push(<div className="accumulatedTable">{temp}</div>)
+      table.push(<div className="accumulatedTable">{temp}</div>);
     }
 
     return (
       <div>
-        {selected}
+        {this.props.selected}
         <br/>
         {table}
+        <VisibleToggle buttonName="Pesan Lapangan"><OrderForm updateOrderData={this.updateOrderData}/></VisibleToggle>
+        <Modal isModalOpen = {this.state.isModalOpen} closeModal = {this.closeModal}/>
       </div>
     );
   }
 });
 
+
+///////////////////////
+//       Modal       //
+///////////////////////
+var Modal = React.createClass({
+  propTypes : {
+    isModalOpen : React.PropTypes.bool,
+    closeModal : React.PropTypes.function
+  },
+
+  render: function() {
+    let style = (this.props.isModalOpen) ? {display : "block"} : {display : "none"};
+
+    return (
+      <div style = {style}>
+        <span class="close" onClick={this.props.closeModal}>x</span>
+        <p>Sudah ada yang pesan :(</p>
+      </div>
+    );
+  }
+});
+
+
+///////////////////////
+//  Visible Toggle   //
+///////////////////////
+var VisibleToggle = React.createClass({
+  propTypes : {
+    visible : React.PropTypes.bool,
+    children: React.PropTypes.element.isRequired,
+    buttonName : React.PropTypes.string
+  },
+
+  getDefaultProps: function() {
+    return {
+      visible : false,
+      buttonName : "Check"
+    };
+  },
+
+  getInitialState: function() {
+    return {
+      visible: this.props.visible
+    };
+  },
+
+  handleVisibleChange: function() {
+    let x = !this.state.visible;
+    this.setState({
+      visible : x
+    });
+  },
+
+  render: function() {
+    let x = (this.state.visible) ? this.props.children : "";
+
+    return (
+      <div>
+        <button onClick={this.handleVisibleChange}>{this.props.buttonName}</button>
+        {x}
+      </div>
+    );
+  }
+});
+
+///////////////////////
+//    Order  Form    //
+///////////////////////
+var OrderForm = React.createClass({
+  getInitialState: function() {
+    return {
+      atasnama: "",
+      lapangan: 0,
+      jam: 7
+    };
+  },
+
+  handleAtasNamaChange: function(event) {
+    this.setState({atasnama: event.target.value});
+  },
+
+  handleLapanganChange: function(event) {
+    this.setState({lapangan: event.target.value});
+  },
+
+  handleJamChange: function(event) {
+    let x = event.target.value
+    if (x > 20){
+      x = 20;
+    }
+    if (x < 7){
+      x = 7
+    }
+    this.setState({jam: x});
+  },
+
+  render: function(){
+
+
+    return(
+      <div>
+        <form>
+          Atas Nama :
+          <input type="text" name="atasnama" value={this.state.atasnama} onChange={this.handleAtasNamaChange}/>
+          <br/>
+          Lapangan :
+          <select name="lapangan" value={this.state.lapangan} onChange={this.handleLapanganChange}>
+            <option value="0">Lapangan A</option>
+            <option value="1">Lapangan B</option>
+          </select>
+          <br/>
+          Jam :
+          <input type="number" name="jam" min="7" max="20" value={this.state.jam} onChange={this.handleJamChange}/>
+          <br/>
+    		</form>
+        <button onClick = {this.props.updateOrderData.bind(null, this.state.atasnama, this.state.lapangan, this.state.jam)}>Pesan!</button>
+    </div>
+    );
+  }
+});
+
+
+
+///////////////////////
+//    DOM  Render    //
+///////////////////////
 ReactDOM.render(
-    <App />,
-    document.getElementById('theo')
+  <App />,
+  document.getElementById('theo')
 );
