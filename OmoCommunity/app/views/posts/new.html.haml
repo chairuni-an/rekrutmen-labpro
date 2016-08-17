@@ -1,12 +1,14 @@
 .tek
 	%h1 Post a Reply	
-	= simple_form_for ([@topic, @topic.posts.build]) do |f|
+	= simple_form_for ([@topic, @topic.posts.build]), :html => { :multipart => true } do |f|
 		%p Title :
-		= f.input :title, :input_html => {:size => 60 , class: "tes"}, label: false, placeholder: "Your Title Here"
+		= f.input :title, required: true,:input_html => {:size => 60 , class: "tes"}, label: false, placeholder: "Your Title Here"
 		%p Content :
 		= f.input :content, label: false,
 	           as: :ckeditor,
 	           :input_html => { :ckeditor => {:toolbar => 'mini'} }
+		%p Attachment :
+		= file_field_tag "thefiles[]", type: :file, multiple: true
 		%p
 		= f.submit "New Post"
 :css

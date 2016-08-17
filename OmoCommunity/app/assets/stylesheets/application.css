@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require jquery.facebox
+ *= require jquery.jcrop
  */
 #facebox .content {
   background: #3E4649 !important;

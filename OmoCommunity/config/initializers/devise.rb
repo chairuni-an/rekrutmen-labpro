@@ -19,7 +19,7 @@ Devise.setup do |config|
   config.authentication_keys = [:login]
   config.reset_password_keys = [ :username ]
   config.confirmation_keys = [ :username ]
-  
+  config.secret_key = '2024c16a634678336a010e01f82f2f637ee9d585b3c8db2ab2d78e956a606525f05350bf94d91fe92cd9e7002bc263dd0fd2b0822d2fff19bd51396f6c2fe63e'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -30,7 +30,7 @@ Devise.setup do |config|
   
 
   #DEVISE OMNIAUTH FB
-  config.omniauth :facebook, "505803159614072", "dd02d4562abef53dfa0dda34c7cb25ab",scope: 'email', callback_url: 'http://localhost:3000/users/auth/facebook/callback', secure_image_url: true, info_fields: 'email'
+  config.omniauth :facebook, "505803159614072", "dd02d4562abef53dfa0dda34c7cb25ab",scope: 'email', callback_url: 'http://omocommunity.herokuapp.com/users/auth/facebook/callback', secure_image_url: true, info_fields: 'email'
 
 
   #DEVISE OMNIAUTH GOOGLE

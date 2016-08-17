@@ -1,5 +1,8 @@
 class AttachmentsController < ApplicationController
 	def destroy
+		@at = Attachment.find(params[:id])
+		@topic = @at.topic
+		@post = @at.post
 		if @topic != nil
 			@topic = Topic.find(params[:topic_id])
 			@topic.attachments.find(params[:id]).destroy

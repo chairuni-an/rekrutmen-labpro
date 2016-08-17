@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
     belongs_to :topic
     belongs_to :user
     has_many :hists, dependent: :destroy
+    has_many :attachments, dependent: :destroy
     acts_as_votable
 
     #SEARCH

@@ -2,6 +2,7 @@
 %html
 	%head
 		%title Omo-Community
+		= favicon_link_tag asset_path("omo.png"), rel: 'apple-touch-icon', type: 'image/png'
 		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
 		%link{:href => "https://fonts.googleapis.com/css?family=Raleway:800,200,600,400", :rel => "stylesheet", :type => "text/css"}/
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,greek,latin-ext,greek-ext,vietnamese,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
@@ -12,7 +13,7 @@
 	%div{class: "fr follow-scroll"}
 		.backg	
 			.judul
-				= link_to image_tag("/assets/logo.png", class: "headtitle"), root_path
+				= link_to image_tag(asset_path("logo.png"), class: "headtitle"), root_path
 			.cari
 				= form_tag(topics_path, :method => "get", id: "search-form") do 
 					= text_field_tag :search, params[:search], placeholder: "Search Topics", class: "serround", autocomplete: "off", size: "66"
@@ -32,7 +33,7 @@
 				- if current_user.image.exists?	
 					= link_to image_tag(current_user.image, class: "upx"),user_path(current_user) 
 				- else
-					= link_to image_tag("/assets/no-image.jpg", class: "upx"),user_path(current_user) 
+					= link_to image_tag(asset_path("no-image.jpg"), class: "upx"),user_path(current_user) 
 				= link_to "edit", edit_user_registration_path,class: "upy"
 				- notifcounts = current_user.notifposts.where(:read => false).size + current_user.notifpostlikes.where(:read => false).size
 				%div{id: "showDivBtn", class: "notpa"}
@@ -91,12 +92,14 @@
 			
 			.showal
 				= link_to "Show All", user_notifposts_path(current_user),class: "showal"
+	
+			
 	%div{id: "notice_wrapper"}			
 		- if notice			
 			%p{class: "notice"}= notice 
 		- else
 			- if alert
-				%p{class: "alert"}= alert 			
+				%p{class: "alert"}= alert 				
 	.sad		
 		=yield
 :javascript
@@ -144,6 +147,20 @@
 	});
 
 :css
+	.nocount {
+		color:white;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 400;
+		font-size:10px;
+		position:relative;
+		right:14%;
+		float:right;
+		padding-left:5px;
+		padding-right:5px;
+		height:16px;
+		border-radius:80%;
+		background:#DC513A;
+	}
 	.notice {
 		position: fixed;
 		background: rgb(35, 169, 111) none repeat scroll 0% 0%;
@@ -169,21 +186,6 @@
 		color:white;
 		font-family: 'Raleway', sans-serif;
 		font-weight: 400;
-	}
-
-	.nocount {
-		color:white;
-		font-family: 'Raleway', sans-serif;
-		font-weight: 400;
-		font-size:10px;
-		position:relative;
-		right:14%;
-		float:right;
-		padding-left:5px;
-		padding-right:5px;
-		height:16px;
-		border-radius:80%;
-		background:#DC513A;
 	}
 	#theDiv {
 		font-family: 'Raleway', sans-serif;
@@ -258,7 +260,7 @@
 
 	.upy {
 		position: absolute;
-		background: url("/assets/edit.png") no-repeat 50% 50%;
+		background: url("/assets/edit-6879d7244187103e423c9edd6999c8198e97d84a2e4f5be7cd54bd9f928e699c.png") no-repeat 50% 50%;
 		background-size: 22px 22px;
 		right: 9.5%;
 		height: 50px;
@@ -267,12 +269,12 @@
 	}
 
 	.upy:hover {
-		background: url("/assets/edit-select.png") no-repeat 50% 50% #23A86D;
+		background: url("/assets/edit-select-8b2320d95b8ef2eb671934b13afb4e08a79c865eae72037826bc7ecc1dfd88a6.png ") no-repeat 50% 50% #23A86D;
 		background-size: 22px 22px;
 	}
 	.upyj {
 		position: absolute;
-		background: url("/assets/facebook.png") no-repeat 50% 50%;
+		background: url("/assets/facebook-e363ab34c0bc8b86cf9d6151998859541454adcb64cb07f8a59ea35272549f7a.png") no-repeat 50% 50%;
 		background-size: 22px 22px;
 		right: 0%;
 		height: 50px;
@@ -281,7 +283,7 @@
 	}
 
 	.upyj:hover {
-		background: url("/assets/facebook-select.png") no-repeat 50% 50% #23A86D;
+		background: url("/assets/facebook-select-786edf8710fc4d69fef3050cbbd10af8dcd7a74342024530147e24a1e81948c8.png") no-repeat 50% 50% #23A86D;
 		background-size: 22px 22px;
 	}
 	.notpa {
@@ -294,33 +296,17 @@
 		width:50px;
 		display:inline-block;
 		float:right;
-		background : url("/assets/notif.png") no-repeat 50% 50%;
+		background : url("/assets/notif-437d0518411e2c5820171a009e75f14c3b51c599a8433861bdeb898026f28959.png") no-repeat 50% 50%;
 		background-size:23px 23px;
 	}
 	.notpa:hover {
-		background : url("/assets/notif-select.png") no-repeat 50% 50% #23A86D;
+		background : url("/assets/notif-select-ea58ba551c8ca4bc01562dc7d09780dcca168edad873ac739fa35e6b99d27bff.png") no-repeat 50% 50% #23A86D;
 		background-size:23px 23px;
 	}
-	.notpax {
-		color:transparent;
-		text-decoration:none;
-		cursor:pointer;
-		height:50px;
-		position:absolute;
-		right:13.3%;
-		width:50px;
-		display:inline-block;
-		float:right;
-		background : url("/assets/notif-bubble.png") no-repeat 50% 50%;
-		background-size:23px 23px;
-	}
-	.notpax:hover {
-		background : url("/assets/notif-bubble-select.png") no-repeat 50% 50% #23A86D;
-		background-size:23px 23px;
-	}
+	
 	.upyg {
 		position: absolute;
-		background: url("/assets/google.png") no-repeat 50% 50%;
+		background: url("/assets/google-7ed67195ecf716bf02b4e55bcd3394efb75c5f95a023023ae76f767a111e15dc.png") no-repeat 50% 50%;
 		background-size: 22px 22px;
 		right: 32.5px;
 		height: 50px;
@@ -329,6 +315,6 @@
 	}
 
 	.upyg:hover {
-		background: url("/assets/google-select.png") no-repeat 50% 50% #23A86D;
+		background: url("/assets/google-select-4c11aa93436f187fb09720de256a624d813315db2380db5f2721ae7e5c6ff638.png") no-repeat 50% 50% #23A86D;
 		background-size: 22px 22px;
 	}

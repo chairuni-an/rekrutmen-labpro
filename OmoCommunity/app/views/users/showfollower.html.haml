@@ -1,7 +1,8 @@
-%h1{class: "followingjudul"} Following
+%h1{class: "followingjudul"} Follower
 .div{class: "followingcontainer"}
 	- if @follower.count == 0
-		You do not have any following
+		.texttyle
+			You do not have any follower
 		%p
 		.hlinek
 	- else
@@ -25,6 +26,10 @@
 
 
 :css
+	.texttyle {
+		font-family: 'Raleway', sans-serif;
+		color:white;
+	}
 	.hlinek {
 		width:100%;
 		height:1px;

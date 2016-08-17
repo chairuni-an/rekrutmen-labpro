@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   
   #FACEBOOK
   def self.from_omni(auth)
-    User.where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
+    User.where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
        user.email =auth.info.email
        user.password=Devise.friendly_token[0,20]
        user.image= auth.info.image
@@ -33,9 +33,13 @@ class User < ActiveRecord::Base
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
         user.username = "#{data["email"].split("@").first}-#{ SecureRandom.hex(10)}"
         user.nim=10_000_000 + Random.rand(100_000_000 - 10_000_000)
+      else 
+        if data = session["devise.google_data"] && session["devise.google_data"]["extra"]["raw_info"]
+          user.username = "#{data["email"].split("@").first}-#{ SecureRandom.hex(10)}"
+          user.nim=10_000_000 + Random.rand(100_000_000 - 10_000_000)
+        end
       end
     end
   end
@@ -75,8 +79,7 @@ class User < ActiveRecord::Base
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/, :default_url => "/assets/no-image.jpg"
 
-  #ACT AS FOLLOWER
+  #ACTS AS FOLLOWER
   acts_as_followable
   acts_as_follower
-
 end

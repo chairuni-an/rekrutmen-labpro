@@ -30,6 +30,11 @@ class TopicsController < ApplicationController
 	def update
 		@topic = Topic.find(params[:id])
 		if @topic.update(topic_param)
+			if params[:thefiles]
+				params[:thefiles].each do |attach|
+					@topic.attachments.create!(:attachment => attach)
+				end
+			end
 			redirect_to @topic
 		else
 			render 'edit'
@@ -43,6 +48,11 @@ class TopicsController < ApplicationController
 	def create
 		@topic = current_user.topics.build(topic_param)
 		if @topic.save
+			if params[:thefiles]
+				params[:thefiles].each do |attach|
+					@topic.attachments.create!(:attachment => attach)
+				end
+			end
 			@followerx = @topic.user.followers
 			@followerx.each do |fol|
 				fol.notifposts.create!(topic_id: @topic.id, post_id: nil, read: false, tipe: "has created a new thread")

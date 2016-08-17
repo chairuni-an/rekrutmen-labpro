@@ -4,12 +4,13 @@ Rails.application.routes.draw do
 
   #OMNIAUTH
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", :registrations => "regs"}
-  resources :users, :only => [:show, :follow, :unfollow, :showfollowing, :showfollower] do
+  resources :users, :only => [:show, :follow, :unfollow, :showfollowing, :showfollower, :showcreatethread] do
     member do
       put 'follow' => 'users#follow', as: :follow
       put 'unfollow' => 'users#unfollow', as: :unfollow
       get 'showfollowing' => 'users#showfollowing', as: :showfollowing
       get 'showfollower' => 'users#showfollower', as: :showfollower
+      get 'showcreatethread' => 'users#showcreatethread', as: :showcreatethread
     end
     resources :notifposts do
       member do
@@ -52,7 +53,9 @@ Rails.application.routes.draw do
     member do
     put 'changelock' => 'topics#changelock', as: :changelock
     end
+    resources :attachments
     resources :posts do
+    resources :attachments
     member do
         get 'upvote' => 'posts#upvote', as: :upvote
         get 'downvote' => 'posts#downvote', as: :downvote

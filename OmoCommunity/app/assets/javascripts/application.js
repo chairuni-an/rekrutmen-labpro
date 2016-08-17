@@ -15,8 +15,39 @@
 //= require jquery.facebox
 //= require jquery.turbolinks
 //= require_tree .
+//= require jquery
+//= require jquery.jcrop
+//= require papercrop
 //= require ckeditor/init
 
-jQuery(document).ready(function($) {
-  $('a[rel*=facebox]').facebox() 
-})
+CKEDITOR.on('dialogDefinition', function( ev )
+{
+   var dialogName = ev.data.name;  
+   var dialogDefinition = ev.data.definition;
+   dialogDefinition.minHeight = 150;
+   dialogDefinition.resizable = CKEDITOR.DIALOG_RESIZE_NONE;
+   switch (dialogName) {  
+   case 'image': //Image Properties dialog      
+   dialogDefinition.removeContents('Upload');
+   dialogDefinition.removeContents('advanced');
+   dialogDefinition.removeContents('Link');
+   break;      
+   case 'link': //image Properties dialog          
+   dialogDefinition.removeContents('advanced');   
+   break;
+   }
+   if ( dialogName == 'image' ){
+        dialogDefinition.removeContents( 'advanced' );
+        dialogDefinition.removeContents( 'Link' );
+        var infoTab = dialogDefinition.getContents( 'info' );
+        infoTab.remove( 'ratioLock' ); 
+        infoTab.remove( 'txtHeight' );          
+        infoTab.remove( 'txtWidth' );          
+        infoTab.remove( 'txtBorder'); 
+        infoTab.remove( 'txtHSpace'); 
+        infoTab.remove( 'txtVSpace'); 
+        infoTab.remove( 'cmbAlign' ); 
+        infoTab.remove( 'txtAlt' ); 
+        infoTab.remove( 'htmlPreview' )
+    }
+});

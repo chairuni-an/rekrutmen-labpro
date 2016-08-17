@@ -1,0 +1,566 @@
+/* Preload images */
+/* line 3, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+body:after {
+  content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
+  display: none;
+}
+
+/* line 8, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+body.lb-disable-scrolling {
+  overflow: hidden;
+}
+
+/* line 12, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lightboxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: black;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+  display: none;
+}
+
+/* line 23, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lightbox {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  text-align: center;
+  line-height: 0;
+  font-weight: normal;
+}
+
+/* line 33, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lightbox .lb-image {
+  display: block;
+  height: auto;
+  max-width: inherit;
+  border-radius: 3px;
+}
+
+/* line 40, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lightbox a img {
+  border: none;
+}
+
+/* line 44, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-outerContainer {
+  position: relative;
+  background-color: white;
+  *zoom: 1;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+/* line 54, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-outerContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 60, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-container {
+  padding: 4px;
+}
+
+/* line 64, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-loader {
+  position: absolute;
+  top: 43%;
+  left: 0;
+  height: 25%;
+  width: 100%;
+  text-align: center;
+  line-height: 0;
+}
+
+/* line 74, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-cancel {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  background: url(../images/loading.gif) no-repeat;
+}
+
+/* line 82, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+/* line 91, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-container > .nav {
+  left: 0;
+}
+
+/* line 95, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-nav a {
+  outline: none;
+  background-image: url("data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==");
+}
+
+/* line 100, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-prev, .lb-next {
+  height: 100%;
+  cursor: pointer;
+  display: block;
+}
+
+/* line 106, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-nav a.lb-prev {
+  width: 34%;
+  left: 0;
+  float: left;
+  background: url(../images/prev.png) left 48% no-repeat;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity 0.6s;
+  -moz-transition: opacity 0.6s;
+  -o-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+}
+
+/* line 119, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-nav a.lb-prev:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* line 124, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-nav a.lb-next {
+  width: 64%;
+  right: 0;
+  float: right;
+  background: url(../images/next.png) right 48% no-repeat;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity 0.6s;
+  -moz-transition: opacity 0.6s;
+  -o-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+}
+
+/* line 137, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-nav a.lb-next:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* line 142, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-dataContainer {
+  margin: 0 auto;
+  padding-top: 5px;
+  *zoom: 1;
+  width: 100%;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* line 155, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-dataContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 161, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-data {
+  padding: 0 4px;
+  color: #ccc;
+}
+
+/* line 166, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-data .lb-details {
+  width: 85%;
+  float: left;
+  text-align: left;
+  line-height: 1.1em;
+}
+
+/* line 173, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-data .lb-caption {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+/* line 179, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-data .lb-number {
+  display: block;
+  clear: left;
+  padding-bottom: 1em;
+  font-size: 12px;
+  color: #999999;
+}
+
+/* line 187, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-data .lb-close {
+  display: block;
+  float: right;
+  width: 30px;
+  height: 30px;
+  background: url(../images/close.png) top right no-repeat;
+  text-align: right;
+  outline: none;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+/* line 203, /home/kristiantokarim/Downloads/OmoCommunity/app/assets/stylesheets/lightbox.css.scss.erb */
+.lb-data .lb-close:hover {
+  cursor: pointer;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+
+
+ */
+
+#facebox .content {
+  background: #3E4649 !important;
+  border: 4px solid #2E2F31 !important;
+}
+#facebox .popup {
+  border:none !important;
+}
+#facebox .close {
+  background:rgba(255, 255, 255, 0) !important;
+  right:10px !important;
+}
+.fot {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+.headtitle {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    display: inline;
+    vertical-align: middle;
+    height: 30px;
+    font-size: 120%;
+    z-index: 999;
+}
+.headtitle2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    display: inline;
+    vertical-align: middle;
+    height: 30px;
+    font-size: 120%;
+}
+.judul {
+	position: relative;
+  	top: 0%;
+  	transform: translateY(10px);
+  	left: 3.5%;
+  	display: inline-block;
+  	color: white;
+}
+.backg {	
+	margin: -8px;
+  	background: #2d2f31;
+  	height: 50px;
+
+  position: relative;
+}
+.cari {
+   	position: absolute;
+  	top: 0%;
+  	left: 50%;
+  	transform: translate(-72.8%,0px);
+}
+#cboxLoadedContent {
+    height: 500px !important;
+    color: white !important;
+}
+.serround {
+    height: 47.84px;
+    border: none;
+    padding-left: 45px;
+    background: url(http://www.clker.com/cliparts/9/g/p/H/1/F/search-icon-dark-grey-md.png) no-repeat 10px 15px white;
+    background-size: 20px 20px;
+}
+
+::-webkit-input-placeholder {
+   color: #CCBDBD;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #CCBDBD;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #CCBDBD;  
+}
+
+:-ms-input-placeholder {  
+   color: #CCBDBD;  
+}
+
+.in {
+  top: 0%;
+  right: 0%;
+  position: absolute;
+  height: 50px;
+  border: none;  
+  transform: translate(-114%,0px);
+  background: transparent;
+  color: #259061;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size:13.2px;
+}
+
+
+.in:hover {
+  background-color: #23a86d; /* Green */
+  color: #2b473d;  
+}
+.up {
+  top: 0%;
+  right: 0%;
+  position: absolute;
+  border: none;
+  background: transparent;
+  color: #259061;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 13.2px;
+  font-weight: 600;
+  padding-left: 9.5px;
+  padding-right: 9.5px;
+  line-height: 50px
+
+}
+.up:hover {
+  background-color: #23a86d; /* Green */
+  color: #2b473d;  
+  text-decoration: none;
+
+}
+
+.us {
+  top: 0%;
+  border: none;
+  position: absolute;
+  right: 23.9%;
+  height: 47.84px;
+  background: #656161;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.pas {
+  top: 0%;
+  border: none;
+  position: absolute;
+  right: 9.4%;
+  height: 47.84px;
+  background: #656161;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+body {
+  background: #3f4649;
+}
+#facebox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  text-align: left;
+}
+
+
+#facebox .popup{
+  position:relative;
+  border:3px solid rgba(0,0,0,0);
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+  -webkit-box-shadow:0 0 18px rgba(0,0,0,0.4);
+  -moz-box-shadow:0 0 18px rgba(0,0,0,0.4);
+  box-shadow:0 0 18px rgba(0,0,0,0.4);
+}
+
+#facebox .content {
+  display:table;
+  width: 370px;
+  padding: 10px;
+  background: #fff;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+}
+
+#facebox .content > p:first-child{
+  margin-top:0;
+}
+#facebox .content > p:last-child{
+  margin-bottom:0;
+}
+
+#facebox .close{
+  position:absolute;
+  top:5px;
+  right:5px;
+  padding:2px;
+  background:#fff;
+}
+#facebox .close img{
+  opacity:0.3;
+}
+#facebox .close:hover img{
+  opacity:1.0;
+}
+
+#facebox .loading {
+  text-align: center;
+}
+
+#facebox .image {
+  text-align: center;
+}
+
+#facebox img {
+  border: 0;
+  margin: 0;
+}
+
+#facebox_overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height:100%;
+  width:100%;
+}
+
+.facebox_hide {
+  z-index:-100;
+}
+
+.facebox_overlayBG {
+  background-color: #000;
+  z-index: 99;
+}
+/* jquery.Jcrop.css v0.9.10 - MIT License */
+
+/*
+  The outer-most container in a typical Jcrop instance
+  If you are having difficulty with formatting related to styles
+  on a parent element, place any fixes here or in a like selector
+
+  You can also style this element if you want to add a border, etc
+  A better method for styling can be seen below with .jcrop-light
+  (Add a class to the holder and style elements for that extended class)
+*/
+
+.jcrop-holder {
+  direction: ltr;
+  text-align: left;
+}
+
+/* These styles define the border lines */
+.jcrop-vline,.jcrop-hline{background:#FFF url(Jcrop.gif) top left repeat;font-size:0;position:absolute;}
+.jcrop-vline{height:100%;width:1px!important;}
+.jcrop-hline{height:1px!important;width:100%;}
+.jcrop-vline.right{right:0;}
+.jcrop-hline.bottom{bottom:0;}
+
+/* Handle style - size is set by Jcrop handleSize option (currently) */
+.jcrop-handle{background-color:#333;border:1px #eee solid;font-size:1px;}
+
+/* This style is used for invisible click targets */
+.jcrop-tracker
+{
+  height: 100%; 
+  width: 100%;
+  -webkit-tap-highlight-color: transparent; /* "turn off" link highlight */
+  -webkit-touch-callout: none;              /* disable callout, image save panel */
+  -webkit-user-select: none;                /* disable cut copy paste */
+}
+
+/* Positioning of handles and drag bars */
+.jcrop-handle.ord-n{left:50%;margin-left:-4px;margin-top:-4px;top:0;}
+.jcrop-handle.ord-s{bottom:0;left:50%;margin-bottom:-4px;margin-left:-4px;}
+.jcrop-handle.ord-e{margin-right:-4px;margin-top:-4px;right:0;top:50%;}
+.jcrop-handle.ord-w{left:0;margin-left:-4px;margin-top:-4px;top:50%;}
+.jcrop-handle.ord-nw{left:0;margin-left:-4px;margin-top:-4px;top:0;}
+.jcrop-handle.ord-ne{margin-right:-4px;margin-top:-4px;right:0;top:0;}
+.jcrop-handle.ord-se{bottom:0;margin-bottom:-4px;margin-right:-4px;right:0;}
+.jcrop-handle.ord-sw{bottom:0;left:0;margin-bottom:-4px;margin-left:-4px;}
+.jcrop-dragbar.ord-n,.jcrop-dragbar.ord-s{height:7px;width:100%;}
+.jcrop-dragbar.ord-e,.jcrop-dragbar.ord-w{height:100%;width:7px;}
+.jcrop-dragbar.ord-n{margin-top:-4px;}
+.jcrop-dragbar.ord-s{bottom:0;margin-bottom:-4px;}
+.jcrop-dragbar.ord-e{margin-right:-4px;right:0;}
+.jcrop-dragbar.ord-w{margin-left:-4px;}
+
+/* The "jcrop-light" class/extension */
+.jcrop-light .jcrop-vline,.jcrop-light .jcrop-hline
+{
+	background:#FFF;
+	filter:Alpha(opacity=70)!important;
+	opacity:.70!important;
+}
+.jcrop-light .jcrop-handle
+{
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	background-color:#000;
+	border-color:#FFF;
+	border-radius:3px;
+}
+
+/* The "jcrop-dark" class/extension */
+.jcrop-dark .jcrop-vline,.jcrop-dark .jcrop-hline
+{
+	background:#000;
+	filter:Alpha(opacity=70)!important;
+	opacity:.7!important;
+}
+.jcrop-dark .jcrop-handle
+{
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	background-color:#FFF;
+	border-color:#000;
+	border-radius:3px;
+}
+
+/* Fix for twitter bootstrap et al. */
+.jcrop-holder img,img.jcrop-preview{ max-width: none; }

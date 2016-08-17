@@ -44,7 +44,7 @@
 						- else
 							= "#{User.find(topic.posts.last.user_id).username[0,20]}..."
 						.txb
-							= topic.posts.last.created_at.to_date.strftime("%B #{topic.created_at.to_date.day.ordinalize}, %Y")
+							= topic.posts.last.created_at.to_date.strftime("%B #{topic.posts.last.created_at.to_date.day.ordinalize}, %Y")
 						.txb
 							= time_ago_in_words(topic.posts.last.created_at)
 							ago
