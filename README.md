@@ -64,6 +64,8 @@ Deliverable dari tugas ini terdapat pada folder Projects/ , file Checkpoint2.md,
 
 Ini adalah tahap pengumpulan akhir. Silahkan mengumpulkan deliverables dengan format serupa dengan checkpoint 1 dan 2. Setelah lewat deadline, Anda TIDAK DIPERKENANKAN untuk melakukan commit sedikitpun, sebagai pembatas bahwa proyek Anda sudah dikumpulkan. Jika untuk ke depannya Anda ingin mengembangkan aplikasi Anda kembali serta melakukan commit, diperkenankan untuk melakukannya setelah demo.
 
+Deliverable dari tugas ini terdapat pada folder Projects/ , file Pengumpulan.md, dan file Progress-Report.md (di bawah Checkpoint 1 dan 2)
+
 ## Demo
 * Pengumuman dan Pembagian: 23 Agustus 2016
 * Demo: 27 Agustus 2016
