@@ -58,11 +58,11 @@ public class SoftwareTest extends PanelScreen {
 
         this.layout = new AnchorLayout();
 
-       // _soal1 = new Soal1();
-        //_soal2 = new Soal2();
-       // _soal3 = new Soal3();
-       // _soal4 = new Soal4();
-       // _soal5 = new Soal5();
+        _soal1 = new LayoutGroup();
+        _soal2 = new LayoutGroup();
+        _soal3 = new LayoutGroup();
+        _soal4 = new LayoutGroup();
+        _soal5 = new LayoutGroup();
 
         var centeredLayoutData:AnchorLayoutData = new AnchorLayoutData();
         centeredLayoutData.horizontalCenter = 0;

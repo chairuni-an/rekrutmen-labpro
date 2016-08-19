@@ -56,10 +56,10 @@ public class YouCanUseIt extends Sprite {
         this.myStarling.skipUnchangedFrames = true;
 
         // Show statistics for memory usage and fps.
-        this.myStarling.showStats = true;
+        //this.myStarling.showStats = true;
 
         // Position stats.
-        this.myStarling.showStatsAt("left","bottom");
+        //this.myStarling.showStatsAt("left","bottom");
 
         // Start Starling Framework.
         this.myStarling.start();
