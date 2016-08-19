@@ -31,3 +31,13 @@
 ### Yang akan dikerjakan selanjutnya:
 * Memperbaiki nav-sidebar
 * Menambahkan konten pada "home"
+
+## Pengumpulan
+### Yang sudah dikerjakan:
+* Memperbaiki tampilan halaman home, products, dan about
+* Memperbaiki nav-sidebar
+* Menambah detail untuk setiap produk
+* Membuat artikel untuk halaman home
+
+### Kendala
+* Kesulitan mengedit bootstrap karena belum menguasai CSS
