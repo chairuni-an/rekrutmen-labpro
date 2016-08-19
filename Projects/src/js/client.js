@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Layout from "./pages/Layout";
 import About from "./pages/About";
-import Cover from "./pages/Cover";
 
 import All from "./components/All";
 import Girl from "./components/Girl";
@@ -25,7 +24,6 @@ ReactDOM.render(
 		<Route path="unisex" name="unisex" component={ Unisex }></Route>
       </Route>
       <Route path="about" name="about" component={ About }></Route>
-      <Route path="cover" name="cover" component={ Cover }></Route>
     </Route>
   </Router>,
 app);

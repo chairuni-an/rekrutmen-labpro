@@ -1,5 +1,8 @@
 import React from "react";
 
+import Footer from "../components/layout/Footer";
+import Layout from "./Layout";
+
 export default class Cover extends React.Component {
   render() {
     
@@ -12,10 +15,10 @@ export default class Cover extends React.Component {
         <div class="cover-container">
 
           <div class="inner cover">
-            <h1 class="cover-heading">Cover your page.</h1>
+            <h1 class="cover-heading">Cover</h1>
             <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Learn more</a>
+              <a href="/#/" class="btn btn-lg btn-default">Learn more</a>
             </p>
           </div>
 

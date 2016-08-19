@@ -1,15 +1,16 @@
 html{
-	font-family: sans-serif;
+	font-family: "Lato", sans-serif;
 }
+
 
 /* navbar */
 .navbar-default {
-    background: #00CCFF;
+    background: #ffcc33;
     border-color: #ffffff;
 }
 /* title */
 .navbar-default .navbar-brand {
-    color: #ffffff;
+    color: #000;
 }
 
 .navbar-brand{
@@ -34,12 +35,12 @@ html{
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #336699;
+    color: #000;
 }
 .navbar-default .navbar-nav > .active > a, 
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
-    color: #336699;
+    color: #000;
     background: #fff;
 }
 .navbar-default .navbar-nav > .open > a, 
@@ -50,28 +51,28 @@ html{
 }
 /* caret */
 .navbar-default .navbar-nav > .dropdown > a .caret {
-    border-top: #00CCFF;
-    border-bottom: #00CCFF;
+    border-top: #fff;
+    border-bottom: #fff;
 }
 .navbar-default .navbar-nav > .dropdown > a:hover .caret,
 .navbar-default .navbar-nav > .dropdown > a:focus .caret {
-    border-top: #00CCFF;
-    border-bottom: #00CCFF;
+    border-top: #ffea03;
+    border-bottom: #ffea03;
 }
 
 .navbar-default .navbar-nav > .open > a .caret, 
 .navbar-default .navbar-nav > .open > a:hover .caret, 
 .navbar-default .navbar-nav > .open > a:focus .caret {
-    border-top: #00CCFF;
-    border-bottom: #00CCFF;
+    border-top: #ffea03;
+    border-bottom: #ffea03;
 }
 /* mobile version */
 .navbar-default .navbar-toggle {
-    border-color: #00CCFF;
+    border-color: #ffea03;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background: #336699;
+    background: #ffea03;
 }
 .navbar-default .navbar-toggle .icon-bar {
     background: #ffffff;
@@ -115,13 +116,35 @@ html{
 
 /* Carousel base class */
 .carousel {
-margin-top: 51px;
-  margin-bottom: 60px;
+  margin-top: 0;
+  margin-left: 0px;
+  margin-right: 0px;
+  position: relative;
+  z-index:15;
+  width:100%;
+}
+#myCarousel {
+	margin-top:50px;
+	margin-bottom:50px;
+}
+#myCarousel2 {
+	margin:0px;
+	width: auto;
+}
+#myCarousel3 {
+	margin:0px;
+	width: auto;
+}
+#myCarousel4 {
+	margin:0px;
+	width: auto;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
 }
+
+
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
@@ -143,16 +166,26 @@ margin-top: 51px;
 }
 
 .carousel-caption {
-  background-color: rgba(0,0,0,.5);
+  background-color: transparent;
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
   z-index: 10;
-  padding: 0 0 10px 25px;
+  vertical-align:center;
   color: #fff;
   text-align: center;
+  
 }
+
+.carousel-caption p {
+		letter-spacing:3px;
+	  }
+.carousel-caption h1 {
+		font-size: 30px;
+		letter-spacing: 5px;
+		text-transform: uppercase;
+		font-weight: 700px;
+	  }
 
 .carousel-indicators {
   position: absolute;
@@ -185,7 +218,16 @@ margin-top: 51px;
   margin-right: 10px;
   margin-left: 10px;
 }
-
+.marketing .img {
+	max-width:100%;
+	max-height: auto;
+}
+@media (max-width: 768px){
+	.marketing .img {
+	max-width:50%;
+	max-height: auto;
+}
+}
 
 /* Featurettes
 ------------------------- */
@@ -200,8 +242,22 @@ margin-top: 51px;
   line-height: 1;
   letter-spacing: -1px;
 }
-
-
+@media (max-width: 768px) {
+	.featurette-image{
+		max-width:70%;
+		max-height:auto;
+		margin-top:50px;
+	}
+}
+@media (min-width: 768px) {
+@media (max-width: 992px) {
+	.featurette-image{
+		max-width:50%;
+		max-height:auto;
+		margin-top:50px;
+	}
+}
+}
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -236,6 +292,18 @@ margin-top: 51px;
   }
 }
 
+@media (max-width: 768px){
+	.carousel-caption p {
+		margin-bottom: 0;
+		font-size: 0;
+		line-height:0;
+	  }
+	.carousel-caption h1 {
+		font-size: 21px;
+	  }
+	 
+}
+
 @media (min-width: 992px) {
   .featurette-heading {
     margin-top: 120px;
@@ -253,25 +321,65 @@ margin-top: 51px;
 /*
  * Sidebar
  */
+@media (max-width: 768px) {
+	.sidebar1{
+		position: fixed;
+		z-index:15;
+		background:#fff;
+		margin-top:-10px;
+	}
+  .nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  .nav-justified > li > a  {
+    border-bottom: 1px solid #ddd !important;
+    border-radius: 4px 4px 0 0 !important;
+    margin-bottom: 20px !important;
+    margin-top: 30px;
+    padding-top: -10px;
+    color: #ffc61a;
+    text-transform:uppercase;
+    font-size: 14px;
+	font-weight:700;
+	letter-spacing: 5px;
+  }
+  .nav-tabs.nav-justified > .active > a,
+  .nav-tabs.nav-justified > .active > a:hover,
+  .nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #fff !important;
+  }
+  .nav-tabs.nav-justified > li > a:hover,
+  .nav-tabs.nav-justified > li > a:focus {
+    background: #ffffb3 ;
+  }
+}
 
 /* Hide for mobile, show later */
 .sidebar {
   display: none;
 }
+
+
 @media (min-width: 768px) {
   .sidebar {
     position: fixed;
     top: 51px;
     bottom: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 30;
     display: block;
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background: #f5f5f5;
+    background: #ffffb3;
     border-right: 1px solid #eee;
+	text-align: center;
+	letter-spacing: 5px;
   }
+  .sidebar1 {
+	  display: none;
+	}
 }
 
 /* Sidebar navigation */
@@ -279,22 +387,39 @@ margin-top: 51px;
   margin-right: -21px; /* 20px padding + 1px border */
   margin-bottom: 20px;
   margin-left: -20px;
+  margin-top: 50%;
+  color: #ffc61a;
 }
 .nav-sidebar > li > a {
   padding-right: 20px;
   padding-left: 20px;
+  color: #ffc61a;
+  font-weight : 500;
+  font-size : 16px;
+  
 }
+
+.nav-sidebar > li > a:hover,
+.nav-sidebar > li > a:focus {
+    color: #ffc61a;
+}
+
+.nav-sidebar > li > a:hover,
+.nav-sidebar > li > a:focus {
+    background: #fff;
+}
+
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
   color: #fff;
-  background: #428bca;
+  background: #ffc61a;
 }
 .nav-sidebar > .open > a,
 .nav-sidebar > .open > a:hover,
 .nav-sidebar > .open > a:focus {
   color: #fff;
-  background: #428bca;
+  background: #ffc61a;
 }
 
 /*
@@ -310,6 +435,13 @@ margin-top: 51px;
     padding-left: 40px;
   }
 }
+
+@media (max-width: 768px) {
+  .main {
+    padding-top: 100px;
+  }
+}
+
 .main .page-header {
   margin-top: 0;
 }
@@ -335,4 +467,462 @@ margin-top: 51px;
 }
 .thumbnail img {
   display: inline-block;
+}
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    max-width: 90%; /* or to whatever you want here */
+	max-height: auto;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    padding-top: 0px; /* Location of the box */
+    overflow: auto; /* Enable scroll if needed */
+}
+
+.modal {
+  text-align: center;
+}
+
+@media screen { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.modal-dialog1 {
+      height: auto;
+      width: 80%;
+      padding: 0;
+      margin:0;
+	  display: inline-block;
+	  text-align: center;
+	  vertical-align: middle;
+}
+
+.babt{
+	padding-top:20px;
+	letter-spacing:3px;
+	padding-bottom:20px;
+}
+.modal-content1 {    
+      height: 100%;
+      border-radius: 0;
+      background-color: white ;
+      color:white;
+      overflow:auto;
+      text-align: center;
+      vertical-align: middle;
+}
+
+.close1 {
+	float:right;
+    margin-top:-30px;
+    margin-right:-30px;
+    cursor:pointer;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 30px;
+    background: #605F61;
+    font-size: 50px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 0px;
+    padding: 11px 3px;   
+}
+
+#myModalHome1 {
+	max-width: 100%;
+	max-height: auto;
+}
+
+#imgModal {
+    max-width: 50%; /* or to whatever you want here */
+	max-height: auto;
+}
+
+#imgAbout {
+	max-width: 20%; /* or to whatever you want here */
+	max-height: auto;
+	padding:15px;
+}
+
+
+.modal-title {
+	font-weight : 600;
+}
+
+.girl {
+	background :#ff768b;
+	color : #fff;
+	font-size : 16px;
+}
+
+.girl1 {
+	background : #ffccff;
+	color : #ff768b;
+	text-transform : uppercase;
+	font-size : 14px;
+	text-align : center;
+}
+
+.boy {
+	background :#6699ff;
+	color : #fff;
+	font-size : 16px;
+}
+
+.boy1 {
+	background : #e6eeff;
+	color : #6699ff;
+	text-transform : uppercase;
+	font-size : 14px;
+	text-align : center;
+}
+
+.unisex {
+	background :#00e64d;
+	color : #fff;
+	font-size : 16px;
+}
+
+.unisex1 {
+	background : #ccffcc;
+	color : #00e64d;
+	text-transform : uppercase;
+	font-size : 14px;
+	text-align : center;
+}
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    border-radius: 12px;
+    background-color: #000;
+    color:#fff;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.footer {
+	position: relative;
+	padding : 20px;
+	background : #ffc61a;
+	color : #fff;
+	margin-top: 0;
+	right: 0;
+	left: 0;
+	bottom:0;
+	z-index: 40;
+	height: auto;
+}
+
+.fa {
+	height: 15px;
+	width: 15px;
+}
+
+.layout {
+	margin-top: 51px;
+	right: 0px;
+	left: 0px;
+	bottom: 0px;
+}
+
+.parallax {
+	margin-top: 51px;
+    /* The image used */
+    background-image: url("/pic/about1.png");
+    opacity:0.65;
+	min-height: 650px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media (min-width: 992px) {
+	.parallax2 {
+		/* Set a specific height */
+		min-height: 500px;
+	}
+	.parallax2small{
+		/* Set a specific height */
+		min-height: 100px;
+	}
+	.caption2 {
+		position: absolute;
+		top: 325px;
+	}
+	.parallax-content {
+		padding-left:200px;
+		padding-right:200px;
+	}
+}
+@media (max-width:992px) {
+	.parallax2 {
+		/* Set a specific height */
+		min-height: 400px;
+	}
+}
+@media (max-width:768px) {
+	.parallax2 {
+		/* Set a specific height */
+		min-height: 300px;
+	}
+}
+.parallax5 {
+    /* The image used */
+    background-image: url("/pic/home4.jpg");
+    opacity:0.65;
+
+    /* Set a specific height */
+    min-height: 50px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax4 {
+    /* The image used */
+    background-image: url("/pic/about3.jpg");
+    opacity:0.65;
+
+    /* Set a specific height */
+    min-height: 300px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax3 {
+    /* The image used */
+    background-image: url("/pic/home4.jpg");
+    opacity:0.65;
+
+    /* Set a specific height */
+    min-height: 700px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax2 {
+    /* The image used */
+    background-image: url("/pic/about2.jpg");
+    opacity:0.65;
+
+    /* Set a specific height */
+    min-height: 400px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax1 {
+    /* The image used */
+    background-image: url("/pic/about2.jpg");
+    opacity:0.4;
+
+    /* Set a specific height */
+    min-height: 50px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax-content {
+	height:auto;
+	background-color:white;
+	font-size:14px;
+	text-align:justify;
+	padding-top:50px;
+	padding-bottom:50px;
+	padding-left:0;
+	padding-right:0;
+}
+@media (max-width:768px) {
+	.parallax-content {
+		padding-left:50px;
+		padding-right:50px;
+		font-size:12px;
+	}
+}
+
+@media (max-width:480px) {
+	.parallax-content {
+		padding-left:20px;
+		padding-right:20px;
+		font-size:12px;
+	}
+}
+
+@media (min-width:992px) {
+	.parallax-content {
+		padding-left:100px;
+		padding-right:100px;
+	}
+}
+
+@media (max-width:992px) {
+	.parallax-content {
+		padding-left:70px;
+		padding-right:70px;
+	}
+}
+
+h4.big {
+	line-height: 200%;
+}
+
+h5.big {
+	line-height: 150%;
+}
+.comment{
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	
+}
+.parallax-content1 {
+	height:auto;
+	background-color:black;
+	font-size:14px;
+	text-align:center;
+	padding:30px;
+	opacity:0.8;
+}
+.parallax-content3 {
+	height:auto;
+	background-color:black;
+	font-size:14px;
+	text-align:center;
+	padding:20px;
+	padding-top: -20px;
+	opacity:0.8;
+}
+.parallax-content3 .page-header {
+	color: #f7f7f7;
+}
+.parallax-content2 {
+	height:auto;
+	background-color:white;
+	font-size:14px;
+	text-align:center;
+	padding:30px;
+}
+.caption span.border {
+    background: #000;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+.caption {
+    position: absolute;
+    left: 0;
+    top: 350px;
+    width: 100%;
+    text-align: center;
+    color: #f7f7f7;
+}
+
+.caption span.border1 {
+    background: #fff;
+    color: #000;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    opacity: 0.8;
+}
+
+.caption2 {
+    position: absolute;
+    top: 760px;
+}
+
+.caption1 {
+    position: relative;
+    top: -490px;
+    text-align:center;
+    opacity:0.65;
+}
+
+.caption1 span.border {
+    background: #fff;
+    color: #000;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+
+.page-header{
+	letter-spacing: 10px;
+}
+.page-header1{
+	letter-spacing: 5px;
+	border-bottom: 3px solid #fff;
+}
+.page-footer{
+	margin-top:20px;
+	border-bottom: 3px solid #fff;
+}
+
+.pagesub{
+	color:#ffc61a;
+}
+
+.container .marketing {
+	margin-top: 20px;
+}
+
+.titlehome {
+	color:#ffc61a;
+	letter-spacing: 8px;
+}
+
+.marginc {
+	margin-bottom:50px;
+}
+
+.buttonhome span.border {
+    background: #ffc61a;
+    color: #fff;
+    padding: 13px;
+    font-size: 20px;
+}
+
+#imgHome{
+	opacity:0.65;
 }
