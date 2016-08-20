@@ -10,5 +10,7 @@ Mekanisme game selesai, front end game masih belum sempurna
 
 ## Keterangan
 Karena keterbatasan kuoata, seluruh directory tidak dapat diupload karena besarnya 5GB.
-Yang diupload hanyalah source code class dan resources
+Yang diupload hanyalah source code class dan resources.
+Untuk menjalankan program perlu seluruh library untuk new game pada Cocos2D.
+Setelah membuat game baru, source code (folder Classes) dan folder Resources perlu dicopy ke folder Project.
 
