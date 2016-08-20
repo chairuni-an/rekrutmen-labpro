@@ -9,6 +9,7 @@
 #include "Quiver.h"
 #include "Shell.h"
 #include "GameOverScene.h"
+#include "PauseScene.h"
 
 class WorldScene : public cocos2d::Layer
 {

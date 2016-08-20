@@ -1,4 +1,5 @@
 #include "WorldScene.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -23,11 +24,13 @@ bool WorldScene::init()
 		return false;
 	}
 
+	
+
 	auto origin = Director::getInstance()->getVisibleOrigin();
 	auto winSize = Director::getInstance()->getVisibleSize();
 	auto background = DrawNode::create();
-	background->drawSolidRect(origin, winSize, Color4F(0.6f, 0.6f, 0.9f, 1.0f));
-	this->addChild(background, -1);
+	//background->drawSolidRect(origin, winSize, Color4F(0.2f, 0.9f, 0.2f, 1.0f));
+	//this->addChild(background, -1);
 	auto backgroundpic = Sprite::create("Background.jpg");
 	//backgroundpic->setColor(Color3B(250, 250, 250));
 	backgroundpic->setOpacity(100);
@@ -37,7 +40,7 @@ bool WorldScene::init()
 	speed = 1.0f;
 
 	auto scorelabel = Label::createWithSystemFont("Score", "Arial", 18);
-	scorelabel->setPosition(Vec2(510, 700));
+	scorelabel->setPosition(Vec2(500, 700));
 	this->addChild(scorelabel);
 
 	scoreboard = Label::createWithSystemFont("0", "Arial", 18);
@@ -330,29 +333,32 @@ void WorldScene::keyCommand(EventKeyboard::KeyCode keyCode, cocos2d::Event* even
 	Vec2 loc = player->getPosition();
 	switch (keyCode) {
 	case EventKeyboard::KeyCode::KEY_F: {
-		CCLOG("F");
-		auto pro = Projectile::create();
-		auto pro2 = Projectile::create();
-		auto pro3 = Projectile::create();
-		pro->setPosition(loc);
-		pro2->setPosition(Vec2(loc.x - 50, loc.y));
-		pro3->setPosition(Vec2(loc.x + 50, loc.y));
-		pro->setMode('a');
-		pro2->setMode('a');
-		pro3->setMode('a');
-		this->addChild(pro);
-		this->addChild(pro2);
-		this->addChild(pro3);
-		auto shoot = MoveBy::create(2.0f, Vec2(0, 500));
-		auto remove = RemoveSelf::create();
-		pro->runAction(Sequence::create(shoot, remove, nullptr));
-		pro2->runAction(Sequence::create(shoot->clone(), remove->clone(), nullptr));
-		pro3->runAction(Sequence::create(shoot->clone(), remove->clone(), nullptr));
-		setArrow(player->getArrow() - 5);
+		if (player->getArrow() > 0) {
+			CCLOG("F");
+			auto pro = Projectile::create();
+			auto pro2 = Projectile::create();
+			auto pro3 = Projectile::create();
+			pro->setPosition(loc);
+			pro2->setPosition(Vec2(loc.x - 50, loc.y));
+			pro3->setPosition(Vec2(loc.x + 50, loc.y));
+			pro->setMode('a');
+			pro2->setMode('a');
+			pro3->setMode('a');
+			this->addChild(pro);
+			this->addChild(pro2);
+			this->addChild(pro3);
+			auto shoot = MoveBy::create(2.0f, Vec2(0, 500));
+			auto remove = RemoveSelf::create();
+			pro->runAction(Sequence::create(shoot, remove, nullptr));
+			pro2->runAction(Sequence::create(shoot->clone(), remove->clone(), nullptr));
+			pro3->runAction(Sequence::create(shoot->clone(), remove->clone(), nullptr));
+			player->setArrow(player->getArrow() - 5);
+			setArrow(player->getArrow());
+		}
 		break;
 	}
 	case EventKeyboard::KeyCode::KEY_ESCAPE:
-		auto scene = GameOverScene::createScene();
+		auto scene = PauseScene::createScene();
 		Director::getInstance()->pushScene(scene);
 	}
 }

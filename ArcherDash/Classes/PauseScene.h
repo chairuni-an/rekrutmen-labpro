@@ -3,7 +3,7 @@
 #include "cocos2d.h"
 #include "HelpScene.h"
 
-class MenuScene : public cocos2d::Layer
+class PauseScene : public cocos2d::Layer
 {
 public:
 	static cocos2d::Scene* createScene();
@@ -11,6 +11,6 @@ public:
 
 	void playGame();
 
-	CREATE_FUNC(MenuScene);
+	CREATE_FUNC(PauseScene);
 
 };

@@ -29,11 +29,17 @@ bool GameOverScene::init()
 	this->addChild(background);
 	
 	Vector<MenuItem*> MenuItems;
-	auto overLabel = Label::createWithSystemFont("Game Over", "Arial", 18);
+	auto overLabel = Label::createWithSystemFont("Game Over", "Arial", 78);
+	overLabel->setColor(Color3B(10, 10, 255));
 	auto overItemLabel = MenuItemLabel::create(overLabel, CC_CALLBACK_0(GameOverScene::replay, this));
 	MenuItems.pushBack(overItemLabel);
 	auto menu = Menu::createWithArray(MenuItems);
 	this->addChild(menu, 1);
+
+	auto msc = Label::createWithSystemFont("Background Music : Friction by HAMO from MiLi", "Arial", 24);
+	msc->setPosition(Vec2(300, 170));
+	msc->setColor(Color3B(10, 10, 255));
+	this->addChild(msc);
 
 	return true;
 }
