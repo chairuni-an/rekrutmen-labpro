@@ -39,33 +39,36 @@ $this->title = Yii::$app->name .' - '. $model->judul;
 	</div>
 </div>
 
-<br />
-<br />
 
-<div class="panel panel-info">
-	<div class="panel-heading">Komentar</div>
-	<div class="panel-body">
-		<?php $form = ActiveForm::begin([
-			'options' => [
-				'style' => 'font-size: 80%'
-			]
-		]); ?>
-		
-		<?= $form->field($komentarForm, 'id_artikel')->hiddenInput(['value' => $model->id_artikel])->label(false) ?>
-		
-		<?= $form->field($komentarForm, 'id_user')->hiddenInput(['value' => Yii::$app->user->id])->label(false) ?>
-		
-		<?= $form->field($komentarForm, 'isi_komentar')->textarea(['rows' => 6]) ?>
-		
-		<div class="form-group">
-			<?= Html::submitButton('Kirim', ['class' => 'btn btn-success']) ?>
+<?php if (!Yii::$app->user->isGuest) {?>
+	<br />
+
+	<div class="panel panel-info">
+		<div class="panel-heading">Komentar</div>
+		<div class="panel-body">
+			<?php $form = ActiveForm::begin([
+				'options' => [
+					'style' => 'font-size: 80%'
+				]
+			]); ?>
+			
+			<?= $form->field($komentarForm, 'id_artikel')->hiddenInput(['value' => $model->id_artikel])->label(false) ?>
+			
+			<?= $form->field($komentarForm, 'id_user')->hiddenInput(['value' => Yii::$app->user->id])->label(false) ?>
+			
+			<?= $form->field($komentarForm, 'isi_komentar')->textarea(['rows' => 6]) ?>
+			
+			<div class="form-group">
+				<?= Html::submitButton('Kirim', ['class' => 'btn btn-success']) ?>
+			</div>
+			
+			<?php ActiveForm::end(); ?>
 		</div>
-		
-		<?php ActiveForm::end(); ?>
 	</div>
-</div>
+	<hr />
+<?php } ?> 
 
-<hr />
+
 <h3><i>Komentar</i></h3>
 
 <?= ListView::widget([
