@@ -1,56 +1,65 @@
 // out: style.css, sourcemap: false, compress: false
 
+@import "bootstrap/less/bootstrap.less";
+
 ///////////////
 //Variable
 @lightRed:   #fdd;
 @lightGreen: #dfd;
 @lightBlue: #ddf;
-
 @defaultThemeColor:@lightGreen;
-
-@calendarWidth: 45*7px;
 
 ///////////////
 //Mixins
-.boxed{
-  text-align: center;
-  width: @calendarWidth/7;
-  height: @calendarWidth/7;
-  display: inline-block;
-  //border-style: solid;
-}
+
 
 ///////////////
 //Main CSS
-.calendar{
-  background-color:@defaultThemeColor;
-  width: @calendarWidth;
-
+.calendar {
+  text-align: center;
+  width: 490px;
+  margin: 0 auto;
   .calendarHeader{
-    display: block;
-    position: relative;
-    text-align: center;
-
+    background-color: @lightBlue;
+    .arrowLeft{
+      float: left;
+      text-align: left;
+    }
     .monthName{
-      font-family: sans-serif;
+      clear: left;
+    }
+    .arrowRight{
+      float: right;
+      text-align: right;
     }
   }
-
   .calendarTable{
-    .dayNames{
-
-      .day{
-        border: 1px solid black;
+    margin: 0 auto;
+    thead{
+      tr{
+        th{
+          text-align: center;
+          width: 70px;
+        }
       }
     }
-
+    tbody{
+      tr{
+        td{
+          text-align: center;
+          width: 70px;
+        }
+      }
+    }
     .dateRow{
-
       .date{
-        border: 1px solid black;
+        &:hover{
+          background-color: #eee;
+        }
+      }
+      .selectedDate{
+        background-color: #ddd;
       }
     }
   }
-
-
 }

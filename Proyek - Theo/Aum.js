@@ -16,7 +16,7 @@ var App = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className="container">
         <Calendar handleDateSelectedChange={this.handleDateSelectedChange}/>
         <br/>
         <Table selected={this.state.dateSelected}/>
@@ -30,6 +30,10 @@ var App = React.createClass({
 // Calendar  Wrapper //
 ///////////////////////
 var Calendar = React.createClass({
+  PropTypes: {
+    handleDateSelectedChange : React.PropTypes.func
+  },
+
   getInitialState: function() {
     return {
       displayed: new moment(),
@@ -60,9 +64,9 @@ var Calendar = React.createClass({
   render: function(){
 
     return(
-      <div className="calendar">
+      <div className="calendar .col-xs-8">
         <DisplayMonth key={this.state.displayed.format("MMM")} displayed={this.state.displayed} handleDisplayedChange={this.handleDisplayedChange}/>
-        <DisplayDates displayed={this.state.displayed} handleSelectedChange={this.handleSelectedChange}/>
+        <DisplayDates displayed={this.state.displayed} selected={this.state.selected} handleSelectedChange={this.handleSelectedChange}/>
       </div>
     );
   }
@@ -94,9 +98,9 @@ var DisplayMonth = React.createClass({
   render: function() {
     return (
       <div className="calendarHeader">
-        <span> <button onClick={this.prevMonth}>Kiri</button> </span>
+        <span className="glyphicon glyphicon-chevron-left arrowLeft" onClick={this.prevMonth}/>
         <span className="monthName">{this.props.displayed.format("MMMM YYYY")}</span>
-        <span> <button onClick={this.nextMonth}>Kanan</button> </span>
+        <span className="glyphicon glyphicon-chevron-right arrowRight" onClick={this.nextMonth}/>
       </div>
     );
   }
@@ -104,26 +108,39 @@ var DisplayMonth = React.createClass({
 });
 
 var DisplayDates = React.createClass({
+  propTypes:{
+    displayed: React.PropTypes.object,
+    selected: React.PropTypes.string,
+    handleSelectedChange: React.PropTypes.func
+  },
+
   render: function(){
     let date = this.props.displayed.clone().startOf('month').startOf('week');
+    var headDisplay;
     var display = [];
     var tempDisplay = [];
 
-    display.push(
-      <tr className="dayNames" key="dayNames">
-          <th className="day" key="Sun">Sun</th>
-          <th className="day" key="Mon">Mon</th>
-          <th className="day" key="Tue">Tue</th>
-          <th className="day" key="Wed">Wed</th>
-          <th className="day" key="Thu">Thu</th>
-          <th className="day" key="Fri">Fri</th>
-          <th className="day" key="Sat">Sat</th>
-      </tr>
-    );
+    headDisplay =
+      <thead>
+        <tr className="dayNames" key="dayNames">
+            <th className="day" key="Sun">Sun</th>
+            <th className="day" key="Mon">Mon</th>
+            <th className="day" key="Tue">Tue</th>
+            <th className="day" key="Wed">Wed</th>
+            <th className="day" key="Thu">Thu</th>
+            <th className="day" key="Fri">Fri</th>
+            <th className="day" key="Sat">Sat</th>
+        </tr>
+      </thead>
+    ;
 
     while(this.props.displayed.clone().endOf('month').isSameOrAfter(date)){
       for(var i = 0; i < 7;i++){
-        tempDisplay.push(<td key={date.format("YYYYDDMM")} className="date" onClick={this.props.handleSelectedChange.bind(null, date.format("YYYYDDMM"))}>{date.dates()}</td>);
+        if (date.format("YYYYDDMM") == this.props.selected) {
+          tempDisplay.push(<td key={date.format("YYYYDDMM")} className="selectedDate" onClick={this.props.handleSelectedChange.bind(null, date.format("YYYYDDMM"))}>{date.dates()}</td>);
+        } else {
+          tempDisplay.push(<td key={date.format("YYYYDDMM")} className="date" onClick={this.props.handleSelectedChange.bind(null, date.format("YYYYDDMM"))}>{date.dates()}</td>);
+        }
         date.add(1, "d");
       }
       display.push(<tr className="dateRow" key={date.format("DDMM")}>{tempDisplay}</tr>);
@@ -132,6 +149,7 @@ var DisplayDates = React.createClass({
 
     return(
       <table className="calendarTable">
+        {headDisplay}
         <tbody>
           {display}
         </tbody>
@@ -152,48 +170,48 @@ var Table = React.createClass({
   getInitialState: function() {
     return {
       dataPesan : [
-        {
-          tanggal : 20160108,
-          lapangan : [
-            {
-              namaLapangan : "Lapangan A",
-              dataPemesanan : [
-                {atasNama : "Pokemon", jam : 10},
-                {atasNama : "Pokemon", jam : 11},
-                {atasNama : "Aum", jam : 12}
-              ]
-            },
-            {
-              namaLapangan : "Lapangan B",
-              dataPemesanan : [
-                {atasNama : "Rawr", jam : 13},
-                {atasNama : "Mumu", jam : 14},
-                {atasNama : "Mumu", jam : 16}
-              ]
-            }
-          ]
-        },
-        {
-          tanggal : 20160208,
-          lapangan : [
-            {
-              namaLapangan : "Lapangan A",
-              dataPemesanan : [
-                {atasNama : "Kucing", jam : 11},
-                {atasNama : "Anjing", jam : 14},
-                {atasNama : "Jono", jam : 18}
-              ]
-            },
-            {
-              namaLapangan : "Lapangan B",
-              dataPemesanan : [
-                {atasNama : "Mumu", jam : 8},
-                {atasNama : "Mumu", jam : 9},
-                {atasNama : "Mumu", jam : 10}
-              ]
-            }
-          ]
-        }
+        // {
+        //   tanggal : 20160108,
+        //   lapangan : [
+        //     {
+        //       namaLapangan : "Lapangan A",
+        //       dataPemesanan : [
+        //         {atasNama : "Pokemon", jam : 10},
+        //         {atasNama : "Pokemon", jam : 11},
+        //         {atasNama : "Aum", jam : 12}
+        //       ]
+        //     },
+        //     {
+        //       namaLapangan : "Lapangan B",
+        //       dataPemesanan : [
+        //         {atasNama : "Rawr", jam : 13},
+        //         {atasNama : "Mumu", jam : 14},
+        //         {atasNama : "Mumu", jam : 16}
+        //       ]
+        //     }
+        //   ]
+        // },
+        // {
+        //   tanggal : 20160208,
+        //   lapangan : [
+        //     {
+        //       namaLapangan : "Lapangan A",
+        //       dataPemesanan : [
+        //         {atasNama : "Kucing", jam : 11},
+        //         {atasNama : "Anjing", jam : 14},
+        //         {atasNama : "Jono", jam : 18}
+        //       ]
+        //     },
+        //     {
+        //       namaLapangan : "Lapangan B",
+        //       dataPemesanan : [
+        //         {atasNama : "Mumu", jam : 8},
+        //         {atasNama : "Mumu", jam : 9},
+        //         {atasNama : "Mumu", jam : 10}
+        //       ]
+        //     }
+        //   ]
+        // }
       ],
 
       dataLapangan : [
@@ -201,7 +219,7 @@ var Table = React.createClass({
         "Lapangan B"
       ],
 
-      isModalOpen : false
+      modalMessage : ""
     };
   },
 
@@ -210,9 +228,37 @@ var Table = React.createClass({
     //pakai data JSON dummy dulu berupa state
   },
 
-  closeModal: function(){
+  componentWillReceiveProps: function(nextProps) {
+    let arrayIndex = -1;
+
+    for (let i = 0; i < this.state.dataPesan.length; i++){
+      if (this.state.dataPesan[i].tanggal == nextProps.selected){
+        arrayIndex = i;
+        break;
+      }
+    }
+
+    if(arrayIndex == -1){
+      let z = {
+        tanggal : nextProps.selected,
+        lapangan : [
+          {
+            namaLapangan : "Lapangan A",
+            dataPemesanan : []
+          },
+          {
+            namaLapangan : "Lapangan B",
+            dataPemesanan : []
+          }
+        ]
+      };
+      this.state.dataPesan.push(z);
+    }
+  },
+
+  changeModalMessage: function(string){
     this.setState({
-      isModalOpen: false
+      modalMessage : string
     });
   },
 
@@ -244,7 +290,6 @@ var Table = React.createClass({
       arrayIndex = this.state.dataPesan.length-1;
     }
 
-
     let temp = true;
     for (let i = 0; i < this.state.dataPesan[arrayIndex].lapangan[lap].dataPemesanan.length; i++){
       if (this.state.dataPesan[arrayIndex].lapangan[lap].dataPemesanan[i].jam == jam){
@@ -253,21 +298,25 @@ var Table = React.createClass({
       }
     }
 
-    if (temp){
-      let y;
-      let x = {atasNama : an, jam : jam};
-      this.state.dataPesan[arrayIndex].lapangan[lap].dataPemesanan.push(x);
-      this.state.dataPesan[arrayIndex].lapangan[lap].dataPemesanan.sort(function(a, b) {
-        return parseFloat(a.jam) - parseFloat(b.jam);
-      });
-      y = this.state.dataPesan;
-      this.setState({
-        dataPesan: y
-      });
+    if (an != ""){
+      if (temp){
+        let y;
+        let x = {atasNama : an, jam : jam};
+        this.state.dataPesan[arrayIndex].lapangan[lap].dataPemesanan.push(x);
+        this.state.dataPesan[arrayIndex].lapangan[lap].dataPemesanan.sort(function(a, b) {
+          return parseFloat(a.jam) - parseFloat(b.jam);
+        });
+        y = this.state.dataPesan;
+        this.setState({
+          dataPesan: y
+        });
+      } else {
+        this.changeModalMessage("Sudah ada yang pesan :(");
+        $("#warningModal").modal("show");
+      }
     } else {
-      this.setState({
-        isModalOpen: true
-      });
+      this.changeModalMessage("Nama jangan kosong pls :(");
+      $("#warningModal").modal("show");
     }
   },
 
@@ -287,15 +336,9 @@ var Table = React.createClass({
       for (let i = 0; i < this.state.dataPesan[arrayIndex].lapangan.length; i++){
         let temp1 = [];
 
-        temp1.push(<div className="namaLapangan" key={this.state.dataPesan[arrayIndex].lapangan[i].namaLapangan}>{this.state.dataPesan[arrayIndex].lapangan[i].namaLapangan}</div>);
+        temp1.push(<label className="namaLapangan" key={this.state.dataPesan[arrayIndex].lapangan[i].namaLapangan}>{this.state.dataPesan[arrayIndex].lapangan[i].namaLapangan}</label>);
 
         let temp2 = [];
-        temp2.push(
-          <tr className="tableHeader">
-            <td>Atas nama</td>
-            <td>Jam</td>
-          </tr>
-        );
         for (let j = 0; j < this.state.dataPesan[arrayIndex].lapangan[i].dataPemesanan.length; j++){
           temp2.push(
             <tr>
@@ -304,9 +347,24 @@ var Table = React.createClass({
             </tr>
           );
         }
-        temp1.push(<div><table><tbody>{temp2}</tbody></table></div>);
 
-        temp.push(<div className="table">{temp1}</div>);
+        temp1.push(
+          <div>
+            <table className="table table-striped table-hover">
+              <thead>
+                <tr className="tableHeader">
+                  <th>Atas nama</th>
+                  <th>Jam</th>
+                </tr>
+              </thead>
+              <tbody className="tableBody">
+                {temp2}
+              </tbody>
+            </table>
+          </div>
+        );
+
+        temp.push(<div className="tableWithName">{temp1}</div>);
 
       }
       table.push(<div className="accumulatedTable">{temp}</div>);
@@ -314,33 +372,12 @@ var Table = React.createClass({
 
     return (
       <div>
-        {this.props.selected}
-        <br/>
         {table}
-        <VisibleToggle buttonName="Pesan Lapangan"><OrderForm updateOrderData={this.updateOrderData}/></VisibleToggle>
-        <Modal isModalOpen = {this.state.isModalOpen} closeModal = {this.closeModal}/>
-      </div>
-    );
-  }
-});
+        <VisibleToggle buttonName="Pesan Lapangan">
+          <OrderForm updateOrderData={this.updateOrderData}/>
+        </VisibleToggle>
 
-
-///////////////////////
-//       Modal       //
-///////////////////////
-var Modal = React.createClass({
-  propTypes : {
-    isModalOpen : React.PropTypes.bool,
-    closeModal : React.PropTypes.function
-  },
-
-  render: function() {
-    let style = (this.props.isModalOpen) ? {display : "block"} : {display : "none"};
-
-    return (
-      <div style = {style}>
-        <span class="close" onClick={this.props.closeModal}>x</span>
-        <p>Sudah ada yang pesan :(</p>
+        <Modal id="warningModal" modalMessage = {this.state.modalMessage}/>
       </div>
     );
   }
@@ -382,7 +419,7 @@ var VisibleToggle = React.createClass({
 
     return (
       <div>
-        <button onClick={this.handleVisibleChange}>{this.props.buttonName}</button>
+        <button type="button" className="btn btn-primary" onClick={this.handleVisibleChange}>{this.props.buttonName}</button>
         {x}
       </div>
     );
@@ -421,30 +458,63 @@ var OrderForm = React.createClass({
   },
 
   render: function(){
-
-
     return(
-      <div>
+      <div className="container">
         <form>
-          Atas Nama :
-          <input type="text" name="atasnama" value={this.state.atasnama} onChange={this.handleAtasNamaChange}/>
+          <label for="an">Atas Nama</label>
+          <input type="text" id="an" className="form-control" name="atasnama" value={this.state.atasnama} onChange={this.handleAtasNamaChange}/>
           <br/>
-          Lapangan :
-          <select name="lapangan" value={this.state.lapangan} onChange={this.handleLapanganChange}>
+          <label for="lp">Lapangan</label>
+          <select id="lp" name="lapangan" className="form-control" value={this.state.lapangan} onChange={this.handleLapanganChange}>
             <option value="0">Lapangan A</option>
             <option value="1">Lapangan B</option>
           </select>
           <br/>
-          Jam :
-          <input type="number" name="jam" min="7" max="20" value={this.state.jam} onChange={this.handleJamChange}/>
+          <label for="jm">Jam</label>
+          <input type="number" id="jm" className="form-control" name="jam" min="7" max="20" value={this.state.jam} onChange={this.handleJamChange}/>
           <br/>
     		</form>
-        <button onClick = {this.props.updateOrderData.bind(null, this.state.atasnama, this.state.lapangan, this.state.jam)}>Pesan!</button>
+        <button className="btn btn-default" onClick = {this.props.updateOrderData.bind(null, this.state.atasnama, this.state.lapangan, this.state.jam)}>Pesan!</button>
     </div>
     );
   }
 });
 
+
+///////////////////////
+//       Modal       //
+///////////////////////
+var Modal = React.createClass({
+  propTypes : {
+    modalMessage : React.PropTypes.string,
+    id : React.PropTypes.string.isRequired
+  },
+
+  closeModal: function(){
+    $("#" + this.props.id).modal("hide");
+  },
+
+  render: function() {
+    return (
+      <div className="modal fade" id={this.props.id} role="dialog">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button className="close" type="button" onClick={this.closeModal}>&times;</button>
+              <h4 className="modal-title">Input yang serius pls</h4>
+            </div>
+            <div className="modal-body">
+              <p>{this.props.modalMessage}</p>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-default" onClick={this.closeModal}>Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+});
 
 
 ///////////////////////
