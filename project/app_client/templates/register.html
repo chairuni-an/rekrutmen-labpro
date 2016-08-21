@@ -2,24 +2,56 @@
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
       <h2 class="p-b-1">Registration</h2>
-      <form ng-controller='RegisterController' ng-submit='submit()'>
+      <form name="regForm" ng-controller='RegisterController' ng-submit='submit()'>
         <fieldset class="form-group">
           <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" ng-model="user.username" placeholder="e.g. allenturner">
+          <input type="text" class="form-control" name="username" id="username" ng-model="user.username" placeholder="e.g. allenturner" required username>
         </fieldset>
+        <div ng-show="regForm.username.$touched">
+          <div ng-show="regForm.username.$error.required" class="alert alert-danger" role="alert">
+            This cannot be left blank
+          </div>
+          <div ng-show="regForm.username.$error.username" class="alert alert-danger" role="alert">
+            Username is already taken
+          </div>
+        </div>
         <fieldset class="form-group">
           <label for="fullname">Full Name</label>
-          <input type="text" class="form-control" id="fullname" ng-model="user.fullname" placeholder="e.g. Allen Turner">
+          <input type="text" class="form-control" name="fullname" id="fullname" ng-model="user.fullname" placeholder="e.g. Allen Turner" required>
         </fieldset>
+        <div ng-show="regForm.fullname.$touched">
+          <div ng-show="regForm.fullname.$error.required" class="alert alert-danger" role="alert">
+            This cannot be left blank
+          </div>
+        </div>
         <fieldset class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" ng-model="user.email" placeholder="Email">
+          <input type="email" class="form-control" name="email" id="email" ng-model="user.email" placeholder="Email" required emailcheck>
         </fieldset>
+        <div ng-show="regForm.email.$touched">
+          <div ng-show="regForm.email.$error.required" class="alert alert-danger" role="alert">
+            This cannot be left blank
+          </div>
+          <div ng-show="regForm.email.$error.email" class="alert alert-danger" role="alert">
+            Invalid email
+          </div>
+          <div ng-show="regForm.email.$error.emailcheck" class="alert alert-danger" role="alert">
+            Email is already taken
+          </div>
+        </div>
         <fieldset class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" ng-model="user.password" placeholder="Password">
+          <input type="password" class="form-control" name="password" id="password" ng-model="user.password" ng-minlength="6" placeholder="Password" required>
         </fieldset>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div ng-show="regForm.password.$touched">
+          <div ng-show="regForm.password.$error.required" class="alert alert-danger" role="alert">
+            This cannot be left blank
+          </div>
+          <div ng-show="regForm.password.$error.minlength" class="alert alert-danger" role="alert">
+            Minimum 6 characters
+          </div>
+        </div>
+        <button type="submit" ng-disabled="regForm.$invalid" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>

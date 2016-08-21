@@ -18,7 +18,12 @@ picshareApp.factory('Authentication', function($window, $http, User) {
 
     if (token) {
       user = JSON.parse($window.atob(token.split('.')[1]));
-      return user.exp > Date.now() / 1000;
+      if (user.exp > Date.now() / 1000) {
+        return true;
+      } else {
+        logout();
+        return false;
+      }
     } else {
       return false;
     }
@@ -29,6 +34,15 @@ picshareApp.factory('Authentication', function($window, $http, User) {
       var token = getToken();
       var user = JSON.parse($window.atob(token.split('.')[1]));
       return user.username;
+    }
+    return undefined;
+  },
+
+  getCurrentEmail = function() {
+    if (isLoggedIn()) {
+      var token = getToken();
+      var user = JSON.parse($window.atob(token.split('.')[1]));
+      return user.email;
     }
     return undefined;
   },
@@ -46,6 +60,7 @@ picshareApp.factory('Authentication', function($window, $http, User) {
     login: login,
     logout: logout,
     isLoggedIn: isLoggedIn,
-    getCurrentUser: getCurrentUser
+    getCurrentUser: getCurrentUser,
+    getCurrentEmail: getCurrentEmail
   }
 });

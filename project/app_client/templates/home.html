@@ -16,7 +16,9 @@
       <div class="user-info">
         <img class="avatar m-r-2" ng-src="{{post.user.avatar}}">
         <span><a ng-href="/{{post.user.username}}"><b>{{post.user.username}}</b></a></span>
-        <span class="time">{{post.time}}</span>
+        <a href class="time" data-container="body" data-toggle="popover" data-placement="right" data-content="{{post.date}}">
+          {{post.time}}
+        </a>
       </div>
       <div class="home-post">
         <a ng-href="/posts/{{post._id}}">
@@ -33,3 +35,5 @@
     </div>
   </div>
 </div>
+
+<script src="static/scripts/popover.js"></script>

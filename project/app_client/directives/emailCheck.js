@@ -1,15 +1,17 @@
-picshareApp.directive('emailCheck', function($q, CheckDuplicate, Authentication) {
+picshareApp.directive('emailcheck', function($q, CheckDuplicate, Authentication) {
   return {
     require: 'ngModel',
     link: function(scope, elm, attrs, ctrl) {
-      ctrl.$asyncValidators.emailCheck = function(modelValue, viewValue) {
+      ctrl.$asyncValidators.emailcheck = function(modelValue, viewValue) {
         if (ctrl.$isEmpty(modelValue)) {
-          return $q.reject('Cannot be empty');
+          return $q.resolve();
         }
 
         var def = $q.defer();
-        CheckDuplicate.checkUsername(modelValue).then(function(res) {
+        CheckDuplicate.checkEmail(modelValue).then(function(res) {
           if (res.data.email == undefined) {
+            def.resolve();
+          } else if (res.data.email == Authentication.getCurrentEmail()) {
             def.resolve();
           } else {
             def.reject();

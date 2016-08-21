@@ -1,5 +1,5 @@
 picshareApp.controller('Home',
-function($scope, $http, $location, $q, $window, Authentication, User) {
+function($scope, $http, $location, $q, $window, Authentication, User, DateFormat) {
   $scope.isLoggedIn = Authentication.isLoggedIn();
 
   function sortPost(a, b) {
@@ -10,19 +10,6 @@ function($scope, $http, $location, $q, $window, Authentication, User) {
       return 1;
     return 0;
   };
-
-  function formatTime(dateString) {
-    var oneDay = 86400000;
-    var date = new Date(dateString);
-    var today = new Date();
-    if (today.getTime() - date.getTime() < oneDay
-        && today.getDate() - date.getDate() == 0) {
-      return date.getHours() + ':' + date.getMinutes();
-    } else {
-      return date.getDate() + '-' + (date.getMonth() + 1) + '-'
-              + (1900 + date.getYear());
-    }
-  }
 
   if ($scope.isLoggedIn) {
     var posts = [];
@@ -35,7 +22,8 @@ function($scope, $http, $location, $q, $window, Authentication, User) {
         var promise = User.get({username: user.following[i]}).$promise.then(function(following) {
           for (let j = 0; j < following.posts.length; j++) {
             following.posts[j].user = following;
-            following.posts[j].time = formatTime(following.posts[j].date);
+            following.posts[j].time = DateFormat.postTime(following.posts[j].date);
+            following.posts[j].date = String(new Date(following.posts[j].date));
             posts.push(following.posts[j]);
           }
         });

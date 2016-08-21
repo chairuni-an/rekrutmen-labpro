@@ -2,15 +2,40 @@
   <div class="container">
     <ul class="nav navbar-nav pull-xs-right">
       <li class="nav-item">
+        <div ng-show="isLoggedIn" class="dropdown" style="display: inline">
+          <a ng-click="resetNotif()" class="notif-bell" id="notif" data-toggle="dropdown"
+          href="#" data-target="#" aria-haspopup="true" aria-expanded="false">
+            <i class="navbar material-icons" ng-class="{'mdl-badge': user.newNotif !== 0, 'mdl-badge--overlap': user.newNotif !== 0}" data-badge="{{user.newNotif}}">notifications</i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right notif-menu" aria-labelledby="notif">
+            <div ng-show="noNotif" class="text-xs-center" style="margin-top: 10px; margin-bottom: 10px">
+              <span>No notifications</span>
+            </div>
+            <div ng-repeat="notif in user.notif">
+              <a class="dropdown-item" ng-href="{{notif.url}}" style="color: black; text-decoration: none">
+                <div>
+                  <img class="notif-img" ng-src="{{notif.img}}">
+                  <span ng-bind-html="notif.msg"></span>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+            </div>
+            <!-- <div ng-hide="noNotif" class="text-xs-center dropdown-item" style="margin-bottom: 10px">
+              <a style="color: black; text-decoration: none;" href="notifications">See All Notifications</a>
+            </div> -->
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
         <a class="nav-link active" ng-hide="isLoggedIn" href="login">Login</a>
         <div ng-show="isLoggedIn" class="dropdown" style="display: inline">
           <a class="nav-link active dropdown-toggle" id="dMenu" data-toggle="dropdown"
           href="#" data-target="#" aria-haspopup="true" aria-expanded="false">
-            {{currentUser}}
+            {{user.username}}
           </a>
           <div class="dropdown-menu" aria-labelledby="dMenu">
             <a class="dropdown-item" ng-click="deletePost()" href="/">Home</a>
-            <a class="dropdown-item" ng-href="/{{currentUser}}">Profile</a>
+            <a class="dropdown-item" ng-href="/{{user.username}}">Profile</a>
             <a class="dropdown-item" href ng-click="logout()">Logout</a>
           </div>
         </div>
@@ -19,8 +44,8 @@
 
     <a href="/" class="navbar-brand">PICSHARE</a>
     <form ng-submit="redirect(username)" class="form-inline">
-      <input type="text" ng-model="username" name="username" aria-describedby="basic-addon1"
-      placeholder="Username..." class="form-control"/>
+      <input autocomplete="off" type="text" ng-model="username" name="username" aria-describedby="basic-addon1"
+      placeholder="Search" class="form-control"/>
       <button type="submit" class="btn btn-primary">Go</button>
     </form>
   </div>

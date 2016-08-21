@@ -4,6 +4,7 @@ var User = require('../models/user');
 
 module.exports = function(router) {
   router.get('/checkUsername/:username', function(req, res) {
+    console.log('GET Request: ' + req.url);
     var username = req.params.username;
     User.findOne({username: username}, function(err, user) {
       if (err) {
@@ -17,6 +18,7 @@ module.exports = function(router) {
   });
 
   router.get('/checkEmail/:email', function(req, res) {
+    console.log('GET Request: ' + req.url);
     var email = req.params.email;
     User.findOne({email: email}, function(err, user) {
       if (err) {

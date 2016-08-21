@@ -41,11 +41,12 @@ picshareApp.controller('AccountController', function($scope, $window, $location,
     {
       bio: $scope.user.bio,
       email: $scope.user.email,
-      fullname: $scope.user.fullname,
-      username: $scope.user.username
+      fullname: $scope.user.fullname
     }).$promise.then(function(data) {
-      Authentication.saveToken(data.token);
-      $window.location.reload();
+      if (data.token) {
+        Authentication.saveToken(data.token);
+        $scope.profStatus = 1;
+      }
     });
   }
 

@@ -1,4 +1,4 @@
-var picshareApp = angular.module('picshareApp', ['ngAnimate', 'ngRoute', 'ngResource', 'ngFileUpload']);
+var picshareApp = angular.module('picshareApp', ['ngAnimate', 'ngSanitize', 'ngRoute', 'ngResource', 'ngFileUpload']);
 
 picshareApp.config(function($locationProvider, $routeProvider) {
    $routeProvider.when('/error', {
@@ -16,8 +16,14 @@ picshareApp.config(function($locationProvider, $routeProvider) {
    .when('/account', {
        templateUrl: 'templates/account.html'
    })
+   .when('/notifications', {
+       templateUrl: 'templates/notifcations.html'
+   })
    .when('/auth/twitter', {
        templateUrl: 'templates/auth.html'
+   })
+   .when('/search/:q', {
+       templateUrl: 'templates/search.html'
    })
    .when('/:username', {
        templateUrl: 'templates/profile.html'

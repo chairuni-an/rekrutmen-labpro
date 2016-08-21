@@ -24,6 +24,13 @@ var userSchema = new Schema({
   avatar: String,
   hash: String,
   salt: String,
+  notif: [{
+    img: String,
+    url: String,
+    msg: String,
+    date: Date
+  }],
+  newNotif: Number,
   following: [ String ],
   followers: [ String ],
   auth: {
@@ -53,8 +60,8 @@ userSchema.methods.generateJwt = function() {
   expiry.setDate(expiry.getDate() + 7);
 
   return jwt.sign({
-    _id: this._id,
     username: this.username,
+    email: this.email,
     exp: parseInt(expiry.getTime() / 1000)
   }, '1234567890QWERTY');
 };

@@ -9,6 +9,9 @@
         <a class="p-l-1" ng-href="{{post.user.username}}" style="color:black">
           <b>{{post.user.username}}</b>
         </a>
+        <a href class="time" data-container="body" data-toggle="popover" data-placement="top" data-content="{{post.date}}">
+          {{post.time}}
+        </a>
       </div>
       <div class="likes">
         <a href data-toggle="modal" data-target="#like" ng-click="getLikers(post)" style="color: black">{{post.likes.length}} likes</a>
@@ -76,3 +79,4 @@
 </div>
 
 <script src="static/scripts/adjustPost.js"></script>
+<script src="static/scripts/popover.js"></script>

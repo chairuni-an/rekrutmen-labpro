@@ -1,4 +1,4 @@
-picshareApp.controller('PostController', function($scope, $q, $location, Comment,
+picshareApp.controller('PostController', function($scope, $q, $location, Comment, DateFormat,
                                                   Post, User, Like, Authentication) {
   var params = $location.path().split('/');
 
@@ -8,6 +8,11 @@ picshareApp.controller('PostController', function($scope, $q, $location, Comment
 
   Post.get({ id: params[2] })
   .$promise.then(function(post) {
+    if (post.error) {
+      return $location.path('error');
+    }
+    post.time = DateFormat.postTime(post.date);
+    post.date = String(new Date(post.date));
     $scope.post = post;
     $scope.isCurrentUser = Authentication.getCurrentUser() == post.user.username;
     $scope.isLiked = checkIfLiked();

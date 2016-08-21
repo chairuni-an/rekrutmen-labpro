@@ -32,6 +32,10 @@
   width: 600px;
 }
 
+.tag-img {
+  width: 523px !important;
+}
+
 .user-info {
   padding: 8px 24px;
   height: 64px;
@@ -55,6 +59,12 @@
 
 .time {
   margin-left: auto;
+  color: black;
+}
+
+.time:hover {
+  text-decoration: none;
+  color: black;
 }
 
 .post {

@@ -23,6 +23,7 @@ module.exports = function(router) {
   var _requestSecret;
 
   router.get('/request-token', function(req, res) {
+    console.log('GET Request: ' + req.url);
     twitter.getRequestToken(function(err, requestToken, requestSecret) {
       if (err)
         res.status(500).send(err);
@@ -35,6 +36,7 @@ module.exports = function(router) {
   });
 
   router.get("/access-token", function(req, res) {
+    console.log('GET Request: ' + req.url);
     var requestToken = req.query.oauth_token,
     verifier = req.query.oauth_verifier;
 
@@ -50,6 +52,7 @@ module.exports = function(router) {
   });
 
   router.post("/tweet", function(req, res) {
+    console.log('POST Request: ' + req.url);
     var postID = req.body.postID;
     var desc = req.body.desc;
     var accessToken = req.body.token;

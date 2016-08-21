@@ -5,25 +5,42 @@ var passport = require('passport');
 var User = require('../models/user');
 var Post = require('../models/post');
 
+function getHashtags(desc) {
+  var strings = desc.split(' ');
+  console.log(strings);
+  var ans = [];
+  for (let i = 0; i < strings.length; i++) {
+    if (strings[i][0] === "#") {
+      ans.push(strings[i].substring(1));
+    }
+  }
+  return ans;
+}
+
 module.exports = function(router) {
   router.get('/posts/:id', function(req, res) {
+    console.log('GET Request: ' + req.url);
     var id = req.params.id; // ID string
 
     Post.findOne({'_id': id})
     .populate('user')
     .exec(function(err, post) {
       if (err) { console.log(err); }
-      res.json(post);
+      if (!post) {
+        res.json({
+          error: true
+        });
+      } else {
+        res.json(post);
+      };
     });
   });
 
   router.post('/posts', upload.single('file'), function(req, res) {
+    console.log('POST Request: ' + req.url);
     var filePath = '/static/posts/' + req.file.filename;
     var user_id = req.body.user_id;
     var desc = req.body.desc;
-
-    console.log(user_id);
-
     var post = new Post({
       user: user_id,
       img: filePath,
@@ -31,7 +48,7 @@ module.exports = function(router) {
       desc: desc,
       comments: [],
       likes: [],
-      hashtags: []
+      hashtags: getHashtags(desc)
     });
     post.save(function(err) {
       if (err) { return res.json({err: err}); }
@@ -47,6 +64,7 @@ module.exports = function(router) {
   });
 
   router.delete('/posts/:id', function(req, res) {
+    console.log('DELETE Request: ' + req.url);
     var id = req.params.id;
     Post.findById(id)
     .populate('user', '_id')
@@ -69,6 +87,5 @@ module.exports = function(router) {
         })
       });
     });
-
   });
 }

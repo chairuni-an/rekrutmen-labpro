@@ -62,6 +62,7 @@ picshareApp.controller('ProfileController', function($scope, $window, $location,
         $scope.user.following = user.following;
         $scope.user.followers = user.followers;
         $scope.isFollowed = checkIfFollowed();
+        $scope.followers = undefined;
       });
     }
   }
@@ -75,6 +76,7 @@ picshareApp.controller('ProfileController', function($scope, $window, $location,
       $scope.user.following = user.following;
       $scope.user.followers = user.followers;
       $scope.isFollowed = checkIfFollowed();
+      $scope.followers = undefined;
     });
   }
 

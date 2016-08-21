@@ -1,9 +1,24 @@
-picshareApp.controller('NavController', function($scope, $window, $location, Authentication) {
+picshareApp.controller('NavController', function($scope, $window, $location, $http, Authentication, User) {
   //Authentication.logout();
   $scope.isLoggedIn = Authentication.isLoggedIn();
-  $scope.currentUser = Authentication.getCurrentUser();
+
+  if (Authentication.getCurrentUser()) {
+    User.get({username: Authentication.getCurrentUser()}).$promise.then(function(user) {
+      $scope.user = user;
+      $scope.noNotif = user.notif.length === 0;
+    });
+  }
+
   $scope.logout = Authentication.logout;
-  $scope.redirect = function(username) {
-    $location.path(username);
+
+  $scope.redirect = function(q) {
+    $location.path('search/' + q);
+  }
+
+  $scope.resetNotif = function() {
+    $http.post('api/users/' + Authentication.getCurrentUser() + '/notif')
+    .then(function(res) {
+      $scope.user.newNotif = 0;
+    });
   }
 });
