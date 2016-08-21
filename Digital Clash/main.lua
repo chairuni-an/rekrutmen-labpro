@@ -1,5 +1,3 @@
--- score 4 orang, damage q 
-
 -- Collision detection 
 function CheckCollisionDown(x1,y1,w1,h1, x2,y2,w2,h2)
 	return x1+w1 >= x2 and x1 <= x2+w2 and y1+h1 >= y2 and y1+h1 <= y2+20
@@ -155,7 +153,7 @@ function SetKeyboard(player,lands,bullets,traps,a,d,w,e,q,r,dt)
 	if love.keyboard.isDown(q) and player.canTrap then
 		player.img = love.graphics.newImage('assets/char' .. player.selected .. '-fist1-' .. player.direction .. '.png')
 		player.canTrap = false
-		trap = { x = player.x, y = player.y, width = 100, height = 100, timer = 0, active = false }
+		trap = { x = player.x, y = player.y, width = 100, height = 100, timer = 0, activeTime = false, active = true }
 		table.insert(traps,trap)
 	end
 	
@@ -298,7 +296,7 @@ function SetJoystick(player,lands,bullets,traps,joystick,dt)
 	if joystick:isDown(1) and player.canTrap then
 		player.img = love.graphics.newImage('assets/char' .. player.selected .. '-fist1-' .. player.direction .. '.png')
 		player.canTrap = false
-		trap = { x = player.x, y = player.y, width = 100, height = 100, timer = 0, active = false }
+		trap = { x = player.x, y = player.y, width = 100, height = 100, timer = 0, activeTime = false, active = true }
 		table.insert(traps,trap)
 	end
 	
@@ -334,6 +332,12 @@ function love.load(arg)
 	iconChar3 = love.graphics.newImage('assets/char3-icon.png')
 	iconChar4 = love.graphics.newImage('assets/char4-icon.png')
 	healthbar = love.graphics.newImage('assets/healthbar.png')
+	
+	-- Controller
+	controllerImg1 = love.graphics.newImage('assets/keyboard1-controller.png')
+	controllerImg2 = love.graphics.newImage('assets/keyboard2-controller.png')
+	controllerImg3 = love.graphics.newImage('assets/joystick-controller.png')
+	controllerImg4 = love.graphics.newImage('assets/joystick-controller.png')
 	
 	-- Land
 	lands = {} 
@@ -387,15 +391,19 @@ function love.load(arg)
 	newlands = { x=458, y=225, img=landsImg }
 	table.insert(lands, newlands)
 	
+	-- Music
+	music = love.audio.newSource("musics/nanobii-happy hardcore.mp3")
+	musicfight = love.audio.newSource("musics/pokemon-fight music.mp3")
+	
 	-- Player
 	players = {}
 	player = { x = nil, y = 500, speed = 150, img = nil, health = 100, initialWidth = 0, initialHeight = 0, 
-							canFist = true, canFistTimerMax = 0.2, canFistTimer = -1, canJump = true, canJumpTimerMax = 1, canJumpTimer = -1, canTrap = true,
-							CheckAllCollisionDown = false, CheckAllCollisionUp = false, CheckAllCollisionLeft = false, CheckAllCollisionRight = false,
-							canShoot = true, canShootTimerMax = 0.8, canShootTimer = -1, bulletSpeed = 300, bulletDamage = 10,
-							canComboTimer = 1, canComboTimerMax = 1, combo = 0, attacked = false, attackedTimer = -1, attackedTimerMax = 0.5, 
-							score = 0, scoreNow = 0, selected = nil, rank = -1, direction = 'left', modeRange = false, iconImg = nil, isAlive = false,
-							canChange = true, canChangeTimer = -1, canChangeTimerMax = 0.3, Collide = nil }
+				canFist = true, canFistTimerMax = 0.2, canFistTimer = -1, canJump = true, canJumpTimerMax = 1, canJumpTimer = -1, canTrap = true,
+				CheckAllCollisionDown = false, CheckAllCollisionUp = false, CheckAllCollisionLeft = false, CheckAllCollisionRight = false,
+				canShoot = true, canShootTimerMax = 0.8, canShootTimer = -1, bulletSpeed = 300, bulletDamage = 10,
+				canComboTimer = 1, canComboTimerMax = 1, combo = 0, attacked = false, attackedTimer = -1, attackedTimerMax = 0.5, 
+				score = 0, scoreNow = 0, selected = nil, rank = -1, direction = 'left', modeRange = false, iconImg = nil, isAlive = false,
+				canChange = true, canChangeTimer = -1, canChangeTimerMax = 0.5, Collide = nil, controller = -1}
 	for i=1,4 do
 		table.insert(players,player)
 	end
@@ -420,6 +428,12 @@ function love.load(arg)
 	-- Bullet
 	bullets = {}
 	
+	-- Picked Controller
+	pickedController = {}
+	for i=1, 4 do
+		pickedController[i] = -1
+	end
+	
 	-- Phase
 	phase = 1
 	selected = 1
@@ -437,6 +451,8 @@ function love.update(dt)
 	joystickcount = love.joystick.getJoystickCount()
 	
 	if phase == 1 then
+		music:play()
+		music:setLooping(true)
 		timerChoose = timerChoose + 1*dt
 		if timerChoose > timerMaxChoose then
 			if love.keyboard.isDown('down') then
@@ -466,18 +482,18 @@ function love.update(dt)
 			if love.keyboard.isDown('down') then
 				timerChoose = 0
 				selected = selected + 1
-				--if selected > 1+joystickcount and selected < 4 then
-					--selected = 4
-				--end
+				if selected > 1+joystickcount and selected < 4 then
+					selected = 4
+				end
 				if selected > 4 then
 					selected = 1
 				end
 			elseif love.keyboard.isDown('up') then
 				timerChoose = 0
 				selected = selected - 1
-				--if selected > 1+joystickcount and selected < 4 then
-					--selected = 1+joystickcount
-				--end
+				if selected > 1+joystickcount and selected < 4 then
+					selected = 1+joystickcount
+				end
 				if selected < 1 then
 					selected = 4
 				end
@@ -502,6 +518,81 @@ function love.update(dt)
 				if love.keyboard.isDown('right') then
 					timerChoose = 0
 					selected = selected + 1
+					if (selected > 2+joystickcount and selected < 5) or (selected == 6) then
+						selected = 1
+					end
+				elseif love.keyboard.isDown('left') then
+					timerChoose = 0
+					selected = selected - 1
+					if (selected > 2+joystickcount and selected < 5) or (selected < 1) then
+						selected = 2+joystickcount
+					end
+				elseif love.keyboard.isDown('down') then
+					timerChoose = 0
+					selected = 5
+				elseif love.keyboard.isDown('up') then
+					timerChoose = 0
+					selected = 1
+				end
+				i = 1
+				while i<=counterplayer-1 do
+					j = 1
+					foundSelected = false
+					while j<=4 and foundSelected == false do 
+						if selected == pickedController[j] then
+							foundSelected = true
+						else
+							j = j + 1
+						end
+					end
+					if foundSelected then
+						selected = selected + 1
+						if selected > 2+joystickcount and selected < 5 then
+							selected = 1
+						end
+					end
+					i = i+1
+				end
+				if love.keyboard.isDown('return') then
+					timerChoose = 0
+					if selected == 5 then
+						phase = 2
+						selected = 1	
+						counterplayer = 1
+						for i=1, 4 do
+							pickedController[i] = -1
+						end
+					else
+						player = { x = nil, y = 500, speed = 150, img = nil, health = 100, initialWidth = 0, initialHeight = 0, 
+									canFist = true, canFistTimerMax = 0.2, canFistTimer = -1, canJump = true, canJumpTimerMax = 1, canJumpTimer = -1, canTrap = true,
+									CheckAllCollisionDown = false, CheckAllCollisionUp = false, CheckAllCollisionLeft = false, CheckAllCollisionRight = false,
+									canShoot = true, canShootTimerMax = 0.8, canShootTimer = -1, bulletSpeed = 300, bulletDamage = 10,
+									canComboTimer = 1, canComboTimerMax = 1, combo = 0, attacked = false, attackedTimer = -1, attackedTimerMax = 0.5, 
+									score = 0, scoreNow = 0, selected = nil, rank = -1, direction = 'left', modeRange = false, iconImg = nil, isAlive = false,
+									canChange = true, canChangeTimer = -1, canChangeTimerMax = 0.3, Collide = nil, controller = -1}
+						player.controller = selected
+						players[counterplayer] = player
+						pickedController[counterplayer] = selected
+						counterplayer = counterplayer + 1
+					end
+				end
+			end
+		else
+			timerChoose = 0
+			counterplayer = 1
+			selected = 1
+			phase = 4
+			for i=1, 4 do
+				pickedController[i] = -1
+			end
+		end	
+	elseif phase == 4 then
+		if counterplayer <= nplayers then
+			timerChoose = timerChoose + 1*dt
+			if timerChoose > timerMaxChoose then
+				if love.keyboard.isDown('right') then
+					timerChoose = 0
+					selected = selected + 1
 					if selected > 4 then
 						selected = 1
 					end
@@ -511,35 +602,51 @@ function love.update(dt)
 					if selected < 1 then
 						selected = 4
 					end
-				elseif love.keyboard.isDown('return') then
-					player = { x = 83+ 1200/nplayers*(counterplayer-1), y = 500, speed = 150, img = nil, health = 100, initialWidth = 0, initialHeight = 0, 
-							canFist = true, canFistTimerMax = 0.2, canFistTimer = -1, canJump = true, canJumpTimerMax = 1, canJumpTimer = -1, canTrap = true,
-							CheckAllCollisionDown = false, CheckAllCollisionUp = false, CheckAllCollisionLeft = false, CheckAllCollisionRight = false,
-							canShoot = true, canShootTimerMax = 0.8, canShootTimer = -1, bulletSpeed = 300, bulletDamage = 10,
-							canComboTimer = 1, canComboTimerMax = 1, combo = 0, attacked = false, attackedTimer = -1, attackedTimerMax = 0.5, 
-							score = 0, scoreNow = 0, selected = nil, rank = -1, direction = 'left', modeRange = false, iconImg = nil, isAlive = true,
-							canChange = true, canChangeTimer = -1, canChangeTimerMax = 0.3, Collide = nil }
+				elseif love.keyboard.isDown('down') then
 					timerChoose = 0
-					players[counterplayer] = player
-					players[counterplayer].selected = selected
-					players[counterplayer].img = love.graphics.newImage("assets/char".. players[counterplayer].selected .."-" .. players[counterplayer].direction .. ".png")
-					players[counterplayer].iconImg = love.graphics.newImage("assets/char".. players[counterplayer].selected .."-icon.png")
-					players[counterplayer].initialWidth = players[counterplayer].img:getWidth()
-					players[counterplayer].initialHeight = players[counterplayer].img:getHeight()
-					if players[counterplayer].x < 683 then
-						players[counterplayer].direction = 'right' 
+					selected = 5
+				elseif love.keyboard.isDown('up') then
+					timerChoose = 0
+					selected = 1
+				elseif love.keyboard.isDown('return') then
+					timerChoose = 0
+					if selected == 5 then
+						phase = 3
+						selected = 1	
+						counterplayer = 1
 					else
-						players[counterplayer].direction = 'left'
+						player = { x = 83+ 1200/nplayers*(counterplayer-1), y = 500, speed = 150, img = nil, health = 100, initialWidth = 0, initialHeight = 0, 
+								canFist = true, canFistTimerMax = 0.2, canFistTimer = -1, canJump = true, canJumpTimerMax = 1, canJumpTimer = -1, canTrap = true,
+								CheckAllCollisionDown = false, CheckAllCollisionUp = false, CheckAllCollisionLeft = false, CheckAllCollisionRight = false,
+								canShoot = true, canShootTimerMax = 0.8, canShootTimer = -1, bulletSpeed = 300, bulletDamage = 10,
+								canComboTimer = 1, canComboTimerMax = 1, combo = 0, attacked = false, attackedTimer = -1, attackedTimerMax = 0.5, 
+								score = 0, scoreNow = 0, selected = nil, rank = -1, direction = 'left', modeRange = false, iconImg = nil, isAlive = true,
+								canChange = true, canChangeTimer = -1, canChangeTimerMax = 0.3, Collide = nil, controller = -1}
+						player.controller = players[counterplayer].controller
+						players[counterplayer] = player
+						players[counterplayer].selected = selected
+						players[counterplayer].img = love.graphics.newImage("assets/char".. players[counterplayer].selected .."-" .. players[counterplayer].direction .. ".png")
+						players[counterplayer].iconImg = love.graphics.newImage("assets/char".. players[counterplayer].selected .."-icon.png")
+						players[counterplayer].initialWidth = players[counterplayer].img:getWidth()
+						players[counterplayer].initialHeight = players[counterplayer].img:getHeight()
+						if players[counterplayer].x < 683 then
+							players[counterplayer].direction = 'right' 
+						else
+							players[counterplayer].direction = 'left'
+						end
+						counterplayer = counterplayer + 1
 					end
-					counterplayer = counterplayer + 1
 				end
 			end
 		else
-			phase = 4
+			phase = 5
 			point = 5
 			winner = -1
 		end
-	elseif phase == 4 then
+	elseif phase == 5 then
+		music:stop()
+		musicfight:play()
+		musicfight:setLooping(true)
 		-- Obstacle
 		for i, obstacle in ipairs (obstacles) do
 			obstacle.timerAppear = obstacle.timerAppear + dt * 1
@@ -573,16 +680,16 @@ function love.update(dt)
 		
 		-- Trap
 		for i, trap in ipairs(traps) do
-			if trap.timer>4 then
-				trap.active = true
+			if trap.timer>4 and trap.active then
+				trap.activeTime = true
 			else
 				trap.timer = trap.timer + 1*dt
 			end
-			if trap.active then
+			if trap.activeTime then
 				for j, player in ipairs (players) do
 					if player.isAlive == true then
 						if CheckCollision(player.x, player.y, player.img:getWidth(), player.img:getHeight(), trap.x, trap.y, trap.width, trap.height) then
-							player.health = player.health - 100
+							player.health = player.health - 50
 							if player.health <= 0 then
 								player.health = 0
 							end
@@ -593,7 +700,8 @@ function love.update(dt)
 							else
 								player.direction = 'left'
 							end
-							table.remove(traps, i)
+							trap.active = false
+							trap.activeTime = false
 						end
 					end
 				end
@@ -695,6 +803,7 @@ function love.update(dt)
 				-- Jump
 				player.canJumpTimer = player.canJumpTimer - (1 * dt)
 				if player.canJumpTimer > 0.5 then
+					player.img = love.graphics.newImage('assets/char' .. player.selected .. '-jump-' .. player.direction .. '.png')
 					for j, land in ipairs(lands) do
 						if CheckCollisionUp(player.x, player.y, player.img:getWidth(), player.img:getHeight(), land.x, land.y, land.img:getWidth(), land.img:getHeight()) then
 							player.CheckAllCollisionUp = true
@@ -740,6 +849,7 @@ function love.update(dt)
 						end
 					end
 					if player.CheckAllCollisionDown == false then
+						player.img = love.graphics.newImage('assets/char' .. player.selected .. "-" .. player.direction .. '.png')
 						player.y = player.y + (500*dt)
 						player.canJump = false
 					else 
@@ -759,15 +869,18 @@ function love.update(dt)
 			end
 		end
 		
-		-- Controller
-		SetKeyboard(players[1],lands,bullets,traps,'a','d','w','e','q','r',dt)
-		SetKeyboard(players[2],lands,bullets,traps,'left','right','up','end','rshift','/',dt)
-		--if nplayers == 3 then
-			--SetJoystick(players[3],lands,bullets,traps,joysticks[1],dt)
-		--end
-		--if nplayers == 4 then
-			--SetJoystick(players[4],lands,bullets,traps,joysticks[2],dt)
-		--end
+		-- Controller	
+		for i, player in ipairs(players) do
+			if player.controller == 1 then
+				SetKeyboard(player,lands,bullets,traps,'a','d','w','e','q','r',dt)
+			elseif player.controller == 2 then
+				SetKeyboard(player,lands,bullets,traps,'left','right','up','end','rshift','/',dt)
+			elseif player.controller == 3 then
+				SetJoystick(player,lands,bullets,traps,joysticks[1],dt)
+			elseif player.controller == 4 then
+				SetJoystick(player,lands,bullets,traps,joysticks[2],dt)
+			end
+		end
 		
 		-- Game over
 		sum = 0
@@ -788,32 +901,28 @@ function love.update(dt)
 		
 		if sum > (nplayers - 2) then
 			players[winner].scoreNow = players[winner].scoreNow + point
-			phase = 5
+			phase = 6
 			selected = 1
 			for i=1,nplayers do
 				players[i].score = players[i].score + players[i].scoreNow
 			end
 			temp = nil
-			for i=1,nplayers-1 do
+			for i=1,nplayers do
 				temp = i
 				while players[temp].rank ~= -1 do
 					temp = temp-1
 				end
 				for j=1,nplayers do
-					if players[temp].score < players[j].score and players[j].rank ~= i-1 then
+					if players[temp].score < players[j].score and players[j].rank == -1 then
 						temp = j
 					end
 				end
 				players[temp].rank = i
 			end
 			
-			for i=1,nplayers do
-				if players[i].rank == -1 then
-					players[i].rank = nplayers
-				end
-			end
+			
 		end
-	elseif phase == 5  then
+	elseif phase == 6  then
 		
 		timerChoose = timerChoose + 1*dt
 		if timerChoose > timerMaxChoose then
@@ -831,8 +940,14 @@ function love.update(dt)
 				end
 			elseif love.keyboard.isDown('return') then
 				timerChoose = 0
+				for i, bullet in ipairs(bullets) do
+					table.remove(bullets, i)
+				end
+				for i, trap in ipairs(traps) do
+					trap.active = false
+				end
 				if selected == 1 then
-					phase = 4
+					phase = 5
 					point = 5
 					winner = -1
 					for i=1,nplayers do
@@ -869,11 +984,44 @@ function love.update(dt)
 						players[i].Collide = nil
 					end
 				elseif selected == 2 then
-					for i,player in ipairs(players) do
-						table.remove(players, i)
+					for i=1,nplayers do
+						players[i].x = 83+ 1200/nplayers*(i-1) 
+						players[i].y = 520
+						players[i].health = 100
+						players[i].scoreNow = 0
+						players[i].canTrap = true
+						players[i].rank = -1
+						players[i].canFist = true 
+						players[i].canFistTimerMax = 0.2 
+						players[i].canFistTimer = -1 
+						players[i].canJump = true 
+						players[i].canJumpTimerMax = 1
+						players[i].canJumpTimer = -1 
+						players[i].canShoot = true 
+						players[i].canShootTimerMax = 0.8 
+						players[i].canShootTimer = -1
+						players[i].canComboTimer = 1 
+						players[i].canComboTimerMax = 1 
+						players[i].combo = 0 
+						players[i].attacked = false 
+						players[i].attackedTimer = -1
+						players[i].attackedTimerMax = 0.5
+						players[i].isAlive = false
+						if players[i].x < 683 then
+							players[i].direction = 'right' 
+						else
+							players[i].direction = 'left'
+						end
+						players[i].modeRange = false
+						players[i].canChange = true
+						players[i].canChangeTimer = -1
+						players[i].Collide = nil
 					end
 					phase = 1
 					selected = 1
+					musicfight:stop()
+					music:play()
+					music:setLooping(true)
 				end
 			end
 		end
@@ -922,28 +1070,54 @@ function love.draw(dt)
 		love.graphics.setColor(255, 255, 255)
 	elseif phase == 3 then
 		love.graphics.draw(characterBackgroundImg, 0, 0)
+		love.graphics.print("PLAYERS " .. counterplayer, 635, 200)
+		if selected == 1 then
+			love.graphics.draw(controllerImg1, 333, 300)
+		elseif selected == 2 then
+			love.graphics.draw(controllerImg2, 333, 300)
+		elseif selected == 3 then
+			love.graphics.draw(controllerImg3, 333, 300)
+		elseif selected == 4 then
+			love.graphics.draw(controllerImg4, 333, 300)
+		end
+		love.graphics.setColor(175, 175, 175)
+		if selected == 5 then
+			love.graphics.setColor(255, 255, 255)
+		end
+		love.graphics.print("Back", 665, 650)
+		love.graphics.setColor(255, 255, 255)
+	elseif phase == 4 then
+		love.graphics.draw(characterBackgroundImg, 0, 0)
 		if counterplayer < 5 then
 			pointerPlayer = love.graphics.newImage('assets/player' .. counterplayer .. '-pointer.png')
 		end
 		if selected == 1 then
-			love.graphics.draw(pointerPlayer,443,610)
+			love.graphics.draw(pointerPlayer,443,520)
 		end
-		love.graphics.draw(iconChar1,453,650)
+		love.graphics.draw(iconChar1,453,560)
 		if selected == 2 then
-			love.graphics.draw(pointerPlayer,563,610)
+			love.graphics.draw(pointerPlayer,563,520)
 		end
-		love.graphics.draw(iconChar2,573,650)
+		love.graphics.draw(iconChar2,573,560)
 		if selected == 3 then
-			love.graphics.draw(pointerPlayer,683,610)
+			love.graphics.draw(pointerPlayer,683,520)
 		end
-		love.graphics.draw(iconChar3,693,650)
+		love.graphics.draw(iconChar3,693,560)
 		if selected == 4 then
-			love.graphics.draw(pointerPlayer,803,610)
+			love.graphics.draw(pointerPlayer,803,520)
 		end
-		love.graphics.draw(iconChar4,813,650)
-		showChar = love.graphics.newImage('assets/char' .. selected .. '-show.png')
-		love.graphics.draw(showChar,483,100)
-	elseif phase == 4 then
+		love.graphics.draw(iconChar4,813,560)
+		love.graphics.setColor(175, 175, 175)
+		if selected == 5 then
+			love.graphics.setColor(255, 255, 255)
+		end
+		love.graphics.print("Back", 665, 690)
+		love.graphics.setColor(255, 255, 255)
+		if selected ~= 5 then
+			showChar = love.graphics.newImage('assets/char' .. selected .. '-show.png')
+			love.graphics.draw(showChar,483,50)
+		end
+	elseif phase == 5 then
 		love.graphics.draw(backgroundImg, 0,0)
 		for i=1,nplayers do
 			love.graphics.draw(players[i].iconImg, 20+((1366/nplayers)*(i-1)), 675)
@@ -989,13 +1163,13 @@ function love.draw(dt)
 				end
 			end
 		end
-	elseif phase == 5 then
+	elseif phase == 6 then
 		love.graphics.draw(characterBackgroundImg, 0, 0)
 		love.graphics.draw(matchResultImg, 183, 100)
 		love.graphics.draw(matchResult2Img, 183, 500)
 		love.graphics.draw(bottomMatchResultImg, 183, 618)
 		for i=1,nplayers do
-			love.graphics.print(i .. players[1].score .. players[2].score .. players[3].score .. players[4].score, 370, 170 + (50*i))
+			love.graphics.print(i, 370, 170 + (50*i))
 			j = 1
 			found = false
 			while j<=nplayers and found == false do
@@ -1006,7 +1180,7 @@ function love.draw(dt)
 					j = j+1
 				end
 			end
-			--love.graphics.print(players[j].score, 990, 170 + (50*i))
+			love.graphics.print(players[j].score, 990, 170 + (50*i))
 		end	
 		love.graphics.setColor(175, 175, 175)
 		if selected == 1 then
