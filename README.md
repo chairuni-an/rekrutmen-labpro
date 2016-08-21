@@ -58,4 +58,12 @@ Source code berada di folder **project**
 
 Dokumen progress report serta dokumentasi Checkpoint 2 terlampir di folder **doc/Checkpoint_2**.
 
+## Pengumpulan
+* Rilis: 9 Agustus 2016
+* Deadline: 21 Agustus 2016
+* Deliverables: Source code dan screenshot dari aplikasi, serta progress report
 
+
+Source code berada di folder **project**
+
+Dokumen progress report serta dokumentasi Checkpoint 2 terlampir di folder **doc/Pengumpulan**.
