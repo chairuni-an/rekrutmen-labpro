@@ -1,0 +1,106 @@
+@extends('layouts.app')
+<style>
+.col-md-4-profile {
+    border-right: 2px solid #ccc;
+    height : auto;
+    text-align : center;
+}
+.timestamp {
+    color : green;
+    font-family: consolas;
+}
+.single-post {
+    border-top : 2px solid black;
+    margin-bottom : 20px;
+}
+.profile-info {
+    text-align : left;
+}
+</style>
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">View Post #{{ $post_id }}</div>
+                <div class="panel-body">
+                    @foreach ($posts as $post)
+                        <div class='col-md-12 single-post'>
+                            <div class="row" style="border-bottom: 2px solid #ccc;">
+                                <div class='col-md-6 timestamp'>{{ $post->created_at }}</div>
+                                <div class='col-md-6' style="text-align: right;">
+                                    <a href="{{url('viewpost/'.$post->id)}}">
+                                        {{ $post->id }}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class='col-md-4 col-md-4-profile'>
+                                <a href="{{url('profile/'.$post->user_id)}}">
+                                    <h5><strong>{{ $post->name }}</strong></h5>
+                                </a>
+                                <div class='col-md-12'>
+                                    <img src="{{ $post->avatar }}" style="width: 50%;">
+                                </div>
+                                <div class='col-md-12 profile-info'>
+                                    <div class="col-md-4">Location</div><div class="col-md-8">: {{ $post->city }}</div>
+                                    
+                                    <div class="col-md-4">Posts</div>
+                                    <div class="col-md-8">:
+                                        @foreach($users_posts as $up)
+                                            @if($up->user_id == $post->user_id)
+                                                @if($up->total_posts == null)
+                                                    0
+                                                @else
+                                                    {{ $up->total_posts }}
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                    </div>
+
+                                    <div class="col-md-4">Reputations</div>
+                                    <div class="col-md-8">:
+                                        @foreach($users_reps as $ur)
+                                            @if($ur->id == $post->user_id)
+                                                @if($ur->total_reps == null)
+                                                    0
+                                                @else
+                                                    {{ $ur->total_reps }}
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+
+                                <div class='col-md-12'>
+                                    @if(Auth::guest())
+                                        <div style="height : 50px"></div>
+                                    @else
+                                        <a href="{{url('add_reputation/'.$post->id)}}">
+                                            <img src="/forumgaul/public/rep.png" height=50px title="Give reputation!">
+                                        </a>
+                                    @endif
+                                </div>
+
+                                
+
+                            </div>
+                            <div class='col-md-8'>
+                                <h5><strong> {{ $post->title }} </strong></h5>
+                                <p>{{ $post->message }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-10"></div>
+                        <div class="col-md-1">
+                            <button type="button" class="btn btn-primary" 
+                                onclick="window.location='{{url('threads/'.$post->thread_id)}}'">
+                                Go to this thread
+                            </button>
+                        </div>
+                    @endforeach
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
