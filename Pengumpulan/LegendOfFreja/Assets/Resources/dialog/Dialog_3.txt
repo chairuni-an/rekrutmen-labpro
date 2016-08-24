@@ -1,0 +1,64 @@
+[Freja]{freja_3}{Q01}{B03}Here it come>
+[Freja]{B04}..!>
+[Freja]This place...>
+[Girl]{freja_4}Hey, catch!>
+[Freja]!>
+[Boy]{freja_5}Ouch! Where are you throwing at!>
+[Girl]Heheheh sorry! Didn't mean that!>
+[Boy]Geez!>
+[Girl]This time I'll throw this ball properly>
+[Boy]Hey you know, I'm bored! Let's do other thing!> 
+[Girl]Like what?>
+[Boy]Hmmmm I don't know>
+[Girl]...>
+[Boy]What should we do-- oh>
+[Boy]{freja_3}Hello, lady Freja!>
+[Freja]!>
+[Child Freja]Hello>
+[Freja]Oh... me?>
+[Girl]{freja_5}Oh I know! Why don't we go to the town? Today is the day of harvest festival right?>
+[Boy]Now I remember. Let's go, let's go!>
+[Boy]Lady Freja, how about you come with us?>
+[Girl]Come on, milady! I bet walking into the town in the day like this will be fun!>
+[Voice]{freja_9}Milady, you have to go to the altar>
+[Child Freja]I'm... sorry I can't. I have to go to the alter for training>
+[Boy]Really?? Oh boy that sucks>
+[Girl]Sshhh, watch you manner!>
+[Child Freja]{freja_14}*giggles*>
+[Boy]Huh, okay. See you later lady Freja. Let's go!>
+[Girl]Wait for me! See you later milady>
+[Child Freja]{freja_7}...later>
+[Voice]You must not do that milady>
+[Voice]You have to train yourself to become great Maiden>
+[Voice]{freja_9}As a Maiden, it is your duty to protect everyone. Your failure will endanger everyone>
+[Voice]Let's go milady, you have no time to play around. It's time to study>
+[Voice]Don't waste your time with hanging out with them>
+[]...>
+[Child Freja]*sob* why I cannot play with other kid...>
+[Child Freja]Why I have to become a priestess...>
+[Child Freja]Why I have the power of Maiden...>
+[Child Freja]..This is not what I want..>
+[Child Freja]I didn't ask for this!>
+[Child Freja]I hope I can spend my time like other kid>
+[Child Freja]I want to play like them, play with them>
+[Child Freja]I want... mother and father stays with me...>
+[Child Freja]Why...>
+[Child Freja]I don't want this anymore! I don't care with other people! Why should I make them happy when I cannot make myself happy...?>
+[Child Freja]I wish I can become like them. I wish I born as normal child... I don't want all of this...>
+[Child Freja]I wish--->
+[Freja]{freja_8}I can spent normal life like other people>
+[Rowee]{freja_7}{Qbirdie}{B00}Welcome back, missy>
+[Freja]{freja_7}...>
+[Rowee]I bet you understand the flashback without my explanation>
+[Freja]{freja_10}It was my childhood memory. I remember that I always envious of other child>
+[Freja]They can playing around entire of time whenever they want. I always feel envious of their laugh, their smile, and their happiness>
+[Freja]Why I should stayed inside of temple meanwhile children with same age playing around>
+[Freja]{freja_13}I remember that I cried almost every night because of this>
+[Freja]{freja_17}I guess the burden of the Maiden was too heavy for a child>
+[Rowee]{freja_7}That was monster: 'Invidia' the envy. And the seal that corresponding with is 'Benevolentia' the kindness>
+[Freja]{freja_1}This time's illusion is different that before...>
+[Rowee]{freja_5}Well, things will get more ugly the more you proceed this trial>
+[Freja]{freja_10}Oh....>
+[Rowee]{freja_5}Okay! Let's go to the fourth one!>
+[Rowee]The next one is the yellow one>
+[] ><

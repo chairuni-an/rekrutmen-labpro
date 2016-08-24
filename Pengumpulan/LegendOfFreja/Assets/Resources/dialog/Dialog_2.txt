@@ -1,0 +1,67 @@
+[Voice]{freja_5}{Q00}{B01}Another war is coming>
+[Voice]{freja_7}Again?>
+[Voice]Yes, the king declared a war to a southern country, Doune>
+[Voice]Doune was siding to our country in the previous war. Does that means the king betrayed them?>
+[Voice]I don't know. Well, as long as we are save, it's not our bussines. Now, let's drink again!>
+[]...>
+[Voice]You have to escape toward the mountain! This place is not safe!>
+[Voice]But, what about you father?! The Theit soldiers are everywhere! They will kill you if they see you!>
+[Voice]Don't worry... As the leader of Doune, I will not let that happen and I will bring back the peace into this country>
+[Voice]No--->
+[Voice]Why did they attack us?! We fought together before, facing same enemy! Why we have to fight each other now..?!>
+[Voice]Kill everyone in this city! It's an order from the king!>
+[Voice]Wh..y....>
+[Voice]It's sea of blood and fire...>
+[Voice]Please, don't kill us! Plea-->
+[]...
+[Voice]Your Majesty. Doune has fallen and the leader of Doune has been killed>
+[Man]...No it's not enough>
+[Voice]Your Majes-->
+[Man]It's just not enough! I want more, more, more power! Doune was not enough to fulfill my desire!>
+[Voice]Your Majesty! A rebellion has broke out in the entire of the country!>
+[Man]Hm?>
+[Voice]Those rebels said that they disagrees with your highness's decision to attack Doune instead of handling several major problem in this country....>
+[Man]What problem? I'm doing well at handling problems in this country>
+[Voice]Well... problem like starvation and disease that spread out among the citizen of worker class, and about the slavery issues...>
+[Voice]I have to say that with the problems like that and massive rebellion, this country is in dire situation, your Majesty>
+[Man]How brave of them to against me... Who they think they are? A mere rats of the country, fleas that have some nerve to against me?!>
+[Man]A king of the country that about rule the entire world! The most powerful human in this world! Even the gods cannot stand against me!>
+[Voice]Your High--->
+[Man]Kill them all>
+[Voice]What did you say...?>
+[Man]Kill them all, wipe those rats from this world>
+[Voice]But all of them are your citizen! Even they are powerless, they're still people of Threit!>
+[Man]Didn't you hear me? I don't need them. I don't need what you call as 'citizen'> 
+[Man]All I need is power>
+[Man]Power... power... power>
+[Man]A power that only me allowed to have! A power to rule the world! A power equal the gods!>
+[Man]I don't need anything but that!!>
+[Man]So>
+[Man]I don't care whatever happened to 'people', or other country>
+[Man]As long as I have the power!!! HAHAHAHAHA--->
+[Freja]{freja_9}{B00}....>
+[Freja]{freja_8}...It happened in the past too, Rowe...?>
+[Rowee]{freja_7}{Qbirdie}Aye, that's right, missy>
+[Rowee]It was the time when a massive rebellion broke out in entire of place in kingdom of Threit>
+[Freja]{freja_8}Threit... If I not wrong, is was a kingdom that fall 100 years ago...>
+[Rowee]{freja_7}Yes. The last king of Threit was a man called Xenos>
+[Rowee]He was a man with great desire of power>
+[Freja]...>
+[Rowee]His lust of power blinded him and bring the chaos into his kingdom>
+[Rowee]In the end, Xenos set fire into his own kingdom to press the rebels>
+[Rowee]Almost all of the citizen, innocent or not, rebels or not, died>
+[Freja]....>
+[Rowee]Well, Xenos met his end by the fire that he set though...>
+[Rowee]The monster was born from 'Luxuria', the lust>
+[Rowee]You purified 'Luxuria', so one of the seal has been released>
+[Freja]{freja_1}What kind of seal is that>
+[Rowee]{freja_5}'Castitas', the ability to refrain from being distracted and influenced by hostility, temptation or corruption>
+[Rowee]In short, it's completely the opposite of Luxuria>
+[Freja]{freja_10}Hmm... 'Ira' the wrath with 'Patientia' the patience, and 'Luxuria' the lust is paired with 'Castitas'....>
+[Freja]{freja_1}Is each Seven Virtues paired with monster of its opposite?>
+[Rowee]{freja_5}The brighter the light gets, the shadow will be darker> 
+[Rowee]So, yea>
+[Rowee]Well, you already released 2 seals! Let's go to the next one>
+[Freja]{freja_1}Alright>
+[Rowee]The next one is light-blue!>
+[] ><

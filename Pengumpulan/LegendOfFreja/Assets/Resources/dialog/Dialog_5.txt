@@ -1,0 +1,53 @@
+[Voice]{freja_7}{B01}{Q01}Yesterday, a children in south district died because of the plague>
+[Voice]It has been a month since the wave came into this village. Many people is dying because of that>
+[Voice]And it's winter now. With this temperature and little food supply, we may not survive too>
+[Voice]The wave and plague caused the crop failure. Because of that, food became pricier. And the tax...>
+[Voice]I don't know what the landlord is thinking. In the time like this he increased the tax>
+[Voice]Before he became a landlord, he was kind and generous man. I don't know what gotten his head>
+[Voice]We can't ignore the tax and we can't escape to other place either. Well, I hope we can manage to survive>
+[Freja]{freja_9}...>
+[Man]{freja_7}Look at this place, this house is filled with jewels, golds, and other beautiful artifacts. How nice isn't it?>
+[Man]Those statues in the yard suits well in white snow>
+[Voice]Sir! Please help us!>
+[Man]Hm? Who are you? How can you get inside of my garden?>
+[Voice]Please, sir! Your village is in dire situation! We have no food and medicine left, the cold of this season and plague are killing us!>
+[Voice]We're all dying. This child too... He stopped crying since yesterday...>
+[Voice]I'm begging you to share your food supply, and please lighten the tax. We have nothing left to pay the tax>
+[Man]I may agree to help you>
+[Voice]Sir---!>
+[Man]If you able to give me money that twice higher than the tax>
+[Voice]... what...?>
+[Man]You see, I'm struggling too facing this season>
+[Man]I'm dying too because of the coldness, and I may infected by the plague too>
+[Man]You're asking for me to give you my food supply and lessen my money, you're asking for me to lowering my defense against a situation that may kills me>
+[Voice]What are you saying... You're--!>
+[Man]Eyes for eyes. Bring the money or you won't get my help>
+[Voice]I told you before! I, we have nothing left!>
+[Man]Oh, is that right? Then go away>
+[Voice]Sir-->
+[Man]I don't have business with people like you>
+[Voice]You're abandoning us...?>
+[Man]Hurry up and go away, before I call the guards>
+[Voice]Wait! Please, sir! Please help us! Please help your village!>
+[Man]What a loud mouth. Listen, I'm just following the common rule. There's nothing free in this world. If you want something, you have to lose other thing>
+[Man]If you don't want to lose something to get something, then you won't get it>
+[Voice]We... we may can give you other things!>
+[Man]No, no. What I want is money>
+[Voice]Sir... Please have pity to your village..>
+[Man]Yes I'm pitying you, happy? Now, go away>
+[Voice]Evil...You're evil! Because of your greed, you will descend into hell when you died! You--->
+[Freja]{freja_3}No!>
+[]{B02}*bang*>
+[Freja]{freja_6}{B01}....!>
+[Man]{freja_9}You're the evil. You're wasting my time>
+[Freja]{B00}....>
+[Rowee]{Qbirdie}That monster was representative of greedy hearts, Avaritia. And now you have released the fifth seal: Caritas>
+[Rowee]Are you alright, missy?>
+[Freja]{freja_8}Rowee, you said before that this forest is keeping the malice from entire of world, so the world won't effected by overwhelming malice>
+[Rowee]Yea, t'right>
+[Freja]Is the 'wave' is that overwhelming malice?>
+[Rowee]Yes>
+[Freja]{freja_7}...>
+[Rowee]I will explain that to you after you released the next seal>
+[Rowee]Let's go> 
+[] ><

@@ -1,0 +1,50 @@
+[]{0}Maeral>
+[]Long ago before the civilization exist, the created a book that contain a great and sacred power.>
+[]It said that the owner of the book will be the ruler of the world. It said that it will give the owner the secret of the world. It said that it can grant ownerfs any wishes.>
+[]From a long time, everyone tried to search and get the book, but their attempt ends in vain.>
+[]Year 247 M.D., Verthia...>
+[???]{freja_3}Everyone, get to this way! Hurry up to the temple!>
+[Townsmen]{freja_4}Lady Freja, you have mustn't stay in this place! You have to go too!>
+[Freja]{freja_3}No! I will not leave this place until everyone is in the temple!>
+[Freja]{freja_16}Don't worry, the curse won't affect me.>
+[]{0}In year 245 M.D., a mysterious disease "Seele" suddenly spread through out the world.>
+[]Seele spread by a mysterious wave called 'Karluh', the curse.>
+[]Anyone who contacted with the 'wave' will be infected with Seele.>
+[]No one knows where the wave come from, or how to cure the disease.>
+[]No one survived after infected by the disease.>
+[]Anybody who got the disease, their body will turned into stone gradually then eventually die in several days.>
+[]2 years since the 'Beginning', the time when the first Karluh appeared, almost every city and village in the world wiped out by Karluh and Seele.>
+[]Verthia, the sacred city, was one of several city that still able to survive because of the 'blessing' that they received from 'Maiden''s power.>
+[Priest]{freja_5}Lady Freja! You must not leave the temple! The curse is still LL outside of temple!
+[Priest]{freja_7}Even you are the 'Maiden', there is no guarantee that you will not infected by Seele and survive!>
+[Freja]{freja_17}Don't worry. We, the Maiden, has the blessing from the Earth. Thanks to the 'blessing', the Maiden will not suffer from any kind of disease, curse, or some evil thing.>
+[Priest]{freja_14}But-...>
+[Freja]{freja_16}I know that you're worrying me, but please believe me.>
+[Freja]{freja_1}I will go to the Forest of Musis to find the Maeral.>
+[Freja]{freja_1}I know it's only a legend, but it's our only hope and it's worth to trying than don't do anything.>
+[Priest]{freja_5}But... The forest is very dangerous. No one came back after enter the forest!>
+[Priest]{freja_5}We can't lose you in the time like this!>
+[Freja]{freja_9}...>
+[Girl]{freja_2}Lady Freja...>
+[Freja]{freja_16}... What's wrong, Shana?>
+[Shana]{freja_15}Have you seen mom? We were separated when the 'wave' was coming into the city...>
+[Shana]{freja_9}Mom told me to go to the temple without her, because she said she has something to take care...>
+[Shana]She promise that we will meet again in the temple... but...>
+[Freja]...>
+[Freja]{freja_17}Don't worry, you definitely will meet again with Edna.>
+[Shana]{freja_14}Really...?>
+[Freja]{freja_16}Until then, you have to wait with the priestess and children over there.>
+[Shana]{freja_14}*sob* okay...>
+[Freja]{freja_3}...No matter what you will say to me, I will go to the forest.>
+[Priest]{freja_4}Lady...>
+[Freja]{freja_3}It's our only hope. I will promise to come back to this city after investigate the forest.>
+[Freja]We must not let children like Shana suffer more than this.>
+[Freja]Until I come back, I will leave this city to you.>
+[Priest]{freja_4}...As you command.>
+[Freja]{freja_16}*gigles*. Don't make a face like that.>
+[Freja]May the gods protect us.>
+[]{0}In year 247 M.D., the Maiden Freja went to the Forest of Musis to search Maeral, hoping to save people from Karluh and Seele.>
+[]This is the story.>
+[]The story about a maiden who saved the world-><
+ 
+

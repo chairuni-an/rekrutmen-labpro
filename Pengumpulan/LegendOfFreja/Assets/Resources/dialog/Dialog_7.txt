@@ -1,0 +1,130 @@
+[Freja]{freja_3}{B00}{Q01}*pant* *pant*>
+[Freja]Is... the trial has over?>
+[Rowee]{Qbirdie}Yeah, you did well>
+[Freja]{freja_1}But, where are the book?>
+[Rowee]{freja_5}...Are sure to do this?>
+[Freja]{freja_3}Yes>
+[???]For what?>
+[Freja]{B01}{Q01}?!>
+[Freja]Who are you?!>
+[???]{Qdark}Hehehe...>
+[Freja]...Me?>
+[???]Are you sure doing this? Are you sure you want to do this??>
+[Freja]{freja_3}... Yes>
+[???]{freja_4}What for? Because it's your duty? Because you're a priestess? A maiden?>
+[Freja]No! Because I don't want to see everyone suffering!>
+[???]{freja_4}Really?>
+[???]{freja_2}Really, really, really??>
+[???]Why you don't want to see them suffer? Oh, that not it. You can leave them, ignore them if you don't want to see it>
+[???]You don't want to see them suffer because you're Maiden, not because 'you'!>
+[Freja]{freja_6}No, that not--->
+[???]{freja_2}Do you remember the time when you want to escape from your destiny?>
+[Freja]{freja_7}!!!>
+[???]You always want to run away from the truth, from the destiny, duty, role as a Maiden>
+[???]But it always failed because 'I'm a Maiden, I should not running away'>
+[???]You cannot get yourself free from the chain of fate, that's your thought>
+[Freja]{freja_10}I--->
+[???]{freja_7}Don't you want to live as ordinary girl? Play around with friends, laughing with your family, find a lover and eventually create a family>
+[???]I know your answer, an obvious 'yes'>
+[???]Because that're what you always longing for, for entire of your life until now>
+[???]You know, you can leave them. You can get whatever you want if you can against your role as Maiden>
+[???]It's not impossible and hard thing to do. All you have to do is just walk away>
+[Freja]{freja_3}No, I won't do that! In the situation like this, I can't do that! If I walk away now, everybody will die because of the wave! I can't allow that-->
+[???]{freja_8}--as a Maiden, right>
+[???]{freja_7}Come on, throw the thought 'I'm a Maiden'>
+[???]I'm asking to 'you'>
+[???]Is this want you truly want?>
+[???]You think when you use Maeral, everything will go like the plan?>
+[???]There's chance to fail, right? And you're about to sacrifice yourself for that>
+[???]When you failed, everything will gone. Your people, your life, your wish>
+[???]But!>
+[???]If you turn away now, there's still time to grant your wishes, to be freed from your duty as Maiden and spending time with people you loves>
+[???]The world is ending anyway. You suffer too much until now, it's not a bad thing to live as ordinary human, just what you want, in the last time. Right?>
+[Freja]{freja_10}I...>
+[???]{freja_9}Don't worry, everyone will understand you and accept your decision. Remember what the head of priest said to you when you left?>
+[???]They seems worrying you, and they don't want you to come to this place because itfs dangerous>
+[???]See? They won't mind if you didn't do your duty as Maiden, as long as you save. They thinking about you. They won't mad at you> 
+[???]You don't have to be afraid>
+[Freja]{freja_8}I... can take it of...? The burden for being a Maiden?>
+[???]Of course, why not? I'm sure everyone and Shana happy to seeing you again and live with them as ordinary girl>
+[Freja]{freja_9}....Shana...>
+[???]All you have to do is just turn back--->
+[Freja]{freja_1}No>
+[???]What?>
+[Freja]I remember it. I came to this place to find Maeral, so children like Shana won't suffer anymore>
+[???]I told you--->
+[Freja]It true that I want to take off my burden as Maiden. It's true that I always wanted not to be a Maiden. I want to live as normal human, running an ordinary life>
+[Freja]I really want that and... I'm afraid to sacrifice myself>
+[Freja]I don't want to die, I want to go back. There're many things that I want to do>
+[Freja]Everything you said is true>
+[???]Then--->
+[Freja]But I don't want to turn back and let this world ends either>
+[Freja]I want to make them happy, I don't want to see anybody died and suffer more than this>
+[Freja]I have chance and power to actualize that>
+[Freja]{freja_17}And that are what I want as 'me', not as Maiden. I'm just using my power to grant my own wish>
+[Freja]I told Rowee before, if I turn back now I will regret it for rest of my life>
+[Freja]You now, I'm not good enough to live in regret and guilty>
+[Freja]I won't disagree with everything you said, but I don't want to disagree mine either>
+[Freja]{freja_16}This is what I want to do, as me>
+[Freja]I won't turn around and I will do this>
+[???]{freja_15}In the place that filled with malice like this, you can still keep your mind...>
+[???]If you have no strong will, you're gone mad right now, hahaha>
+[???]So, that's your answer>
+[???]Very well then, you deserve it>
+[Freja]{freja_5}{B03}{Q01}!!>
+[Rowee]{B00}{Qbirdie}Hey, missy! You alright?!>
+[Freja]{freja_1}Rowee, I--c>
+[Freja]{freja_3}{B05}!>
+[Freja]...>
+[Freja]{freja_16}That's..!>
+[Rowee]It's the thing you've been looking for, the book of Maeral>
+[Rowee]You passed the trial>
+[Freja]So I can finally..>
+[Freja]...>
+[Freja]Thank you, Rowee>
+[Rowee]Hmph! You should!>
+[Rowee]I'm... *sob*... absolutely a great help for a brainless girl like you!>
+[Freja]{freja_14}Rowee...>
+[Rowee]What?! I'm not crying!!>
+[Freja]{freja_15}Heheh I know>
+[Rowee]Hmph!>
+[Freja]Hey, can I ask you for help?>
+[Rowee]You dare to give me an order! What's it?!>
+[Freja]{freja_16}Please tell the head of priest in Verthia, thank you for everything he gave to me and I'm sorry that I can't keep the promise>
+[Freja]Tell Shana to cheer up, your mom will be sad if you're sad, I and your mom always love you>
+[Freja]And please tell anyone, everyone, to always smile. We're all one kind, a family. Even in the hardest time, try to be happy>
+[Rowee]{freja_15}... What a big order! But since I'm a great griffin, I will accept and do your order!>
+[Freja]Thank you>
+[Freja]It's time>
+[Freja]Well I hope it works>
+[Rowee]It have to!>
+[Freja]If it not work, I will do anything to make it work though>
+[Freja]{freja_5}Maeral>
+[Freja]Please hear my voice and grant my prayer>
+[Freja]{B03}{freja_14}{Q01}...>
+[Freja]{freja_16}I love you, everyone>
+[]{0}...>
+[].....>
+[]One year later>
+[Bird]Chirp>
+[Shana]Oh what a beautiful bird!>
+[Priest]Shana, what are you doing?>
+[Shana]Mister! Look at that bird!>
+[Priest]A yellow bird, it's really beautiful>
+[Shana]He or she? Looks like the one that gave us a letter from lady Freja>
+[Priest]Yes it is. It's been a year since that. Since then, the wave stop appearing and the disease suddenly gone. People who infected with the disease cured too>
+[Shana]Right, all of us have to thanks to lady Freja!>
+[Shana]She is our heroine!
+[Priest]Yes>
+[Shana]Oh, by the way it's time for you to study, isn't it?>
+[Shana]Uh-oh>
+[Priest]You musn't skip your class if you want to become a great priestress like lady Freja>
+[Shana]Alright, alright! I was in my way to the class!>
+[Priest]Really?>
+[Shana]Ye-yes!>
+[Priest]Hahaha, then go>
+[Shana]Okay!>
+[Priest]It's been a year, huh>
+[Priest]The world become better since that, everyday is in peace>
+[Priest]Well, let's start another good day!>
+[] ><

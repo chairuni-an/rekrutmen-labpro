@@ -1,0 +1,103 @@
+[Voice]{freja_5}{B01}{Q01}Thank you for coming to my party! Now please enjoy the food!>
+[Voice]What a marvelous party! Especially the food>
+[Voice]I heard that the priest have great taste of food, no wonder he able to serve many and delicious food like this>
+[Voice]Look at other nobles, they seems enjoining the food>
+[Voice]Hahaha let's enjoy the party!>
+[]...>
+[Child]{freja_7}Sister... I'm hungry...>
+[Girl]You have be patience, Gil. Soon, mother will come back bringing us lot of food. Until that, you have to be patient>
+[Child]Mom has gone for two month... You always said that since that time..>
+[Girl]...>
+[Girl]Here>
+[Child]?>
+[Girl]I don't know this would be enough for you, but you can eat this bread if you hungry>
+[Child]But it yours. You don't hungry?>
+[Girl]Hahaha I'm already adult so I'm hungry. You're still a kid, you have to eat a lot so you can become adult>
+[Child]Is that true?>
+[Girl]You don't believe your own sister?>
+[Child]You always lied to me when I was kid...>
+[Girl]You're still a kid! But I'm not lying now. So go ahead and eat>
+[Child]Okay..>
+[]...>
+[Voice]It's not enough, bring more food!>
+[Voice]Priest, you ate so many food. It's not good for your body to eat too much>
+[Voice]And there're many people who suffer for starvation. I think it's better for you to give the food to them, as a priest>
+[Voice]Don't you hear me? I want more food!>
+[Voice]I don't care with them, it's not my business if they starve>
+[Voice]My job is to bless them and pray for them, not giving my food!>
+[Voice]Enough with the talk! Hurry up and bring me lots of food!>
+[Voice]Sir...>
+[Freja]{freja_4}...>
+[Freja]{freja_3}{B00}No, that man is not a priest. That man shouldn't call him self as a human who became servant of the gods>
+[Rowee]{Qbirdie}But it's the truth, missy>
+[Rowee]There're lot of people like him, too many>
+[Freja]{freja_9}...>
+[Rowee]Even they starts with good will, once they get a power or good statues, they can misuse it and forget their good will or aim>
+[Rowee]It always like that, since long ago and now>
+[Rowee]The monster formed from the malice from gluttonous heart, 'Gula'. You released the sixth seal: 'Temperantia' or temperance>
+[Freja]{freja_8}Malice...>
+[Rowee]{freja_7}It is time to tell you about the 'overwhelming malice'>
+[Freja]Please tell me>
+[Rowee]As I mentioned before, this forest collects malice from entire of the world and keeping them in here>
+[Freja]{freja_10}To protect the world from overwhelming malice>
+[Rowee]{freja_5}Yes. And those malice came from human's evil heart, human's sins>
+[Freja]Sins...>
+[Rowee]The seals posses power to seal and purify them. The closer the seal is with the malice, the power of purification will get stronger>
+[Rowee]The purification can't be done in blink, it needs time. The time will be longer when the malice gets stronger>
+[Rowee]Long time ago when I became a guardian, the malice that gathered in this place was not too strong>
+[Rowee]The seal could purified it in short time and it didn't became monster>
+[Rowee]It's not because the forest couldn't able to collect the malice. The forest's power didn't change since the beginning and now>
+[Freja]{freja_1}So you mean that malice that came from human's heart was lesser that now?>
+[Rowee]{freja_5}Yes, that right>  
+[Rowee]You can see now there is monster near an unreleased seal. Powerful malice need a long time to be purified, moreover if it can form a physical body>
+[Rowee]The trial is meant to purify the malice that can't be purified by the seal in short time, and making this forest untainted for a time so the book will appear>
+[Rowee]The forest has keeping too many malice. Not all of malice can be contained in this place>
+[Rowee]And those that can't be contained, become Karluh, the 'wave'>
+[Freja]{freja_3}!!!>
+[Rowee]{freja_4}Karluh was formed from the overwhelming malice>
+[Rowee]Malice that came from various hearts of humans>
+[Rowee]Karluh is like a miasma, looks like a purple gas>
+[Rowee]Anybody who make physical contact with it, they body will be turned into stone, gradually>
+[Rowee]Well, it actually a magic force and the disease's like a curse. A powerful curse>
+[Rowee]{freja_7}So no wonder if no body can cure it>
+[Freja]....>
+[Rowee]The only way to stop this is by using the book of Maeral>
+[Rowee]That's thing you about to do>
+[Freja]{freja_10}... If I use the book, the wave can be stopped for now. But...>
+[Rowee]Yes. As long as human exist, even you able to stop the wave, in near or distant future is will appeared again>
+[Freja]Because the malice came from human's heart>
+[Rowee]I don't know where's the legend came from, but Maeral's power only can be used to purify all of malice, inside and outside of humans heart, in entire of the world>
+[Freja]{freja_8}So the legend about granting founder's any wish is not true?>
+[Rowee]No, it's not. But in your case, yes. You want to use that book to stop all of this, right>
+[Freja]{freja_4}Yes>
+[Rowee]Maeral will grant your wish. But to using Maeral's power, it comes with great cost>
+[Freja]{freja_1}Cost?>
+[Rowee]{freja_5}Soul>
+[Rowee]{freja_9}Thar's why I told you that you will not able to go to your home if you tried to get the book>
+[Rowee]You saw a vision about Kalluga before. It may happened to you>
+[Rowee]When you released the next seal, you can get the book and use it>
+[Rowee]You came this far, but since you're Maiden, you still can turn back>
+[Freja]{freja_4}...No, I will proceed>
+[Rowee]Are you sure? Your effort may end in vain>
+[Freja]If I stops here, then all of the effort I have done will ends in vain for sure>
+[Freja]I have seen lot of misery because of the wave or malice>
+[Freja]{freja_8}I don't want to see it anymore. If I turn back now, I will regret it for entire of my life>
+[Freja]Maybe, this tragedy will be repeat in some time in the future>
+[Freja]{freja_17}But, I live in present>
+[Freja]I want to save present>
+[Freja]And I believe that if we not able to save the present, there will be no future>
+[Rowee]...>
+[Freja]{freja_13}Even I hate my duty as Maiden, I still hate to see misery like this>
+[Freja]I hate seeing grief or sorrow in people's eyes>
+[Freja]I'm full of that>
+[Freja]And there was many time when they helped me, saved me. The world raise me up until now>
+[Freja]{freja_15}It's time for me to do something for this world>
+[Freja]Beside, I don't want to feel guilty or regret>
+[Rowee]...If it your decision, I won't disagree it now>
+[Rowee]It's been a while since the last time I saw people like you>
+[Rowee]Alright, let's go, missy>
+[Rowee]The next will be the last, so get ready>
+[Freja]{freja_15}Okay>
+[Freja]{freja_9}...>
+[Freja]{freja_16}Okay!>
+[] ><

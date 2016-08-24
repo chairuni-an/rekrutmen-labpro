@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegendOfFreja.CSharp.Plugins", "LegendOfFreja.CSharp.Plugins.csproj", "{E1B65FB8-B0B5-C67E-57AF-9852B56FC6DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegendOfFreja.CSharp", "LegendOfFreja.CSharp.csproj", "{CE821662-E5CA-CD03-F643-9C280A47826F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegendOfFreja.CSharp.Editor", "LegendOfFreja.CSharp.Editor.csproj", "{3552130E-B506-C713-65FE-E7FC87C9A6E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1B65FB8-B0B5-C67E-57AF-9852B56FC6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1B65FB8-B0B5-C67E-57AF-9852B56FC6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1B65FB8-B0B5-C67E-57AF-9852B56FC6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1B65FB8-B0B5-C67E-57AF-9852B56FC6DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE821662-E5CA-CD03-F643-9C280A47826F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE821662-E5CA-CD03-F643-9C280A47826F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE821662-E5CA-CD03-F643-9C280A47826F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE821662-E5CA-CD03-F643-9C280A47826F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3552130E-B506-C713-65FE-E7FC87C9A6E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3552130E-B506-C713-65FE-E7FC87C9A6E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3552130E-B506-C713-65FE-E7FC87C9A6E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3552130E-B506-C713-65FE-E7FC87C9A6E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

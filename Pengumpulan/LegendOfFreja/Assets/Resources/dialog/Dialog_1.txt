@@ -1,0 +1,92 @@
+[Freja]{freja_3}{Q00}... What.. was 'that'?>
+[Rowee]{Qbirdie}That power... So you really are the Maiden>
+[Rowee]Brace yourself, missy. It's still not over>
+[Freja]{freja_5}?>
+[Freja]{B01}{freja_4}{Q00}!>
+[Freja]{freja_3}Rowee! Where are you? Rowee-->
+[Voice]She is a witch!>
+[Freja]{freja_4}?!>
+[Voice]She is evil that hide behind angelic mask! Her words are poison, her actions are sin!>
+[Man]What are you guys saying?! She is our savior! She has helped you guys all time!> 
+[Voice]That witch has been deceiving us from a long time until now! She said that she was trying to help us, but the truth is she is trying kill us all!!>
+[Voice]{freja_7}Look at this village! This village is devastated because of that woman! The water dried, the animals died and rot, and the plants won't grow!>
+[Voice]It's a curse... That woman bring misfortune into this village! The gods has abandoned us because of her!>
+[Man]Why you guys won't believe in her... She spend lot of times search the way out from current condition, and send the prayer to the gods for you guys sake!>
+[Man]She sacrifice her life to safe all of you!>
+[Voice]Lie..... It's a lie!!>
+[Voice]My child died from starvation and dehydration yesterday... Many people died, our family died, we are dying>
+[Voice]Kill her...>
+[Voice]Kill that woman!>
+[Man]No...>
+[Voice]If your words are true, that she is about to sacrifice her life for us, its means that she will throw her life for us, isn't it?> 
+[Man]Stop--!>
+[Voice]KILL HER!!!>
+[Man]NO!!!>
+[]{B02}...>
+[Voice]{B01}Now, we're released from the witch's curse!>
+[Voice]Our suffering is over!>
+[Man]Why...?>
+[Man]Why, Patientia...?
+[Man]What is your wrong? Your sin...?>
+[Man]Why people like you, people who has pure hearts, has to die...?>
+[Man]No...not you. No no no. You're not supposed to be to die... Not you.....>
+[Voice]{freja_4}Eaaaagh----!>
+[Voice]What---!?>
+[Man]Yes, people like you're not supposed to be to die, Patientia. But, people like them... has to die now>
+[Voice]Wa-wait, don't come near us... No-->
+[Freja]{freja_20}Nooo!!>
+[Freja]{B00}!!>
+[Rowee]{freja_8}{Qbirdie}Get grip, missy!>
+[Freja]Rowee...?>
+[Freja]What... was that...? An illusion...?>
+[Rowee]It's was an illusion. But unfortunately, it also the vision of past>
+[Freja]Past... You mean that-->
+[Rowee]It's a real event that occurred in the past. In a village called Morde>
+[Rowee]What was you watching was the event when a Maiden, Patientia, was killed by the villager that controlled by their wrath because of the crisis in their village>
+[Freja]Patientia...>
+[Rowee]{freja_7}She was a fine, kind-hearted woman>
+[Rowee]She always prioritize other people than herself. Whenever and wherever she is, Patientia always help other people and pray for them>
+[Rowee]When she was killed, her lover, a man called Norr went rage and killed all people in that village>
+[Rowee]The monster you defeat before is a lump of sins and evil things that produced by humans>
+[Freja]....>
+[Rowee]Now, you showed me your power and I think you deserved to take this trial>
+[Freja]{freja_10}What do you mean?>
+[Rowee]{freja_5}Well, I was testing you that you're a real Maiden or not. Human usually cannot touch that monster, but they can touch human>
+[Rowee]Normally they will killed by the monster because of that>
+[Rowee]Except for the Maiden>
+[Rowee]Only the Maiden can purify them and defeat them>
+[Rowee]The Maiden of Cardinal. A human girl that tasked by gods to maintain the nature balance of the world>
+[Rowee]If you killed by the monster, then you're not the Maiden and my hunch is wrong. But if you able to defeat it, then I will help you to get the book>
+[Rowee]Well, looks like the result is 'I have to help you' though. You're from Verthia, then it makes you the Maiden of North> 
+[Freja]{freja_17}Guess I cannot hide my true self from Griffin, isn't it?>
+[Rowee]{freja_14}Oh, it's too soon for that!>
+[Rowee]{freja_5}Now I will explain you the detail of the trial>
+[Rowee]You know that book of Maeral is a sacred book that created in the time of 'beginning'>
+[Rowee]The time where civilization didn't exist yet>
+[Rowee]The time where evil or sin still not exist>
+[Rowee]That book is supported by seven seals, the 'Seven Virtue'. It said that the first generation of human learned virtues from the seals>
+[Rowee]If you want to get the book, you have to release all of the seals>
+[Rowee]In the age of beginning, the seals was always released because the world wa still pure and untainted>
+[Rowee]But when human start to exist and build up the civilization, means 'sins' start to exist, the 'Seven Virtue' gradually shut them self to protect the book from the malice>
+[Rowee]To keep the book from humans and keep the world from overwhelming malice, this seals calls the malice from the seven great sins into this place>
+[Freja]{freja_10}Overwhelming malice...>
+[Rowee]{freja_5}The lump of malice become a monster like the one you defeat. Each seal is related to certain lump of sin>
+[Rowee]That big guy was formed from 'Ira', wrath> 
+[Rowee]The wrath of people like Norr and that villagers come to this place and become one, forming that big-guy>
+[Rowee]When you purify 'Ira', one of the seal: 'Patientia' that represent patience is released>
+[Rowee]All you have to do is repeat what you did before until the seventh seal>
+[Rowee]Remember that the seal is released only when the corresponding monster is purified>
+[Rowee]The monster always stays near the seal, but it's only appeared when the previous seal is released>
+[Freja]{freja_1}That means that I have to release the seal in order?>
+[Rowee]{freja_5}Yea t'right, missy>
+[Rowee]As a guardian, the only thing that can tell you is the order of the seal. I can't do more than that>
+[Freja]{freja_16}Its okay, it really helps me>
+[Freja]{freja_9}That vision...>
+[Freja]It will appeared again when I release other seal, wouldn't it?>
+[Rowee]Yes. Just brace yourself, missy>
+[Rowee]{freja_5}Okay-kay, enough with chit-chat. Let's go to the next seal, missy>
+[Freja]{freja_1}Yes>
+[Freja]{freja_9}....>
+[Freja]{freja_10}Vision, huh> 
+[]{0}Now you can save the game by pressing X key near the seal of 'Patientia'>
+[] ><

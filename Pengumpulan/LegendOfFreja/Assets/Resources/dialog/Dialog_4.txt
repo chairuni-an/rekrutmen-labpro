@@ -1,0 +1,57 @@
+[Voice]{freja_7}{Q01}{B01}The 'wave' appeared several days ago in neighbor country>
+[Voice]Again?>
+[Voice]Yes. Many people died again. Its matter of time to that country to became ghost country>
+[Voice]They still suffering and handling the causalities from previous wave, and now the new wave come>
+[Voice]Well, how poor of them>
+[Voice]Is that all you can do? Pitying them?>
+[Voice]What, there's nothing a normal human like me can do>
+[Voice]I'm feeling lucky that our town is protected by the bless of the Maiden>
+[Voice]Aaah it's true. There's no need for us to do anything. The bless has done it all>
+[Voice]Hey, do you know that the Maiden, lady Kalluga's health is declining day by day?>
+[Voice]Well she is pretty old>
+[Voice]Does that mean that she's dying?>
+[Voice]Wait, if she died, what about the bless>
+[Voice]The king soon will find the new Maiden, doesn't he? Once they find her, the bless will be restored>
+[Voice]It's not something that we have to be concern of, don't you think? The country will done it by themselves>
+[Voice]All we have to do is enjoying our life. Happy citizen for happy country, am I right? We don't have to do anything. Let the other take care if there's problem>
+[Voice]Hahaha true to that>
+[Freja]{freja_8}{B00}{Qbirdie}Lady Kalluga...>
+[Freja]She was kind and diligent Maiden... She taught me many thing as a Maiden>
+[Freja]She always care for other people. She took the duty as Maiden and perform it very well>
+[Freja]If she ever sees other people's problem even it was not related to her role, she will try to handle it>
+[Freja]{freja_10}... and yet her people>
+[Rowee]{freja_9}Kalluga and her king done their task very well. They able to protect and maintain their country very well>
+[Rowee]But unfortunately, their people share no common feeling to done some effort to their country>
+[Rowee]Well, to put it short, theyfre too spoiled by the kingdom thus making them to lazy to do anything>
+[Freja]Before lady Kalluga gone, I visited their kingdom once. The country itself was fine, but I didn't see any will to do some effort in the people...>
+[Rowee]Good deed doesn't always give good effect. Sometimes it generate malice>
+[Rowee]In this case, the malice is 'Sloth' that came from hearts without care or laziness>
+[Rowee]You too, missy>
+[Rowee]You willingly sacrifice yourself for people in this world from the suffering from the calamity that currently occurred in entire of the world>
+[Rowee]Your act and decision as a Maiden is not wrong>
+[Rowee]Even you say that you care for them, keep in mind that not everyone care for you nor your act>
+[Rowee]There will be people like in Kalluga's country>
+[Freja]{freja_7}I understand that>
+[Freja]Besides, I'm not doing this entirely for other people>
+[Freja]{freja_14}Maybe, I'm half running away from reality. I cannot stand to watch many people died>
+[Freja] There's always a thought to abandon my duty as Maiden or even live in this world>
+[Freja]I... it's true that I want to done this mission, and come back to my home to see everyone>
+[Freja]But sometimes there's a thought that a don't mind either if I failed and die, because I'm freed from my duty>
+[Freja]I know it's wrong and I always to erase that thought. But, I'm still a human after all>
+[Rowee]Maiden are always human, missy. And you can escape from negative thought while you still a human>
+[Freja]{freja_13}....>
+[Rowee]{freja_5}Gee don't make such a face! What I'm trying to say is, it's normal! The important thing is, you still have will to do something for other people>
+[Rowee]And the burden of that will is very heavy>
+[Rowee]It's not a wrong thing if you feel the fear or want to put your burden off>
+[Rowee]But you able to overcome that feeling up until now. If not, I'm not talking to you now or even meet you>
+[Rowee]Maiden are human too. The only thing that differs Maiden and other human is their power to purify the malice, the other are same>
+[Rowee]So, uh, cheer up>
+[Freja]....>
+[Freja]{freja_15}*giggles*>
+[Rowee]What?!>
+[Freja]No, it just, to think that I got compliments from you>
+[Rowee]Screw that!>
+[Rowee]Now you has released the forth seal: 'Industria' the diligence>
+[Rowee]Let's continue the trial. The next color is deep blue!>
+[Rowee]Come on, chop chop!>
+[] ><

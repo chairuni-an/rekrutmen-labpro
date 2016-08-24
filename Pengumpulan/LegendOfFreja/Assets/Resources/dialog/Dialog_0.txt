@@ -1,0 +1,98 @@
+[Freja]{freja_1}{Q01}So, this is the Forest of Musis...>
+[Freja]{freja_7}What a dreadful place...>
+[Freja]It's should be noon, but this place stays dark.The sunlight didn't reach this place, just like what the legend say>
+[Freja]{freja_10}"Those who enter the Forest of Musis will be cursed. They will not able to see the sun again", huh>
+[Freja]{freja_9}...>
+[Freja]{freja_3}I have to hurry, there's no time to thinking like this>
+[Freja]{freja_1}Still...>
+[Freja]I don't have any clue or information where the Book of Maeral is...>
+[Freja]{freja_11}*sigh* Why did I forgot to bring or check temple's books?>
+[Freja]I guess I don't have choice, I have to search through this forest without any clue>
+[???]{freja_4}Stop right there, human>
+[Freja]!>
+[Freja]{freja_3}Who are you?! 
+(Where is the voice came from?)>
+[???]{freja_4}I'm the guardian of this forest. Human, don't you dare to enter this place. This place is not a place for evil like you, human>
+[???]Now, begone!>
+[Freja]{freja_3}I'm sorry but I can't do that. I have important mission that can be accomplised only in this place>
+[???]{freja_7}Begone, foolish human!>
+[Freja]{freja_1}My name is Freja, priestress from city of Verthia.>
+[Freja]I came from Verthia to find the book of Maeral. Since 2 years ago, the Wave and Seele killed many living things in this world>
+[Freja]Nothing can stop it to destroy this world but the Book of Maeral. 
+...Well, at least I think so>
+[???]{freja_5}You will die if you enter this forest. One step, and your fate will be decided.>
+[Freja]{freja_10}I don't want to see anyone suffering more than this. I won't turn back, and I will enter this place no matter what you say or what I will face>
+[???]{freja_5}Do you understand the meaning of 'death'?>
+[Freja]{freja_1}I know>
+[Freja]{freja_1}And I still will not turn back>
+[Freja]Going in or not, someday I will die. I don't want to die in vain or regret from not doing anything but ignore or running away from this situation>
+[???].....>
+[???]{freja_3}Oh gosh wat a stupid human!>
+[Freja]?!>
+[???]{Qbirdie}I was tryin' t' be kind 'cause you are a Maiden! A Maiden or not, human's stupid afterall!> 
+[Freja]{freja_1}A talking... bird..?>
+[???]{freja_5}Yea, I'm a talkin' bird! Got a problem?! Anyway, if you want your soul t' still remain in your petit body, you should not enter this place!>
+[Freja]{freja_3}I told you before, I won't>
+[???]{freja_5}"won't", huh? What a lovely word compared to "can't">
+[???]Listen, missy. This place is very dangerous. You may have heard many rumor about this place, and every bad rumors of this place is true>
+[???]Maybe you are thinking that you will to go home after you finished your bussiness in this place>
+[???]{freja_4}It's a nay-nay thought, missy! You will to go your home in the otherworld>
+[Freja]...>
+[???]...>
+[Freja].....>
+[???].....>
+[Freja]{freja_5}..........>
+[???]...........>
+[Freja]*step*>
+[???]Whoa whoa! Where 're goin', missy?! This place 's off limit! Go away! Hushies!>
+[Freja]{freja_3}I told you I will go to inside of this forest, and find the book. I won't let anyone, well any-bird too, to get in my way!>
+[???]{freja_4}...>
+[Freja]....>
+[???]Graarh, fine then! I don't care anymore! You can go in, but keep in mind that you will not able to leave this place once you step in>
+[Freja]{freja_12}... Yes, I understand that>
+[???]Humph!>
+[Freja]{freja_1}Oh, yes. May I ask you something?>
+[???]What?!>
+[Freja]How can I find the book?>
+[???]{freja_5}....>
+[Freja]{freja_1}You see, I came to this place with no clue of finding the book of Maeral. You know this place very well, I assume>
+[???]{freja_5}A brave young lady with dummy head, what a plot twist>
+[Freja]{freja_3}Excuse me--...?!>
+[???]To get to book, or if you want to try to, you have to pass through the 'trial'>
+[Freja]{freja_5}Trial?>
+[???]C'mon, nothing in this worldfs free, missy>
+[???]Yes, the 'trial'. You pass, you'll maybe get the book. You fail, and buff youfre gone. I never seen a human who able to pass this trial, FYI>
+[Freja]I see. So what kind of trial is it?>
+[???]Show no fear, huh>
+[???]It's easy. You just have to perform the 'purification'. You're priestess right? You know that>
+[Freja]{freja_10}... of what?>
+[???]Well, you'll see>
+[???]Hmph. Since I have bunch of time to spend, I will help you to figure it>
+[Freja]{freja_5}You don't mind?>
+[???]C'mon, missy, don't waste my good deed>
+[Freja]{freja_16}Alright then, I'm counting on you>
+[???]On board!>
+[Freja]Oh, wait. Can you tell me your name? It's quite rude of me to not knowing the name of the person, or bird, that about to help me>
+[???]Oh my heaven, I thought you'll recognize me gradually after seeing my lovely appearance! Maiden these days doesn't have pretty much knowledge, aren't they?!>
+[Rowee]I'm the legendary mighty-lordly-lovely holy creature that serve as the right hand of the gods, Rowedaulf the Griffin! You can call me Rowee!>
+[Freja]{freja_11}Griffin? If I'm not wrong, Griffin have the body of lion, and the head and wing of eagle. And their size should be, well....>
+[Rowee]Griffin can alter their appearance, missy. And I'm pretty convenient with this mini-sized lovely appearence than the real one. Got problem?>
+[Freja]Well, no...>
+[Rowee]Fine! Now, find a stone wall that emits orange-colored light in this forest>
+[Freja]Where is it?>
+[Rowee]Use you feet and eyes, missy! I didn't said that I will show you the way or give you heavy-spoiler of the trial. Remember? Thisfs trial!>
+[Freja]{freja_7}Oh, right....>
+[Rowee]Once you find it, purify any evil-look thing that stands before it. Oh, if you get too close it can kill you>
+[Freja]{freja_1}...Alright>
+[Freja]{freja_7}(Wait for me, everyone)>
+[Freja]...>
+[Freja]{freja_3}!?>
+[Freja]I can pass through the tree?>
+[Rowee]Oh recognize that? This forest is a forest of illusion that formed by the magic force>
+[Rowee]That why this forest physically doesn't exist>
+[Freja]{freja_1}Oh.. Okay>
+[Rowee]But this remember that this forest's still dangerous. Don't blame me if you died>
+[Freja]{freja_5}Right....>
+[]{0}To perform the purification, press the J key> 
+[]To check the controls, press SPACE>
+[] ><

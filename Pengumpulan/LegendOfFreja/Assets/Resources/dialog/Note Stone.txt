@@ -1,0 +1,10 @@
+0 - opening DONE
+1 - Ira DONE
+2 - Luxuria DONE
+3 - Invidia DONE
+4 - Acedia DONE
+5 - Avaritia DONE
+6 - Gula
+7 - Superbia
+//Ganti scene
+Closing
