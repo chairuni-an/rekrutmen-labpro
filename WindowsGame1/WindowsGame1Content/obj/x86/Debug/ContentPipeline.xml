@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>archer_walk\BODY_male.png</Source>
+      <Name>archer_walk\BODY_male</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\BODY_male.xnb</Output>
+      <Time>2016-05-27T19:57:00.9982172+07:00</Time>
+    </Item>
+    <Item>
+      <Source>archer_walk\FEET_shoes_brown.png</Source>
+      <Name>archer_walk\FEET_shoes_brown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\FEET_shoes_brown.xnb</Output>
+      <Time>2016-05-27T20:53:26.792105+07:00</Time>
+    </Item>
+    <Item>
+      <Source>archer_walk\TORSO_leather_armor_bracers.png</Source>
+      <Name>archer_walk\TORSO_leather_armor_bracers</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\TORSO_leather_armor_bracers.xnb</Output>
+      <Time>2016-05-27T20:57:38.0764117+07:00</Time>
+    </Item>
+    <Item>
+      <Source>archer_walk\TORSO_leather_armor_shoulders.png</Source>
+      <Name>archer_walk\TORSO_leather_armor_shoulders</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\TORSO_leather_armor_shoulders.xnb</Output>
+      <Time>2016-05-27T21:01:23.4670914+07:00</Time>
+    </Item>
+    <Item>
+      <Source>archer_walk\HEAD_leather_armor_hat.png</Source>
+      <Name>archer_walk\HEAD_leather_armor_hat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\HEAD_leather_armor_hat.xnb</Output>
+      <Time>2016-05-27T21:02:48.3910469+07:00</Time>
+    </Item>
+    <Item>
+      <Source>archer_walk\LEGS_pants_greenish.png</Source>
+      <Name>archer_walk\LEGS_pants_greenish</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\LEGS_pants_greenish.xnb</Output>
+      <Time>2016-05-27T21:05:09.9223141+07:00</Time>
+    </Item>
+    <Item>
+      <Source>archer_walk\BEHIND_quiver.png</Source>
+      <Name>archer_walk\BEHIND_quiver</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\BEHIND_quiver.xnb</Output>
+      <Time>2016-05-27T21:06:27.5843643+07:00</Time>
+    </Item>
+    <Item>
+      <Source>archer_walk\BELT_leather.png</Source>
+      <Name>archer_walk\BELT_leather</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\BELT_leather.xnb</Output>
+      <Time>2016-05-27T21:06:31.9844167+07:00</Time>
+    </Item>
+    <Item>
+      <Source>archer_walk\TORSO_leather_armor_torso.png</Source>
+      <Name>archer_walk\TORSO_leather_armor_torso</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\archer_walk\TORSO_leather_armor_torso.xnb</Output>
+      <Time>2016-05-27T21:08:52.0322436+07:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Win7Ult\documents\visual studio 2010\Projects\WindowsGame1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2016-05-17T16:20:33.1217105+07:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
