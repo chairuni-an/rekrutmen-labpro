@@ -1,5 +1,7 @@
 # Starling Education Project
 
+This repository moved [here](https://github.com/berviantoleo/You-Can-Use-It).
+
 This repository is used to explore Starling Framework.
 
 * About starling is [here](doc/Resume_Starling.md) - Exploration 1.
