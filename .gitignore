@@ -3,3 +3,4 @@
 /project/bower_components
 
 *.docx
+.DS_Store

@@ -100,10 +100,24 @@
  Notif
 ***********************************/
 .notif-img {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.notif-img img {
   width: 40px;
   height: 40px;
   border-radius: 100%;
   margin-right: 10px;
+}
+
+.notif-msg {
+  display: inline-block;
+}
+
+.notif-container {
+  display: flex;
+  align-items: center;
 }
 
 /***********************************

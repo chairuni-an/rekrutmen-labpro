@@ -6,6 +6,9 @@ var User = require('../models/user');
 var Post = require('../models/post');
 
 function getHashtags(desc) {
+  if (!desc) {
+    return [];
+  }
   var strings = desc.split(' ');
   console.log(strings);
   var ans = [];

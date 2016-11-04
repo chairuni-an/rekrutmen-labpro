@@ -1,10 +1,13 @@
-picshareApp.controller('NavController', function($scope, $window, $location, $http, Authentication, User) {
+picshareApp.controller('NavController', function($scope, $window, $location, $http, Authentication, User, DateFormat) {
   //Authentication.logout();
   $scope.isLoggedIn = Authentication.isLoggedIn();
 
   if (Authentication.getCurrentUser()) {
     User.get({username: Authentication.getCurrentUser()}).$promise.then(function(user) {
       $scope.user = user;
+      for (var i = 0; i < $scope.user.notif.length; i++) {
+        $scope.user.notif[i].time = DateFormat.postTime($scope.user.notif[i].date);
+      }
       $scope.noNotif = user.notif.length === 0;
     });
   }

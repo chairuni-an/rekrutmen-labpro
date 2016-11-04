@@ -80,6 +80,7 @@ picshareApp.controller('PostController', function($scope, $q, $location, Comment
       Comment.save({ id: params[2] }, comment)
       .$promise.then(function(post) {
         $scope.post.comments = post.comments;
+        $scope.desc = "";
       });
     }
   }
