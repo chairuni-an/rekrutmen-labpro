@@ -1,0 +1,123 @@
+.pro
+	- if @user.image.exists?
+		%br= image_tag @user.image, class: "imaje"
+	- else
+		%br= image_tag(asset_path("no-image.jpg"), size: "300x300", class: "imaje")
+	%br
+	- if current_user
+		- if current_user != @user
+			- if current_user.following?(@user)
+				= link_to "Following", unfollow_user_path(@user), method: "put",class: "unfollowbut"
+			- else
+				= link_to "+  Follow", follow_user_path(@user), method: "put",class: "followbut"	
+	- else
+		= link_to "+  Follow", new_user_session_path,class: "followbut"
+
+	%br= @user.username
+	= @user.email
+	%br= @user.nim
+	- if @user.nim[0,3] == "135"
+		= "Teknik Informatika"
+	- else
+		- if @user.nim[0,3] == "182"
+			= "Sistem Teknologi Informasi"
+		- else
+			= "NON-IFSTI"
+	%br
+	.div{class: "containercuk"}
+		- if current_user != @user
+			.div{class:"follwing1"}
+				= "Following".pluralize(@user.follow_count)
+				.div{class:"tep"}
+					= @user.follow_count
+			.div{class:"follwing"}
+				= "Follower".pluralize(@user.followers_count)
+				.div{class:"tep"}
+					= @user.followers_count	
+		- else
+			= link_to showfollowing_user_path(current_user) do
+				.div{class:"follwing1"}
+					= "Following".pluralize(@user.follow_count)
+					.div{class:"tep"}
+						= @user.follow_count
+			= link_to showfollower_user_path(current_user) do
+				.div{class:"follwing"}
+					= "Follower".pluralize(@user.followers_count)
+					.div{class:"tep"}
+						= @user.followers_count	
+
+	.div
+		= link_to "show created thread", showcreatethread_user_path(current_user), class: "prox", style: "text-decoration:none;"
+:css
+	.verlinek {
+		border-left:1px solid #23A86D; 
+		display:inline-block;
+	}
+	.pro {
+		text-align : center;
+		padding-top: 20px;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color:#23A96F;
+		font-size:20px;
+	}
+	.prox {
+		text-align : center;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		color:#23A96F;
+		font-size:20px;
+	}
+	.imaje {
+		width:200px;
+		height:200px;
+		border-radius:100%;
+	}
+
+	.follwing {
+		text-align:center;
+		display:inline-block;
+		padding-left:20px;
+		padding-right:20px;
+		color:#23A86D;
+	}
+	.follwing1 {
+		text-align:center;
+		display:inline-block;
+		padding-left:20px;
+		padding-right:20px;
+		color:#23A86D;
+		border-right:1px solid #23A86D;
+	}
+	.followbut {
+		text-decoration:none;
+		border: 2px solid #23A86D;
+		background-size:10px;
+		border-radius :2px;
+		font-family: 'Raleway', sans-serif !important;
+		font-weight:400 !important;
+		color: 	#23A96F;
+		padding-top:2px;
+		width:100px;
+		display:inline-block;
+		text-align:center;
+		padding-bottom: 2px;
+	}
+	.unfollowbut {
+		text-decoration:none;
+		border: 2px solid #23A86D;
+		background-size:10px;
+		border-radius :2px;
+		background:#23A86D;
+		font-family: 'Raleway', sans-serif !important;
+		font-weight:400 !important;
+		color: 	#2D2F31;
+		padding-top:2px;
+		width:100px;
+		display:inline-block;
+		text-align:center;
+		padding-bottom: 2px;
+	}
+	.tep {
+		font-weight:200 !important;
+	}

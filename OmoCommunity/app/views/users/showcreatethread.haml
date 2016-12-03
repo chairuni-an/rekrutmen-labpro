@@ -1,0 +1,30 @@
+.padting	
+	%h2{class:"judulcrettret"}= "Your Thread".pluralize(@trets.count)
+	- if @trets.empty?
+		%p{class:"judulcrettret"} You never create any thread
+		.hline
+	- else
+		- @trets.each do |tret|
+			%p= link_to tret.title, tret, class: "judulcrettretx"
+			.hline
+
+:css
+	.judulcrettret {
+		font-family: 'Raleway', sans-serif;
+		color : white;
+		text-decoration:none;
+		text-align:center;
+	}
+	.judulcrettretx {
+		font-family: 'Raleway', sans-serif;
+		color : white;
+		text-decoration:none;
+	}
+	.judulcrettretx:hover {
+		font-family: 'Raleway', sans-serif;
+		color : #23A86D;
+	}
+	.padting {
+		padding-left:20%;
+		padding-right:20%;
+	}

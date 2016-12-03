@@ -1,0 +1,165 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require jquery.facebox
+ *= require jquery.jcrop
+ */
+#facebox .content {
+  background: #3E4649 !important;
+  border: 4px solid #2E2F31 !important;
+}
+#facebox .popup {
+  border:none !important;
+}
+#facebox .close {
+  background:rgba(255, 255, 255, 0) !important;
+  right:10px !important;
+}
+.fot {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+.headtitle {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    display: inline;
+    vertical-align: middle;
+    height: 30px;
+    font-size: 120%;
+    z-index: 999;
+}
+.headtitle2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    display: inline;
+    vertical-align: middle;
+    height: 30px;
+    font-size: 120%;
+}
+.judul {
+	position: relative;
+  	top: 0%;
+  	transform: translateY(10px);
+  	left: 3.5%;
+  	display: inline-block;
+  	color: white;
+}
+.backg {	
+	margin: -8px;
+  	background: #2d2f31;
+  	height: 50px;
+
+  position: relative;
+}
+.cari {
+   	position: absolute;
+  	top: 0%;
+  	left: 50%;
+  	transform: translate(-72.8%,0px);
+}
+#cboxLoadedContent {
+    height: 500px !important;
+    color: white !important;
+}
+.serround {
+    height: 47.84px;
+    border: none;
+    padding-left: 45px;
+    background: url(http://www.clker.com/cliparts/9/g/p/H/1/F/search-icon-dark-grey-md.png) no-repeat 10px 15px white;
+    background-size: 20px 20px;
+}
+
+::-webkit-input-placeholder {
+   color: #CCBDBD;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #CCBDBD;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #CCBDBD;  
+}
+
+:-ms-input-placeholder {  
+   color: #CCBDBD;  
+}
+
+.in {
+  top: 0%;
+  right: 0%;
+  position: absolute;
+  height: 50px;
+  border: none;  
+  transform: translate(-114%,0px);
+  background: transparent;
+  color: #259061;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size:13.2px;
+}
+
+
+.in:hover {
+  background-color: #23a86d; /* Green */
+  color: #2b473d;  
+}
+.up {
+  top: 0%;
+  right: 0%;
+  position: absolute;
+  border: none;
+  background: transparent;
+  color: #259061;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 13.2px;
+  font-weight: 600;
+  padding-left: 9.5px;
+  padding-right: 9.5px;
+  line-height: 50px
+
+}
+.up:hover {
+  background-color: #23a86d; /* Green */
+  color: #2b473d;  
+  text-decoration: none;
+
+}
+
+.us {
+  top: 0%;
+  border: none;
+  position: absolute;
+  right: 23.9%;
+  height: 47.84px;
+  background: #656161;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.pas {
+  top: 0%;
+  border: none;
+  position: absolute;
+  right: 9.4%;
+  height: 47.84px;
+  background: #656161;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+body {
+  background: #3f4649;
+}

@@ -1,0 +1,16 @@
+<h1>Post Baru</h1>
+<%= form_for :post, url: posts_path do |f| %>
+  <p>
+    <%= f.label :Judul %><br>
+    <%= f.text_field :judul %>
+  </p>
+ 
+  <p>
+    <%= f.label :Isi %><br>
+    <%= f.text_area :isi %>
+  </p>
+ 
+  <p>
+    <%= f.submit 'Buat Post'%>
+  </p>
+<% end %> 

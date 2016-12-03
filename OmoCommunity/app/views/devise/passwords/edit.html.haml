@@ -1,0 +1,68 @@
+.bal  
+  %h1 Reset Your Password
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+    = f.error_notification
+    = devise_error_messages!
+    .form-inputs
+      = f.input :reset_password_token, as: :hidden
+      = f.full_error :reset_password_token
+      .o
+      = f.label :"New Password : ","New Password : "
+      = f.input :password, required: true,label: false, input_html: { :size => 30 ,class: " teksbos"}, placeholder: "6 characters minimum",autofocus: true, :autocomplete => 'off' if @minimum_password_length
+      .o
+      = f.label :"New Password Confirmation : ","New Password Confirmation : "
+      = f.input :password_confirmation, label: false, input_html: { :size => 30 ,class: " teksbos"}, placeholder: "Password Confirmation",:autocomplete => 'off'
+    .form-actions
+      .o
+      = f.button :submit, "Reset Password", class: "buton"
+
+:css
+  .teksbos {
+    border: none;
+    background: #656161;
+    height: 25px;
+    padding-left: 10px;
+    color: white;
+  }
+  ::-webkit-input-placeholder {
+     color: #CCBDBD;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+     color: #CCBDBD;  
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: #CCBDBD;  
+  }
+
+  :-ms-input-placeholder {  
+     color: #CCBDBD;  
+  }
+  .bal {
+    padding-left: 20px;
+    padding-right: 20px;
+    height:150%;
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: white;
+    margin: -8px;
+    overflow:hidden
+  }
+  .o {
+    height: 10px;
+  }
+  .buton {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top : 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border:none; 
+    background: #23A96F;
+  }
+  
+  .buton:hover {
+      background: #77a292
+  }

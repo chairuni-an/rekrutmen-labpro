@@ -1,0 +1,22 @@
+.tx
+	- @hiks = @post.hists.order("created_at desc")
+	- @hiks.each do |hist|
+		%h2!= hist.Title
+		%p!= hist.Content
+		.tp
+			= time_ago_in_words(hist.created_at)
+			ago
+			%p
+		- if hist != @hiks.last
+			.hline
+:css
+	.tx {
+		color:#23A96F;
+		width:95%;
+	}
+
+	.hline { width:100%; height:1px; background: #fff }
+
+	.tp {
+		font-size:12px;
+	}

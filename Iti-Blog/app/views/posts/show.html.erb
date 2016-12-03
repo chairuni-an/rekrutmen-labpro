@@ -1,0 +1,15 @@
+<h1>
+  <%= @post.judul %>
+</h1>
+<style> 
+p.test {
+    width: 45em; 
+    word-wrap: break-word;
+    text-align: justify;
+}
+</style>
+<p class = "test">
+  <%= @post.isi %>
+</p>
+<%= link_to '<button type="button">Hapus Post</button>'.html_safe, post_path(@post),method: :delete, data: { confirm: 'Yakin ?' } %>
+<%= link_to '<button type="button">Halaman Utama</button>'.html_safe, posts_path %>
