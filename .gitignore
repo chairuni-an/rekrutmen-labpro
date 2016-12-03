@@ -1,0 +1,6 @@
+/eksplorasi-2/node_modules
+/project/node_modules
+/project/bower_components
+
+*.docx
+.DS_Store

@@ -1,0 +1,43 @@
+<div ng-controller='SearchController' class="container wrap m-t-3">
+  <h3 style="text-align: center" class="display-5 m-b-3">Search Results for "{{q}}"</h1>
+  <div class="col-xs-6 col-xs-offset-3">
+    <nav class="navbar navbar-light bg-faded" style="border: 1px solid #EEE">
+      <div class="nav navbar-nav search-nav">
+        <a href class="nav-link" ng-class="{active: selected === 0}" ng-click="selected = 0">People</a>
+        <a href class="nav-link" ng-class="{active: selected === 1}" ng-click="selected = 1">Tags</a>
+      </div>
+    </nav>
+    <div ng-show="selected === 0">
+      <div class="user-info" ng-repeat="user in people" style="border: 1px solid #EEE">
+        <img class="avatar m-r-2" ng-src="{{user.avatar}}">
+        <span>
+          <a ng-href="/{{user.username}}" target="_self"><b>{{user.username}}</b></a>
+        </span>
+        <span style="margin-left: auto">{{user.fullname}}</span>
+      </div>
+    </div>
+    <div ng-show="selected === 1" class="m-b-3">
+      <div ng-repeat="post in posts" class="post">
+        <div class="user-info">
+          <img class="avatar m-r-2" ng-src="{{post.user.avatar}}">
+          <span><a ng-href="/{{post.user.username}}"><b>{{post.user.username}}</b></a></span>
+          <a href class="time" data-container="body" data-toggle="popover" data-placement="right" data-content="{{post.date}}">
+            {{post.time}}
+          </a>
+        </div>
+        <div class="home-post">
+          <a ng-href="/posts/{{post._id}}">
+            <img class="tag-img" ng-src="{{post.img}}"></img>
+          </a>
+        </div>
+        <div class="home-post-info">
+          <p>{{post.likes.length}} likes</p>
+          <p ng-show="post.desc">
+            <a ng-href="/{{post.user.username}}"><b>{{post.user.username}}</b></a>
+            {{post.desc}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+/***********************************
+ Home page
+***********************************/
+
+.index {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background-image: url("../img/index-background.jpg");
+  background-size: cover;
+  color: white;
+}
+
+.index div {
+  align-items: stretch;
+  overflow: hidden;
+  padding-top: 10rem;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.home {
+  max-width: 600px;
+  margin: auto;
+}
+
+.home-post {
+  border-bottom: 1px solid #EEE;
+}
+
+.home-post a img {
+  width: 600px;
+}
+
+.tag-img {
+  width: 523px !important;
+}
+
+.user-info {
+  padding: 8px 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #EEE;
+}
+
+.user-info img {
+  border-radius: 100%;
+}
+
+.user-info span a {
+  color: black;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.time {
+  margin-left: auto;
+  color: black;
+}
+
+.time:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.post {
+  border: 1px solid #EEE;
+}
+
+.home-post-info {
+  text-align: left;
+  padding: 16px 24px;
+}
+
+.home-post-info p {
+  margin-bottom: 8px;
+}
+
+.home-post-info a {
+  color: black;
+}

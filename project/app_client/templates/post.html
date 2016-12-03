@@ -1,0 +1,82 @@
+<div ng-controller="PostController" class="text-xs-center wrap">
+  <div class="post-div">
+    <div class="image-div" style="background-color: #FAFAFA">
+      <img class="image-img" ng-src="{{post.img}}">
+    </div>
+    <div class="desc-div" style="border: 1px solid #DDD">
+      <div class="post-info text-xs-left p-b-1 p-t-1">
+        <img class="post-avatar" ng-src="{{post.user.avatar}}">
+        <a class="p-l-1" ng-href="{{post.user.username}}" style="color:black">
+          <b>{{post.user.username}}</b>
+        </a>
+        <a href class="time" data-container="body" data-toggle="popover" data-placement="top" data-content="{{post.date}}">
+          {{post.time}}
+        </a>
+      </div>
+      <div class="likes">
+        <a href data-toggle="modal" data-target="#like" ng-click="getLikers(post)" style="color: black">{{post.likes.length}} likes</a>
+      </div>
+      <div class="comments" style="text-align: left">
+        <span ng-hide="post.desc === undefined">
+          <a ng-href="/{{post.user.username}}" style="color: black">
+            <b>{{post.user.username}}</b>
+          </a>
+          {{post.desc}}
+        </span>
+        <ul>
+          <li ng-repeat="comment in post.comments">
+            <a ng-href="/{{comment.username}}" style="color: black">
+              <b>{{comment.username}}</b>
+            </a>
+            {{comment.body}}
+          </li>
+        </ul>
+      </div>
+
+      <div class="comment-add">
+        <a href ng-click="like()" ng-hide="isLiked"><img class="love" src="/static/img/love-white.png"></a>
+        <a href ng-click="unlike()" ng-show="isLiked"><img class="love" src="/static/img/love-red.png"></a>
+        <form ng-submit="comment()" style="display: inline-block; width: 200px">
+          <input type="text" class="form-control" style="font-size: 15px" id="description" ng-model="desc" placeholder="Add comment..">
+        </form>
+
+        <div class="dropdown" style="display: inline">
+          <a id="dMenu" data-toggle="dropdown" href="#" data-target="#" aria-haspopup="true" aria-expanded="false">
+            <img class="delete dropdown-toggle" src="/static/img/dots.png">
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dMenu">
+            <a ng-show="isCurrentUser" class="dropdown-item" ng-click="deletePost()" href="#">Delete Post</a>
+            <a ng-hide="isCurrentUser" class="dropdown-item disabled" href="#">Delete Post</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Like modal -->
+  <div class="modal fade" id="like" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Likes</h4>
+        </div>
+        <div class="modal-body text-xs-left">
+          <div class="user-info" ng-repeat="liker in likers">
+            <img class="avatar m-r-2" ng-src="{{liker.avatar}}">
+            <span>
+              <a ng-href="/{{liker.username}}" target="_self"><b>{{liker.username}}</b></a>
+            </span>
+            <span style="margin-left: auto">{{liker.fullname}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="static/scripts/adjustPost.js"></script>
+<script src="static/scripts/popover.js"></script>
